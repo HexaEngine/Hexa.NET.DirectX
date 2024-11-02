@@ -23,7 +23,7 @@
     "D3D11_TRACE_MISC_OPERATIONS_MASK": "uint",
     "ID3DBlob": "ID3D10Blob",
     "D3D12_GPU_VIRTUAL_ADDRESS": "ulong",
-    "D3D_PRIMITIVE_TOPOLOGY": "D3D12PrimitiveTopology"
+    "D3D12_NODE_MASK": "uint"
   },
   "IgnoredEnums": [
     "D3D_FEATURE_LEVEL",
@@ -38,7 +38,8 @@
   ],
   "IgnoredTypes": [
     "DXGI_SAMPLE_DESC",
-    "DXGI_RATIONAL"
+    "DXGI_RATIONAL",
+    "D3D12_NODE_MASK"
   ],
   "IgnoredDelegates": [
     "PFN_D3D12_CREATE_DEVICE",

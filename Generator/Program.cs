@@ -26,6 +26,18 @@ generator
     .Setup<CsComCodeGenerator>("d3d12/generator.json")
     .MergeConfig(config, MergeOptions.Mappings)
     .CopyFromMetadata(metadata)
+    .AlterConfig(c =>
+    {
+        c.Settings.TypeMappings.Add("D3D11On12CreatorID", "D3D11On12CreatorID");
+        c.Settings.TypeMappings.Add("D3D9On12CreatorID", "D3D9On12CreatorID");
+        c.Settings.ClassMappings.Add(new("D3D11On12CreatorID", "D3D11On12CreatorID", null));
+        c.Settings.ClassMappings.Add(new("D3D9On12CreatorID", "D3D9On12CreatorID", null));
+
+        c.Settings.TypeMappings.Add("D3D11_RESOURCE_FLAGS", "D3D11ResourceFlags");
+        c.Settings.ClassMappings.Add(new("D3D11_RESOURCE_FLAGS", "D3D11ResourceFlags", null));
+        c.Settings.TypeMappings.Add("D3D12_RESOURCE_FLAGS", "D3D12ResourceFlags");
+        c.Settings.ClassMappings.Add(new("D3D12_RESOURCE_FLAGS", "D3D12ResourceFlags", null));
+    })
     .Generate([.. Directory.GetFiles("d3d12", "*.h")], "../../../../Hexa.NET.D3D12/Generated")
 
     .Setup<CsComCodeGenerator>("d3dcompiler/generator.json")

@@ -157,7 +157,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// Geometry shader output topology<br/>
 		/// </summary>
-		public D3D12PrimitiveTopology GSOutputTopology;
+		public PrimitiveTopology GSOutputTopology;
 
 		/// <summary>
 		/// Geometry shader maximum output vertex count<br/>
@@ -218,7 +218,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe ShaderDesc(uint version = default, byte* creator = default, uint flags = default, uint constantBuffers = default, uint boundResources = default, uint inputParameters = default, uint outputParameters = default, uint instructionCount = default, uint tempRegisterCount = default, uint tempArrayCount = default, uint defCount = default, uint dclCount = default, uint textureNormalInstructions = default, uint textureLoadInstructions = default, uint textureCompInstructions = default, uint textureBiasInstructions = default, uint textureGradientInstructions = default, uint floatInstructionCount = default, uint intInstructionCount = default, uint uintInstructionCount = default, uint staticFlowControlCount = default, uint dynamicFlowControlCount = default, uint macroInstructionCount = default, uint arrayInstructionCount = default, uint cutInstructionCount = default, uint emitInstructionCount = default, D3D12PrimitiveTopology gsOutputTopology = default, uint gsMaxOutputVertexCount = default, Primitive inputPrimitive = default, uint patchConstantParameters = default, uint cGSInstanceCount = default, uint cControlPoints = default, TessellatorOutputPrimitive hsOutputPrimitive = default, TessellatorPartitioning hsPartitioning = default, TessellatorDomain tessellatorDomain = default, uint cBarrierInstructions = default, uint cInterlockedInstructions = default, uint cTextureStoreInstructions = default)
+		public unsafe ShaderDesc(uint version = default, byte* creator = default, uint flags = default, uint constantBuffers = default, uint boundResources = default, uint inputParameters = default, uint outputParameters = default, uint instructionCount = default, uint tempRegisterCount = default, uint tempArrayCount = default, uint defCount = default, uint dclCount = default, uint textureNormalInstructions = default, uint textureLoadInstructions = default, uint textureCompInstructions = default, uint textureBiasInstructions = default, uint textureGradientInstructions = default, uint floatInstructionCount = default, uint intInstructionCount = default, uint uintInstructionCount = default, uint staticFlowControlCount = default, uint dynamicFlowControlCount = default, uint macroInstructionCount = default, uint arrayInstructionCount = default, uint cutInstructionCount = default, uint emitInstructionCount = default, PrimitiveTopology gsOutputTopology = default, uint gsMaxOutputVertexCount = default, Primitive inputPrimitive = default, uint patchConstantParameters = default, uint cGSInstanceCount = default, uint cControlPoints = default, TessellatorOutputPrimitive hsOutputPrimitive = default, TessellatorPartitioning hsPartitioning = default, TessellatorDomain tessellatorDomain = default, uint cBarrierInstructions = default, uint cInterlockedInstructions = default, uint cTextureStoreInstructions = default)
 		{
 			Version = version;
 			Creator = creator;

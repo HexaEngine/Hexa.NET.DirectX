@@ -22,20 +22,38 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential)]
-	public partial struct NodeMask
+	public partial struct D3D11ResourceFlags
 	{
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public uint NodeMask;
+		public uint BindFlags;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public uint MiscFlags;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public uint CPUAccessFlags;
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public uint StructureByteStride;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe NodeMask(uint nodeMask = default)
+		public unsafe D3D11ResourceFlags(uint bindFlags = default, uint miscFlags = default, uint cpuAccessFlags = default, uint structureByteStride = default)
 		{
-			NodeMask = nodeMask;
+			BindFlags = bindFlags;
+			MiscFlags = miscFlags;
+			CPUAccessFlags = cpuAccessFlags;
+			StructureByteStride = structureByteStride;
 		}
 
 

@@ -22,13 +22,13 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("fffcbb7f-15d3-42a2-841e-9d8d32f37ddd")]
-	public partial struct 9On12CreatorID : IComObject, IComObject<9On12CreatorID>, IComObject<IUnknown>
+	public partial struct D3D9On12CreatorID : IComObject, IComObject<D3D9On12CreatorID>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
 
 		public static readonly Guid Guid = new("fffcbb7f-15d3-42a2-841e-9d8d32f37ddd");
 
-		public unsafe 9On12CreatorID (void** lpVtbl = null)
+		public unsafe D3D9On12CreatorID (void** lpVtbl = null)
 		{
 			LpVtbl = lpVtbl;
 		}
@@ -38,8 +38,8 @@ namespace Hexa.NET.D3D12
 		/// </summary>
 		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
-			9On12CreatorID* ptr = (9On12CreatorID*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<9On12CreatorID*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			D3D9On12CreatorID* ptr = (D3D9On12CreatorID*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
+			int ret = ((delegate* unmanaged[Stdcall]<D3D9On12CreatorID*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
@@ -48,10 +48,10 @@ namespace Hexa.NET.D3D12
 		/// </summary>
 		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
-			9On12CreatorID* ptr = (9On12CreatorID*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
+			D3D9On12CreatorID* ptr = (D3D9On12CreatorID*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<9On12CreatorID*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				int ret = ((delegate* unmanaged[Stdcall]<D3D9On12CreatorID*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -61,9 +61,9 @@ namespace Hexa.NET.D3D12
 		/// </summary>
 		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
-			9On12CreatorID* ptr = (9On12CreatorID*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
+			D3D9On12CreatorID* ptr = (D3D9On12CreatorID*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<9On12CreatorID*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<D3D9On12CreatorID*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
@@ -72,11 +72,11 @@ namespace Hexa.NET.D3D12
 		/// </summary>
 		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
-			9On12CreatorID* ptr = (9On12CreatorID*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
+			D3D9On12CreatorID* ptr = (D3D9On12CreatorID*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<9On12CreatorID*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<D3D9On12CreatorID*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -86,8 +86,8 @@ namespace Hexa.NET.D3D12
 		/// </summary>
 		public readonly unsafe uint AddRef() 
 		{
-			9On12CreatorID* ptr = (9On12CreatorID*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			uint ret = ((delegate* unmanaged[Stdcall]<9On12CreatorID*, uint>)(LpVtbl[1]))(ptr);
+			D3D9On12CreatorID* ptr = (D3D9On12CreatorID*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
+			uint ret = ((delegate* unmanaged[Stdcall]<D3D9On12CreatorID*, uint>)(LpVtbl[1]))(ptr);
 			return ret;
 		}
 
@@ -96,8 +96,8 @@ namespace Hexa.NET.D3D12
 		/// </summary>
 		public readonly unsafe uint Release() 
 		{
-			9On12CreatorID* ptr = (9On12CreatorID*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			uint ret = ((delegate* unmanaged[Stdcall]<9On12CreatorID*, uint>)(LpVtbl[2]))(ptr);
+			D3D9On12CreatorID* ptr = (D3D9On12CreatorID*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
+			uint ret = ((delegate* unmanaged[Stdcall]<D3D9On12CreatorID*, uint>)(LpVtbl[2]))(ptr);
 			return ret;
 		}
 
@@ -106,9 +106,9 @@ namespace Hexa.NET.D3D12
 			return (void***)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 		}
 
-		public unsafe static implicit operator IUnknown (9On12CreatorID value)
+		public unsafe static implicit operator IUnknown (D3D9On12CreatorID value)
 		{
-			return Unsafe.As<9On12CreatorID, IUnknown>(ref value);
+			return Unsafe.As<D3D9On12CreatorID, IUnknown>(ref value);
 		}
 
 	}
