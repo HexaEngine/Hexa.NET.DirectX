@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -104,10 +104,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetFeatureMask(DebugFeature mask) 
+		public readonly unsafe HResult SetFeatureMask(DebugFeature mask) 
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, DebugFeature, int>)(LpVtbl[3]))(ptr, mask);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, DebugFeature, HResult>)(LpVtbl[3]))(ptr, mask);
 			return ret;
 		}
 
@@ -124,10 +124,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ReportLiveDeviceObjects(RldoFlags flags) 
+		public readonly unsafe HResult ReportLiveDeviceObjects(RldoFlags flags) 
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, RldoFlags, int>)(LpVtbl[5]))(ptr, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, RldoFlags, HResult>)(LpVtbl[5]))(ptr, flags);
 			return ret;
 		}
 

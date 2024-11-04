@@ -35,22 +35,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -58,24 +58,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -103,22 +103,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(Guid* name, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint, void*, int>)(LpVtbl[3]))(ptr, name, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint, void*, HResult>)(LpVtbl[3]))(ptr, name, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(ref Guid name, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint, void*, int>)(LpVtbl[3]))(ptr, (Guid*)pname, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint, void*, HResult>)(LpVtbl[3]))(ptr, (Guid*)pname, dataSize, pData);
 				return ret;
 			}
 		}
@@ -126,22 +126,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* name, IUnknown* pUnknown) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, name, pUnknown);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, IUnknown*, HResult>)(LpVtbl[4]))(ptr, name, pUnknown);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid name, IUnknown* pUnknown) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, (Guid*)pname, pUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, IUnknown*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pname, pUnknown);
 				return ret;
 			}
 		}
@@ -149,12 +149,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* name, ref IUnknown pUnknown) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppUnknown = &pUnknown)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, name, (IUnknown*)ppUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, IUnknown*, HResult>)(LpVtbl[4]))(ptr, name, (IUnknown*)ppUnknown);
 				return ret;
 			}
 		}
@@ -162,24 +162,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* name, ComPtr<IUnknown> pUnknown) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, name, (IUnknown*)pUnknown.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, IUnknown*, HResult>)(LpVtbl[4]))(ptr, name, (IUnknown*)pUnknown.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid name, ref IUnknown pUnknown) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
 				fixed (IUnknown* ppUnknown = &pUnknown)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, (Guid*)pname, (IUnknown*)ppUnknown);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, IUnknown*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pname, (IUnknown*)ppUnknown);
 					return ret;
 				}
 			}
@@ -188,12 +188,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid name, ComPtr<IUnknown> pUnknown) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, (Guid*)pname, (IUnknown*)pUnknown.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, IUnknown*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pname, (IUnknown*)pUnknown.Handle);
 				return ret;
 			}
 		}
@@ -201,22 +201,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* name, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, name, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid name, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, (Guid*)pname, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pname, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -224,12 +224,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* name, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, name, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -237,14 +237,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid name, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, (Guid*)pname, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pname, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -253,22 +253,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, name, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, (Guid*)pname, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pname, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -276,12 +276,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, name, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -289,14 +289,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -305,22 +305,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetParent(Guid* riid, void** ppParent) 
+		public readonly unsafe HResult GetParent(Guid* riid, void** ppParent) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, int>)(LpVtbl[6]))(ptr, riid, ppParent);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, HResult>)(LpVtbl[6]))(ptr, riid, ppParent);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetParent(ref Guid riid, void** ppParent) 
+		public readonly unsafe HResult GetParent(ref Guid riid, void** ppParent) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, int>)(LpVtbl[6]))(ptr, (Guid*)priid, ppParent);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, HResult>)(LpVtbl[6]))(ptr, (Guid*)priid, ppParent);
 				return ret;
 			}
 		}
@@ -328,24 +328,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetParent<T>(out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetParent<T>(out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppParent = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, int>)(LpVtbl[6]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, HResult>)(LpVtbl[6]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetParent<T>(ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetParent<T>(ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppParent = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, int>)(LpVtbl[6]))(ptr, (Guid*)priid, (void**)ppParent.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, Guid*, void**, HResult>)(LpVtbl[6]))(ptr, (Guid*)priid, (void**)ppParent.GetAddressOf());
 				return ret;
 			}
 		}
@@ -353,22 +353,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetAdapter(IDXGIAdapter** pAdapter) 
+		public readonly unsafe HResult GetAdapter(IDXGIAdapter** pAdapter) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IDXGIAdapter**, int>)(LpVtbl[7]))(ptr, pAdapter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IDXGIAdapter**, HResult>)(LpVtbl[7]))(ptr, pAdapter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetAdapter(ref IDXGIAdapter* pAdapter) 
+		public readonly unsafe HResult GetAdapter(ref IDXGIAdapter* pAdapter) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIAdapter** ppAdapter = &pAdapter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IDXGIAdapter**, int>)(LpVtbl[7]))(ptr, (IDXGIAdapter**)ppAdapter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IDXGIAdapter**, HResult>)(LpVtbl[7]))(ptr, (IDXGIAdapter**)ppAdapter);
 				return ret;
 			}
 		}
@@ -376,33 +376,33 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetAdapter(out ComPtr<IDXGIAdapter> pAdapter) 
+		public readonly unsafe HResult GetAdapter(out ComPtr<IDXGIAdapter> pAdapter) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pAdapter = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IDXGIAdapter**, int>)(LpVtbl[7]))(ptr, (IDXGIAdapter**)pAdapter.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IDXGIAdapter**, HResult>)(LpVtbl[7]))(ptr, (IDXGIAdapter**)pAdapter.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, IDXGISurface** ppSurface) 
+		public readonly unsafe HResult CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, IDXGISurface** ppSurface) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, pSharedResource, ppSurface);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, pSharedResource, ppSurface);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, IDXGISurface** ppSurface) 
+		public readonly unsafe HResult CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, IDXGISurface** ppSurface) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, ppSurface);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, ppSurface);
 				return ret;
 			}
 		}
@@ -410,12 +410,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, IDXGISurface** ppSurface) 
+		public readonly unsafe HResult CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, IDXGISurface** ppSurface) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SharedResource* ppSharedResource = &pSharedResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, ppSurface);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, ppSurface);
 				return ret;
 			}
 		}
@@ -423,14 +423,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, IDXGISurface** ppSurface) 
+		public readonly unsafe HResult CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, IDXGISurface** ppSurface) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
 				fixed (SharedResource* ppSharedResource = &pSharedResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, ppSurface);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, ppSurface);
 					return ret;
 				}
 			}
@@ -439,12 +439,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, ref IDXGISurface* ppSurface) 
+		public readonly unsafe HResult CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, ref IDXGISurface* ppSurface) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGISurface** pppSurface = &ppSurface)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)pppSurface);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)pppSurface);
 				return ret;
 			}
 		}
@@ -452,25 +452,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
+		public readonly unsafe HResult CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSurface = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, ref IDXGISurface* ppSurface) 
+		public readonly unsafe HResult CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, ref IDXGISurface* ppSurface) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
 				fixed (IDXGISurface** pppSurface = &ppSurface)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)pppSurface);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)pppSurface);
 					return ret;
 				}
 			}
@@ -479,13 +479,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
+		public readonly unsafe HResult CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
 				ppSurface = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
 				return ret;
 			}
 		}
@@ -493,14 +493,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, ref IDXGISurface* ppSurface) 
+		public readonly unsafe HResult CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, ref IDXGISurface* ppSurface) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SharedResource* ppSharedResource = &pSharedResource)
 			{
 				fixed (IDXGISurface** pppSurface = &ppSurface)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)pppSurface);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)pppSurface);
 					return ret;
 				}
 			}
@@ -509,13 +509,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
+		public readonly unsafe HResult CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SharedResource* ppSharedResource = &pSharedResource)
 			{
 				ppSurface = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
 				return ret;
 			}
 		}
@@ -523,7 +523,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, ref IDXGISurface* ppSurface) 
+		public readonly unsafe HResult CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, ref IDXGISurface* ppSurface) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SurfaceDesc* ppDesc = &pDesc)
@@ -532,7 +532,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGISurface** pppSurface = &ppSurface)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)pppSurface);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)pppSurface);
 						return ret;
 					}
 				}
@@ -542,7 +542,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
+		public readonly unsafe HResult CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SurfaceDesc* ppDesc = &pDesc)
@@ -550,7 +550,7 @@ namespace Hexa.NET.DXGI
 				fixed (SharedResource* ppSharedResource = &pSharedResource)
 				{
 					ppSurface = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
 					return ret;
 				}
 			}
@@ -559,22 +559,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryResourceResidency(IUnknown** ppResources, Residency* pResidencyStatus, uint numResources) 
+		public readonly unsafe HResult QueryResourceResidency(IUnknown** ppResources, Residency* pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IUnknown**, Residency*, uint, int>)(LpVtbl[9]))(ptr, ppResources, pResidencyStatus, numResources);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IUnknown**, Residency*, uint, HResult>)(LpVtbl[9]))(ptr, ppResources, pResidencyStatus, numResources);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryResourceResidency(ref IUnknown* ppResources, Residency* pResidencyStatus, uint numResources) 
+		public readonly unsafe HResult QueryResourceResidency(ref IUnknown* ppResources, Residency* pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown** pppResources = &ppResources)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IUnknown**, Residency*, uint, int>)(LpVtbl[9]))(ptr, (IUnknown**)pppResources, pResidencyStatus, numResources);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IUnknown**, Residency*, uint, HResult>)(LpVtbl[9]))(ptr, (IUnknown**)pppResources, pResidencyStatus, numResources);
 				return ret;
 			}
 		}
@@ -582,22 +582,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryResourceResidency(ComPtr<IUnknown> ppResources, Residency* pResidencyStatus, uint numResources) 
+		public readonly unsafe HResult QueryResourceResidency(ComPtr<IUnknown> ppResources, Residency* pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IUnknown**, Residency*, uint, int>)(LpVtbl[9]))(ptr, (IUnknown**)ppResources.Handle, pResidencyStatus, numResources);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IUnknown**, Residency*, uint, HResult>)(LpVtbl[9]))(ptr, (IUnknown**)ppResources.Handle, pResidencyStatus, numResources);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryResourceResidency(IUnknown** ppResources, ref Residency pResidencyStatus, uint numResources) 
+		public readonly unsafe HResult QueryResourceResidency(IUnknown** ppResources, ref Residency pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Residency* ppResidencyStatus = &pResidencyStatus)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IUnknown**, Residency*, uint, int>)(LpVtbl[9]))(ptr, ppResources, (Residency*)ppResidencyStatus, numResources);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IUnknown**, Residency*, uint, HResult>)(LpVtbl[9]))(ptr, ppResources, (Residency*)ppResidencyStatus, numResources);
 				return ret;
 			}
 		}
@@ -605,14 +605,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryResourceResidency(ref IUnknown* ppResources, ref Residency pResidencyStatus, uint numResources) 
+		public readonly unsafe HResult QueryResourceResidency(ref IUnknown* ppResources, ref Residency pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown** pppResources = &ppResources)
 			{
 				fixed (Residency* ppResidencyStatus = &pResidencyStatus)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IUnknown**, Residency*, uint, int>)(LpVtbl[9]))(ptr, (IUnknown**)pppResources, (Residency*)ppResidencyStatus, numResources);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IUnknown**, Residency*, uint, HResult>)(LpVtbl[9]))(ptr, (IUnknown**)pppResources, (Residency*)ppResidencyStatus, numResources);
 					return ret;
 				}
 			}
@@ -621,12 +621,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryResourceResidency(ComPtr<IUnknown> ppResources, ref Residency pResidencyStatus, uint numResources) 
+		public readonly unsafe HResult QueryResourceResidency(ComPtr<IUnknown> ppResources, ref Residency pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Residency* ppResidencyStatus = &pResidencyStatus)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IUnknown**, Residency*, uint, int>)(LpVtbl[9]))(ptr, (IUnknown**)ppResources.Handle, (Residency*)ppResidencyStatus, numResources);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, IUnknown**, Residency*, uint, HResult>)(LpVtbl[9]))(ptr, (IUnknown**)ppResources.Handle, (Residency*)ppResidencyStatus, numResources);
 				return ret;
 			}
 		}
@@ -634,32 +634,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetGPUThreadPriority(int priority) 
+		public readonly unsafe HResult SetGPUThreadPriority(int priority) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, int, int>)(LpVtbl[10]))(ptr, priority);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, int, HResult>)(LpVtbl[10]))(ptr, priority);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetGPUThreadPriority(int* pPriority) 
+		public readonly unsafe HResult GetGPUThreadPriority(int* pPriority) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, int*, int>)(LpVtbl[11]))(ptr, pPriority);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, int*, HResult>)(LpVtbl[11]))(ptr, pPriority);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetGPUThreadPriority(ref int pPriority) 
+		public readonly unsafe HResult GetGPUThreadPriority(ref int pPriority) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppPriority = &pPriority)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, int*, int>)(LpVtbl[11]))(ptr, (int*)ppPriority);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, int*, HResult>)(LpVtbl[11]))(ptr, (int*)ppPriority);
 				return ret;
 			}
 		}
@@ -667,32 +667,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetMaximumFrameLatency(uint maxLatency) 
+		public readonly unsafe HResult SetMaximumFrameLatency(uint maxLatency) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, uint, int>)(LpVtbl[12]))(ptr, maxLatency);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, uint, HResult>)(LpVtbl[12]))(ptr, maxLatency);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMaximumFrameLatency(uint* pMaxLatency) 
+		public readonly unsafe HResult GetMaximumFrameLatency(uint* pMaxLatency) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, uint*, int>)(LpVtbl[13]))(ptr, pMaxLatency);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, uint*, HResult>)(LpVtbl[13]))(ptr, pMaxLatency);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMaximumFrameLatency(ref uint pMaxLatency) 
+		public readonly unsafe HResult GetMaximumFrameLatency(ref uint pMaxLatency) 
 		{
 			IDXGIDevice1* ptr = (IDXGIDevice1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppMaxLatency = &pMaxLatency)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, uint*, int>)(LpVtbl[13]))(ptr, (uint*)ppMaxLatency);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice1*, uint*, HResult>)(LpVtbl[13]))(ptr, (uint*)ppMaxLatency);
 				return ret;
 			}
 		}

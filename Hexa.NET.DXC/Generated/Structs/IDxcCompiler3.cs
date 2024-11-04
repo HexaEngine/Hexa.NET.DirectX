@@ -31,22 +31,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -54,24 +54,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -102,10 +102,10 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, riid, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, riid, ppResult);
 			return ret;
 		}
 
@@ -115,12 +115,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, pIncludeHandler, riid, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, pIncludeHandler, riid, ppResult);
 				return ret;
 			}
 		}
@@ -131,12 +131,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, riid, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, riid, ppResult);
 				return ret;
 			}
 		}
@@ -147,14 +147,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, riid, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, riid, ppResult);
 					return ret;
 				}
 			}
@@ -166,12 +166,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
 				return ret;
 			}
 		}
@@ -182,10 +182,10 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
 			return ret;
 		}
 
@@ -195,14 +195,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
 					return ret;
 				}
 			}
@@ -214,12 +214,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
 				return ret;
 			}
 		}
@@ -230,14 +230,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
 					return ret;
 				}
 			}
@@ -249,12 +249,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
 				return ret;
 			}
 		}
@@ -265,7 +265,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -274,7 +274,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
 						return ret;
 					}
 				}
@@ -287,14 +287,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
 					return ret;
 				}
 			}
@@ -306,12 +306,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
 				return ret;
 			}
 		}
@@ -322,14 +322,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
 					return ret;
 				}
 			}
@@ -341,14 +341,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
 					return ret;
 				}
 			}
@@ -360,7 +360,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -369,7 +369,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
 						return ret;
 					}
 				}
@@ -382,14 +382,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
 					return ret;
 				}
 			}
@@ -401,12 +401,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
 				return ret;
 			}
 		}
@@ -417,7 +417,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -426,7 +426,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
 						return ret;
 					}
 				}
@@ -439,14 +439,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
 					return ret;
 				}
 			}
@@ -458,7 +458,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -467,7 +467,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
 						return ret;
 					}
 				}
@@ -480,14 +480,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
 					return ret;
 				}
 			}
@@ -499,7 +499,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -510,7 +510,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
 							return ret;
 						}
 					}
@@ -524,7 +524,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -533,7 +533,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
 						return ret;
 					}
 				}
@@ -546,12 +546,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
 				return ret;
 			}
 		}
@@ -562,14 +562,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -581,14 +581,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -600,7 +600,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -609,7 +609,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -622,14 +622,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -641,12 +641,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
 				return ret;
 			}
 		}
@@ -657,7 +657,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -666,7 +666,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -679,14 +679,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -698,7 +698,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -707,7 +707,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -720,14 +720,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -739,7 +739,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -750,7 +750,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (void** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
 							return ret;
 						}
 					}
@@ -764,7 +764,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -773,7 +773,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -786,14 +786,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -805,7 +805,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -814,7 +814,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -827,7 +827,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -836,7 +836,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -849,7 +849,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -860,7 +860,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (void** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
 							return ret;
 						}
 					}
@@ -874,7 +874,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
@@ -883,7 +883,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -896,14 +896,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -915,7 +915,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -926,7 +926,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (void** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
 							return ret;
 						}
 					}
@@ -940,7 +940,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -949,7 +949,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -962,7 +962,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -973,7 +973,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (void** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
 							return ret;
 						}
 					}
@@ -987,7 +987,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(Buffer* pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -996,7 +996,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -1009,7 +1009,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -1022,7 +1022,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (void** pppResult = &ppResult)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
 								return ret;
 							}
 						}
@@ -1037,7 +1037,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppSource = &pSource)
@@ -1048,7 +1048,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (void** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
 							return ret;
 						}
 					}
@@ -1059,22 +1059,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		public readonly unsafe int Disassemble(Buffer* pObject, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Disassemble(Buffer* pObject, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pObject, riid, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, pObject, riid, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		public readonly unsafe int Disassemble(ref Buffer pObject, Guid* riid, void** ppResult) 
+		public readonly unsafe HResult Disassemble(ref Buffer pObject, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppObject = &pObject)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (Buffer*)ppObject, riid, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, (Buffer*)ppObject, riid, ppResult);
 				return ret;
 			}
 		}
@@ -1082,12 +1082,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		public readonly unsafe int Disassemble(Buffer* pObject, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Disassemble(Buffer* pObject, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pObject, (Guid*)priid, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, pObject, (Guid*)priid, ppResult);
 				return ret;
 			}
 		}
@@ -1095,14 +1095,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		public readonly unsafe int Disassemble(ref Buffer pObject, ref Guid riid, void** ppResult) 
+		public readonly unsafe HResult Disassemble(ref Buffer pObject, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppObject = &pObject)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (Buffer*)ppObject, (Guid*)priid, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, (Buffer*)ppObject, (Guid*)priid, ppResult);
 					return ret;
 				}
 			}
@@ -1111,12 +1111,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		public readonly unsafe int Disassemble(Buffer* pObject, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Disassemble(Buffer* pObject, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pObject, riid, (void**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, pObject, riid, (void**)pppResult);
 				return ret;
 			}
 		}
@@ -1124,14 +1124,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		public readonly unsafe int Disassemble(ref Buffer pObject, Guid* riid, ref void* ppResult) 
+		public readonly unsafe HResult Disassemble(ref Buffer pObject, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppObject = &pObject)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (Buffer*)ppObject, riid, (void**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, (Buffer*)ppObject, riid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -1140,14 +1140,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		public readonly unsafe int Disassemble(Buffer* pObject, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Disassemble(Buffer* pObject, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pObject, (Guid*)priid, (void**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, pObject, (Guid*)priid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -1156,7 +1156,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		public readonly unsafe int Disassemble(ref Buffer pObject, ref Guid riid, ref void* ppResult) 
+		public readonly unsafe HResult Disassemble(ref Buffer pObject, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppObject = &pObject)
@@ -1165,7 +1165,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (Buffer*)ppObject, (Guid*)priid, (void**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, (Buffer*)ppObject, (Guid*)priid, (void**)pppResult);
 						return ret;
 					}
 				}

@@ -35,22 +35,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -58,24 +58,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -103,22 +103,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetFrameStatisticsMedia(FrameStatisticsMedia* pStats) 
+		public readonly unsafe HResult GetFrameStatisticsMedia(FrameStatisticsMedia* pStats) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, FrameStatisticsMedia*, int>)(LpVtbl[3]))(ptr, pStats);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, FrameStatisticsMedia*, HResult>)(LpVtbl[3]))(ptr, pStats);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetFrameStatisticsMedia(ref FrameStatisticsMedia pStats) 
+		public readonly unsafe HResult GetFrameStatisticsMedia(ref FrameStatisticsMedia pStats) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (FrameStatisticsMedia* ppStats = &pStats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, FrameStatisticsMedia*, int>)(LpVtbl[3]))(ptr, (FrameStatisticsMedia*)ppStats);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, FrameStatisticsMedia*, HResult>)(LpVtbl[3]))(ptr, (FrameStatisticsMedia*)ppStats);
 				return ret;
 			}
 		}
@@ -126,32 +126,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPresentDuration(uint duration) 
+		public readonly unsafe HResult SetPresentDuration(uint duration) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, uint, int>)(LpVtbl[4]))(ptr, duration);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, uint, HResult>)(LpVtbl[4]))(ptr, duration);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckPresentDurationSupport(uint desiredPresentDuration, uint* pClosestSmallerPresentDuration, uint* pClosestLargerPresentDuration) 
+		public readonly unsafe HResult CheckPresentDurationSupport(uint desiredPresentDuration, uint* pClosestSmallerPresentDuration, uint* pClosestLargerPresentDuration) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, uint, uint*, uint*, int>)(LpVtbl[5]))(ptr, desiredPresentDuration, pClosestSmallerPresentDuration, pClosestLargerPresentDuration);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, uint, uint*, uint*, HResult>)(LpVtbl[5]))(ptr, desiredPresentDuration, pClosestSmallerPresentDuration, pClosestLargerPresentDuration);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckPresentDurationSupport(uint desiredPresentDuration, ref uint pClosestSmallerPresentDuration, uint* pClosestLargerPresentDuration) 
+		public readonly unsafe HResult CheckPresentDurationSupport(uint desiredPresentDuration, ref uint pClosestSmallerPresentDuration, uint* pClosestLargerPresentDuration) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppClosestSmallerPresentDuration = &pClosestSmallerPresentDuration)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, uint, uint*, uint*, int>)(LpVtbl[5]))(ptr, desiredPresentDuration, (uint*)ppClosestSmallerPresentDuration, pClosestLargerPresentDuration);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, uint, uint*, uint*, HResult>)(LpVtbl[5]))(ptr, desiredPresentDuration, (uint*)ppClosestSmallerPresentDuration, pClosestLargerPresentDuration);
 				return ret;
 			}
 		}
@@ -159,12 +159,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckPresentDurationSupport(uint desiredPresentDuration, uint* pClosestSmallerPresentDuration, ref uint pClosestLargerPresentDuration) 
+		public readonly unsafe HResult CheckPresentDurationSupport(uint desiredPresentDuration, uint* pClosestSmallerPresentDuration, ref uint pClosestLargerPresentDuration) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppClosestLargerPresentDuration = &pClosestLargerPresentDuration)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, uint, uint*, uint*, int>)(LpVtbl[5]))(ptr, desiredPresentDuration, pClosestSmallerPresentDuration, (uint*)ppClosestLargerPresentDuration);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, uint, uint*, uint*, HResult>)(LpVtbl[5]))(ptr, desiredPresentDuration, pClosestSmallerPresentDuration, (uint*)ppClosestLargerPresentDuration);
 				return ret;
 			}
 		}
@@ -172,14 +172,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckPresentDurationSupport(uint desiredPresentDuration, ref uint pClosestSmallerPresentDuration, ref uint pClosestLargerPresentDuration) 
+		public readonly unsafe HResult CheckPresentDurationSupport(uint desiredPresentDuration, ref uint pClosestSmallerPresentDuration, ref uint pClosestLargerPresentDuration) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppClosestSmallerPresentDuration = &pClosestSmallerPresentDuration)
 			{
 				fixed (uint* ppClosestLargerPresentDuration = &pClosestLargerPresentDuration)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, uint, uint*, uint*, int>)(LpVtbl[5]))(ptr, desiredPresentDuration, (uint*)ppClosestSmallerPresentDuration, (uint*)ppClosestLargerPresentDuration);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, uint, uint*, uint*, HResult>)(LpVtbl[5]))(ptr, desiredPresentDuration, (uint*)ppClosestSmallerPresentDuration, (uint*)ppClosestLargerPresentDuration);
 					return ret;
 				}
 			}

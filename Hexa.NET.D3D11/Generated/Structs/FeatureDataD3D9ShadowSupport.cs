@@ -27,13 +27,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int SupportsDepthAsTextureWithLessEqualComparisonFilter;
+		public Bool32 SupportsDepthAsTextureWithLessEqualComparisonFilter;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D9ShadowSupport(int supportsDepthAsTextureWithLessEqualComparisonFilter = default)
+		public unsafe FeatureDataD3D9ShadowSupport(Bool32 supportsDepthAsTextureWithLessEqualComparisonFilter = default)
 		{
 			SupportsDepthAsTextureWithLessEqualComparisonFilter = supportsDepthAsTextureWithLessEqualComparisonFilter;
 		}

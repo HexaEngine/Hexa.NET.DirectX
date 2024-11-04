@@ -27,7 +27,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DepthEnable;
+		public Bool32 DepthEnable;
 
 		/// <summary>
 		/// To be documented.
@@ -42,7 +42,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int StencilEnable;
+		public Bool32 StencilEnable;
 
 		/// <summary>
 		/// To be documented.
@@ -67,13 +67,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DepthBoundsTestEnable;
+		public Bool32 DepthBoundsTestEnable;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe DepthStencilDesc1(int depthEnable = default, DepthWriteMask depthWriteMask = default, ComparisonFunc depthFunc = default, int stencilEnable = default, byte stencilReadMask = default, byte stencilWriteMask = default, DepthStencilopDesc frontFace = default, DepthStencilopDesc backFace = default, int depthBoundsTestEnable = default)
+		public unsafe DepthStencilDesc1(Bool32 depthEnable = default, DepthWriteMask depthWriteMask = default, ComparisonFunc depthFunc = default, Bool32 stencilEnable = default, byte stencilReadMask = default, byte stencilWriteMask = default, DepthStencilopDesc frontFace = default, DepthStencilopDesc backFace = default, Bool32 depthBoundsTestEnable = default)
 		{
 			DepthEnable = depthEnable;
 			DepthWriteMask = depthWriteMask;

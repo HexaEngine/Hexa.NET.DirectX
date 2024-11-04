@@ -15,6 +15,7 @@
     "LUID": "Luid",
     "IID": "Guid",
     "ID3DBlob": "ID3D10Blob",
-    "BSTR": "void*"
+    "BSTR": "void*",
+    "BOOL": "Bool32"
   }
 }

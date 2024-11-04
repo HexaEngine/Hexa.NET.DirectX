@@ -27,13 +27,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int FullNonPow2TextureSupport;
+		public Bool32 FullNonPow2TextureSupport;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D9Options(int fullNonPow2TextureSupport = default)
+		public unsafe FeatureDataD3D9Options(Bool32 fullNonPow2TextureSupport = default)
 		{
 			FullNonPow2TextureSupport = fullNonPow2TextureSupport;
 		}

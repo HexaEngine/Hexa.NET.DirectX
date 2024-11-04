@@ -37,13 +37,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int PriorityForTypeIsSupported;
+		public Bool32 PriorityForTypeIsSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataCommandQueuePriority(CommandListType commandListType = default, uint priority = default, int priorityForTypeIsSupported = default)
+		public unsafe FeatureDataCommandQueuePriority(CommandListType commandListType = default, uint priority = default, Bool32 priorityForTypeIsSupported = default)
 		{
 			CommandListType = commandListType;
 			Priority = priority;

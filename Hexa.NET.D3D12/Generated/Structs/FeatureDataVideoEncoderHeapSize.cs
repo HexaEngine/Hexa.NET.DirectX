@@ -32,7 +32,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int IsSupported;
+		public Bool32 IsSupported;
 
 		/// <summary>
 		/// To be documented.
@@ -48,7 +48,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataVideoEncoderHeapSize(VideoEncoderHeapDesc heapDesc = default, int isSupported = default, ulong memoryPoolL0Size = default, ulong memoryPoolL1Size = default)
+		public unsafe FeatureDataVideoEncoderHeapSize(VideoEncoderHeapDesc heapDesc = default, Bool32 isSupported = default, ulong memoryPoolL0Size = default, ulong memoryPoolL1Size = default)
 		{
 			HeapDesc = heapDesc;
 			IsSupported = isSupported;

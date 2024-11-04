@@ -52,13 +52,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int IsSupported;
+		public Bool32 IsSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataVideoEncoderFrameSubregionLayoutMode(uint nodeIndex = default, VideoEncoderCodec codec = default, VideoEncoderProfileDesc profile = default, VideoEncoderLevelSetting level = default, VideoEncoderFrameSubregionLayoutMode subregionMode = default, int isSupported = default)
+		public unsafe FeatureDataVideoEncoderFrameSubregionLayoutMode(uint nodeIndex = default, VideoEncoderCodec codec = default, VideoEncoderProfileDesc profile = default, VideoEncoderLevelSetting level = default, VideoEncoderFrameSubregionLayoutMode subregionMode = default, Bool32 isSupported = default)
 		{
 			NodeIndex = nodeIndex;
 			Codec = codec;

@@ -15,6 +15,7 @@
     "LUID": "Luid",
     "IID": "Guid",
     "LPVOID": "void*",
-    "LPCVOID": "void*"
+    "LPCVOID": "void*",
+    "BOOL": "Bool32"
   }
 }

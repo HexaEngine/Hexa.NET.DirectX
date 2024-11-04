@@ -27,18 +27,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DriverConcurrentCreates;
+		public Bool32 DriverConcurrentCreates;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DriverCommandLists;
+		public Bool32 DriverCommandLists;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataThreading(int driverConcurrentCreates = default, int driverCommandLists = default)
+		public unsafe FeatureDataThreading(Bool32 driverConcurrentCreates = default, Bool32 driverCommandLists = default)
 		{
 			DriverConcurrentCreates = driverConcurrentCreates;
 			DriverCommandLists = driverCommandLists;

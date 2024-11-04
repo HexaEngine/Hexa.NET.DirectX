@@ -23,14 +23,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
 				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 				}
 			}
 		}
@@ -38,16 +38,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -56,18 +56,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -77,16 +77,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -95,14 +95,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 			{
 				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 				}
 			}
 		}
@@ -110,16 +110,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -128,14 +128,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 			{
 				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 				}
 			}
 		}
@@ -143,16 +143,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -161,18 +161,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -182,16 +182,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -200,16 +200,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -218,18 +218,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -239,16 +239,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -257,18 +257,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -278,20 +278,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 					{
-						fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+						fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 						{
 							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 							}
 						}
 					}
@@ -302,18 +302,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -323,14 +323,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+			fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 			{
 				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 				}
 			}
 		}
@@ -338,16 +338,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -356,14 +356,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+			fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 			{
 				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 				}
 			}
 		}
@@ -371,16 +371,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -389,18 +389,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -410,16 +410,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -428,16 +428,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -446,18 +446,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -467,16 +467,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -485,18 +485,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -506,20 +506,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 							}
 						}
 					}
@@ -530,18 +530,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -551,16 +551,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -569,18 +569,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -590,16 +590,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -608,18 +608,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -629,20 +629,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 							}
 						}
 					}
@@ -653,18 +653,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -674,18 +674,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -695,20 +695,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 							}
 						}
 					}
@@ -719,18 +719,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -740,20 +740,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 							}
 						}
 					}
@@ -764,22 +764,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 					{
-						fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+						fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 						{
-							fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+							fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 							{
 								fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 								}
 							}
 						}
@@ -791,20 +791,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 							}
 						}
 					}
@@ -815,26 +815,26 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (int* pmonoOffset = &monoOffset)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (int* pmonoOffset = &monoOffset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 				}
 			}
 		}
@@ -842,26 +842,26 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (int* pmonoOffset = &monoOffset)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (int* pmonoOffset = &monoOffset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 				}
 			}
 		}
@@ -869,16 +869,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -887,14 +887,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (int* pmonoOffset = &monoOffset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 				}
 			}
 		}
@@ -902,14 +902,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
 				fixed (int* pmonoOffset = &monoOffset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 				}
 			}
 		}
@@ -917,7 +917,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
@@ -926,7 +926,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -935,14 +935,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
 				fixed (int* pmonoOffset = &monoOffset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 				}
 			}
 		}
@@ -950,16 +950,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -968,18 +968,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -989,16 +989,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1007,14 +1007,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 			{
 				fixed (int* pmonoOffset = &monoOffset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 				}
 			}
 		}
@@ -1022,16 +1022,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1040,14 +1040,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 			{
 				fixed (int* pmonoOffset = &monoOffset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 				}
 			}
 		}
@@ -1055,16 +1055,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1073,18 +1073,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1094,16 +1094,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1112,16 +1112,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1130,18 +1130,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1151,16 +1151,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1169,18 +1169,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1190,20 +1190,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 					{
-						fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+						fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -1214,18 +1214,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1235,14 +1235,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+			fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 			{
 				fixed (int* pmonoOffset = &monoOffset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 				}
 			}
 		}
@@ -1250,16 +1250,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1268,14 +1268,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+			fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 			{
 				fixed (int* pmonoOffset = &monoOffset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 				}
 			}
 		}
@@ -1283,16 +1283,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1301,18 +1301,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1322,16 +1322,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1340,16 +1340,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1358,18 +1358,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1379,16 +1379,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1397,18 +1397,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1418,20 +1418,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -1442,18 +1442,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1463,16 +1463,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1481,18 +1481,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1502,16 +1502,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1520,18 +1520,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1541,20 +1541,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -1565,18 +1565,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1586,18 +1586,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1607,20 +1607,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -1631,18 +1631,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1652,20 +1652,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -1676,22 +1676,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 					{
-						fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+						fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 						{
-							fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+							fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 							{
 								fixed (int* pmonoOffset = &monoOffset)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 								}
 							}
 						}
@@ -1703,20 +1703,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -1727,14 +1727,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 			{
 				fixed (int* pmonoOffset = &monoOffset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 				}
 			}
 		}
@@ -1742,7 +1742,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
@@ -1751,7 +1751,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1760,14 +1760,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 			{
 				fixed (int* pmonoOffset = &monoOffset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 				}
 			}
 		}
@@ -1775,16 +1775,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1793,18 +1793,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1814,16 +1814,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1832,7 +1832,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
@@ -1841,7 +1841,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1850,7 +1850,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
@@ -1861,7 +1861,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1871,7 +1871,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
@@ -1880,7 +1880,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1889,10 +1889,10 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
@@ -1900,7 +1900,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1910,12 +1910,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 					{
@@ -1923,7 +1923,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -1934,10 +1934,10 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
@@ -1945,7 +1945,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1955,16 +1955,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 			{
 				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -1973,18 +1973,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -1994,16 +1994,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 			{
 				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -2012,18 +2012,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -2033,20 +2033,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -2057,18 +2057,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -2078,18 +2078,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -2099,20 +2099,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -2123,18 +2123,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -2144,20 +2144,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -2168,22 +2168,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 					{
-						fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+						fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 						{
 							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 							{
 								fixed (int* pmonoOffset = &monoOffset)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 								}
 							}
 						}
@@ -2195,20 +2195,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, Bool32* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -2219,16 +2219,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+			fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 			{
 				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -2237,18 +2237,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -2258,16 +2258,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+			fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 			{
 				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 				{
 					fixed (int* pmonoOffset = &monoOffset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 					}
 				}
 			}
@@ -2276,18 +2276,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -2297,20 +2297,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -2321,18 +2321,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, pFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -2342,18 +2342,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -2363,20 +2363,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -2387,18 +2387,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -2408,20 +2408,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -2432,22 +2432,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 							{
 								fixed (int* pmonoOffset = &monoOffset)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 								}
 							}
 						}
@@ -2459,20 +2459,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, Bool32* pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -2483,18 +2483,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -2504,20 +2504,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -2528,18 +2528,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 			{
-				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
 					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
 						fixed (int* pmonoOffset = &monoOffset)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 						}
 					}
 				}
@@ -2549,20 +2549,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -2573,22 +2573,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 							{
 								fixed (int* pmonoOffset = &monoOffset)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 								}
 							}
 						}
@@ -2600,20 +2600,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorStereoFormat* pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, pFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -2624,20 +2624,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -2648,22 +2648,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 							{
 								fixed (int* pmonoOffset = &monoOffset)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 								}
 							}
 						}
@@ -2675,20 +2675,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 				{
-					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
 						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
 							fixed (int* pmonoOffset = &monoOffset)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 							}
 						}
 					}
@@ -2699,22 +2699,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 							{
 								fixed (int* pmonoOffset = &monoOffset)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 								}
 							}
 						}
@@ -2726,24 +2726,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 					{
-						fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+						fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 						{
-							fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+							fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 							{
 								fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 								{
 									fixed (int* pmonoOffset = &monoOffset)
 									{
-										((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+										((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 									}
 								}
 							}
@@ -2756,22 +2756,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorStereoFormat pFormat, ref Bool32 pLeftViewFrame0, ref Bool32 pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					fixed (Bool32* ppLeftViewFrame0 = &pLeftViewFrame0)
 					{
-						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						fixed (Bool32* ppBaseViewFrame0 = &pBaseViewFrame0)
 						{
 							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 							{
 								fixed (int* pmonoOffset = &monoOffset)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorStereoFormat*, Bool32*, Bool32*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (Bool32*)ppLeftViewFrame0, (Bool32*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
 								}
 							}
 						}
@@ -2783,56 +2783,56 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnabled) 
+		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnabled) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, void>)(handle->LpVtbl[50]))(handle, pVideoProcessor, streamIndex, pEnabled);
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, void>)(handle->LpVtbl[50]))(handle, pVideoProcessor, streamIndex, pEnabled);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnabled) 
+		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnabled) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, void>)(handle->LpVtbl[50]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, void>)(handle->LpVtbl[50]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnabled) 
+		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnabled) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, void>)(handle->LpVtbl[50]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled);
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, void>)(handle->LpVtbl[50]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnabled) 
+		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnabled) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
+			fixed (Bool32* ppEnabled = &pEnabled)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, void>)(handle->LpVtbl[50]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, void>)(handle->LpVtbl[50]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnabled);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnabled) 
+		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnabled) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnabled = &pEnabled)
+				fixed (Bool32* ppEnabled = &pEnabled)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, void>)(handle->LpVtbl[50]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, void>)(handle->LpVtbl[50]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnabled);
 				}
 			}
 		}
@@ -2840,68 +2840,68 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnabled) 
+		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnabled) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
+			fixed (Bool32* ppEnabled = &pEnabled)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, void>)(handle->LpVtbl[50]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, void>)(handle->LpVtbl[50]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnabled);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, int* pEnabled, int* pLevel) 
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, Bool32* pEnabled, int* pLevel) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, pVideoProcessor, streamIndex, filter, pEnabled, pLevel);
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, Bool32*, int*, void>)(handle->LpVtbl[51]))(handle, pVideoProcessor, streamIndex, filter, pEnabled, pLevel);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, int* pEnabled, int* pLevel) 
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, Bool32* pEnabled, int* pLevel) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, filter, pEnabled, pLevel);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, Bool32*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, filter, pEnabled, pLevel);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, int* pEnabled, int* pLevel) 
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, Bool32* pEnabled, int* pLevel) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, filter, pEnabled, pLevel);
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, Bool32*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, filter, pEnabled, pLevel);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref int pEnabled, int* pLevel) 
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref Bool32 pEnabled, int* pLevel) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
+			fixed (Bool32* ppEnabled = &pEnabled)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, pVideoProcessor, streamIndex, filter, (int*)ppEnabled, pLevel);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, Bool32*, int*, void>)(handle->LpVtbl[51]))(handle, pVideoProcessor, streamIndex, filter, (Bool32*)ppEnabled, pLevel);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref int pEnabled, int* pLevel) 
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref Bool32 pEnabled, int* pLevel) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnabled = &pEnabled)
+				fixed (Bool32* ppEnabled = &pEnabled)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, filter, (int*)ppEnabled, pLevel);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, Bool32*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, filter, (Bool32*)ppEnabled, pLevel);
 				}
 			}
 		}
@@ -2909,38 +2909,38 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref int pEnabled, int* pLevel) 
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref Bool32 pEnabled, int* pLevel) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
+			fixed (Bool32* ppEnabled = &pEnabled)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, filter, (int*)ppEnabled, pLevel);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, Bool32*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, filter, (Bool32*)ppEnabled, pLevel);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, int* pEnabled, ref int pLevel) 
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, Bool32* pEnabled, ref int pLevel) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (int* ppLevel = &pLevel)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, pVideoProcessor, streamIndex, filter, pEnabled, (int*)ppLevel);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, Bool32*, int*, void>)(handle->LpVtbl[51]))(handle, pVideoProcessor, streamIndex, filter, pEnabled, (int*)ppLevel);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, int* pEnabled, ref int pLevel) 
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, Bool32* pEnabled, ref int pLevel) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (int* ppLevel = &pLevel)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, filter, pEnabled, (int*)ppLevel);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, Bool32*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, filter, pEnabled, (int*)ppLevel);
 				}
 			}
 		}
@@ -2948,26 +2948,26 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, int* pEnabled, ref int pLevel) 
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, Bool32* pEnabled, ref int pLevel) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (int* ppLevel = &pLevel)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, filter, pEnabled, (int*)ppLevel);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, Bool32*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, filter, pEnabled, (int*)ppLevel);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref int pEnabled, ref int pLevel) 
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref Bool32 pEnabled, ref int pLevel) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
+			fixed (Bool32* ppEnabled = &pEnabled)
 			{
 				fixed (int* ppLevel = &pLevel)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, pVideoProcessor, streamIndex, filter, (int*)ppEnabled, (int*)ppLevel);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, Bool32*, int*, void>)(handle->LpVtbl[51]))(handle, pVideoProcessor, streamIndex, filter, (Bool32*)ppEnabled, (int*)ppLevel);
 				}
 			}
 		}
@@ -2975,16 +2975,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref int pEnabled, ref int pLevel) 
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref Bool32 pEnabled, ref int pLevel) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnabled = &pEnabled)
+				fixed (Bool32* ppEnabled = &pEnabled)
 				{
 					fixed (int* ppLevel = &pLevel)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, filter, (int*)ppEnabled, (int*)ppLevel);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, Bool32*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, filter, (Bool32*)ppEnabled, (int*)ppLevel);
 					}
 				}
 			}
@@ -2993,14 +2993,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref int pEnabled, ref int pLevel) 
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref Bool32 pEnabled, ref int pLevel) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
+			fixed (Bool32* ppEnabled = &pEnabled)
 			{
 				fixed (int* ppLevel = &pLevel)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, filter, (int*)ppEnabled, (int*)ppLevel);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, Bool32*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, filter, (Bool32*)ppEnabled, (int*)ppLevel);
 				}
 			}
 		}
@@ -3129,22 +3129,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, pVideoProcessor, pView, outputFrame, streamCount, pStreams);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, pVideoProcessor, pView, outputFrame, streamCount, pStreams);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pView, outputFrame, streamCount, pStreams);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pView, outputFrame, streamCount, pStreams);
 				return ret;
 			}
 		}
@@ -3152,22 +3152,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pView, outputFrame, streamCount, pStreams);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pView, outputFrame, streamCount, pStreams);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, ref ID3D11VideoProcessorOutputView pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, ref ID3D11VideoProcessorOutputView pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessorOutputView* ppView = &pView)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, pVideoProcessor, (ID3D11VideoProcessorOutputView*)ppView, outputFrame, streamCount, pStreams);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, pVideoProcessor, (ID3D11VideoProcessorOutputView*)ppView, outputFrame, streamCount, pStreams);
 				return ret;
 			}
 		}
@@ -3175,24 +3175,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, ComPtr<ID3D11VideoProcessorOutputView> pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, ComPtr<ID3D11VideoProcessorOutputView> pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, pVideoProcessor, (ID3D11VideoProcessorOutputView*)pView.Handle, outputFrame, streamCount, pStreams);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, pVideoProcessor, (ID3D11VideoProcessorOutputView*)pView.Handle, outputFrame, streamCount, pStreams);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, ref ID3D11VideoProcessorOutputView pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, ref ID3D11VideoProcessorOutputView pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (ID3D11VideoProcessorOutputView* ppView = &pView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (ID3D11VideoProcessorOutputView*)ppView, outputFrame, streamCount, pStreams);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (ID3D11VideoProcessorOutputView*)ppView, outputFrame, streamCount, pStreams);
 					return ret;
 				}
 			}
@@ -3201,22 +3201,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, ComPtr<ID3D11VideoProcessorOutputView> pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, ComPtr<ID3D11VideoProcessorOutputView> pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (ID3D11VideoProcessorOutputView*)pView.Handle, outputFrame, streamCount, pStreams);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (ID3D11VideoProcessorOutputView*)pView.Handle, outputFrame, streamCount, pStreams);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStream* ppStreams = &pStreams)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, pVideoProcessor, pView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, pVideoProcessor, pView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
 				return ret;
 			}
 		}
@@ -3224,14 +3224,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (VideoProcessorStream* ppStreams = &pStreams)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
 					return ret;
 				}
 			}
@@ -3240,12 +3240,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStream* ppStreams = &pStreams)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
 				return ret;
 			}
 		}
@@ -3253,14 +3253,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, ref ID3D11VideoProcessorOutputView pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, ref ID3D11VideoProcessorOutputView pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessorOutputView* ppView = &pView)
 			{
 				fixed (VideoProcessorStream* ppStreams = &pStreams)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, pVideoProcessor, (ID3D11VideoProcessorOutputView*)ppView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, pVideoProcessor, (ID3D11VideoProcessorOutputView*)ppView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
 					return ret;
 				}
 			}
@@ -3269,12 +3269,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, ComPtr<ID3D11VideoProcessorOutputView> pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, ComPtr<ID3D11VideoProcessorOutputView> pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStream* ppStreams = &pStreams)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, pVideoProcessor, (ID3D11VideoProcessorOutputView*)pView.Handle, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, pVideoProcessor, (ID3D11VideoProcessorOutputView*)pView.Handle, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
 				return ret;
 			}
 		}
@@ -3282,7 +3282,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, ref ID3D11VideoProcessorOutputView pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, ref ID3D11VideoProcessorOutputView pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
@@ -3291,7 +3291,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (VideoProcessorStream* ppStreams = &pStreams)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (ID3D11VideoProcessorOutputView*)ppView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (ID3D11VideoProcessorOutputView*)ppView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
 						return ret;
 					}
 				}
@@ -3301,12 +3301,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, ComPtr<ID3D11VideoProcessorOutputView> pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		public static HResult VideoProcessorBlt(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, ComPtr<ID3D11VideoProcessorOutputView> pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorStream* ppStreams = &pStreams)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (ID3D11VideoProcessorOutputView*)pView.Handle, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, HResult>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (ID3D11VideoProcessorOutputView*)pView.Handle, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
 				return ret;
 			}
 		}
@@ -3314,22 +3314,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int NegotiateCryptoSessionKeyExchange(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, uint dataSize, void* pData) 
+		public static HResult NegotiateCryptoSessionKeyExchange(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, uint dataSize, void* pData) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[54]))(handle, pCryptoSession, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, HResult>)(handle->LpVtbl[54]))(handle, pCryptoSession, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int NegotiateCryptoSessionKeyExchange(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11CryptoSession pCryptoSession, uint dataSize, void* pData) 
+		public static HResult NegotiateCryptoSessionKeyExchange(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11CryptoSession pCryptoSession, uint dataSize, void* pData) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[54]))(handle, (ID3D11CryptoSession*)ppCryptoSession, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, HResult>)(handle->LpVtbl[54]))(handle, (ID3D11CryptoSession*)ppCryptoSession, dataSize, pData);
 				return ret;
 			}
 		}
@@ -3337,30 +3337,30 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int NegotiateCryptoSessionKeyExchange(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint dataSize, void* pData) 
+		public static HResult NegotiateCryptoSessionKeyExchange(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint dataSize, void* pData) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[54]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, HResult>)(handle->LpVtbl[54]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int NegotiateCryptoSessionKeyExchange<T>(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult NegotiateCryptoSessionKeyExchange<T>(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[54]))(handle, pCryptoSession, dataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, HResult>)(handle->LpVtbl[54]))(handle, pCryptoSession, dataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int NegotiateCryptoSessionKeyExchange<T>(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult NegotiateCryptoSessionKeyExchange<T>(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[54]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, dataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, HResult>)(handle->LpVtbl[54]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, dataSize, (void*)pData.Handle);
 			return ret;
 		}
 
@@ -4243,22 +4243,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncryptionBltKey(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, uint keySize, void* pReadbackKey) 
+		public static HResult GetEncryptionBltKey(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, uint keySize, void* pReadbackKey) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, pCryptoSession, keySize, pReadbackKey);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, HResult>)(handle->LpVtbl[59]))(handle, pCryptoSession, keySize, pReadbackKey);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncryptionBltKey(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11CryptoSession pCryptoSession, uint keySize, void* pReadbackKey) 
+		public static HResult GetEncryptionBltKey(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11CryptoSession pCryptoSession, uint keySize, void* pReadbackKey) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, (ID3D11CryptoSession*)ppCryptoSession, keySize, pReadbackKey);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, HResult>)(handle->LpVtbl[59]))(handle, (ID3D11CryptoSession*)ppCryptoSession, keySize, pReadbackKey);
 				return ret;
 			}
 		}
@@ -4266,52 +4266,52 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncryptionBltKey(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint keySize, void* pReadbackKey) 
+		public static HResult GetEncryptionBltKey(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint keySize, void* pReadbackKey) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, keySize, pReadbackKey);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, HResult>)(handle->LpVtbl[59]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, keySize, pReadbackKey);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncryptionBltKey<T>(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, uint keySize, ComPtr<T> pReadbackKey) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetEncryptionBltKey<T>(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, uint keySize, ComPtr<T> pReadbackKey) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, pCryptoSession, keySize, (void*)pReadbackKey.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, HResult>)(handle->LpVtbl[59]))(handle, pCryptoSession, keySize, (void*)pReadbackKey.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncryptionBltKey<T>(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint keySize, ComPtr<T> pReadbackKey) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetEncryptionBltKey<T>(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint keySize, ComPtr<T> pReadbackKey) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, keySize, (void*)pReadbackKey.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, HResult>)(handle->LpVtbl[59]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, keySize, (void*)pReadbackKey.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int NegotiateAuthenticatedChannelKeyExchange(this ComPtr<ID3D11VideoContext3> comObj, ID3D11AuthenticatedChannel* pChannel, uint dataSize, void* pData) 
+		public static HResult NegotiateAuthenticatedChannelKeyExchange(this ComPtr<ID3D11VideoContext3> comObj, ID3D11AuthenticatedChannel* pChannel, uint dataSize, void* pData) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, pChannel, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, HResult>)(handle->LpVtbl[60]))(handle, pChannel, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int NegotiateAuthenticatedChannelKeyExchange(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11AuthenticatedChannel pChannel, uint dataSize, void* pData) 
+		public static HResult NegotiateAuthenticatedChannelKeyExchange(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11AuthenticatedChannel pChannel, uint dataSize, void* pData) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11AuthenticatedChannel* ppChannel = &pChannel)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, HResult>)(handle->LpVtbl[60]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, dataSize, pData);
 				return ret;
 			}
 		}
@@ -4319,52 +4319,52 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int NegotiateAuthenticatedChannelKeyExchange(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint dataSize, void* pData) 
+		public static HResult NegotiateAuthenticatedChannelKeyExchange(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint dataSize, void* pData) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, HResult>)(handle->LpVtbl[60]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int NegotiateAuthenticatedChannelKeyExchange<T>(this ComPtr<ID3D11VideoContext3> comObj, ID3D11AuthenticatedChannel* pChannel, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult NegotiateAuthenticatedChannelKeyExchange<T>(this ComPtr<ID3D11VideoContext3> comObj, ID3D11AuthenticatedChannel* pChannel, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, pChannel, dataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, HResult>)(handle->LpVtbl[60]))(handle, pChannel, dataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int NegotiateAuthenticatedChannelKeyExchange<T>(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult NegotiateAuthenticatedChannelKeyExchange<T>(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, dataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, HResult>)(handle->LpVtbl[60]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, dataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ID3D11AuthenticatedChannel* pChannel, uint inputSize, void* pInput, uint outputSize, void* pOutput) 
+		public static HResult QueryAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ID3D11AuthenticatedChannel* pChannel, uint inputSize, void* pInput, uint outputSize, void* pOutput) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, pChannel, inputSize, pInput, outputSize, pOutput);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, HResult>)(handle->LpVtbl[61]))(handle, pChannel, inputSize, pInput, outputSize, pOutput);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11AuthenticatedChannel pChannel, uint inputSize, void* pInput, uint outputSize, void* pOutput) 
+		public static HResult QueryAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11AuthenticatedChannel pChannel, uint inputSize, void* pInput, uint outputSize, void* pOutput) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11AuthenticatedChannel* ppChannel = &pChannel)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, inputSize, pInput, outputSize, pOutput);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, HResult>)(handle->LpVtbl[61]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, inputSize, pInput, outputSize, pOutput);
 				return ret;
 			}
 		}
@@ -4372,52 +4372,52 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint inputSize, void* pInput, uint outputSize, void* pOutput) 
+		public static HResult QueryAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint inputSize, void* pInput, uint outputSize, void* pOutput) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, outputSize, pOutput);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, HResult>)(handle->LpVtbl[61]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, outputSize, pOutput);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryAuthenticatedChannel<T>(this ComPtr<ID3D11VideoContext3> comObj, ID3D11AuthenticatedChannel* pChannel, uint inputSize, void* pInput, uint outputSize, ComPtr<T> pOutput) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryAuthenticatedChannel<T>(this ComPtr<ID3D11VideoContext3> comObj, ID3D11AuthenticatedChannel* pChannel, uint inputSize, void* pInput, uint outputSize, ComPtr<T> pOutput) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, pChannel, inputSize, pInput, outputSize, (void*)pOutput.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, HResult>)(handle->LpVtbl[61]))(handle, pChannel, inputSize, pInput, outputSize, (void*)pOutput.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryAuthenticatedChannel<T>(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint inputSize, void* pInput, uint outputSize, ComPtr<T> pOutput) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryAuthenticatedChannel<T>(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint inputSize, void* pInput, uint outputSize, ComPtr<T> pOutput) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, outputSize, (void*)pOutput.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, HResult>)(handle->LpVtbl[61]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, outputSize, (void*)pOutput.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ID3D11AuthenticatedChannel* pChannel, uint inputSize, void* pInput, AuthenticatedConfigureOutput* pOutput) 
+		public static HResult ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ID3D11AuthenticatedChannel* pChannel, uint inputSize, void* pInput, AuthenticatedConfigureOutput* pOutput) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, pChannel, inputSize, pInput, pOutput);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, HResult>)(handle->LpVtbl[62]))(handle, pChannel, inputSize, pInput, pOutput);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11AuthenticatedChannel pChannel, uint inputSize, void* pInput, AuthenticatedConfigureOutput* pOutput) 
+		public static HResult ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11AuthenticatedChannel pChannel, uint inputSize, void* pInput, AuthenticatedConfigureOutput* pOutput) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11AuthenticatedChannel* ppChannel = &pChannel)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, inputSize, pInput, pOutput);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, HResult>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, inputSize, pInput, pOutput);
 				return ret;
 			}
 		}
@@ -4425,22 +4425,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint inputSize, void* pInput, AuthenticatedConfigureOutput* pOutput) 
+		public static HResult ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint inputSize, void* pInput, AuthenticatedConfigureOutput* pOutput) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, pOutput);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, HResult>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, pOutput);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ID3D11AuthenticatedChannel* pChannel, uint inputSize, void* pInput, ref AuthenticatedConfigureOutput pOutput) 
+		public static HResult ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ID3D11AuthenticatedChannel* pChannel, uint inputSize, void* pInput, ref AuthenticatedConfigureOutput pOutput) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (AuthenticatedConfigureOutput* ppOutput = &pOutput)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, pChannel, inputSize, pInput, (AuthenticatedConfigureOutput*)ppOutput);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, HResult>)(handle->LpVtbl[62]))(handle, pChannel, inputSize, pInput, (AuthenticatedConfigureOutput*)ppOutput);
 				return ret;
 			}
 		}
@@ -4448,14 +4448,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11AuthenticatedChannel pChannel, uint inputSize, void* pInput, ref AuthenticatedConfigureOutput pOutput) 
+		public static HResult ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11AuthenticatedChannel pChannel, uint inputSize, void* pInput, ref AuthenticatedConfigureOutput pOutput) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11AuthenticatedChannel* ppChannel = &pChannel)
 			{
 				fixed (AuthenticatedConfigureOutput* ppOutput = &pOutput)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, inputSize, pInput, (AuthenticatedConfigureOutput*)ppOutput);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, HResult>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, inputSize, pInput, (AuthenticatedConfigureOutput*)ppOutput);
 					return ret;
 				}
 			}
@@ -4464,12 +4464,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint inputSize, void* pInput, ref AuthenticatedConfigureOutput pOutput) 
+		public static HResult ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint inputSize, void* pInput, ref AuthenticatedConfigureOutput pOutput) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (AuthenticatedConfigureOutput* ppOutput = &pOutput)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, (AuthenticatedConfigureOutput*)ppOutput);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, HResult>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, (AuthenticatedConfigureOutput*)ppOutput);
 				return ret;
 			}
 		}
@@ -4477,86 +4477,86 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorSetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int enable, VideoProcessorRotation rotation) 
+		public static void VideoProcessorSetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32 enable, VideoProcessorRotation rotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int, VideoProcessorRotation, void>)(handle->LpVtbl[63]))(handle, pVideoProcessor, streamIndex, enable, rotation);
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32, VideoProcessorRotation, void>)(handle->LpVtbl[63]))(handle, pVideoProcessor, streamIndex, enable, rotation);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorSetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int enable, VideoProcessorRotation rotation) 
+		public static void VideoProcessorSetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32 enable, VideoProcessorRotation rotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int, VideoProcessorRotation, void>)(handle->LpVtbl[63]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, rotation);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32, VideoProcessorRotation, void>)(handle->LpVtbl[63]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, rotation);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorSetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int enable, VideoProcessorRotation rotation) 
+		public static void VideoProcessorSetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32 enable, VideoProcessorRotation rotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int, VideoProcessorRotation, void>)(handle->LpVtbl[63]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, rotation);
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32, VideoProcessorRotation, void>)(handle->LpVtbl[63]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, rotation);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorRotation* pRotation) 
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorRotation* pRotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, pEnable, pRotation);
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, pEnable, pRotation);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorRotation* pRotation) 
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorRotation* pRotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pRotation);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pRotation);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorRotation* pRotation) 
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, VideoProcessorRotation* pRotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pRotation);
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pRotation);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorRotation* pRotation) 
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorRotation* pRotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pRotation);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, pRotation);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorRotation* pRotation) 
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorRotation* pRotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pRotation);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, pRotation);
 				}
 			}
 		}
@@ -4564,38 +4564,38 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorRotation* pRotation) 
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, VideoProcessorRotation* pRotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pRotation);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, pRotation);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorRotation pRotation) 
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorRotation pRotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorRotation* ppRotation = &pRotation)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorRotation*)ppRotation);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorRotation*)ppRotation);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorRotation pRotation) 
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorRotation pRotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
 				fixed (VideoProcessorRotation* ppRotation = &pRotation)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorRotation*)ppRotation);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorRotation*)ppRotation);
 				}
 			}
 		}
@@ -4603,26 +4603,26 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorRotation pRotation) 
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Bool32* pEnable, ref VideoProcessorRotation pRotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoProcessorRotation* ppRotation = &pRotation)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorRotation*)ppRotation);
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorRotation*)ppRotation);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorRotation pRotation) 
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorRotation pRotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorRotation* ppRotation = &pRotation)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorRotation*)ppRotation);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorRotation*)ppRotation);
 				}
 			}
 		}
@@ -4630,16 +4630,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorRotation pRotation) 
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorRotation pRotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (int* ppEnable = &pEnable)
+				fixed (Bool32* ppEnable = &pEnable)
 				{
 					fixed (VideoProcessorRotation* ppRotation = &pRotation)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorRotation*)ppRotation);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Bool32*)ppEnable, (VideoProcessorRotation*)ppRotation);
 					}
 				}
 			}
@@ -4648,14 +4648,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorRotation pRotation) 
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Bool32 pEnable, ref VideoProcessorRotation pRotation) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
+			fixed (Bool32* ppEnable = &pEnable)
 			{
 				fixed (VideoProcessorRotation* ppRotation = &pRotation)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorRotation*)ppRotation);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoProcessor*, uint, Bool32*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Bool32*)ppEnable, (VideoProcessorRotation*)ppRotation);
 				}
 			}
 		}
@@ -4663,22 +4663,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoDecoder* pDecoder, uint numBuffers, VideoDecoderBufferDesc1* pBufferDesc) 
+		public static HResult SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoDecoder* pDecoder, uint numBuffers, VideoDecoderBufferDesc1* pBufferDesc) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, uint, VideoDecoderBufferDesc1*, int>)(handle->LpVtbl[65]))(handle, pDecoder, numBuffers, pBufferDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, uint, VideoDecoderBufferDesc1*, HResult>)(handle->LpVtbl[65]))(handle, pDecoder, numBuffers, pBufferDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoDecoder pDecoder, uint numBuffers, VideoDecoderBufferDesc1* pBufferDesc) 
+		public static HResult SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoDecoder pDecoder, uint numBuffers, VideoDecoderBufferDesc1* pBufferDesc) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, uint, VideoDecoderBufferDesc1*, int>)(handle->LpVtbl[65]))(handle, (ID3D11VideoDecoder*)ppDecoder, numBuffers, pBufferDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, uint, VideoDecoderBufferDesc1*, HResult>)(handle->LpVtbl[65]))(handle, (ID3D11VideoDecoder*)ppDecoder, numBuffers, pBufferDesc);
 				return ret;
 			}
 		}
@@ -4686,22 +4686,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoDecoder> pDecoder, uint numBuffers, VideoDecoderBufferDesc1* pBufferDesc) 
+		public static HResult SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoDecoder> pDecoder, uint numBuffers, VideoDecoderBufferDesc1* pBufferDesc) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, uint, VideoDecoderBufferDesc1*, int>)(handle->LpVtbl[65]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, numBuffers, pBufferDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, uint, VideoDecoderBufferDesc1*, HResult>)(handle->LpVtbl[65]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, numBuffers, pBufferDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoDecoder* pDecoder, uint numBuffers, ref VideoDecoderBufferDesc1 pBufferDesc) 
+		public static HResult SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoDecoder* pDecoder, uint numBuffers, ref VideoDecoderBufferDesc1 pBufferDesc) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoDecoderBufferDesc1* ppBufferDesc = &pBufferDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, uint, VideoDecoderBufferDesc1*, int>)(handle->LpVtbl[65]))(handle, pDecoder, numBuffers, (VideoDecoderBufferDesc1*)ppBufferDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, uint, VideoDecoderBufferDesc1*, HResult>)(handle->LpVtbl[65]))(handle, pDecoder, numBuffers, (VideoDecoderBufferDesc1*)ppBufferDesc);
 				return ret;
 			}
 		}
@@ -4709,14 +4709,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoDecoder pDecoder, uint numBuffers, ref VideoDecoderBufferDesc1 pBufferDesc) 
+		public static HResult SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoDecoder pDecoder, uint numBuffers, ref VideoDecoderBufferDesc1 pBufferDesc) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
 			{
 				fixed (VideoDecoderBufferDesc1* ppBufferDesc = &pBufferDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, uint, VideoDecoderBufferDesc1*, int>)(handle->LpVtbl[65]))(handle, (ID3D11VideoDecoder*)ppDecoder, numBuffers, (VideoDecoderBufferDesc1*)ppBufferDesc);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, uint, VideoDecoderBufferDesc1*, HResult>)(handle->LpVtbl[65]))(handle, (ID3D11VideoDecoder*)ppDecoder, numBuffers, (VideoDecoderBufferDesc1*)ppBufferDesc);
 					return ret;
 				}
 			}
@@ -4725,12 +4725,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoDecoder> pDecoder, uint numBuffers, ref VideoDecoderBufferDesc1 pBufferDesc) 
+		public static HResult SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoDecoder> pDecoder, uint numBuffers, ref VideoDecoderBufferDesc1 pBufferDesc) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoDecoderBufferDesc1* ppBufferDesc = &pBufferDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, uint, VideoDecoderBufferDesc1*, int>)(handle->LpVtbl[65]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, numBuffers, (VideoDecoderBufferDesc1*)ppBufferDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, uint, VideoDecoderBufferDesc1*, HResult>)(handle->LpVtbl[65]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, numBuffers, (VideoDecoderBufferDesc1*)ppBufferDesc);
 				return ret;
 			}
 		}
@@ -4738,22 +4738,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, uint privateInputSize, void* pPrivatInputData, ulong* pPrivateOutputData) 
+		public static HResult GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, uint privateInputSize, void* pPrivatInputData, ulong* pPrivateOutputData) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, ulong*, int>)(handle->LpVtbl[66]))(handle, pCryptoSession, privateInputSize, pPrivatInputData, pPrivateOutputData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, ulong*, HResult>)(handle->LpVtbl[66]))(handle, pCryptoSession, privateInputSize, pPrivatInputData, pPrivateOutputData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11CryptoSession pCryptoSession, uint privateInputSize, void* pPrivatInputData, ulong* pPrivateOutputData) 
+		public static HResult GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11CryptoSession pCryptoSession, uint privateInputSize, void* pPrivatInputData, ulong* pPrivateOutputData) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, ulong*, int>)(handle->LpVtbl[66]))(handle, (ID3D11CryptoSession*)ppCryptoSession, privateInputSize, pPrivatInputData, pPrivateOutputData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, ulong*, HResult>)(handle->LpVtbl[66]))(handle, (ID3D11CryptoSession*)ppCryptoSession, privateInputSize, pPrivatInputData, pPrivateOutputData);
 				return ret;
 			}
 		}
@@ -4761,22 +4761,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint privateInputSize, void* pPrivatInputData, ulong* pPrivateOutputData) 
+		public static HResult GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint privateInputSize, void* pPrivatInputData, ulong* pPrivateOutputData) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, ulong*, int>)(handle->LpVtbl[66]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, privateInputSize, pPrivatInputData, pPrivateOutputData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, ulong*, HResult>)(handle->LpVtbl[66]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, privateInputSize, pPrivatInputData, pPrivateOutputData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, uint privateInputSize, void* pPrivatInputData, ref ulong pPrivateOutputData) 
+		public static HResult GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, uint privateInputSize, void* pPrivatInputData, ref ulong pPrivateOutputData) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ulong* ppPrivateOutputData = &pPrivateOutputData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, ulong*, int>)(handle->LpVtbl[66]))(handle, pCryptoSession, privateInputSize, pPrivatInputData, (ulong*)ppPrivateOutputData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, ulong*, HResult>)(handle->LpVtbl[66]))(handle, pCryptoSession, privateInputSize, pPrivatInputData, (ulong*)ppPrivateOutputData);
 				return ret;
 			}
 		}
@@ -4784,14 +4784,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11CryptoSession pCryptoSession, uint privateInputSize, void* pPrivatInputData, ref ulong pPrivateOutputData) 
+		public static HResult GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11CryptoSession pCryptoSession, uint privateInputSize, void* pPrivatInputData, ref ulong pPrivateOutputData) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
 			{
 				fixed (ulong* ppPrivateOutputData = &pPrivateOutputData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, ulong*, int>)(handle->LpVtbl[66]))(handle, (ID3D11CryptoSession*)ppCryptoSession, privateInputSize, pPrivatInputData, (ulong*)ppPrivateOutputData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, ulong*, HResult>)(handle->LpVtbl[66]))(handle, (ID3D11CryptoSession*)ppCryptoSession, privateInputSize, pPrivatInputData, (ulong*)ppPrivateOutputData);
 					return ret;
 				}
 			}
@@ -4800,12 +4800,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint privateInputSize, void* pPrivatInputData, ref ulong pPrivateOutputData) 
+		public static HResult GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint privateInputSize, void* pPrivatInputData, ref ulong pPrivateOutputData) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ulong* ppPrivateOutputData = &pPrivateOutputData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, ulong*, int>)(handle->LpVtbl[66]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, privateInputSize, pPrivatInputData, (ulong*)ppPrivateOutputData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, uint, void*, ulong*, HResult>)(handle->LpVtbl[66]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, privateInputSize, pPrivatInputData, (ulong*)ppPrivateOutputData);
 				return ret;
 			}
 		}
@@ -4813,22 +4813,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, CryptoSessionStatus* pStatus) 
+		public static HResult CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, CryptoSessionStatus* pStatus) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, CryptoSessionStatus*, int>)(handle->LpVtbl[67]))(handle, pCryptoSession, pStatus);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, CryptoSessionStatus*, HResult>)(handle->LpVtbl[67]))(handle, pCryptoSession, pStatus);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11CryptoSession pCryptoSession, CryptoSessionStatus* pStatus) 
+		public static HResult CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11CryptoSession pCryptoSession, CryptoSessionStatus* pStatus) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, CryptoSessionStatus*, int>)(handle->LpVtbl[67]))(handle, (ID3D11CryptoSession*)ppCryptoSession, pStatus);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, CryptoSessionStatus*, HResult>)(handle->LpVtbl[67]))(handle, (ID3D11CryptoSession*)ppCryptoSession, pStatus);
 				return ret;
 			}
 		}
@@ -4836,22 +4836,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, CryptoSessionStatus* pStatus) 
+		public static HResult CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, CryptoSessionStatus* pStatus) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, CryptoSessionStatus*, int>)(handle->LpVtbl[67]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pStatus);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, CryptoSessionStatus*, HResult>)(handle->LpVtbl[67]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pStatus);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, ref CryptoSessionStatus pStatus) 
+		public static HResult CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext3> comObj, ID3D11CryptoSession* pCryptoSession, ref CryptoSessionStatus pStatus) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (CryptoSessionStatus* ppStatus = &pStatus)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, CryptoSessionStatus*, int>)(handle->LpVtbl[67]))(handle, pCryptoSession, (CryptoSessionStatus*)ppStatus);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, CryptoSessionStatus*, HResult>)(handle->LpVtbl[67]))(handle, pCryptoSession, (CryptoSessionStatus*)ppStatus);
 				return ret;
 			}
 		}
@@ -4859,14 +4859,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11CryptoSession pCryptoSession, ref CryptoSessionStatus pStatus) 
+		public static HResult CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11CryptoSession pCryptoSession, ref CryptoSessionStatus pStatus) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
 			{
 				fixed (CryptoSessionStatus* ppStatus = &pStatus)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, CryptoSessionStatus*, int>)(handle->LpVtbl[67]))(handle, (ID3D11CryptoSession*)ppCryptoSession, (CryptoSessionStatus*)ppStatus);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, CryptoSessionStatus*, HResult>)(handle->LpVtbl[67]))(handle, (ID3D11CryptoSession*)ppCryptoSession, (CryptoSessionStatus*)ppStatus);
 					return ret;
 				}
 			}
@@ -4875,12 +4875,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ref CryptoSessionStatus pStatus) 
+		public static HResult CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ref CryptoSessionStatus pStatus) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (CryptoSessionStatus* ppStatus = &pStatus)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, CryptoSessionStatus*, int>)(handle->LpVtbl[67]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (CryptoSessionStatus*)ppStatus);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11CryptoSession*, CryptoSessionStatus*, HResult>)(handle->LpVtbl[67]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (CryptoSessionStatus*)ppStatus);
 				return ret;
 			}
 		}
@@ -4888,22 +4888,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoDecoder* pDecoder, ColorSpaceType inputColorSpace, VideoSampleDesc* pOutputDesc, uint referenceFrameCount) 
+		public static HResult DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoDecoder* pDecoder, ColorSpaceType inputColorSpace, VideoSampleDesc* pOutputDesc, uint referenceFrameCount) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, ColorSpaceType, VideoSampleDesc*, uint, int>)(handle->LpVtbl[68]))(handle, pDecoder, inputColorSpace, pOutputDesc, referenceFrameCount);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, ColorSpaceType, VideoSampleDesc*, uint, HResult>)(handle->LpVtbl[68]))(handle, pDecoder, inputColorSpace, pOutputDesc, referenceFrameCount);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoDecoder pDecoder, ColorSpaceType inputColorSpace, VideoSampleDesc* pOutputDesc, uint referenceFrameCount) 
+		public static HResult DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoDecoder pDecoder, ColorSpaceType inputColorSpace, VideoSampleDesc* pOutputDesc, uint referenceFrameCount) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, ColorSpaceType, VideoSampleDesc*, uint, int>)(handle->LpVtbl[68]))(handle, (ID3D11VideoDecoder*)ppDecoder, inputColorSpace, pOutputDesc, referenceFrameCount);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, ColorSpaceType, VideoSampleDesc*, uint, HResult>)(handle->LpVtbl[68]))(handle, (ID3D11VideoDecoder*)ppDecoder, inputColorSpace, pOutputDesc, referenceFrameCount);
 				return ret;
 			}
 		}
@@ -4911,22 +4911,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoDecoder> pDecoder, ColorSpaceType inputColorSpace, VideoSampleDesc* pOutputDesc, uint referenceFrameCount) 
+		public static HResult DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoDecoder> pDecoder, ColorSpaceType inputColorSpace, VideoSampleDesc* pOutputDesc, uint referenceFrameCount) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, ColorSpaceType, VideoSampleDesc*, uint, int>)(handle->LpVtbl[68]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, inputColorSpace, pOutputDesc, referenceFrameCount);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, ColorSpaceType, VideoSampleDesc*, uint, HResult>)(handle->LpVtbl[68]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, inputColorSpace, pOutputDesc, referenceFrameCount);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoDecoder* pDecoder, ColorSpaceType inputColorSpace, ref VideoSampleDesc pOutputDesc, uint referenceFrameCount) 
+		public static HResult DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoDecoder* pDecoder, ColorSpaceType inputColorSpace, ref VideoSampleDesc pOutputDesc, uint referenceFrameCount) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, ColorSpaceType, VideoSampleDesc*, uint, int>)(handle->LpVtbl[68]))(handle, pDecoder, inputColorSpace, (VideoSampleDesc*)ppOutputDesc, referenceFrameCount);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, ColorSpaceType, VideoSampleDesc*, uint, HResult>)(handle->LpVtbl[68]))(handle, pDecoder, inputColorSpace, (VideoSampleDesc*)ppOutputDesc, referenceFrameCount);
 				return ret;
 			}
 		}
@@ -4934,14 +4934,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoDecoder pDecoder, ColorSpaceType inputColorSpace, ref VideoSampleDesc pOutputDesc, uint referenceFrameCount) 
+		public static HResult DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoDecoder pDecoder, ColorSpaceType inputColorSpace, ref VideoSampleDesc pOutputDesc, uint referenceFrameCount) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
 			{
 				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, ColorSpaceType, VideoSampleDesc*, uint, int>)(handle->LpVtbl[68]))(handle, (ID3D11VideoDecoder*)ppDecoder, inputColorSpace, (VideoSampleDesc*)ppOutputDesc, referenceFrameCount);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, ColorSpaceType, VideoSampleDesc*, uint, HResult>)(handle->LpVtbl[68]))(handle, (ID3D11VideoDecoder*)ppDecoder, inputColorSpace, (VideoSampleDesc*)ppOutputDesc, referenceFrameCount);
 					return ret;
 				}
 			}
@@ -4950,12 +4950,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoDecoder> pDecoder, ColorSpaceType inputColorSpace, ref VideoSampleDesc pOutputDesc, uint referenceFrameCount) 
+		public static HResult DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoDecoder> pDecoder, ColorSpaceType inputColorSpace, ref VideoSampleDesc pOutputDesc, uint referenceFrameCount) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, ColorSpaceType, VideoSampleDesc*, uint, int>)(handle->LpVtbl[68]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, inputColorSpace, (VideoSampleDesc*)ppOutputDesc, referenceFrameCount);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, ColorSpaceType, VideoSampleDesc*, uint, HResult>)(handle->LpVtbl[68]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, inputColorSpace, (VideoSampleDesc*)ppOutputDesc, referenceFrameCount);
 				return ret;
 			}
 		}
@@ -4963,22 +4963,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoDecoder* pDecoder, VideoSampleDesc* pOutputDesc) 
+		public static HResult DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoDecoder* pDecoder, VideoSampleDesc* pOutputDesc) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, VideoSampleDesc*, int>)(handle->LpVtbl[69]))(handle, pDecoder, pOutputDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, VideoSampleDesc*, HResult>)(handle->LpVtbl[69]))(handle, pDecoder, pOutputDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoDecoder pDecoder, VideoSampleDesc* pOutputDesc) 
+		public static HResult DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoDecoder pDecoder, VideoSampleDesc* pOutputDesc) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, VideoSampleDesc*, int>)(handle->LpVtbl[69]))(handle, (ID3D11VideoDecoder*)ppDecoder, pOutputDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, VideoSampleDesc*, HResult>)(handle->LpVtbl[69]))(handle, (ID3D11VideoDecoder*)ppDecoder, pOutputDesc);
 				return ret;
 			}
 		}
@@ -4986,22 +4986,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoDecoder> pDecoder, VideoSampleDesc* pOutputDesc) 
+		public static HResult DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ComPtr<ID3D11VideoDecoder> pDecoder, VideoSampleDesc* pOutputDesc) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, VideoSampleDesc*, int>)(handle->LpVtbl[69]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, pOutputDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, VideoSampleDesc*, HResult>)(handle->LpVtbl[69]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, pOutputDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoDecoder* pDecoder, ref VideoSampleDesc pOutputDesc) 
+		public static HResult DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ID3D11VideoDecoder* pDecoder, ref VideoSampleDesc pOutputDesc) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, VideoSampleDesc*, int>)(handle->LpVtbl[69]))(handle, pDecoder, (VideoSampleDesc*)ppOutputDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, VideoSampleDesc*, HResult>)(handle->LpVtbl[69]))(handle, pDecoder, (VideoSampleDesc*)ppOutputDesc);
 				return ret;
 			}
 		}
@@ -5009,14 +5009,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoDecoder pDecoder, ref VideoSampleDesc pOutputDesc) 
+		public static HResult DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext3> comObj, ref ID3D11VideoDecoder pDecoder, ref VideoSampleDesc pOutputDesc) 
 		{
 			ID3D11VideoContext3* handle = comObj.Handle;
 			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
 			{
 				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, VideoSampleDesc*, int>)(handle->LpVtbl[69]))(handle, (ID3D11VideoDecoder*)ppDecoder, (VideoSampleDesc*)ppOutputDesc);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext3*, ID3D11VideoDecoder*, VideoSampleDesc*, HResult>)(handle->LpVtbl[69]))(handle, (ID3D11VideoDecoder*)ppDecoder, (VideoSampleDesc*)ppOutputDesc);
 					return ret;
 				}
 			}

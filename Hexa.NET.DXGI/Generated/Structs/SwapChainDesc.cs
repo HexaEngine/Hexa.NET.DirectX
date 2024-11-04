@@ -51,7 +51,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Windowed;
+		public Bool32 Windowed;
 
 		/// <summary>
 		/// To be documented.
@@ -67,7 +67,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe SwapChainDesc(ModeDesc bufferDesc = default, SampleDesc sampleDesc = default, uint bufferUsage = default, uint bufferCount = default, nint outputWindow = default, int windowed = default, SwapEffect swapEffect = default, uint flags = default)
+		public unsafe SwapChainDesc(ModeDesc bufferDesc = default, SampleDesc sampleDesc = default, uint bufferUsage = default, uint bufferCount = default, nint outputWindow = default, Bool32 windowed = default, SwapEffect swapEffect = default, uint flags = default)
 		{
 			BufferDesc = bufferDesc;
 			SampleDesc = sampleDesc;

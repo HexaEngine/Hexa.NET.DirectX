@@ -27,27 +27,27 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int MeshShaderPipelineStatsSupported;
+		public Bool32 MeshShaderPipelineStatsSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int MeshShaderSupportsFullRangeRenderTargetArrayIndex;
+		public Bool32 MeshShaderSupportsFullRangeRenderTargetArrayIndex;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int AtomicInt64OnTypedResourceSupported;
+		public Bool32 AtomicInt64OnTypedResourceSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int AtomicInt64OnGroupSharedSupported;
+		public Bool32 AtomicInt64OnGroupSharedSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DerivativesInMeshAndAmplificationShadersSupported;
+		public Bool32 DerivativesInMeshAndAmplificationShadersSupported;
 
 		/// <summary>
 		/// To be documented.
@@ -58,7 +58,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D12Options9(int meshShaderPipelineStatsSupported = default, int meshShaderSupportsFullRangeRenderTargetArrayIndex = default, int atomicInt64OnTypedResourceSupported = default, int atomicInt64OnGroupSharedSupported = default, int derivativesInMeshAndAmplificationShadersSupported = default, WaveMmaTier waveMmaTier = default)
+		public unsafe FeatureDataD3D12Options9(Bool32 meshShaderPipelineStatsSupported = default, Bool32 meshShaderSupportsFullRangeRenderTargetArrayIndex = default, Bool32 atomicInt64OnTypedResourceSupported = default, Bool32 atomicInt64OnGroupSharedSupported = default, Bool32 derivativesInMeshAndAmplificationShadersSupported = default, WaveMmaTier waveMmaTier = default)
 		{
 			MeshShaderPipelineStatsSupported = meshShaderPipelineStatsSupported;
 			MeshShaderSupportsFullRangeRenderTargetArrayIndex = meshShaderSupportsFullRangeRenderTargetArrayIndex;

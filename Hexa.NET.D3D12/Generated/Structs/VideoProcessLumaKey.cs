@@ -27,7 +27,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Enable;
+		public Bool32 Enable;
 
 		/// <summary>
 		/// To be documented.
@@ -43,7 +43,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe VideoProcessLumaKey(int enable = default, float lower = default, float upper = default)
+		public unsafe VideoProcessLumaKey(Bool32 enable = default, float lower = default, float upper = default)
 		{
 			Enable = enable;
 			Lower = lower;

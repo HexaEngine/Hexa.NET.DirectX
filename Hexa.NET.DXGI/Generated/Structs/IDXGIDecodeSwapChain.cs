@@ -35,22 +35,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -58,24 +58,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -103,32 +103,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PresentBuffer(uint bufferToPresent, uint syncInterval, uint flags) 
+		public readonly unsafe HResult PresentBuffer(uint bufferToPresent, uint syncInterval, uint flags) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint, uint, uint, int>)(LpVtbl[3]))(ptr, bufferToPresent, syncInterval, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint, uint, uint, HResult>)(LpVtbl[3]))(ptr, bufferToPresent, syncInterval, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetSourceRect(Rect32* pRect) 
+		public readonly unsafe HResult SetSourceRect(Rect32* pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, int>)(LpVtbl[4]))(ptr, pRect);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, HResult>)(LpVtbl[4]))(ptr, pRect);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetSourceRect(ref Rect32 pRect) 
+		public readonly unsafe HResult SetSourceRect(ref Rect32 pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRect = &pRect)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, int>)(LpVtbl[4]))(ptr, (Rect32*)ppRect);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, HResult>)(LpVtbl[4]))(ptr, (Rect32*)ppRect);
 				return ret;
 			}
 		}
@@ -136,22 +136,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetTargetRect(Rect32* pRect) 
+		public readonly unsafe HResult SetTargetRect(Rect32* pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, int>)(LpVtbl[5]))(ptr, pRect);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, HResult>)(LpVtbl[5]))(ptr, pRect);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetTargetRect(ref Rect32 pRect) 
+		public readonly unsafe HResult SetTargetRect(ref Rect32 pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRect = &pRect)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, int>)(LpVtbl[5]))(ptr, (Rect32*)ppRect);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, HResult>)(LpVtbl[5]))(ptr, (Rect32*)ppRect);
 				return ret;
 			}
 		}
@@ -159,32 +159,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetDestSize(uint width, uint height) 
+		public readonly unsafe HResult SetDestSize(uint width, uint height) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint, uint, int>)(LpVtbl[6]))(ptr, width, height);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint, uint, HResult>)(LpVtbl[6]))(ptr, width, height);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetSourceRect(Rect32* pRect) 
+		public readonly unsafe HResult GetSourceRect(Rect32* pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, int>)(LpVtbl[7]))(ptr, pRect);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, HResult>)(LpVtbl[7]))(ptr, pRect);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetSourceRect(ref Rect32 pRect) 
+		public readonly unsafe HResult GetSourceRect(ref Rect32 pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRect = &pRect)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, int>)(LpVtbl[7]))(ptr, (Rect32*)ppRect);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, HResult>)(LpVtbl[7]))(ptr, (Rect32*)ppRect);
 				return ret;
 			}
 		}
@@ -192,22 +192,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetTargetRect(Rect32* pRect) 
+		public readonly unsafe HResult GetTargetRect(Rect32* pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, int>)(LpVtbl[8]))(ptr, pRect);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, HResult>)(LpVtbl[8]))(ptr, pRect);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetTargetRect(ref Rect32 pRect) 
+		public readonly unsafe HResult GetTargetRect(ref Rect32 pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRect = &pRect)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, int>)(LpVtbl[8]))(ptr, (Rect32*)ppRect);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, HResult>)(LpVtbl[8]))(ptr, (Rect32*)ppRect);
 				return ret;
 			}
 		}
@@ -215,22 +215,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDestSize(uint* pWidth, uint* pHeight) 
+		public readonly unsafe HResult GetDestSize(uint* pWidth, uint* pHeight) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint*, uint*, int>)(LpVtbl[9]))(ptr, pWidth, pHeight);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint*, uint*, HResult>)(LpVtbl[9]))(ptr, pWidth, pHeight);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDestSize(ref uint pWidth, uint* pHeight) 
+		public readonly unsafe HResult GetDestSize(ref uint pWidth, uint* pHeight) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppWidth = &pWidth)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint*, uint*, int>)(LpVtbl[9]))(ptr, (uint*)ppWidth, pHeight);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint*, uint*, HResult>)(LpVtbl[9]))(ptr, (uint*)ppWidth, pHeight);
 				return ret;
 			}
 		}
@@ -238,12 +238,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDestSize(uint* pWidth, ref uint pHeight) 
+		public readonly unsafe HResult GetDestSize(uint* pWidth, ref uint pHeight) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppHeight = &pHeight)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint*, uint*, int>)(LpVtbl[9]))(ptr, pWidth, (uint*)ppHeight);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint*, uint*, HResult>)(LpVtbl[9]))(ptr, pWidth, (uint*)ppHeight);
 				return ret;
 			}
 		}
@@ -251,14 +251,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDestSize(ref uint pWidth, ref uint pHeight) 
+		public readonly unsafe HResult GetDestSize(ref uint pWidth, ref uint pHeight) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppWidth = &pWidth)
 			{
 				fixed (uint* ppHeight = &pHeight)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint*, uint*, int>)(LpVtbl[9]))(ptr, (uint*)ppWidth, (uint*)ppHeight);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint*, uint*, HResult>)(LpVtbl[9]))(ptr, (uint*)ppWidth, (uint*)ppHeight);
 					return ret;
 				}
 			}
@@ -267,10 +267,10 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetColorSpace(MULTIPLANEOVERLAYYCbCrFLAGS colorSpace) 
+		public readonly unsafe HResult SetColorSpace(MULTIPLANEOVERLAYYCbCrFLAGS colorSpace) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, MULTIPLANEOVERLAYYCbCrFLAGS, int>)(LpVtbl[10]))(ptr, colorSpace);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, MULTIPLANEOVERLAYYCbCrFLAGS, HResult>)(LpVtbl[10]))(ptr, colorSpace);
 			return ret;
 		}
 

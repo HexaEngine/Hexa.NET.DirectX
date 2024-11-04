@@ -47,13 +47,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ReturnCode;
+		public HResult ReturnCode;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe AuthenticatedConfigureOutput(Omac omac = default, Guid configureType = default, nint hChannel = default, uint sequenceNumber = default, int returnCode = default)
+		public unsafe AuthenticatedConfigureOutput(Omac omac = default, Guid configureType = default, nint hChannel = default, uint sequenceNumber = default, HResult returnCode = default)
 		{
 			Omac = omac;
 			ConfigureType = configureType;

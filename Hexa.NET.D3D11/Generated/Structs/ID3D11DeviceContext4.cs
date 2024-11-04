@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -135,22 +135,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -158,12 +158,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -171,14 +171,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -187,22 +187,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -210,12 +210,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -223,14 +223,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -239,22 +239,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(Guid* guid, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint, void*, int>)(LpVtbl[5]))(ptr, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint, void*, HResult>)(LpVtbl[5]))(ptr, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint, void*, int>)(LpVtbl[5]))(ptr, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, uint, void*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -262,22 +262,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -285,12 +285,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -298,24 +298,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -324,12 +324,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -583,22 +583,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Map(ID3D11Resource* pResource, uint subresource, Map mapType, uint mapFlags, MappedSubresource* pMappedResource) 
+		public readonly unsafe HResult Map(ID3D11Resource* pResource, uint subresource, Map mapType, uint mapFlags, MappedSubresource* pMappedResource) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(LpVtbl[14]))(ptr, pResource, subresource, mapType, mapFlags, pMappedResource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, HResult>)(LpVtbl[14]))(ptr, pResource, subresource, mapType, mapFlags, pMappedResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Map(ref ID3D11Resource pResource, uint subresource, Map mapType, uint mapFlags, MappedSubresource* pMappedResource) 
+		public readonly unsafe HResult Map(ref ID3D11Resource pResource, uint subresource, Map mapType, uint mapFlags, MappedSubresource* pMappedResource) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(LpVtbl[14]))(ptr, (ID3D11Resource*)ppResource, subresource, mapType, mapFlags, pMappedResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, HResult>)(LpVtbl[14]))(ptr, (ID3D11Resource*)ppResource, subresource, mapType, mapFlags, pMappedResource);
 				return ret;
 			}
 		}
@@ -606,22 +606,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Map(ComPtr<ID3D11Resource> pResource, uint subresource, Map mapType, uint mapFlags, MappedSubresource* pMappedResource) 
+		public readonly unsafe HResult Map(ComPtr<ID3D11Resource> pResource, uint subresource, Map mapType, uint mapFlags, MappedSubresource* pMappedResource) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(LpVtbl[14]))(ptr, (ID3D11Resource*)pResource.Handle, subresource, mapType, mapFlags, pMappedResource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, HResult>)(LpVtbl[14]))(ptr, (ID3D11Resource*)pResource.Handle, subresource, mapType, mapFlags, pMappedResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Map(ID3D11Resource* pResource, uint subresource, Map mapType, uint mapFlags, ref MappedSubresource pMappedResource) 
+		public readonly unsafe HResult Map(ID3D11Resource* pResource, uint subresource, Map mapType, uint mapFlags, ref MappedSubresource pMappedResource) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (MappedSubresource* ppMappedResource = &pMappedResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(LpVtbl[14]))(ptr, pResource, subresource, mapType, mapFlags, (MappedSubresource*)ppMappedResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, HResult>)(LpVtbl[14]))(ptr, pResource, subresource, mapType, mapFlags, (MappedSubresource*)ppMappedResource);
 				return ret;
 			}
 		}
@@ -629,14 +629,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Map(ref ID3D11Resource pResource, uint subresource, Map mapType, uint mapFlags, ref MappedSubresource pMappedResource) 
+		public readonly unsafe HResult Map(ref ID3D11Resource pResource, uint subresource, Map mapType, uint mapFlags, ref MappedSubresource pMappedResource) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (MappedSubresource* ppMappedResource = &pMappedResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(LpVtbl[14]))(ptr, (ID3D11Resource*)ppResource, subresource, mapType, mapFlags, (MappedSubresource*)ppMappedResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, HResult>)(LpVtbl[14]))(ptr, (ID3D11Resource*)ppResource, subresource, mapType, mapFlags, (MappedSubresource*)ppMappedResource);
 					return ret;
 				}
 			}
@@ -645,12 +645,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Map(ComPtr<ID3D11Resource> pResource, uint subresource, Map mapType, uint mapFlags, ref MappedSubresource pMappedResource) 
+		public readonly unsafe HResult Map(ComPtr<ID3D11Resource> pResource, uint subresource, Map mapType, uint mapFlags, ref MappedSubresource pMappedResource) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (MappedSubresource* ppMappedResource = &pMappedResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(LpVtbl[14]))(ptr, (ID3D11Resource*)pResource.Handle, subresource, mapType, mapFlags, (MappedSubresource*)ppMappedResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, HResult>)(LpVtbl[14]))(ptr, (ID3D11Resource*)pResource.Handle, subresource, mapType, mapFlags, (MappedSubresource*)ppMappedResource);
 				return ret;
 			}
 		}
@@ -1171,22 +1171,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetData(ID3D11Asynchronous* pAsync, void* pData, uint dataSize, uint getDataFlags) 
+		public readonly unsafe HResult GetData(ID3D11Asynchronous* pAsync, void* pData, uint dataSize, uint getDataFlags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Asynchronous*, void*, uint, uint, int>)(LpVtbl[29]))(ptr, pAsync, pData, dataSize, getDataFlags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Asynchronous*, void*, uint, uint, HResult>)(LpVtbl[29]))(ptr, pAsync, pData, dataSize, getDataFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetData(ref ID3D11Asynchronous pAsync, void* pData, uint dataSize, uint getDataFlags) 
+		public readonly unsafe HResult GetData(ref ID3D11Asynchronous pAsync, void* pData, uint dataSize, uint getDataFlags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Asynchronous* ppAsync = &pAsync)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Asynchronous*, void*, uint, uint, int>)(LpVtbl[29]))(ptr, (ID3D11Asynchronous*)ppAsync, pData, dataSize, getDataFlags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Asynchronous*, void*, uint, uint, HResult>)(LpVtbl[29]))(ptr, (ID3D11Asynchronous*)ppAsync, pData, dataSize, getDataFlags);
 				return ret;
 			}
 		}
@@ -1194,51 +1194,51 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetData(ComPtr<ID3D11Asynchronous> pAsync, void* pData, uint dataSize, uint getDataFlags) 
+		public readonly unsafe HResult GetData(ComPtr<ID3D11Asynchronous> pAsync, void* pData, uint dataSize, uint getDataFlags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Asynchronous*, void*, uint, uint, int>)(LpVtbl[29]))(ptr, (ID3D11Asynchronous*)pAsync.Handle, pData, dataSize, getDataFlags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Asynchronous*, void*, uint, uint, HResult>)(LpVtbl[29]))(ptr, (ID3D11Asynchronous*)pAsync.Handle, pData, dataSize, getDataFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetData<T>(ID3D11Asynchronous* pAsync, ComPtr<T> pData, uint dataSize, uint getDataFlags) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetData<T>(ID3D11Asynchronous* pAsync, ComPtr<T> pData, uint dataSize, uint getDataFlags) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Asynchronous*, void*, uint, uint, int>)(LpVtbl[29]))(ptr, pAsync, (void*)pData.Handle, dataSize, getDataFlags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Asynchronous*, void*, uint, uint, HResult>)(LpVtbl[29]))(ptr, pAsync, (void*)pData.Handle, dataSize, getDataFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetData<T>(ComPtr<ID3D11Asynchronous> pAsync, ComPtr<T> pData, uint dataSize, uint getDataFlags) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetData<T>(ComPtr<ID3D11Asynchronous> pAsync, ComPtr<T> pData, uint dataSize, uint getDataFlags) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Asynchronous*, void*, uint, uint, int>)(LpVtbl[29]))(ptr, (ID3D11Asynchronous*)pAsync.Handle, (void*)pData.Handle, dataSize, getDataFlags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Asynchronous*, void*, uint, uint, HResult>)(LpVtbl[29]))(ptr, (ID3D11Asynchronous*)pAsync.Handle, (void*)pData.Handle, dataSize, getDataFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void SetPredication(ID3D11Predicate* pPredicate, int predicateValue) 
+		public readonly unsafe void SetPredication(ID3D11Predicate* pPredicate, Bool32 predicateValue) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Predicate*, int, void>)(LpVtbl[30]))(ptr, pPredicate, predicateValue);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Predicate*, Bool32, void>)(LpVtbl[30]))(ptr, pPredicate, predicateValue);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void SetPredication(ref ID3D11Predicate pPredicate, int predicateValue) 
+		public readonly unsafe void SetPredication(ref ID3D11Predicate pPredicate, Bool32 predicateValue) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Predicate* ppPredicate = &pPredicate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Predicate*, int, void>)(LpVtbl[30]))(ptr, (ID3D11Predicate*)ppPredicate, predicateValue);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Predicate*, Bool32, void>)(LpVtbl[30]))(ptr, (ID3D11Predicate*)ppPredicate, predicateValue);
 			}
 		}
 
@@ -3018,31 +3018,31 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void ExecuteCommandList(ID3D11CommandList* pCommandList, int restoreContextState) 
+		public readonly unsafe void ExecuteCommandList(ID3D11CommandList* pCommandList, Bool32 restoreContextState) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11CommandList*, int, void>)(LpVtbl[58]))(ptr, pCommandList, restoreContextState);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11CommandList*, Bool32, void>)(LpVtbl[58]))(ptr, pCommandList, restoreContextState);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void ExecuteCommandList(ref ID3D11CommandList pCommandList, int restoreContextState) 
+		public readonly unsafe void ExecuteCommandList(ref ID3D11CommandList pCommandList, Bool32 restoreContextState) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11CommandList* ppCommandList = &pCommandList)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11CommandList*, int, void>)(LpVtbl[58]))(ptr, (ID3D11CommandList*)ppCommandList, restoreContextState);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11CommandList*, Bool32, void>)(LpVtbl[58]))(ptr, (ID3D11CommandList*)ppCommandList, restoreContextState);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void ExecuteCommandList(ComPtr<ID3D11CommandList> pCommandList, int restoreContextState) 
+		public readonly unsafe void ExecuteCommandList(ComPtr<ID3D11CommandList> pCommandList, Bool32 restoreContextState) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11CommandList*, int, void>)(LpVtbl[58]))(ptr, (ID3D11CommandList*)pCommandList.Handle, restoreContextState);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11CommandList*, Bool32, void>)(LpVtbl[58]))(ptr, (ID3D11CommandList*)pCommandList.Handle, restoreContextState);
 		}
 
 		/// <summary>
@@ -4693,47 +4693,47 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void GetPredication(ID3D11Predicate** ppPredicate, int* pPredicateValue) 
+		public readonly unsafe void GetPredication(ID3D11Predicate** ppPredicate, Bool32* pPredicateValue) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Predicate**, int*, void>)(LpVtbl[86]))(ptr, ppPredicate, pPredicateValue);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Predicate**, Bool32*, void>)(LpVtbl[86]))(ptr, ppPredicate, pPredicateValue);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void GetPredication(ref ID3D11Predicate* ppPredicate, int* pPredicateValue) 
+		public readonly unsafe void GetPredication(ref ID3D11Predicate* ppPredicate, Bool32* pPredicateValue) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Predicate** pppPredicate = &ppPredicate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Predicate**, int*, void>)(LpVtbl[86]))(ptr, (ID3D11Predicate**)pppPredicate, pPredicateValue);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Predicate**, Bool32*, void>)(LpVtbl[86]))(ptr, (ID3D11Predicate**)pppPredicate, pPredicateValue);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void GetPredication(ID3D11Predicate** ppPredicate, ref int pPredicateValue) 
+		public readonly unsafe void GetPredication(ID3D11Predicate** ppPredicate, ref Bool32 pPredicateValue) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (int* ppPredicateValue = &pPredicateValue)
+			fixed (Bool32* ppPredicateValue = &pPredicateValue)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Predicate**, int*, void>)(LpVtbl[86]))(ptr, ppPredicate, (int*)ppPredicateValue);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Predicate**, Bool32*, void>)(LpVtbl[86]))(ptr, ppPredicate, (Bool32*)ppPredicateValue);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void GetPredication(ref ID3D11Predicate* ppPredicate, ref int pPredicateValue) 
+		public readonly unsafe void GetPredication(ref ID3D11Predicate* ppPredicate, ref Bool32 pPredicateValue) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Predicate** pppPredicate = &ppPredicate)
 			{
-				fixed (int* ppPredicateValue = &pPredicateValue)
+				fixed (Bool32* ppPredicateValue = &pPredicateValue)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Predicate**, int*, void>)(LpVtbl[86]))(ptr, (ID3D11Predicate**)pppPredicate, (int*)ppPredicateValue);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Predicate**, Bool32*, void>)(LpVtbl[86]))(ptr, (ID3D11Predicate**)pppPredicate, (Bool32*)ppPredicateValue);
 				}
 			}
 		}
@@ -6398,22 +6398,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int FinishCommandList(int restoreDeferredContextState, ID3D11CommandList** ppCommandList) 
+		public readonly unsafe HResult FinishCommandList(Bool32 restoreDeferredContextState, ID3D11CommandList** ppCommandList) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, int, ID3D11CommandList**, int>)(LpVtbl[114]))(ptr, restoreDeferredContextState, ppCommandList);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Bool32, ID3D11CommandList**, HResult>)(LpVtbl[114]))(ptr, restoreDeferredContextState, ppCommandList);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int FinishCommandList(int restoreDeferredContextState, ref ID3D11CommandList* ppCommandList) 
+		public readonly unsafe HResult FinishCommandList(Bool32 restoreDeferredContextState, ref ID3D11CommandList* ppCommandList) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11CommandList** pppCommandList = &ppCommandList)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, int, ID3D11CommandList**, int>)(LpVtbl[114]))(ptr, restoreDeferredContextState, (ID3D11CommandList**)pppCommandList);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Bool32, ID3D11CommandList**, HResult>)(LpVtbl[114]))(ptr, restoreDeferredContextState, (ID3D11CommandList**)pppCommandList);
 				return ret;
 			}
 		}
@@ -6421,11 +6421,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int FinishCommandList(int restoreDeferredContextState, out ComPtr<ID3D11CommandList> ppCommandList) 
+		public readonly unsafe HResult FinishCommandList(Bool32 restoreDeferredContextState, out ComPtr<ID3D11CommandList> ppCommandList) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppCommandList = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, int, ID3D11CommandList**, int>)(LpVtbl[114]))(ptr, restoreDeferredContextState, (ID3D11CommandList**)ppCommandList.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Bool32, ID3D11CommandList**, HResult>)(LpVtbl[114]))(ptr, restoreDeferredContextState, (ID3D11CommandList**)ppCommandList.GetAddressOf());
 			return ret;
 		}
 
@@ -9009,22 +9009,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9032,22 +9032,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9055,14 +9055,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
 			{
 				fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9071,12 +9071,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9084,12 +9084,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9097,14 +9097,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
 			{
 				fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9113,12 +9113,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9126,14 +9126,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9142,7 +9142,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -9151,7 +9151,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9161,14 +9161,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9177,12 +9177,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9190,24 +9190,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
 			{
 				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9216,24 +9216,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9242,12 +9242,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9255,7 +9255,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -9264,7 +9264,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9274,12 +9274,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9287,14 +9287,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
 				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9303,12 +9303,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9316,7 +9316,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -9325,7 +9325,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9335,12 +9335,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9348,7 +9348,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -9357,7 +9357,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9367,14 +9367,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9383,7 +9383,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -9394,7 +9394,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11Buffer* ppTilePool = &pTilePool)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -9405,14 +9405,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9421,12 +9421,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9434,14 +9434,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
 			{
 				fixed (uint* ppRangeFlags = &pRangeFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9450,12 +9450,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9463,14 +9463,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppRangeFlags = &pRangeFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9479,7 +9479,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -9488,7 +9488,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeFlags = &pRangeFlags)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9498,14 +9498,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppRangeFlags = &pRangeFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9514,14 +9514,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
 				fixed (uint* ppRangeFlags = &pRangeFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9530,7 +9530,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -9539,7 +9539,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeFlags = &pRangeFlags)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9549,14 +9549,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
 				fixed (uint* ppRangeFlags = &pRangeFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9565,7 +9565,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -9574,7 +9574,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeFlags = &pRangeFlags)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9584,7 +9584,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -9595,7 +9595,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeFlags = &pRangeFlags)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -9606,7 +9606,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -9615,7 +9615,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeFlags = &pRangeFlags)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9625,14 +9625,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
 			{
 				fixed (uint* ppRangeFlags = &pRangeFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9641,12 +9641,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9654,7 +9654,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -9663,7 +9663,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeFlags = &pRangeFlags)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9673,12 +9673,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9686,7 +9686,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -9695,7 +9695,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeFlags = &pRangeFlags)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9705,14 +9705,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppRangeFlags = &pRangeFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9721,7 +9721,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -9732,7 +9732,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeFlags = &pRangeFlags)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -9743,14 +9743,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppRangeFlags = &pRangeFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9759,7 +9759,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -9768,7 +9768,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeFlags = &pRangeFlags)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9778,14 +9778,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
 				fixed (uint* ppRangeFlags = &pRangeFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9794,7 +9794,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -9805,7 +9805,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeFlags = &pRangeFlags)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -9816,14 +9816,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
 				fixed (uint* ppRangeFlags = &pRangeFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9832,7 +9832,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -9843,7 +9843,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeFlags = &pRangeFlags)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -9854,7 +9854,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -9863,7 +9863,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeFlags = &pRangeFlags)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9873,7 +9873,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -9886,7 +9886,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeFlags = &pRangeFlags)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -9898,7 +9898,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -9907,7 +9907,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeFlags = &pRangeFlags)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9917,12 +9917,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9930,14 +9930,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9946,12 +9946,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -9959,14 +9959,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -9975,7 +9975,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -9984,7 +9984,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -9994,14 +9994,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -10010,14 +10010,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -10026,7 +10026,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10035,7 +10035,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10045,14 +10045,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -10061,7 +10061,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10070,7 +10070,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10080,7 +10080,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10091,7 +10091,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -10102,7 +10102,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10111,7 +10111,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10121,14 +10121,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -10137,12 +10137,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -10150,7 +10150,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10159,7 +10159,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10169,12 +10169,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -10182,7 +10182,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10191,7 +10191,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10201,14 +10201,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -10217,7 +10217,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10228,7 +10228,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -10239,14 +10239,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -10255,7 +10255,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -10264,7 +10264,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10274,14 +10274,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -10290,7 +10290,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10301,7 +10301,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -10312,14 +10312,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -10328,7 +10328,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10339,7 +10339,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -10350,7 +10350,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10359,7 +10359,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10369,7 +10369,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10382,7 +10382,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -10394,7 +10394,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10403,7 +10403,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10413,14 +10413,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -10429,7 +10429,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10438,7 +10438,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10448,14 +10448,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -10464,7 +10464,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10473,7 +10473,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10483,7 +10483,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10494,7 +10494,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -10505,7 +10505,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10514,7 +10514,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10524,7 +10524,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -10533,7 +10533,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10543,7 +10543,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10554,7 +10554,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -10565,7 +10565,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -10574,7 +10574,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10584,7 +10584,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10595,7 +10595,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -10606,7 +10606,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10619,7 +10619,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -10631,7 +10631,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10642,7 +10642,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -10653,7 +10653,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
@@ -10662,7 +10662,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10672,14 +10672,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -10688,7 +10688,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10699,7 +10699,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -10710,14 +10710,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -10726,7 +10726,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10737,7 +10737,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -10748,7 +10748,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10757,7 +10757,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10767,7 +10767,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10780,7 +10780,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -10792,7 +10792,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10801,7 +10801,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10811,7 +10811,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -10822,7 +10822,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -10833,7 +10833,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -10842,7 +10842,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10852,7 +10852,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10865,7 +10865,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -10877,7 +10877,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -10886,7 +10886,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -10896,7 +10896,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10909,7 +10909,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -10921,7 +10921,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10932,7 +10932,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -10943,7 +10943,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -10958,7 +10958,7 @@ namespace Hexa.NET.D3D11
 							{
 								fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 									return ret;
 								}
 							}
@@ -10971,7 +10971,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, uint* pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -10982,7 +10982,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -10993,12 +10993,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -11006,14 +11006,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11022,12 +11022,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -11035,14 +11035,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11051,7 +11051,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11060,7 +11060,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11070,14 +11070,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11086,14 +11086,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11102,7 +11102,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11111,7 +11111,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11121,14 +11121,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11137,7 +11137,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11146,7 +11146,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11156,7 +11156,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11167,7 +11167,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -11178,7 +11178,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11187,7 +11187,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11197,14 +11197,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11213,12 +11213,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -11226,7 +11226,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11235,7 +11235,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11245,12 +11245,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 				return ret;
 			}
 		}
@@ -11258,7 +11258,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11267,7 +11267,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11277,14 +11277,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11293,7 +11293,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11304,7 +11304,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -11315,14 +11315,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11331,7 +11331,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -11340,7 +11340,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11350,14 +11350,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11366,7 +11366,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11377,7 +11377,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -11388,14 +11388,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11404,7 +11404,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11415,7 +11415,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -11426,7 +11426,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11435,7 +11435,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11445,7 +11445,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11458,7 +11458,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -11470,7 +11470,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11479,7 +11479,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11489,14 +11489,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11505,7 +11505,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11514,7 +11514,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11524,14 +11524,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11540,7 +11540,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11549,7 +11549,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11559,7 +11559,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11570,7 +11570,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -11581,7 +11581,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11590,7 +11590,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11600,7 +11600,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -11609,7 +11609,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11619,7 +11619,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11630,7 +11630,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -11641,7 +11641,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -11650,7 +11650,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11660,7 +11660,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11671,7 +11671,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -11682,7 +11682,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11695,7 +11695,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -11707,7 +11707,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11718,7 +11718,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -11729,7 +11729,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
@@ -11738,7 +11738,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11748,14 +11748,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11764,7 +11764,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11775,7 +11775,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -11786,14 +11786,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -11802,7 +11802,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11813,7 +11813,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -11824,7 +11824,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11833,7 +11833,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11843,7 +11843,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11856,7 +11856,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -11868,7 +11868,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11877,7 +11877,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11887,7 +11887,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -11898,7 +11898,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -11909,7 +11909,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -11918,7 +11918,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11928,7 +11928,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -11941,7 +11941,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -11953,7 +11953,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -11962,7 +11962,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -11972,7 +11972,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -11985,7 +11985,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -11997,7 +11997,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12008,7 +12008,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12019,7 +12019,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12034,7 +12034,7 @@ namespace Hexa.NET.D3D11
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 									return ret;
 								}
 							}
@@ -12047,7 +12047,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, uint* pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12058,7 +12058,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12069,14 +12069,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -12085,7 +12085,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12094,7 +12094,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -12104,14 +12104,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -12120,7 +12120,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12129,7 +12129,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -12139,7 +12139,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12150,7 +12150,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12161,7 +12161,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12170,7 +12170,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -12180,7 +12180,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -12189,7 +12189,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -12199,7 +12199,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12210,7 +12210,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12221,7 +12221,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -12230,7 +12230,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -12240,7 +12240,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12251,7 +12251,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12262,7 +12262,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12275,7 +12275,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -12287,7 +12287,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12298,7 +12298,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12309,7 +12309,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
@@ -12318,7 +12318,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -12328,14 +12328,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -12344,7 +12344,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12355,7 +12355,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12366,14 +12366,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 					return ret;
 				}
 			}
@@ -12382,7 +12382,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12393,7 +12393,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12404,7 +12404,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12413,7 +12413,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -12423,7 +12423,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12436,7 +12436,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -12448,7 +12448,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12457,7 +12457,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -12467,7 +12467,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -12478,7 +12478,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12489,7 +12489,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -12498,7 +12498,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -12508,7 +12508,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12521,7 +12521,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -12533,7 +12533,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -12542,7 +12542,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -12552,7 +12552,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12565,7 +12565,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -12577,7 +12577,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12588,7 +12588,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12599,7 +12599,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12614,7 +12614,7 @@ namespace Hexa.NET.D3D11
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 									return ret;
 								}
 							}
@@ -12627,7 +12627,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, uint* pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12638,7 +12638,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12649,7 +12649,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
@@ -12658,7 +12658,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -12668,7 +12668,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12679,7 +12679,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12690,7 +12690,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
@@ -12699,7 +12699,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -12709,7 +12709,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12720,7 +12720,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12731,7 +12731,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12744,7 +12744,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -12756,7 +12756,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12767,7 +12767,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12778,7 +12778,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -12789,7 +12789,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12800,7 +12800,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12813,7 +12813,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -12825,7 +12825,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -12836,7 +12836,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12847,7 +12847,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12860,7 +12860,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -12872,7 +12872,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12887,7 +12887,7 @@ namespace Hexa.NET.D3D11
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 									return ret;
 								}
 							}
@@ -12900,7 +12900,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ID3D11Buffer* pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -12913,7 +12913,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -12925,7 +12925,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
@@ -12936,7 +12936,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -12947,7 +12947,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
@@ -12956,7 +12956,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -12966,7 +12966,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -12979,7 +12979,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -12991,7 +12991,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeFlags = &pRangeFlags)
@@ -13000,7 +13000,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 						return ret;
 					}
 				}
@@ -13010,7 +13010,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -13023,7 +13023,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -13035,7 +13035,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -13046,7 +13046,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -13057,7 +13057,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -13072,7 +13072,7 @@ namespace Hexa.NET.D3D11
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 									return ret;
 								}
 							}
@@ -13085,7 +13085,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, TileRegionSize* pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -13096,7 +13096,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -13107,7 +13107,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -13120,7 +13120,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -13132,7 +13132,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -13143,7 +13143,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -13154,7 +13154,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -13169,7 +13169,7 @@ namespace Hexa.NET.D3D11
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 									return ret;
 								}
 							}
@@ -13182,7 +13182,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
@@ -13193,7 +13193,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 							return ret;
 						}
 					}
@@ -13204,7 +13204,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -13219,7 +13219,7 @@ namespace Hexa.NET.D3D11
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 									return ret;
 								}
 							}
@@ -13232,7 +13232,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ID3D11Resource* pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -13245,7 +13245,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, pTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -13257,7 +13257,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ref ID3D11Resource pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ref ID3D11Buffer pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
@@ -13274,7 +13274,7 @@ namespace Hexa.NET.D3D11
 								{
 									fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+										HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 										return ret;
 									}
 								}
@@ -13288,7 +13288,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
+		public readonly unsafe HResult UpdateTileMappings(ComPtr<ID3D11Resource> pTiledResource, uint numTiledResourceRegions, ref TiledResourceCoordinate pTiledResourceRegionStartCoordinates, ref TileRegionSize pTiledResourceRegionSizes, ComPtr<ID3D11Buffer> pTilePool, uint numRanges, ref uint pRangeFlags, ref uint pTilePoolStartOffsets, ref uint pRangeTileCounts, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
@@ -13301,7 +13301,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, HResult>)(LpVtbl[134]))(ptr, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
 								return ret;
 							}
 						}
@@ -13313,22 +13313,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13336,22 +13336,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13359,14 +13359,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
 			{
 				fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13375,12 +13375,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13388,12 +13388,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppSourceTiledResource = &pSourceTiledResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13401,24 +13401,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
 			{
 				fixed (ID3D11Resource* ppSourceTiledResource = &pSourceTiledResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13427,24 +13427,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 			{
 				fixed (ID3D11Resource* ppSourceTiledResource = &pSourceTiledResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13453,12 +13453,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13466,7 +13466,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
@@ -13475,7 +13475,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Resource* ppSourceTiledResource = &pSourceTiledResource)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 						return ret;
 					}
 				}
@@ -13485,12 +13485,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, pTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13498,12 +13498,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13511,14 +13511,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
 			{
 				fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13527,12 +13527,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13540,14 +13540,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 			{
 				fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13556,7 +13556,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
@@ -13565,7 +13565,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 						return ret;
 					}
 				}
@@ -13575,14 +13575,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 			{
 				fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13591,14 +13591,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppSourceTiledResource = &pSourceTiledResource)
 			{
 				fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13607,12 +13607,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13620,7 +13620,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
@@ -13629,7 +13629,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 						return ret;
 					}
 				}
@@ -13639,12 +13639,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13652,7 +13652,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
@@ -13661,7 +13661,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 						return ret;
 					}
 				}
@@ -13671,14 +13671,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 			{
 				fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13687,7 +13687,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
@@ -13698,7 +13698,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 							return ret;
 						}
 					}
@@ -13709,14 +13709,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, TileRegionSize* pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 			{
 				fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13725,12 +13725,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13738,14 +13738,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
 			{
 				fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13754,12 +13754,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13767,14 +13767,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 			{
 				fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13783,7 +13783,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
@@ -13792,7 +13792,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 						return ret;
 					}
 				}
@@ -13802,14 +13802,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 			{
 				fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13818,14 +13818,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppSourceTiledResource = &pSourceTiledResource)
 			{
 				fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13834,12 +13834,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13847,7 +13847,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
@@ -13856,7 +13856,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 						return ret;
 					}
 				}
@@ -13866,12 +13866,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 				return ret;
 			}
 		}
@@ -13879,7 +13879,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
@@ -13888,7 +13888,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 						return ret;
 					}
 				}
@@ -13898,14 +13898,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 			{
 				fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13914,7 +13914,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
@@ -13925,7 +13925,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 							return ret;
 						}
 					}
@@ -13936,14 +13936,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, TiledResourceCoordinate* pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
 			{
 				fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13952,14 +13952,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 			{
 				fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -13968,7 +13968,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
@@ -13977,7 +13977,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 						return ret;
 					}
 				}
@@ -13987,14 +13987,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 			{
 				fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -14003,7 +14003,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
@@ -14012,7 +14012,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 						return ret;
 					}
 				}
@@ -14022,7 +14022,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
@@ -14033,7 +14033,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 							return ret;
 						}
 					}
@@ -14044,7 +14044,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ID3D11Resource* pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
@@ -14053,7 +14053,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 						return ret;
 					}
 				}
@@ -14063,7 +14063,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppSourceTiledResource = &pSourceTiledResource)
@@ -14072,7 +14072,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 						return ret;
 					}
 				}
@@ -14082,14 +14082,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 			{
 				fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -14098,7 +14098,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
@@ -14109,7 +14109,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 							return ret;
 						}
 					}
@@ -14120,14 +14120,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, TiledResourceCoordinate* pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
 			{
 				fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 					return ret;
 				}
 			}
@@ -14136,7 +14136,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
@@ -14147,7 +14147,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 							return ret;
 						}
 					}
@@ -14158,7 +14158,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ID3D11Resource* pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
@@ -14167,7 +14167,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, pDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 						return ret;
 					}
 				}
@@ -14177,7 +14177,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ref ID3D11Resource pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ref ID3D11Resource pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
@@ -14190,7 +14190,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)ppDestTiledResource, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 								return ret;
 							}
 						}
@@ -14202,7 +14202,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
+		public readonly unsafe HResult CopyTileMappings(ComPtr<ID3D11Resource> pDestTiledResource, ref TiledResourceCoordinate pDestRegionStartCoordinate, ComPtr<ID3D11Resource> pSourceTiledResource, ref TiledResourceCoordinate pSourceRegionStartCoordinate, ref TileRegionSize pTileRegionSize, uint flags) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
@@ -14211,7 +14211,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, int>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, TiledResourceCoordinate*, ID3D11Resource*, TiledResourceCoordinate*, TileRegionSize*, uint, HResult>)(LpVtbl[135]))(ptr, (ID3D11Resource*)pDestTiledResource.Handle, (TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (TiledResourceCoordinate*)ppSourceRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, flags);
 						return ret;
 					}
 				}
@@ -14761,22 +14761,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ResizeTilePool(ID3D11Buffer* pTilePool, ulong newSizeInBytes) 
+		public readonly unsafe HResult ResizeTilePool(ID3D11Buffer* pTilePool, ulong newSizeInBytes) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Buffer*, ulong, int>)(LpVtbl[138]))(ptr, pTilePool, newSizeInBytes);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Buffer*, ulong, HResult>)(LpVtbl[138]))(ptr, pTilePool, newSizeInBytes);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ResizeTilePool(ref ID3D11Buffer pTilePool, ulong newSizeInBytes) 
+		public readonly unsafe HResult ResizeTilePool(ref ID3D11Buffer pTilePool, ulong newSizeInBytes) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Buffer*, ulong, int>)(LpVtbl[138]))(ptr, (ID3D11Buffer*)ppTilePool, newSizeInBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Buffer*, ulong, HResult>)(LpVtbl[138]))(ptr, (ID3D11Buffer*)ppTilePool, newSizeInBytes);
 				return ret;
 			}
 		}
@@ -14784,10 +14784,10 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ResizeTilePool(ComPtr<ID3D11Buffer> pTilePool, ulong newSizeInBytes) 
+		public readonly unsafe HResult ResizeTilePool(ComPtr<ID3D11Buffer> pTilePool, ulong newSizeInBytes) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Buffer*, ulong, int>)(LpVtbl[138]))(ptr, (ID3D11Buffer*)pTilePool.Handle, newSizeInBytes);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Buffer*, ulong, HResult>)(LpVtbl[138]))(ptr, (ID3D11Buffer*)pTilePool.Handle, newSizeInBytes);
 			return ret;
 		}
 
@@ -14869,10 +14869,10 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int IsAnnotationEnabled() 
+		public readonly unsafe Bool32 IsAnnotationEnabled() 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, int>)(LpVtbl[140]))(ptr);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Bool32>)(LpVtbl[140]))(ptr);
 			return ret;
 		}
 
@@ -14999,52 +14999,52 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void SetHardwareProtectionState(int hwProtectionEnable) 
+		public readonly unsafe void SetHardwareProtectionState(Bool32 hwProtectionEnable) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, int, void>)(LpVtbl[145]))(ptr, hwProtectionEnable);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Bool32, void>)(LpVtbl[145]))(ptr, hwProtectionEnable);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void GetHardwareProtectionState(int* pHwProtectionEnable) 
+		public readonly unsafe void GetHardwareProtectionState(Bool32* pHwProtectionEnable) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, int*, void>)(LpVtbl[146]))(ptr, pHwProtectionEnable);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Bool32*, void>)(LpVtbl[146]))(ptr, pHwProtectionEnable);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void GetHardwareProtectionState(ref int pHwProtectionEnable) 
+		public readonly unsafe void GetHardwareProtectionState(ref Bool32 pHwProtectionEnable) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (int* ppHwProtectionEnable = &pHwProtectionEnable)
+			fixed (Bool32* ppHwProtectionEnable = &pHwProtectionEnable)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, int*, void>)(LpVtbl[146]))(ptr, (int*)ppHwProtectionEnable);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, Bool32*, void>)(LpVtbl[146]))(ptr, (Bool32*)ppHwProtectionEnable);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Signal(ID3D11Fence* pFence, ulong value) 
+		public readonly unsafe HResult Signal(ID3D11Fence* pFence, ulong value) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Fence*, ulong, int>)(LpVtbl[147]))(ptr, pFence, value);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Fence*, ulong, HResult>)(LpVtbl[147]))(ptr, pFence, value);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Signal(ref ID3D11Fence pFence, ulong value) 
+		public readonly unsafe HResult Signal(ref ID3D11Fence pFence, ulong value) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Fence* ppFence = &pFence)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Fence*, ulong, int>)(LpVtbl[147]))(ptr, (ID3D11Fence*)ppFence, value);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Fence*, ulong, HResult>)(LpVtbl[147]))(ptr, (ID3D11Fence*)ppFence, value);
 				return ret;
 			}
 		}
@@ -15052,32 +15052,32 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Signal(ComPtr<ID3D11Fence> pFence, ulong value) 
+		public readonly unsafe HResult Signal(ComPtr<ID3D11Fence> pFence, ulong value) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Fence*, ulong, int>)(LpVtbl[147]))(ptr, (ID3D11Fence*)pFence.Handle, value);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Fence*, ulong, HResult>)(LpVtbl[147]))(ptr, (ID3D11Fence*)pFence.Handle, value);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Wait(ID3D11Fence* pFence, ulong value) 
+		public readonly unsafe HResult Wait(ID3D11Fence* pFence, ulong value) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Fence*, ulong, int>)(LpVtbl[148]))(ptr, pFence, value);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Fence*, ulong, HResult>)(LpVtbl[148]))(ptr, pFence, value);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Wait(ref ID3D11Fence pFence, ulong value) 
+		public readonly unsafe HResult Wait(ref ID3D11Fence pFence, ulong value) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Fence* ppFence = &pFence)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Fence*, ulong, int>)(LpVtbl[148]))(ptr, (ID3D11Fence*)ppFence, value);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Fence*, ulong, HResult>)(LpVtbl[148]))(ptr, (ID3D11Fence*)ppFence, value);
 				return ret;
 			}
 		}
@@ -15085,10 +15085,10 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Wait(ComPtr<ID3D11Fence> pFence, ulong value) 
+		public readonly unsafe HResult Wait(ComPtr<ID3D11Fence> pFence, ulong value) 
 		{
 			ID3D11DeviceContext4* ptr = (ID3D11DeviceContext4*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Fence*, ulong, int>)(LpVtbl[148]))(ptr, (ID3D11Fence*)pFence.Handle, value);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Fence*, ulong, HResult>)(LpVtbl[148]))(ptr, (ID3D11Fence*)pFence.Handle, value);
 			return ret;
 		}
 

@@ -35,78 +35,78 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int OutputMergerLogicOp;
+		public Bool32 OutputMergerLogicOp;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int UAVOnlyRenderingForcedSampleCount;
+		public Bool32 UAVOnlyRenderingForcedSampleCount;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DiscardAPIsSeenByDriver;
+		public Bool32 DiscardAPIsSeenByDriver;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int FlagsForUpdateAndCopySeenByDriver;
+		public Bool32 FlagsForUpdateAndCopySeenByDriver;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ClearView;
+		public Bool32 ClearView;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int CopyWithOverlap;
+		public Bool32 CopyWithOverlap;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ConstantBufferPartialUpdate;
+		public Bool32 ConstantBufferPartialUpdate;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ConstantBufferOffsetting;
+		public Bool32 ConstantBufferOffsetting;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int MapNoOverwriteOnDynamicConstantBuffer;
+		public Bool32 MapNoOverwriteOnDynamicConstantBuffer;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int MapNoOverwriteOnDynamicBufferSRV;
+		public Bool32 MapNoOverwriteOnDynamicBufferSRV;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int MultisampleRTVWithForcedSampleCountOne;
+		public Bool32 MultisampleRTVWithForcedSampleCountOne;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int SAD4ShaderInstructions;
+		public Bool32 SAD4ShaderInstructions;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ExtendedDoublesShaderInstructions;
+		public Bool32 ExtendedDoublesShaderInstructions;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ExtendedResourceSharing;
+		public Bool32 ExtendedResourceSharing;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D11Options(int outputMergerLogicOp = default, int uavOnlyRenderingForcedSampleCount = default, int discardApIsSeenByDriver = default, int flagsForUpdateAndCopySeenByDriver = default, int clearView = default, int copyWithOverlap = default, int constantBufferPartialUpdate = default, int constantBufferOffsetting = default, int mapNoOverwriteOnDynamicConstantBuffer = default, int mapNoOverwriteOnDynamicBufferSrv = default, int multisampleRtvWithForcedSampleCountOne = default, int sad4ShaderInstructions = default, int extendedDoublesShaderInstructions = default, int extendedResourceSharing = default)
+		public unsafe FeatureDataD3D11Options(Bool32 outputMergerLogicOp = default, Bool32 uavOnlyRenderingForcedSampleCount = default, Bool32 discardApIsSeenByDriver = default, Bool32 flagsForUpdateAndCopySeenByDriver = default, Bool32 clearView = default, Bool32 copyWithOverlap = default, Bool32 constantBufferPartialUpdate = default, Bool32 constantBufferOffsetting = default, Bool32 mapNoOverwriteOnDynamicConstantBuffer = default, Bool32 mapNoOverwriteOnDynamicBufferSrv = default, Bool32 multisampleRtvWithForcedSampleCountOne = default, Bool32 sad4ShaderInstructions = default, Bool32 extendedDoublesShaderInstructions = default, Bool32 extendedResourceSharing = default)
 		{
 			OutputMergerLogicOp = outputMergerLogicOp;
 			UAVOnlyRenderingForcedSampleCount = uavOnlyRenderingForcedSampleCount;

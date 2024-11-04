@@ -23,32 +23,32 @@ namespace Hexa.NET.D3D12
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int SerializeRootSignatureNative(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
+		internal static HResult SerializeRootSignatureNative(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<RootSignatureDesc*, RootSignatureVersion, ID3D10Blob**, ID3D10Blob**, int>)funcTable[0])(pRootSignature, version, ppBlob, ppErrorBlob);
+			return ((delegate* unmanaged[Cdecl]<RootSignatureDesc*, RootSignatureVersion, ID3D10Blob**, ID3D10Blob**, HResult>)funcTable[0])(pRootSignature, version, ppBlob, ppErrorBlob);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, RootSignatureVersion, nint, nint, int>)funcTable[0])((nint)pRootSignature, version, (nint)ppBlob, (nint)ppErrorBlob);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, RootSignatureVersion, nint, nint, HResult>)funcTable[0])((nint)pRootSignature, version, (nint)ppBlob, (nint)ppErrorBlob);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeRootSignature(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
+		public static HResult SerializeRootSignature(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
 		{
-			int ret = SerializeRootSignatureNative(pRootSignature, version, ppBlob, ppErrorBlob);
+			HResult ret = SerializeRootSignatureNative(pRootSignature, version, ppBlob, ppErrorBlob);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeRootSignature(ref RootSignatureDesc pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
+		public static HResult SerializeRootSignature(ref RootSignatureDesc pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			fixed (RootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
-				int ret = SerializeRootSignatureNative((RootSignatureDesc*)ppRootSignature, version, ppBlob, ppErrorBlob);
+				HResult ret = SerializeRootSignatureNative((RootSignatureDesc*)ppRootSignature, version, ppBlob, ppErrorBlob);
 				return ret;
 			}
 		}
@@ -56,11 +56,11 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeRootSignature(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ref ID3D10Blob* ppBlob, ID3D10Blob** ppErrorBlob)
+		public static HResult SerializeRootSignature(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ref ID3D10Blob* ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			fixed (ID3D10Blob** pppBlob = &ppBlob)
 			{
-				int ret = SerializeRootSignatureNative(pRootSignature, version, (ID3D10Blob**)pppBlob, ppErrorBlob);
+				HResult ret = SerializeRootSignatureNative(pRootSignature, version, (ID3D10Blob**)pppBlob, ppErrorBlob);
 				return ret;
 			}
 		}
@@ -68,13 +68,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeRootSignature(ref RootSignatureDesc pRootSignature, RootSignatureVersion version, ref ID3D10Blob* ppBlob, ID3D10Blob** ppErrorBlob)
+		public static HResult SerializeRootSignature(ref RootSignatureDesc pRootSignature, RootSignatureVersion version, ref ID3D10Blob* ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			fixed (RootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
 				fixed (ID3D10Blob** pppBlob = &ppBlob)
 				{
-					int ret = SerializeRootSignatureNative((RootSignatureDesc*)ppRootSignature, version, (ID3D10Blob**)pppBlob, ppErrorBlob);
+					HResult ret = SerializeRootSignatureNative((RootSignatureDesc*)ppRootSignature, version, (ID3D10Blob**)pppBlob, ppErrorBlob);
 					return ret;
 				}
 			}
@@ -83,11 +83,11 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeRootSignature(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ref ID3D10Blob* ppErrorBlob)
+		public static HResult SerializeRootSignature(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
 			fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 			{
-				int ret = SerializeRootSignatureNative(pRootSignature, version, ppBlob, (ID3D10Blob**)pppErrorBlob);
+				HResult ret = SerializeRootSignatureNative(pRootSignature, version, ppBlob, (ID3D10Blob**)pppErrorBlob);
 				return ret;
 			}
 		}
@@ -95,13 +95,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeRootSignature(ref RootSignatureDesc pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ref ID3D10Blob* ppErrorBlob)
+		public static HResult SerializeRootSignature(ref RootSignatureDesc pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
 			fixed (RootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
 				fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 				{
-					int ret = SerializeRootSignatureNative((RootSignatureDesc*)ppRootSignature, version, ppBlob, (ID3D10Blob**)pppErrorBlob);
+					HResult ret = SerializeRootSignatureNative((RootSignatureDesc*)ppRootSignature, version, ppBlob, (ID3D10Blob**)pppErrorBlob);
 					return ret;
 				}
 			}
@@ -110,13 +110,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeRootSignature(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ref ID3D10Blob* ppBlob, ref ID3D10Blob* ppErrorBlob)
+		public static HResult SerializeRootSignature(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ref ID3D10Blob* ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
 			fixed (ID3D10Blob** pppBlob = &ppBlob)
 			{
 				fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 				{
-					int ret = SerializeRootSignatureNative(pRootSignature, version, (ID3D10Blob**)pppBlob, (ID3D10Blob**)pppErrorBlob);
+					HResult ret = SerializeRootSignatureNative(pRootSignature, version, (ID3D10Blob**)pppBlob, (ID3D10Blob**)pppErrorBlob);
 					return ret;
 				}
 			}
@@ -125,7 +125,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeRootSignature(ref RootSignatureDesc pRootSignature, RootSignatureVersion version, ref ID3D10Blob* ppBlob, ref ID3D10Blob* ppErrorBlob)
+		public static HResult SerializeRootSignature(ref RootSignatureDesc pRootSignature, RootSignatureVersion version, ref ID3D10Blob* ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
 			fixed (RootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
@@ -133,7 +133,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 					{
-						int ret = SerializeRootSignatureNative((RootSignatureDesc*)ppRootSignature, version, (ID3D10Blob**)pppBlob, (ID3D10Blob**)pppErrorBlob);
+						HResult ret = SerializeRootSignatureNative((RootSignatureDesc*)ppRootSignature, version, (ID3D10Blob**)pppBlob, (ID3D10Blob**)pppErrorBlob);
 						return ret;
 					}
 				}
@@ -144,32 +144,32 @@ namespace Hexa.NET.D3D12
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateRootSignatureDeserializerNative(void* pSrcData, nuint srcDataSizeInBytes, Guid* pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
+		internal static HResult CreateRootSignatureDeserializerNative(void* pSrcData, nuint srcDataSizeInBytes, Guid* pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, Guid*, void**, int>)funcTable[1])(pSrcData, srcDataSizeInBytes, pRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, Guid*, void**, HResult>)funcTable[1])(pSrcData, srcDataSizeInBytes, pRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, nint, nint, int>)funcTable[1])((nint)pSrcData, srcDataSizeInBytes, (nint)pRootSignatureDeserializerInterface, (nint)ppRootSignatureDeserializer);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, nint, nint, HResult>)funcTable[1])((nint)pSrcData, srcDataSizeInBytes, (nint)pRootSignatureDeserializerInterface, (nint)ppRootSignatureDeserializer);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRootSignatureDeserializer(void* pSrcData, nuint srcDataSizeInBytes, Guid* pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
+		public static HResult CreateRootSignatureDeserializer(void* pSrcData, nuint srcDataSizeInBytes, Guid* pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
 		{
-			int ret = CreateRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, pRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
+			HResult ret = CreateRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, pRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRootSignatureDeserializer(void* pSrcData, nuint srcDataSizeInBytes, ref Guid pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
+		public static HResult CreateRootSignatureDeserializer(void* pSrcData, nuint srcDataSizeInBytes, ref Guid pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
 		{
 			fixed (Guid* ppRootSignatureDeserializerInterface = &pRootSignatureDeserializerInterface)
 			{
-				int ret = CreateRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)ppRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
+				HResult ret = CreateRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)ppRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
 				return ret;
 			}
 		}
@@ -177,22 +177,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRootSignatureDeserializer<T>(void* pSrcData, nuint srcDataSizeInBytes, out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult CreateRootSignatureDeserializer<T>(void* pSrcData, nuint srcDataSizeInBytes, out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppRootSignatureDeserializer = default;
-			int ret = CreateRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppRootSignatureDeserializer.GetAddressOf());
+			HResult ret = CreateRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppRootSignatureDeserializer.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRootSignatureDeserializer<T>(void* pSrcData, nuint srcDataSizeInBytes, ref Guid pRootSignatureDeserializerInterface, out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult CreateRootSignatureDeserializer<T>(void* pSrcData, nuint srcDataSizeInBytes, ref Guid pRootSignatureDeserializerInterface, out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* ppRootSignatureDeserializerInterface = &pRootSignatureDeserializerInterface)
 			{
 				ppRootSignatureDeserializer = default;
-				int ret = CreateRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)ppRootSignatureDeserializerInterface, (void**)ppRootSignatureDeserializer.GetAddressOf());
+				HResult ret = CreateRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)ppRootSignatureDeserializerInterface, (void**)ppRootSignatureDeserializer.GetAddressOf());
 				return ret;
 			}
 		}
@@ -201,32 +201,32 @@ namespace Hexa.NET.D3D12
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int SerializeVersionedRootSignatureNative(VersionedRootSignatureDesc* pRootSignature, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
+		internal static HResult SerializeVersionedRootSignatureNative(VersionedRootSignatureDesc* pRootSignature, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<VersionedRootSignatureDesc*, ID3D10Blob**, ID3D10Blob**, int>)funcTable[2])(pRootSignature, ppBlob, ppErrorBlob);
+			return ((delegate* unmanaged[Cdecl]<VersionedRootSignatureDesc*, ID3D10Blob**, ID3D10Blob**, HResult>)funcTable[2])(pRootSignature, ppBlob, ppErrorBlob);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nint, nint, int>)funcTable[2])((nint)pRootSignature, (nint)ppBlob, (nint)ppErrorBlob);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, HResult>)funcTable[2])((nint)pRootSignature, (nint)ppBlob, (nint)ppErrorBlob);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeVersionedRootSignature(VersionedRootSignatureDesc* pRootSignature, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
+		public static HResult SerializeVersionedRootSignature(VersionedRootSignatureDesc* pRootSignature, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
 		{
-			int ret = SerializeVersionedRootSignatureNative(pRootSignature, ppBlob, ppErrorBlob);
+			HResult ret = SerializeVersionedRootSignatureNative(pRootSignature, ppBlob, ppErrorBlob);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeVersionedRootSignature(ref VersionedRootSignatureDesc pRootSignature, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
+		public static HResult SerializeVersionedRootSignature(ref VersionedRootSignatureDesc pRootSignature, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			fixed (VersionedRootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
-				int ret = SerializeVersionedRootSignatureNative((VersionedRootSignatureDesc*)ppRootSignature, ppBlob, ppErrorBlob);
+				HResult ret = SerializeVersionedRootSignatureNative((VersionedRootSignatureDesc*)ppRootSignature, ppBlob, ppErrorBlob);
 				return ret;
 			}
 		}
@@ -234,11 +234,11 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeVersionedRootSignature(VersionedRootSignatureDesc* pRootSignature, ref ID3D10Blob* ppBlob, ID3D10Blob** ppErrorBlob)
+		public static HResult SerializeVersionedRootSignature(VersionedRootSignatureDesc* pRootSignature, ref ID3D10Blob* ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			fixed (ID3D10Blob** pppBlob = &ppBlob)
 			{
-				int ret = SerializeVersionedRootSignatureNative(pRootSignature, (ID3D10Blob**)pppBlob, ppErrorBlob);
+				HResult ret = SerializeVersionedRootSignatureNative(pRootSignature, (ID3D10Blob**)pppBlob, ppErrorBlob);
 				return ret;
 			}
 		}
@@ -246,13 +246,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeVersionedRootSignature(ref VersionedRootSignatureDesc pRootSignature, ref ID3D10Blob* ppBlob, ID3D10Blob** ppErrorBlob)
+		public static HResult SerializeVersionedRootSignature(ref VersionedRootSignatureDesc pRootSignature, ref ID3D10Blob* ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			fixed (VersionedRootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
 				fixed (ID3D10Blob** pppBlob = &ppBlob)
 				{
-					int ret = SerializeVersionedRootSignatureNative((VersionedRootSignatureDesc*)ppRootSignature, (ID3D10Blob**)pppBlob, ppErrorBlob);
+					HResult ret = SerializeVersionedRootSignatureNative((VersionedRootSignatureDesc*)ppRootSignature, (ID3D10Blob**)pppBlob, ppErrorBlob);
 					return ret;
 				}
 			}
@@ -261,11 +261,11 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeVersionedRootSignature(VersionedRootSignatureDesc* pRootSignature, ID3D10Blob** ppBlob, ref ID3D10Blob* ppErrorBlob)
+		public static HResult SerializeVersionedRootSignature(VersionedRootSignatureDesc* pRootSignature, ID3D10Blob** ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
 			fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 			{
-				int ret = SerializeVersionedRootSignatureNative(pRootSignature, ppBlob, (ID3D10Blob**)pppErrorBlob);
+				HResult ret = SerializeVersionedRootSignatureNative(pRootSignature, ppBlob, (ID3D10Blob**)pppErrorBlob);
 				return ret;
 			}
 		}
@@ -273,13 +273,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeVersionedRootSignature(ref VersionedRootSignatureDesc pRootSignature, ID3D10Blob** ppBlob, ref ID3D10Blob* ppErrorBlob)
+		public static HResult SerializeVersionedRootSignature(ref VersionedRootSignatureDesc pRootSignature, ID3D10Blob** ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
 			fixed (VersionedRootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
 				fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 				{
-					int ret = SerializeVersionedRootSignatureNative((VersionedRootSignatureDesc*)ppRootSignature, ppBlob, (ID3D10Blob**)pppErrorBlob);
+					HResult ret = SerializeVersionedRootSignatureNative((VersionedRootSignatureDesc*)ppRootSignature, ppBlob, (ID3D10Blob**)pppErrorBlob);
 					return ret;
 				}
 			}
@@ -288,13 +288,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeVersionedRootSignature(VersionedRootSignatureDesc* pRootSignature, ref ID3D10Blob* ppBlob, ref ID3D10Blob* ppErrorBlob)
+		public static HResult SerializeVersionedRootSignature(VersionedRootSignatureDesc* pRootSignature, ref ID3D10Blob* ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
 			fixed (ID3D10Blob** pppBlob = &ppBlob)
 			{
 				fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 				{
-					int ret = SerializeVersionedRootSignatureNative(pRootSignature, (ID3D10Blob**)pppBlob, (ID3D10Blob**)pppErrorBlob);
+					HResult ret = SerializeVersionedRootSignatureNative(pRootSignature, (ID3D10Blob**)pppBlob, (ID3D10Blob**)pppErrorBlob);
 					return ret;
 				}
 			}
@@ -303,7 +303,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SerializeVersionedRootSignature(ref VersionedRootSignatureDesc pRootSignature, ref ID3D10Blob* ppBlob, ref ID3D10Blob* ppErrorBlob)
+		public static HResult SerializeVersionedRootSignature(ref VersionedRootSignatureDesc pRootSignature, ref ID3D10Blob* ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
 			fixed (VersionedRootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
@@ -311,7 +311,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 					{
-						int ret = SerializeVersionedRootSignatureNative((VersionedRootSignatureDesc*)ppRootSignature, (ID3D10Blob**)pppBlob, (ID3D10Blob**)pppErrorBlob);
+						HResult ret = SerializeVersionedRootSignatureNative((VersionedRootSignatureDesc*)ppRootSignature, (ID3D10Blob**)pppBlob, (ID3D10Blob**)pppErrorBlob);
 						return ret;
 					}
 				}
@@ -322,32 +322,32 @@ namespace Hexa.NET.D3D12
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateVersionedRootSignatureDeserializerNative(void* pSrcData, nuint srcDataSizeInBytes, Guid* pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
+		internal static HResult CreateVersionedRootSignatureDeserializerNative(void* pSrcData, nuint srcDataSizeInBytes, Guid* pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, Guid*, void**, int>)funcTable[3])(pSrcData, srcDataSizeInBytes, pRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, Guid*, void**, HResult>)funcTable[3])(pSrcData, srcDataSizeInBytes, pRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, nint, nint, int>)funcTable[3])((nint)pSrcData, srcDataSizeInBytes, (nint)pRootSignatureDeserializerInterface, (nint)ppRootSignatureDeserializer);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, nint, nint, HResult>)funcTable[3])((nint)pSrcData, srcDataSizeInBytes, (nint)pRootSignatureDeserializerInterface, (nint)ppRootSignatureDeserializer);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateVersionedRootSignatureDeserializer(void* pSrcData, nuint srcDataSizeInBytes, Guid* pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
+		public static HResult CreateVersionedRootSignatureDeserializer(void* pSrcData, nuint srcDataSizeInBytes, Guid* pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
 		{
-			int ret = CreateVersionedRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, pRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
+			HResult ret = CreateVersionedRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, pRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateVersionedRootSignatureDeserializer(void* pSrcData, nuint srcDataSizeInBytes, ref Guid pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
+		public static HResult CreateVersionedRootSignatureDeserializer(void* pSrcData, nuint srcDataSizeInBytes, ref Guid pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
 		{
 			fixed (Guid* ppRootSignatureDeserializerInterface = &pRootSignatureDeserializerInterface)
 			{
-				int ret = CreateVersionedRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)ppRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
+				HResult ret = CreateVersionedRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)ppRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
 				return ret;
 			}
 		}
@@ -355,22 +355,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateVersionedRootSignatureDeserializer<T>(void* pSrcData, nuint srcDataSizeInBytes, out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult CreateVersionedRootSignatureDeserializer<T>(void* pSrcData, nuint srcDataSizeInBytes, out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppRootSignatureDeserializer = default;
-			int ret = CreateVersionedRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppRootSignatureDeserializer.GetAddressOf());
+			HResult ret = CreateVersionedRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppRootSignatureDeserializer.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateVersionedRootSignatureDeserializer<T>(void* pSrcData, nuint srcDataSizeInBytes, ref Guid pRootSignatureDeserializerInterface, out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult CreateVersionedRootSignatureDeserializer<T>(void* pSrcData, nuint srcDataSizeInBytes, ref Guid pRootSignatureDeserializerInterface, out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* ppRootSignatureDeserializerInterface = &pRootSignatureDeserializerInterface)
 			{
 				ppRootSignatureDeserializer = default;
-				int ret = CreateVersionedRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)ppRootSignatureDeserializerInterface, (void**)ppRootSignatureDeserializer.GetAddressOf());
+				HResult ret = CreateVersionedRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)ppRootSignatureDeserializerInterface, (void**)ppRootSignatureDeserializer.GetAddressOf());
 				return ret;
 			}
 		}
@@ -379,32 +379,32 @@ namespace Hexa.NET.D3D12
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateDeviceNative(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, Guid* riid, void** ppDevice)
+		internal static HResult CreateDeviceNative(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, Guid* riid, void** ppDevice)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<IUnknown*, FeatureLevel, Guid*, void**, int>)funcTable[4])(pAdapter, minimumFeatureLevel, riid, ppDevice);
+			return ((delegate* unmanaged[Cdecl]<IUnknown*, FeatureLevel, Guid*, void**, HResult>)funcTable[4])(pAdapter, minimumFeatureLevel, riid, ppDevice);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, FeatureLevel, nint, nint, int>)funcTable[4])((nint)pAdapter, minimumFeatureLevel, (nint)riid, (nint)ppDevice);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, FeatureLevel, nint, nint, HResult>)funcTable[4])((nint)pAdapter, minimumFeatureLevel, (nint)riid, (nint)ppDevice);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, Guid* riid, void** ppDevice)
+		public static HResult CreateDevice(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, Guid* riid, void** ppDevice)
 		{
-			int ret = CreateDeviceNative(pAdapter, minimumFeatureLevel, riid, ppDevice);
+			HResult ret = CreateDeviceNative(pAdapter, minimumFeatureLevel, riid, ppDevice);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IUnknown pAdapter, FeatureLevel minimumFeatureLevel, Guid* riid, void** ppDevice)
+		public static HResult CreateDevice(ref IUnknown pAdapter, FeatureLevel minimumFeatureLevel, Guid* riid, void** ppDevice)
 		{
 			fixed (IUnknown* ppAdapter = &pAdapter)
 			{
-				int ret = CreateDeviceNative((IUnknown*)ppAdapter, minimumFeatureLevel, riid, ppDevice);
+				HResult ret = CreateDeviceNative((IUnknown*)ppAdapter, minimumFeatureLevel, riid, ppDevice);
 				return ret;
 			}
 		}
@@ -412,20 +412,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IUnknown> pAdapter, FeatureLevel minimumFeatureLevel, Guid* riid, void** ppDevice)
+		public static HResult CreateDevice(ComPtr<IUnknown> pAdapter, FeatureLevel minimumFeatureLevel, Guid* riid, void** ppDevice)
 		{
-			int ret = CreateDeviceNative((IUnknown*)pAdapter.Handle, minimumFeatureLevel, riid, ppDevice);
+			HResult ret = CreateDeviceNative((IUnknown*)pAdapter.Handle, minimumFeatureLevel, riid, ppDevice);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, void** ppDevice)
+		public static HResult CreateDevice(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, void** ppDevice)
 		{
 			fixed (Guid* priid = &riid)
 			{
-				int ret = CreateDeviceNative(pAdapter, minimumFeatureLevel, (Guid*)priid, ppDevice);
+				HResult ret = CreateDeviceNative(pAdapter, minimumFeatureLevel, (Guid*)priid, ppDevice);
 				return ret;
 			}
 		}
@@ -433,13 +433,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IUnknown pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, void** ppDevice)
+		public static HResult CreateDevice(ref IUnknown pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, void** ppDevice)
 		{
 			fixed (IUnknown* ppAdapter = &pAdapter)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = CreateDeviceNative((IUnknown*)ppAdapter, minimumFeatureLevel, (Guid*)priid, ppDevice);
+					HResult ret = CreateDeviceNative((IUnknown*)ppAdapter, minimumFeatureLevel, (Guid*)priid, ppDevice);
 					return ret;
 				}
 			}
@@ -448,11 +448,11 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IUnknown> pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, void** ppDevice)
+		public static HResult CreateDevice(ComPtr<IUnknown> pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, void** ppDevice)
 		{
 			fixed (Guid* priid = &riid)
 			{
-				int ret = CreateDeviceNative((IUnknown*)pAdapter.Handle, minimumFeatureLevel, (Guid*)priid, ppDevice);
+				HResult ret = CreateDeviceNative((IUnknown*)pAdapter.Handle, minimumFeatureLevel, (Guid*)priid, ppDevice);
 				return ret;
 			}
 		}
@@ -460,32 +460,32 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice<T>(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult CreateDevice<T>(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppDevice = default;
-			int ret = CreateDeviceNative(pAdapter, minimumFeatureLevel, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppDevice.GetAddressOf());
+			HResult ret = CreateDeviceNative(pAdapter, minimumFeatureLevel, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppDevice.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice<T>(ComPtr<IUnknown> pAdapter, FeatureLevel minimumFeatureLevel, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult CreateDevice<T>(ComPtr<IUnknown> pAdapter, FeatureLevel minimumFeatureLevel, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppDevice = default;
-			int ret = CreateDeviceNative((IUnknown*)pAdapter.Handle, minimumFeatureLevel, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppDevice.GetAddressOf());
+			HResult ret = CreateDeviceNative((IUnknown*)pAdapter.Handle, minimumFeatureLevel, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppDevice.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice<T>(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult CreateDevice<T>(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* priid = &riid)
 			{
 				ppDevice = default;
-				int ret = CreateDeviceNative(pAdapter, minimumFeatureLevel, (Guid*)priid, (void**)ppDevice.GetAddressOf());
+				HResult ret = CreateDeviceNative(pAdapter, minimumFeatureLevel, (Guid*)priid, (void**)ppDevice.GetAddressOf());
 				return ret;
 			}
 		}
@@ -493,12 +493,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice<T>(ComPtr<IUnknown> pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult CreateDevice<T>(ComPtr<IUnknown> pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* priid = &riid)
 			{
 				ppDevice = default;
-				int ret = CreateDeviceNative((IUnknown*)pAdapter.Handle, minimumFeatureLevel, (Guid*)priid, (void**)ppDevice.GetAddressOf());
+				HResult ret = CreateDeviceNative((IUnknown*)pAdapter.Handle, minimumFeatureLevel, (Guid*)priid, (void**)ppDevice.GetAddressOf());
 				return ret;
 			}
 		}
@@ -507,32 +507,32 @@ namespace Hexa.NET.D3D12
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetDebugInterfaceNative(Guid* riid, void** ppvDebug)
+		internal static HResult GetDebugInterfaceNative(Guid* riid, void** ppvDebug)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<Guid*, void**, int>)funcTable[5])(riid, ppvDebug);
+			return ((delegate* unmanaged[Cdecl]<Guid*, void**, HResult>)funcTable[5])(riid, ppvDebug);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nint, int>)funcTable[5])((nint)riid, (nint)ppvDebug);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nint, HResult>)funcTable[5])((nint)riid, (nint)ppvDebug);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDebugInterface(Guid* riid, void** ppvDebug)
+		public static HResult GetDebugInterface(Guid* riid, void** ppvDebug)
 		{
-			int ret = GetDebugInterfaceNative(riid, ppvDebug);
+			HResult ret = GetDebugInterfaceNative(riid, ppvDebug);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDebugInterface(ref Guid riid, void** ppvDebug)
+		public static HResult GetDebugInterface(ref Guid riid, void** ppvDebug)
 		{
 			fixed (Guid* priid = &riid)
 			{
-				int ret = GetDebugInterfaceNative((Guid*)priid, ppvDebug);
+				HResult ret = GetDebugInterfaceNative((Guid*)priid, ppvDebug);
 				return ret;
 			}
 		}
@@ -540,22 +540,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDebugInterface<T>(out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetDebugInterface<T>(out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppvDebug = default;
-			int ret = GetDebugInterfaceNative((Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDebug.GetAddressOf());
+			HResult ret = GetDebugInterfaceNative((Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDebug.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDebugInterface<T>(ref Guid riid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetDebugInterface<T>(ref Guid riid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* priid = &riid)
 			{
 				ppvDebug = default;
-				int ret = GetDebugInterfaceNative((Guid*)priid, (void**)ppvDebug.GetAddressOf());
+				HResult ret = GetDebugInterfaceNative((Guid*)priid, (void**)ppvDebug.GetAddressOf());
 				return ret;
 			}
 		}
@@ -581,12 +581,12 @@ namespace Hexa.NET.D3D12
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int EnableExperimentalFeaturesNative(uint numFeatures, Guid* pIIDs, void* pConfigurationStructs, uint* pConfigurationStructSizes)
+		internal static HResult EnableExperimentalFeaturesNative(uint numFeatures, Guid* pIIDs, void* pConfigurationStructs, uint* pConfigurationStructSizes)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, Guid*, void*, uint*, int>)funcTable[6])(numFeatures, pIIDs, pConfigurationStructs, pConfigurationStructSizes);
+			return ((delegate* unmanaged[Cdecl]<uint, Guid*, void*, uint*, HResult>)funcTable[6])(numFeatures, pIIDs, pConfigurationStructs, pConfigurationStructSizes);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<uint, nint, nint, nint, int>)funcTable[6])(numFeatures, (nint)pIIDs, (nint)pConfigurationStructs, (nint)pConfigurationStructSizes);
+			return (HResult)((delegate* unmanaged[Cdecl]<uint, nint, nint, nint, HResult>)funcTable[6])(numFeatures, (nint)pIIDs, (nint)pConfigurationStructs, (nint)pConfigurationStructSizes);
 			#endif
 		}
 
@@ -610,9 +610,9 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int EnableExperimentalFeatures(uint numFeatures, Guid* pIIDs, void* pConfigurationStructs, uint* pConfigurationStructSizes)
+		public static HResult EnableExperimentalFeatures(uint numFeatures, Guid* pIIDs, void* pConfigurationStructs, uint* pConfigurationStructSizes)
 		{
-			int ret = EnableExperimentalFeaturesNative(numFeatures, pIIDs, pConfigurationStructs, pConfigurationStructSizes);
+			HResult ret = EnableExperimentalFeaturesNative(numFeatures, pIIDs, pConfigurationStructs, pConfigurationStructSizes);
 			return ret;
 		}
 
@@ -636,11 +636,11 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int EnableExperimentalFeatures(uint numFeatures, ref Guid pIIDs, void* pConfigurationStructs, uint* pConfigurationStructSizes)
+		public static HResult EnableExperimentalFeatures(uint numFeatures, ref Guid pIIDs, void* pConfigurationStructs, uint* pConfigurationStructSizes)
 		{
 			fixed (Guid* ppIIDs = &pIIDs)
 			{
-				int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)ppIIDs, pConfigurationStructs, pConfigurationStructSizes);
+				HResult ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)ppIIDs, pConfigurationStructs, pConfigurationStructSizes);
 				return ret;
 			}
 		}
@@ -665,9 +665,9 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int EnableExperimentalFeatures<T>(uint numFeatures, ComPtr<T> pConfigurationStructs, uint* pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult EnableExperimentalFeatures<T>(uint numFeatures, ComPtr<T> pConfigurationStructs, uint* pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
 		{
-			int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)(ComUtils.GuidPtrOf<T>()), (void*)pConfigurationStructs.Handle, pConfigurationStructSizes);
+			HResult ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)(ComUtils.GuidPtrOf<T>()), (void*)pConfigurationStructs.Handle, pConfigurationStructSizes);
 			return ret;
 		}
 
@@ -691,11 +691,11 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int EnableExperimentalFeatures<T>(uint numFeatures, ref Guid pIIDs, ComPtr<T> pConfigurationStructs, uint* pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult EnableExperimentalFeatures<T>(uint numFeatures, ref Guid pIIDs, ComPtr<T> pConfigurationStructs, uint* pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* ppIIDs = &pIIDs)
 			{
-				int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)ppIIDs, (void*)pConfigurationStructs.Handle, pConfigurationStructSizes);
+				HResult ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)ppIIDs, (void*)pConfigurationStructs.Handle, pConfigurationStructSizes);
 				return ret;
 			}
 		}
@@ -720,11 +720,11 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int EnableExperimentalFeatures(uint numFeatures, Guid* pIIDs, void* pConfigurationStructs, ref uint pConfigurationStructSizes)
+		public static HResult EnableExperimentalFeatures(uint numFeatures, Guid* pIIDs, void* pConfigurationStructs, ref uint pConfigurationStructSizes)
 		{
 			fixed (uint* ppConfigurationStructSizes = &pConfigurationStructSizes)
 			{
-				int ret = EnableExperimentalFeaturesNative(numFeatures, pIIDs, pConfigurationStructs, (uint*)ppConfigurationStructSizes);
+				HResult ret = EnableExperimentalFeaturesNative(numFeatures, pIIDs, pConfigurationStructs, (uint*)ppConfigurationStructSizes);
 				return ret;
 			}
 		}
@@ -749,13 +749,13 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int EnableExperimentalFeatures(uint numFeatures, ref Guid pIIDs, void* pConfigurationStructs, ref uint pConfigurationStructSizes)
+		public static HResult EnableExperimentalFeatures(uint numFeatures, ref Guid pIIDs, void* pConfigurationStructs, ref uint pConfigurationStructSizes)
 		{
 			fixed (Guid* ppIIDs = &pIIDs)
 			{
 				fixed (uint* ppConfigurationStructSizes = &pConfigurationStructSizes)
 				{
-					int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)ppIIDs, pConfigurationStructs, (uint*)ppConfigurationStructSizes);
+					HResult ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)ppIIDs, pConfigurationStructs, (uint*)ppConfigurationStructSizes);
 					return ret;
 				}
 			}
@@ -781,11 +781,11 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int EnableExperimentalFeatures<T>(uint numFeatures, ComPtr<T> pConfigurationStructs, ref uint pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult EnableExperimentalFeatures<T>(uint numFeatures, ComPtr<T> pConfigurationStructs, ref uint pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (uint* ppConfigurationStructSizes = &pConfigurationStructSizes)
 			{
-				int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)(ComUtils.GuidPtrOf<T>()), (void*)pConfigurationStructs.Handle, (uint*)ppConfigurationStructSizes);
+				HResult ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)(ComUtils.GuidPtrOf<T>()), (void*)pConfigurationStructs.Handle, (uint*)ppConfigurationStructSizes);
 				return ret;
 			}
 		}
@@ -810,13 +810,13 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int EnableExperimentalFeatures<T>(uint numFeatures, ref Guid pIIDs, ComPtr<T> pConfigurationStructs, ref uint pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult EnableExperimentalFeatures<T>(uint numFeatures, ref Guid pIIDs, ComPtr<T> pConfigurationStructs, ref uint pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* ppIIDs = &pIIDs)
 			{
 				fixed (uint* ppConfigurationStructSizes = &pConfigurationStructSizes)
 				{
-					int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)ppIIDs, (void*)pConfigurationStructs.Handle, (uint*)ppConfigurationStructSizes);
+					HResult ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)ppIIDs, (void*)pConfigurationStructs.Handle, (uint*)ppConfigurationStructSizes);
 					return ret;
 				}
 			}
@@ -826,32 +826,32 @@ namespace Hexa.NET.D3D12
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetInterfaceNative(Guid* rclsid, Guid* riid, void** ppvDebug)
+		internal static HResult GetInterfaceNative(Guid* rclsid, Guid* riid, void** ppvDebug)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<Guid*, Guid*, void**, int>)funcTable[7])(rclsid, riid, ppvDebug);
+			return ((delegate* unmanaged[Cdecl]<Guid*, Guid*, void**, HResult>)funcTable[7])(rclsid, riid, ppvDebug);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nint, nint, int>)funcTable[7])((nint)rclsid, (nint)riid, (nint)ppvDebug);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, HResult>)funcTable[7])((nint)rclsid, (nint)riid, (nint)ppvDebug);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetInterface(Guid* rclsid, Guid* riid, void** ppvDebug)
+		public static HResult GetInterface(Guid* rclsid, Guid* riid, void** ppvDebug)
 		{
-			int ret = GetInterfaceNative(rclsid, riid, ppvDebug);
+			HResult ret = GetInterfaceNative(rclsid, riid, ppvDebug);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetInterface(ref Guid rclsid, Guid* riid, void** ppvDebug)
+		public static HResult GetInterface(ref Guid rclsid, Guid* riid, void** ppvDebug)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
-				int ret = GetInterfaceNative((Guid*)prclsid, riid, ppvDebug);
+				HResult ret = GetInterfaceNative((Guid*)prclsid, riid, ppvDebug);
 				return ret;
 			}
 		}
@@ -859,11 +859,11 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetInterface(Guid* rclsid, ref Guid riid, void** ppvDebug)
+		public static HResult GetInterface(Guid* rclsid, ref Guid riid, void** ppvDebug)
 		{
 			fixed (Guid* priid = &riid)
 			{
-				int ret = GetInterfaceNative(rclsid, (Guid*)priid, ppvDebug);
+				HResult ret = GetInterfaceNative(rclsid, (Guid*)priid, ppvDebug);
 				return ret;
 			}
 		}
@@ -871,13 +871,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetInterface(ref Guid rclsid, ref Guid riid, void** ppvDebug)
+		public static HResult GetInterface(ref Guid rclsid, ref Guid riid, void** ppvDebug)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = GetInterfaceNative((Guid*)prclsid, (Guid*)priid, ppvDebug);
+					HResult ret = GetInterfaceNative((Guid*)prclsid, (Guid*)priid, ppvDebug);
 					return ret;
 				}
 			}
@@ -886,22 +886,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetInterface<T>(Guid* rclsid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetInterface<T>(Guid* rclsid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppvDebug = default;
-			int ret = GetInterfaceNative(rclsid, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDebug.GetAddressOf());
+			HResult ret = GetInterfaceNative(rclsid, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDebug.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetInterface<T>(ref Guid rclsid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetInterface<T>(ref Guid rclsid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
 				ppvDebug = default;
-				int ret = GetInterfaceNative((Guid*)prclsid, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDebug.GetAddressOf());
+				HResult ret = GetInterfaceNative((Guid*)prclsid, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDebug.GetAddressOf());
 				return ret;
 			}
 		}
@@ -909,12 +909,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetInterface<T>(Guid* rclsid, ref Guid riid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetInterface<T>(Guid* rclsid, ref Guid riid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* priid = &riid)
 			{
 				ppvDebug = default;
-				int ret = GetInterfaceNative(rclsid, (Guid*)priid, (void**)ppvDebug.GetAddressOf());
+				HResult ret = GetInterfaceNative(rclsid, (Guid*)priid, (void**)ppvDebug.GetAddressOf());
 				return ret;
 			}
 		}
@@ -922,14 +922,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetInterface<T>(ref Guid rclsid, ref Guid riid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetInterface<T>(ref Guid rclsid, ref Guid riid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppvDebug = default;
-					int ret = GetInterfaceNative((Guid*)prclsid, (Guid*)priid, (void**)ppvDebug.GetAddressOf());
+					HResult ret = GetInterfaceNative((Guid*)prclsid, (Guid*)priid, (void**)ppvDebug.GetAddressOf());
 					return ret;
 				}
 			}

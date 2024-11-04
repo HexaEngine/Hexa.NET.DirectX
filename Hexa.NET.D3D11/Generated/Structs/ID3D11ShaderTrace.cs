@@ -33,22 +33,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -56,24 +56,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -101,22 +101,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int TraceReady(ulong* pTestCount) 
+		public readonly unsafe HResult TraceReady(ulong* pTestCount) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, ulong*, int>)(LpVtbl[3]))(ptr, pTestCount);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, ulong*, HResult>)(LpVtbl[3]))(ptr, pTestCount);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int TraceReady(ref ulong pTestCount) 
+		public readonly unsafe HResult TraceReady(ref ulong pTestCount) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ulong* ppTestCount = &pTestCount)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, ulong*, int>)(LpVtbl[3]))(ptr, (ulong*)ppTestCount);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, ulong*, HResult>)(LpVtbl[3]))(ptr, (ulong*)ppTestCount);
 				return ret;
 			}
 		}
@@ -133,22 +133,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetTraceStats(TraceStats* pTraceStats) 
+		public readonly unsafe HResult GetTraceStats(TraceStats* pTraceStats) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceStats*, int>)(LpVtbl[5]))(ptr, pTraceStats);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceStats*, HResult>)(LpVtbl[5]))(ptr, pTraceStats);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetTraceStats(ref TraceStats pTraceStats) 
+		public readonly unsafe HResult GetTraceStats(ref TraceStats pTraceStats) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TraceStats* ppTraceStats = &pTraceStats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceStats*, int>)(LpVtbl[5]))(ptr, (TraceStats*)ppTraceStats);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceStats*, HResult>)(LpVtbl[5]))(ptr, (TraceStats*)ppTraceStats);
 				return ret;
 			}
 		}
@@ -156,32 +156,32 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PSSelectStamp(uint stampIndex) 
+		public readonly unsafe HResult PSSelectStamp(uint stampIndex) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, int>)(LpVtbl[6]))(ptr, stampIndex);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, HResult>)(LpVtbl[6]))(ptr, stampIndex);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetInitialRegisterContents(TraceRegister* pRegister, TraceValue* pValue) 
+		public readonly unsafe HResult GetInitialRegisterContents(TraceRegister* pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, int>)(LpVtbl[7]))(ptr, pRegister, pValue);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, HResult>)(LpVtbl[7]))(ptr, pRegister, pValue);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetInitialRegisterContents(ref TraceRegister pRegister, TraceValue* pValue) 
+		public readonly unsafe HResult GetInitialRegisterContents(ref TraceRegister pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TraceRegister* ppRegister = &pRegister)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, int>)(LpVtbl[7]))(ptr, (TraceRegister*)ppRegister, pValue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, HResult>)(LpVtbl[7]))(ptr, (TraceRegister*)ppRegister, pValue);
 				return ret;
 			}
 		}
@@ -189,12 +189,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetInitialRegisterContents(TraceRegister* pRegister, ref TraceValue pValue) 
+		public readonly unsafe HResult GetInitialRegisterContents(TraceRegister* pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TraceValue* ppValue = &pValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, int>)(LpVtbl[7]))(ptr, pRegister, (TraceValue*)ppValue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, HResult>)(LpVtbl[7]))(ptr, pRegister, (TraceValue*)ppValue);
 				return ret;
 			}
 		}
@@ -202,14 +202,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetInitialRegisterContents(ref TraceRegister pRegister, ref TraceValue pValue) 
+		public readonly unsafe HResult GetInitialRegisterContents(ref TraceRegister pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TraceRegister* ppRegister = &pRegister)
 			{
 				fixed (TraceValue* ppValue = &pValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, int>)(LpVtbl[7]))(ptr, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, HResult>)(LpVtbl[7]))(ptr, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
 					return ret;
 				}
 			}
@@ -218,22 +218,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetStep(uint stepIndex, TraceStep* pTraceStep) 
+		public readonly unsafe HResult GetStep(uint stepIndex, TraceStep* pTraceStep) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, TraceStep*, int>)(LpVtbl[8]))(ptr, stepIndex, pTraceStep);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, TraceStep*, HResult>)(LpVtbl[8]))(ptr, stepIndex, pTraceStep);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetStep(uint stepIndex, ref TraceStep pTraceStep) 
+		public readonly unsafe HResult GetStep(uint stepIndex, ref TraceStep pTraceStep) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TraceStep* ppTraceStep = &pTraceStep)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, TraceStep*, int>)(LpVtbl[8]))(ptr, stepIndex, (TraceStep*)ppTraceStep);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, TraceStep*, HResult>)(LpVtbl[8]))(ptr, stepIndex, (TraceStep*)ppTraceStep);
 				return ret;
 			}
 		}
@@ -241,22 +241,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetWrittenRegister(uint stepIndex, uint writtenRegisterIndex, TraceRegister* pRegister, TraceValue* pValue) 
+		public readonly unsafe HResult GetWrittenRegister(uint stepIndex, uint writtenRegisterIndex, TraceRegister* pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, pRegister, pValue);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, pRegister, pValue);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetWrittenRegister(uint stepIndex, uint writtenRegisterIndex, ref TraceRegister pRegister, TraceValue* pValue) 
+		public readonly unsafe HResult GetWrittenRegister(uint stepIndex, uint writtenRegisterIndex, ref TraceRegister pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TraceRegister* ppRegister = &pRegister)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, (TraceRegister*)ppRegister, pValue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, (TraceRegister*)ppRegister, pValue);
 				return ret;
 			}
 		}
@@ -264,12 +264,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetWrittenRegister(uint stepIndex, uint writtenRegisterIndex, TraceRegister* pRegister, ref TraceValue pValue) 
+		public readonly unsafe HResult GetWrittenRegister(uint stepIndex, uint writtenRegisterIndex, TraceRegister* pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TraceValue* ppValue = &pValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, pRegister, (TraceValue*)ppValue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, pRegister, (TraceValue*)ppValue);
 				return ret;
 			}
 		}
@@ -277,14 +277,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetWrittenRegister(uint stepIndex, uint writtenRegisterIndex, ref TraceRegister pRegister, ref TraceValue pValue) 
+		public readonly unsafe HResult GetWrittenRegister(uint stepIndex, uint writtenRegisterIndex, ref TraceRegister pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TraceRegister* ppRegister = &pRegister)
 			{
 				fixed (TraceValue* ppValue = &pValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
 					return ret;
 				}
 			}
@@ -293,22 +293,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetReadRegister(uint stepIndex, uint readRegisterIndex, TraceRegister* pRegister, TraceValue* pValue) 
+		public readonly unsafe HResult GetReadRegister(uint stepIndex, uint readRegisterIndex, TraceRegister* pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, pRegister, pValue);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, pRegister, pValue);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetReadRegister(uint stepIndex, uint readRegisterIndex, ref TraceRegister pRegister, TraceValue* pValue) 
+		public readonly unsafe HResult GetReadRegister(uint stepIndex, uint readRegisterIndex, ref TraceRegister pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TraceRegister* ppRegister = &pRegister)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, (TraceRegister*)ppRegister, pValue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, (TraceRegister*)ppRegister, pValue);
 				return ret;
 			}
 		}
@@ -316,12 +316,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetReadRegister(uint stepIndex, uint readRegisterIndex, TraceRegister* pRegister, ref TraceValue pValue) 
+		public readonly unsafe HResult GetReadRegister(uint stepIndex, uint readRegisterIndex, TraceRegister* pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TraceValue* ppValue = &pValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, pRegister, (TraceValue*)ppValue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, pRegister, (TraceValue*)ppValue);
 				return ret;
 			}
 		}
@@ -329,14 +329,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetReadRegister(uint stepIndex, uint readRegisterIndex, ref TraceRegister pRegister, ref TraceValue pValue) 
+		public readonly unsafe HResult GetReadRegister(uint stepIndex, uint readRegisterIndex, ref TraceRegister pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (TraceRegister* ppRegister = &pRegister)
 			{
 				fixed (TraceValue* ppValue = &pValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
 					return ret;
 				}
 			}

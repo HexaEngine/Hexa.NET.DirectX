@@ -35,22 +35,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -58,24 +58,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -103,22 +103,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(Guid* name, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint, void*, int>)(LpVtbl[3]))(ptr, name, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint, void*, HResult>)(LpVtbl[3]))(ptr, name, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(ref Guid name, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint, void*, int>)(LpVtbl[3]))(ptr, (Guid*)pname, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint, void*, HResult>)(LpVtbl[3]))(ptr, (Guid*)pname, dataSize, pData);
 				return ret;
 			}
 		}
@@ -126,22 +126,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* name, IUnknown* pUnknown) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, name, pUnknown);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, HResult>)(LpVtbl[4]))(ptr, name, pUnknown);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid name, IUnknown* pUnknown) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, (Guid*)pname, pUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pname, pUnknown);
 				return ret;
 			}
 		}
@@ -149,12 +149,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* name, ref IUnknown pUnknown) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppUnknown = &pUnknown)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, name, (IUnknown*)ppUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, HResult>)(LpVtbl[4]))(ptr, name, (IUnknown*)ppUnknown);
 				return ret;
 			}
 		}
@@ -162,24 +162,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* name, ComPtr<IUnknown> pUnknown) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, name, (IUnknown*)pUnknown.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, HResult>)(LpVtbl[4]))(ptr, name, (IUnknown*)pUnknown.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid name, ref IUnknown pUnknown) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
 				fixed (IUnknown* ppUnknown = &pUnknown)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, (Guid*)pname, (IUnknown*)ppUnknown);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pname, (IUnknown*)ppUnknown);
 					return ret;
 				}
 			}
@@ -188,12 +188,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid name, ComPtr<IUnknown> pUnknown) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, (Guid*)pname, (IUnknown*)pUnknown.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pname, (IUnknown*)pUnknown.Handle);
 				return ret;
 			}
 		}
@@ -201,22 +201,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* name, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, name, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid name, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, (Guid*)pname, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pname, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -224,12 +224,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* name, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, name, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -237,14 +237,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid name, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, (Guid*)pname, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pname, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -253,22 +253,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, name, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, (Guid*)pname, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pname, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -276,12 +276,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, name, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -289,14 +289,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -305,22 +305,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetParent(Guid* riid, void** ppParent) 
+		public readonly unsafe HResult GetParent(Guid* riid, void** ppParent) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, int>)(LpVtbl[6]))(ptr, riid, ppParent);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, HResult>)(LpVtbl[6]))(ptr, riid, ppParent);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetParent(ref Guid riid, void** ppParent) 
+		public readonly unsafe HResult GetParent(ref Guid riid, void** ppParent) 
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, int>)(LpVtbl[6]))(ptr, (Guid*)priid, ppParent);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, HResult>)(LpVtbl[6]))(ptr, (Guid*)priid, ppParent);
 				return ret;
 			}
 		}
@@ -328,24 +328,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetParent<T>(out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetParent<T>(out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppParent = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, int>)(LpVtbl[6]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, HResult>)(LpVtbl[6]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetParent<T>(ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetParent<T>(ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* ptr = (IDXGIObject*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppParent = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, int>)(LpVtbl[6]))(ptr, (Guid*)priid, (void**)ppParent.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, HResult>)(LpVtbl[6]))(ptr, (Guid*)priid, (void**)ppParent.GetAddressOf());
 				return ret;
 			}
 		}

@@ -31,22 +31,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -54,24 +54,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -99,22 +99,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVersion(uint* pMajor, uint* pMinor) 
+		public readonly unsafe HResult GetVersion(uint* pMajor, uint* pMinor) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, uint*, int>)(LpVtbl[3]))(ptr, pMajor, pMinor);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, uint*, HResult>)(LpVtbl[3]))(ptr, pMajor, pMinor);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVersion(ref uint pMajor, uint* pMinor) 
+		public readonly unsafe HResult GetVersion(ref uint pMajor, uint* pMinor) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppMajor = &pMajor)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, uint*, int>)(LpVtbl[3]))(ptr, (uint*)ppMajor, pMinor);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, uint*, HResult>)(LpVtbl[3]))(ptr, (uint*)ppMajor, pMinor);
 				return ret;
 			}
 		}
@@ -122,12 +122,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVersion(uint* pMajor, ref uint pMinor) 
+		public readonly unsafe HResult GetVersion(uint* pMajor, ref uint pMinor) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppMinor = &pMinor)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, uint*, int>)(LpVtbl[3]))(ptr, pMajor, (uint*)ppMinor);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, uint*, HResult>)(LpVtbl[3]))(ptr, pMajor, (uint*)ppMinor);
 				return ret;
 			}
 		}
@@ -135,14 +135,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVersion(ref uint pMajor, ref uint pMinor) 
+		public readonly unsafe HResult GetVersion(ref uint pMajor, ref uint pMinor) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppMajor = &pMajor)
 			{
 				fixed (uint* ppMinor = &pMinor)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, uint*, int>)(LpVtbl[3]))(ptr, (uint*)ppMajor, (uint*)ppMinor);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, uint*, HResult>)(LpVtbl[3]))(ptr, (uint*)ppMajor, (uint*)ppMinor);
 					return ret;
 				}
 			}
@@ -151,22 +151,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetFlags(uint* pFlags) 
+		public readonly unsafe HResult GetFlags(uint* pFlags) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, int>)(LpVtbl[4]))(ptr, pFlags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, HResult>)(LpVtbl[4]))(ptr, pFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetFlags(ref uint pFlags) 
+		public readonly unsafe HResult GetFlags(ref uint pFlags) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFlags = &pFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, int>)(LpVtbl[4]))(ptr, (uint*)ppFlags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, HResult>)(LpVtbl[4]))(ptr, (uint*)ppFlags);
 				return ret;
 			}
 		}
@@ -174,22 +174,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCommitInfo(uint* pCommitCount, byte** pCommitHash) 
+		public readonly unsafe HResult GetCommitInfo(uint* pCommitCount, byte** pCommitHash) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, byte**, int>)(LpVtbl[5]))(ptr, pCommitCount, pCommitHash);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, byte**, HResult>)(LpVtbl[5]))(ptr, pCommitCount, pCommitHash);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCommitInfo(ref uint pCommitCount, byte** pCommitHash) 
+		public readonly unsafe HResult GetCommitInfo(ref uint pCommitCount, byte** pCommitHash) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCommitCount = &pCommitCount)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, byte**, int>)(LpVtbl[5]))(ptr, (uint*)ppCommitCount, pCommitHash);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, byte**, HResult>)(LpVtbl[5]))(ptr, (uint*)ppCommitCount, pCommitHash);
 				return ret;
 			}
 		}
@@ -197,12 +197,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCommitInfo(uint* pCommitCount, ref byte* pCommitHash) 
+		public readonly unsafe HResult GetCommitInfo(uint* pCommitCount, ref byte* pCommitHash) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte** ppCommitHash = &pCommitHash)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, byte**, int>)(LpVtbl[5]))(ptr, pCommitCount, (byte**)ppCommitHash);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, byte**, HResult>)(LpVtbl[5]))(ptr, pCommitCount, (byte**)ppCommitHash);
 				return ret;
 			}
 		}
@@ -210,14 +210,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCommitInfo(ref uint pCommitCount, ref byte* pCommitHash) 
+		public readonly unsafe HResult GetCommitInfo(ref uint pCommitCount, ref byte* pCommitHash) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCommitCount = &pCommitCount)
 			{
 				fixed (byte** ppCommitHash = &pCommitHash)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, byte**, int>)(LpVtbl[5]))(ptr, (uint*)ppCommitCount, (byte**)ppCommitHash);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, byte**, HResult>)(LpVtbl[5]))(ptr, (uint*)ppCommitCount, (byte**)ppCommitHash);
 					return ret;
 				}
 			}

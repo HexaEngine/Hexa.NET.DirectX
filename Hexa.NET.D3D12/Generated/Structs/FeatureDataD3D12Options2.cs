@@ -27,7 +27,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DepthBoundsTestSupported;
+		public Bool32 DepthBoundsTestSupported;
 
 		/// <summary>
 		/// To be documented.
@@ -38,7 +38,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D12Options2(int depthBoundsTestSupported = default, ProgrammableSamplePositionsTier programmableSamplePositionsTier = default)
+		public unsafe FeatureDataD3D12Options2(Bool32 depthBoundsTestSupported = default, ProgrammableSamplePositionsTier programmableSamplePositionsTier = default)
 		{
 			DepthBoundsTestSupported = depthBoundsTestSupported;
 			ProgrammableSamplePositionsTier = programmableSamplePositionsTier;

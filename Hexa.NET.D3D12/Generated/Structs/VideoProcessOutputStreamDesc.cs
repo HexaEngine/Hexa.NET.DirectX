@@ -60,13 +60,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int EnableStereo;
+		public Bool32 EnableStereo;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe VideoProcessOutputStreamDesc(Format format = default, ColorSpaceType colorSpace = default, VideoProcessAlphaFillMode alphaFillMode = default, uint alphaFillModeSourceStreamIndex = default, float* backgroundColor = default, Rational frameRate = default, int enableStereo = default)
+		public unsafe VideoProcessOutputStreamDesc(Format format = default, ColorSpaceType colorSpace = default, VideoProcessAlphaFillMode alphaFillMode = default, uint alphaFillModeSourceStreamIndex = default, float* backgroundColor = default, Rational frameRate = default, Bool32 enableStereo = default)
 		{
 			Format = format;
 			ColorSpace = colorSpace;
@@ -86,7 +86,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe VideoProcessOutputStreamDesc(Format format = default, ColorSpaceType colorSpace = default, VideoProcessAlphaFillMode alphaFillMode = default, uint alphaFillModeSourceStreamIndex = default, Span<float> backgroundColor = default, Rational frameRate = default, int enableStereo = default)
+		public unsafe VideoProcessOutputStreamDesc(Format format = default, ColorSpaceType colorSpace = default, VideoProcessAlphaFillMode alphaFillMode = default, uint alphaFillModeSourceStreamIndex = default, Span<float> backgroundColor = default, Rational frameRate = default, Bool32 enableStereo = default)
 		{
 			Format = format;
 			ColorSpace = colorSpace;

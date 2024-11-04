@@ -67,7 +67,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int AttachedToDesktop;
+		public Bool32 AttachedToDesktop;
 
 		/// <summary>
 		/// To be documented.
@@ -83,7 +83,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe OutputDesc(char* deviceName = default, Rect32 desktopCoordinates = default, int attachedToDesktop = default, ModeRotation rotation = default, nint monitor = default)
+		public unsafe OutputDesc(char* deviceName = default, Rect32 desktopCoordinates = default, Bool32 attachedToDesktop = default, ModeRotation rotation = default, nint monitor = default)
 		{
 			if (deviceName != default(char*))
 			{
@@ -129,7 +129,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe OutputDesc(Span<char> deviceName = default, Rect32 desktopCoordinates = default, int attachedToDesktop = default, ModeRotation rotation = default, nint monitor = default)
+		public unsafe OutputDesc(Span<char> deviceName = default, Rect32 desktopCoordinates = default, Bool32 attachedToDesktop = default, ModeRotation rotation = default, nint monitor = default)
 		{
 			if (deviceName != default(Span<char>))
 			{

@@ -23,22 +23,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Device> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Device> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, uint*, void*, int>)(handle->LpVtbl[34]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[34]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Device> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Device> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, uint*, void*, int>)(handle->LpVtbl[34]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[34]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -46,12 +46,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Device> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Device> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, uint*, void*, int>)(handle->LpVtbl[34]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[34]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -59,14 +59,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Device> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Device> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, uint*, void*, int>)(handle->LpVtbl[34]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[34]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -75,22 +75,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Device> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Device> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, uint, void*, int>)(handle->LpVtbl[35]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, uint, void*, HResult>)(handle->LpVtbl[35]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Device> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Device> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, uint, void*, int>)(handle->LpVtbl[35]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, uint, void*, HResult>)(handle->LpVtbl[35]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -98,22 +98,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Device> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Device> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, IUnknown*, int>)(handle->LpVtbl[36]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[36]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Device> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Device> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, IUnknown*, int>)(handle->LpVtbl[36]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[36]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -121,12 +121,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Device> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Device> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11Device* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, IUnknown*, int>)(handle->LpVtbl[36]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[36]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -134,24 +134,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Device> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Device> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, IUnknown*, int>)(handle->LpVtbl[36]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[36]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Device> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Device> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, IUnknown*, int>)(handle->LpVtbl[36]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[36]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -160,12 +160,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Device> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Device> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, IUnknown*, int>)(handle->LpVtbl[36]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[36]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -193,10 +193,10 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDeviceRemovedReason(this ComPtr<ID3D11Device> comObj) 
+		public static HResult GetDeviceRemovedReason(this ComPtr<ID3D11Device> comObj) 
 		{
 			ID3D11Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, int>)(handle->LpVtbl[39]))(handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, HResult>)(handle->LpVtbl[39]))(handle);
 			return ret;
 		}
 
@@ -234,10 +234,10 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetExceptionMode(this ComPtr<ID3D11Device> comObj, uint raiseFlags) 
+		public static HResult SetExceptionMode(this ComPtr<ID3D11Device> comObj, uint raiseFlags) 
 		{
 			ID3D11Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, uint, int>)(handle->LpVtbl[41]))(handle, raiseFlags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device*, uint, HResult>)(handle->LpVtbl[41]))(handle, raiseFlags);
 			return ret;
 		}
 
@@ -254,22 +254,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Buffer> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Buffer> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Buffer> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Buffer> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -277,24 +277,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Buffer> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Buffer> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Buffer> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Buffer> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -353,22 +353,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Buffer> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Buffer> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -376,12 +376,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Buffer> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Buffer> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -389,14 +389,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -405,22 +405,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Buffer> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Buffer> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Buffer* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -428,12 +428,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Buffer> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Buffer> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -441,14 +441,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -457,22 +457,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Buffer> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Buffer> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -480,22 +480,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Buffer> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Buffer> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -503,12 +503,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Buffer> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Buffer> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -516,24 +516,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Buffer> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Buffer> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -542,12 +542,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Buffer> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Buffer* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Buffer*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -616,22 +616,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Resource> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Resource> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Resource> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Resource> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -639,24 +639,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Resource> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Resource> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Resource> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Resource> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -715,22 +715,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Resource> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Resource> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Resource> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Resource> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -738,12 +738,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Resource> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Resource> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -751,14 +751,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Resource> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Resource> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -767,22 +767,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Resource> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Resource> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Resource* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Resource> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Resource> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -790,12 +790,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Resource> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Resource> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -803,14 +803,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Resource> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Resource> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -819,22 +819,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Resource> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Resource> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Resource> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Resource> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -842,22 +842,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Resource> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Resource> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Resource> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Resource> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -865,12 +865,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Resource> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Resource> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -878,24 +878,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Resource> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Resource> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Resource> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Resource> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -904,12 +904,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Resource> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Resource> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Resource* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Resource*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -957,22 +957,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Texture1D> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Texture1D> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Texture1D> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Texture1D> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -980,24 +980,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Texture1D> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Texture1D> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Texture1D> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Texture1D> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1056,22 +1056,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -1079,12 +1079,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -1092,14 +1092,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -1108,22 +1108,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1131,12 +1131,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1144,14 +1144,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -1160,22 +1160,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -1183,22 +1183,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -1206,12 +1206,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -1219,24 +1219,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture1D> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -1245,12 +1245,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture1D> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Texture1D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture1D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1319,22 +1319,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Texture2D> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Texture2D> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Texture2D> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Texture2D> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1342,24 +1342,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Texture2D> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Texture2D> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Texture2D> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Texture2D> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1418,22 +1418,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -1441,12 +1441,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -1454,14 +1454,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -1470,22 +1470,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1493,12 +1493,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1506,14 +1506,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -1522,22 +1522,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -1545,22 +1545,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -1568,12 +1568,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -1581,24 +1581,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture2D> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -1607,12 +1607,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture2D> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Texture2D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture2D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1681,22 +1681,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Texture3D> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Texture3D> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Texture3D> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Texture3D> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1704,24 +1704,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Texture3D> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Texture3D> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Texture3D> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Texture3D> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1780,22 +1780,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -1803,12 +1803,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -1816,14 +1816,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -1832,22 +1832,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1855,12 +1855,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1868,14 +1868,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -1884,22 +1884,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -1907,22 +1907,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -1930,12 +1930,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -1943,24 +1943,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture3D> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -1969,12 +1969,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Texture3D> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Texture3D* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Texture3D*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -2043,22 +2043,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2066,24 +2066,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11ShaderResourceView> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11ShaderResourceView> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2142,22 +2142,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -2165,12 +2165,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -2178,14 +2178,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -2194,22 +2194,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -2217,12 +2217,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -2230,14 +2230,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -2246,22 +2246,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -2269,22 +2269,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -2292,12 +2292,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -2305,24 +2305,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ShaderResourceView> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -2331,12 +2331,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ShaderResourceView> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11ShaderResourceView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderResourceView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -2396,22 +2396,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11View> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11View> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11View* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11View> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11View> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11View* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2419,24 +2419,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11View> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11View> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11View* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11View> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11View> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11View* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2495,22 +2495,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11View> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11View> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11View* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11View> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11View> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11View* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -2518,12 +2518,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11View> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11View> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11View* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -2531,14 +2531,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11View> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11View> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11View* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -2547,22 +2547,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11View> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11View> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11View* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11View> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11View> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11View* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -2570,12 +2570,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11View> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11View> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11View* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -2583,14 +2583,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11View> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11View> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11View* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -2599,22 +2599,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11View> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11View> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11View* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11View> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11View> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11View* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -2622,22 +2622,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11View> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11View> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11View* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11View> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11View> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11View* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -2645,12 +2645,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11View> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11View> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11View* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -2658,24 +2658,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11View> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11View> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11View* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11View> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11View> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11View* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -2684,12 +2684,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11View> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11View> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11View* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11View*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -2728,22 +2728,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2751,24 +2751,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11UnorderedAccessView> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11UnorderedAccessView> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2827,22 +2827,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -2850,12 +2850,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -2863,14 +2863,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -2879,22 +2879,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -2902,12 +2902,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -2915,14 +2915,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -2931,22 +2931,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -2954,22 +2954,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -2977,12 +2977,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -2990,24 +2990,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -3016,12 +3016,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11UnorderedAccessView> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11UnorderedAccessView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11UnorderedAccessView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -3081,22 +3081,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11RenderTargetView> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11RenderTargetView> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -3104,24 +3104,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11RenderTargetView> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11RenderTargetView> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3180,22 +3180,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -3203,12 +3203,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -3216,14 +3216,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -3232,22 +3232,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -3255,12 +3255,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -3268,14 +3268,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -3284,22 +3284,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -3307,22 +3307,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -3330,12 +3330,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -3343,24 +3343,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11RenderTargetView> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -3369,12 +3369,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11RenderTargetView> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11RenderTargetView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RenderTargetView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -3434,22 +3434,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11DepthStencilView> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11DepthStencilView> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -3457,24 +3457,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11DepthStencilView> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11DepthStencilView> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3533,22 +3533,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -3556,12 +3556,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -3569,14 +3569,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -3585,22 +3585,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -3608,12 +3608,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -3621,14 +3621,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -3637,22 +3637,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -3660,22 +3660,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -3683,12 +3683,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -3696,24 +3696,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11DepthStencilView> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -3722,12 +3722,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11DepthStencilView> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11DepthStencilView* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DepthStencilView*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -3787,22 +3787,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11InputLayout> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11InputLayout> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11InputLayout> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11InputLayout> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -3810,24 +3810,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11InputLayout> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11InputLayout> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11InputLayout> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11InputLayout> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3886,22 +3886,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -3909,12 +3909,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -3922,14 +3922,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -3938,22 +3938,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -3961,12 +3961,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -3974,14 +3974,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -3990,22 +3990,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -4013,22 +4013,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -4036,12 +4036,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -4049,24 +4049,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11InputLayout> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -4075,12 +4075,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11InputLayout> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11InputLayout* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11InputLayout*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -4088,22 +4088,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11ClassLinkage> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11ClassLinkage> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -4111,24 +4111,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11ClassLinkage> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11ClassLinkage> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4187,22 +4187,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -4210,12 +4210,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -4223,14 +4223,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -4239,22 +4239,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -4262,12 +4262,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -4275,14 +4275,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -4291,22 +4291,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -4314,22 +4314,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -4337,12 +4337,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -4350,24 +4350,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ClassLinkage> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -4376,12 +4376,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ClassLinkage> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -4389,22 +4389,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, byte* pClassInstanceName, uint instanceIndex, ID3D11ClassInstance** ppInstance) 
+		public static HResult GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, byte* pClassInstanceName, uint instanceIndex, ID3D11ClassInstance** ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[7]))(handle, pClassInstanceName, instanceIndex, ppInstance);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[7]))(handle, pClassInstanceName, instanceIndex, ppInstance);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, ReadOnlySpan<byte> pClassInstanceName, uint instanceIndex, ID3D11ClassInstance** ppInstance) 
+		public static HResult GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, ReadOnlySpan<byte> pClassInstanceName, uint instanceIndex, ID3D11ClassInstance** ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (byte* ppClassInstanceName = pClassInstanceName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[7]))(handle, (byte*)ppClassInstanceName, instanceIndex, ppInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[7]))(handle, (byte*)ppClassInstanceName, instanceIndex, ppInstance);
 				return ret;
 			}
 		}
@@ -4412,7 +4412,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, string pClassInstanceName, uint instanceIndex, ID3D11ClassInstance** ppInstance) 
+		public static HResult GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, string pClassInstanceName, uint instanceIndex, ID3D11ClassInstance** ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -4432,7 +4432,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pClassInstanceName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[7]))(handle, pStr0, instanceIndex, ppInstance);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[7]))(handle, pStr0, instanceIndex, ppInstance);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -4443,12 +4443,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, byte* pClassInstanceName, uint instanceIndex, ref ID3D11ClassInstance* ppInstance) 
+		public static HResult GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, byte* pClassInstanceName, uint instanceIndex, ref ID3D11ClassInstance* ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (ID3D11ClassInstance** pppInstance = &ppInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[7]))(handle, pClassInstanceName, instanceIndex, (ID3D11ClassInstance**)pppInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[7]))(handle, pClassInstanceName, instanceIndex, (ID3D11ClassInstance**)pppInstance);
 				return ret;
 			}
 		}
@@ -4456,25 +4456,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, byte* pClassInstanceName, uint instanceIndex, out ComPtr<ID3D11ClassInstance> ppInstance) 
+		public static HResult GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, byte* pClassInstanceName, uint instanceIndex, out ComPtr<ID3D11ClassInstance> ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			ppInstance = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[7]))(handle, pClassInstanceName, instanceIndex, (ID3D11ClassInstance**)ppInstance.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[7]))(handle, pClassInstanceName, instanceIndex, (ID3D11ClassInstance**)ppInstance.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, ReadOnlySpan<byte> pClassInstanceName, uint instanceIndex, ref ID3D11ClassInstance* ppInstance) 
+		public static HResult GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, ReadOnlySpan<byte> pClassInstanceName, uint instanceIndex, ref ID3D11ClassInstance* ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (byte* ppClassInstanceName = pClassInstanceName)
 			{
 				fixed (ID3D11ClassInstance** pppInstance = &ppInstance)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[7]))(handle, (byte*)ppClassInstanceName, instanceIndex, (ID3D11ClassInstance**)pppInstance);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[7]))(handle, (byte*)ppClassInstanceName, instanceIndex, (ID3D11ClassInstance**)pppInstance);
 					return ret;
 				}
 			}
@@ -4483,7 +4483,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, string pClassInstanceName, uint instanceIndex, ref ID3D11ClassInstance* ppInstance) 
+		public static HResult GetClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, string pClassInstanceName, uint instanceIndex, ref ID3D11ClassInstance* ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -4505,7 +4505,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11ClassInstance** pppInstance = &ppInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[7]))(handle, pStr0, instanceIndex, (ID3D11ClassInstance**)pppInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[7]))(handle, pStr0, instanceIndex, (ID3D11ClassInstance**)pppInstance);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -4517,22 +4517,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, byte* pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ID3D11ClassInstance** ppInstance) 
+		public static HResult CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, byte* pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ID3D11ClassInstance** ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[8]))(handle, pClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, ppInstance);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[8]))(handle, pClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, ppInstance);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, ReadOnlySpan<byte> pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ID3D11ClassInstance** ppInstance) 
+		public static HResult CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, ReadOnlySpan<byte> pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ID3D11ClassInstance** ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (byte* ppClassTypeName = pClassTypeName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[8]))(handle, (byte*)ppClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, ppInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[8]))(handle, (byte*)ppClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, ppInstance);
 				return ret;
 			}
 		}
@@ -4540,7 +4540,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, string pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ID3D11ClassInstance** ppInstance) 
+		public static HResult CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, string pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ID3D11ClassInstance** ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -4560,7 +4560,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pClassTypeName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[8]))(handle, pStr0, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, ppInstance);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[8]))(handle, pStr0, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, ppInstance);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -4571,12 +4571,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, byte* pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ref ID3D11ClassInstance* ppInstance) 
+		public static HResult CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, byte* pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ref ID3D11ClassInstance* ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (ID3D11ClassInstance** pppInstance = &ppInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[8]))(handle, pClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)pppInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[8]))(handle, pClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)pppInstance);
 				return ret;
 			}
 		}
@@ -4584,25 +4584,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, byte* pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, out ComPtr<ID3D11ClassInstance> ppInstance) 
+		public static HResult CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, byte* pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, out ComPtr<ID3D11ClassInstance> ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			ppInstance = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[8]))(handle, pClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)ppInstance.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[8]))(handle, pClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)ppInstance.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, ReadOnlySpan<byte> pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ref ID3D11ClassInstance* ppInstance) 
+		public static HResult CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, ReadOnlySpan<byte> pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ref ID3D11ClassInstance* ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			fixed (byte* ppClassTypeName = pClassTypeName)
 			{
 				fixed (ID3D11ClassInstance** pppInstance = &ppInstance)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[8]))(handle, (byte*)ppClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)pppInstance);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[8]))(handle, (byte*)ppClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)pppInstance);
 					return ret;
 				}
 			}
@@ -4611,7 +4611,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, string pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ref ID3D11ClassInstance* ppInstance) 
+		public static HResult CreateClassInstance(this ComPtr<ID3D11ClassLinkage> comObj, string pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ref ID3D11ClassInstance* ppInstance) 
 		{
 			ID3D11ClassLinkage* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -4633,7 +4633,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11ClassInstance** pppInstance = &ppInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(handle->LpVtbl[8]))(handle, pStr0, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)pppInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(handle->LpVtbl[8]))(handle, pStr0, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)pppInstance);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -4645,22 +4645,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11ClassInstance> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11ClassInstance> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11ClassInstance> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11ClassInstance> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -4668,24 +4668,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11ClassInstance> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11ClassInstance> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11ClassInstance> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11ClassInstance> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4744,22 +4744,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -4767,12 +4767,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -4780,14 +4780,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -4796,22 +4796,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -4819,12 +4819,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -4832,14 +4832,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -4848,22 +4848,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -4871,22 +4871,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -4894,12 +4894,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -4907,24 +4907,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ClassInstance> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -4933,12 +4933,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11ClassInstance> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11ClassInstance* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassInstance*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}

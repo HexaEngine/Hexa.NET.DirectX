@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -104,12 +104,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* iid, ref void* ppv) 
+		public readonly unsafe HResult QueryInterface(Guid* iid, ref void* ppv) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppv = &ppv)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(LpVtbl[3]))(ptr, iid, (void**)pppv);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, iid, (void**)pppv);
 				return ret;
 			}
 		}
@@ -117,14 +117,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid iid, ref void* ppv) 
+		public readonly unsafe HResult QueryInterface(ref Guid iid, ref void* ppv) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Guid*)piid, (void**)pppv);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Guid*)piid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -133,22 +133,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -156,22 +156,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -179,7 +179,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -199,7 +199,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pStr0, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pStr0, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -210,14 +210,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
 			{
 				fixed (byte* ppEntryName = pEntryName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 					return ret;
 				}
 			}
@@ -226,7 +226,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -248,7 +248,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -260,12 +260,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppTargetName = pTargetName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -273,7 +273,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -293,7 +293,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pTargetName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pStr0, uFlags, ppShaderBlob, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pStr0, uFlags, ppShaderBlob, ppErrorBuffer);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -304,14 +304,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
 			{
 				fixed (byte* ppTargetName = pTargetName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 					return ret;
 				}
 			}
@@ -320,7 +320,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -342,7 +342,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(pTargetName, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, ppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, ppShaderBlob, ppErrorBuffer);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -354,14 +354,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
 			{
 				fixed (byte* ppTargetName = pTargetName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 					return ret;
 				}
 			}
@@ -370,7 +370,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -407,7 +407,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset1 = Utils.EncodeStringUTF8(pTargetName, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pStr0, pStr1, uFlags, ppShaderBlob, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pStr0, pStr1, uFlags, ppShaderBlob, ppErrorBuffer);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -422,7 +422,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -431,7 +431,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* ppTargetName = pTargetName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 						return ret;
 					}
 				}
@@ -441,7 +441,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -480,7 +480,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset1 = Utils.EncodeStringUTF8(pTargetName, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, ppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, ppShaderBlob, ppErrorBuffer);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -496,12 +496,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -509,14 +509,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
 			{
 				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 					return ret;
 				}
 			}
@@ -525,12 +525,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -538,14 +538,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
 			{
 				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 					return ret;
 				}
 			}
@@ -554,7 +554,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -576,7 +576,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -588,7 +588,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -597,7 +597,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 						return ret;
 					}
 				}
@@ -607,7 +607,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -631,7 +631,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -644,14 +644,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppTargetName = pTargetName)
 			{
 				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 					return ret;
 				}
 			}
@@ -660,7 +660,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -682,7 +682,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -694,7 +694,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -703,7 +703,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 						return ret;
 					}
 				}
@@ -713,7 +713,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -737,7 +737,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -750,7 +750,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
@@ -759,7 +759,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 						return ret;
 					}
 				}
@@ -769,7 +769,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -808,7 +808,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -824,7 +824,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -835,7 +835,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 							return ret;
 						}
 					}
@@ -846,7 +846,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -887,7 +887,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -904,12 +904,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 				return ret;
 			}
 		}
@@ -917,14 +917,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -933,12 +933,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 				return ret;
 			}
 		}
@@ -946,14 +946,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -962,7 +962,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -984,7 +984,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pStr0, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pStr0, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -996,7 +996,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1005,7 +1005,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						return ret;
 					}
 				}
@@ -1015,7 +1015,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1039,7 +1039,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1052,14 +1052,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppTargetName = pTargetName)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -1068,7 +1068,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1090,7 +1090,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pStr0, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pStr0, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1102,7 +1102,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1111,7 +1111,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						return ret;
 					}
 				}
@@ -1121,7 +1121,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1145,7 +1145,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1158,7 +1158,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
@@ -1167,7 +1167,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						return ret;
 					}
 				}
@@ -1177,7 +1177,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1216,7 +1216,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pStr0, pStr1, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pStr0, pStr1, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -1232,7 +1232,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1243,7 +1243,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 							return ret;
 						}
 					}
@@ -1254,7 +1254,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1295,7 +1295,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1312,14 +1312,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -1328,7 +1328,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1337,7 +1337,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						return ret;
 					}
 				}
@@ -1347,14 +1347,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -1363,7 +1363,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
@@ -1372,7 +1372,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						return ret;
 					}
 				}
@@ -1382,7 +1382,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1406,7 +1406,7 @@ namespace Hexa.NET.D3D11
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1419,7 +1419,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1430,7 +1430,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 							return ret;
 						}
 					}
@@ -1441,7 +1441,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1467,7 +1467,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1481,7 +1481,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppTargetName = pTargetName)
@@ -1490,7 +1490,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						return ret;
 					}
 				}
@@ -1500,7 +1500,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1524,7 +1524,7 @@ namespace Hexa.NET.D3D11
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1537,7 +1537,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1548,7 +1548,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 							return ret;
 						}
 					}
@@ -1559,7 +1559,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1585,7 +1585,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1599,7 +1599,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
@@ -1610,7 +1610,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 							return ret;
 						}
 					}
@@ -1621,7 +1621,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1662,7 +1662,7 @@ namespace Hexa.NET.D3D11
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, pEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1679,7 +1679,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1692,7 +1692,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 								return ret;
 							}
 						}
@@ -1704,7 +1704,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult Link(ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1747,7 +1747,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -1765,22 +1765,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UseLibrary(ID3D11ModuleInstance* pLibraryMI) 
+		public readonly unsafe HResult UseLibrary(ID3D11ModuleInstance* pLibraryMI) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, int>)(LpVtbl[5]))(ptr, pLibraryMI);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, HResult>)(LpVtbl[5]))(ptr, pLibraryMI);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UseLibrary(ref ID3D11ModuleInstance pLibraryMI) 
+		public readonly unsafe HResult UseLibrary(ref ID3D11ModuleInstance pLibraryMI) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppLibraryMI = &pLibraryMI)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, int>)(LpVtbl[5]))(ptr, (ID3D11ModuleInstance*)ppLibraryMI);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, HResult>)(LpVtbl[5]))(ptr, (ID3D11ModuleInstance*)ppLibraryMI);
 				return ret;
 			}
 		}
@@ -1788,20 +1788,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UseLibrary(ComPtr<ID3D11ModuleInstance> pLibraryMI) 
+		public readonly unsafe HResult UseLibrary(ComPtr<ID3D11ModuleInstance> pLibraryMI) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, int>)(LpVtbl[5]))(ptr, (ID3D11ModuleInstance*)pLibraryMI.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, HResult>)(LpVtbl[5]))(ptr, (ID3D11ModuleInstance*)pLibraryMI.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddClipPlaneFromCBuffer(uint uCBufferSlot, uint uCBufferEntry) 
+		public readonly unsafe HResult AddClipPlaneFromCBuffer(uint uCBufferSlot, uint uCBufferEntry) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, uint, uint, int>)(LpVtbl[6]))(ptr, uCBufferSlot, uCBufferEntry);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, uint, uint, HResult>)(LpVtbl[6]))(ptr, uCBufferSlot, uCBufferEntry);
 			return ret;
 		}
 

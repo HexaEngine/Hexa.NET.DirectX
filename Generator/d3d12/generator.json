@@ -23,7 +23,8 @@
     "D3D11_TRACE_MISC_OPERATIONS_MASK": "uint",
     "ID3DBlob": "ID3D10Blob",
     "D3D12_GPU_VIRTUAL_ADDRESS": "ulong",
-    "D3D12_NODE_MASK": "uint"
+    "D3D12_NODE_MASK": "uint",
+    "BOOL": "Bool32"
   },
   "IgnoredEnums": [
     "D3D_FEATURE_LEVEL",

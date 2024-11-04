@@ -32,13 +32,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int AtomicShaderInstructions;
+		public Bool32 AtomicShaderInstructions;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataCrossNode(CrossNodeSharingTier sharingTier = default, int atomicShaderInstructions = default)
+		public unsafe FeatureDataCrossNode(CrossNodeSharingTier sharingTier = default, Bool32 atomicShaderInstructions = default)
 		{
 			SharingTier = sharingTier;
 			AtomicShaderInstructions = atomicShaderInstructions;

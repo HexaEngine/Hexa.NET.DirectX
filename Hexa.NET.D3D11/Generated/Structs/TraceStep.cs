@@ -32,7 +32,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int InstructionActive;
+		public Bool32 InstructionActive;
 
 		/// <summary>
 		/// To be documented.
@@ -63,7 +63,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe TraceStep(uint id = default, int instructionActive = default, byte numRegistersWritten = default, byte numRegistersRead = default, ushort miscOperations = default, uint opcodeType = default, ulong currentGlobalCycle = default)
+		public unsafe TraceStep(uint id = default, Bool32 instructionActive = default, byte numRegistersWritten = default, byte numRegistersRead = default, ushort miscOperations = default, uint opcodeType = default, ulong currentGlobalCycle = default)
 		{
 			ID = id;
 			InstructionActive = instructionActive;

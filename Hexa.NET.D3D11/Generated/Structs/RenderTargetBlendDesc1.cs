@@ -27,12 +27,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int BlendEnable;
+		public Bool32 BlendEnable;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int LogicOpEnable;
+		public Bool32 LogicOpEnable;
 
 		/// <summary>
 		/// To be documented.
@@ -78,7 +78,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe RenderTargetBlendDesc1(int blendEnable = default, int logicOpEnable = default, Blend srcBlend = default, Blend destBlend = default, BlendOp blendOp = default, Blend srcBlendAlpha = default, Blend destBlendAlpha = default, BlendOp blendOpAlpha = default, LogicOp logicOp = default, byte renderTargetWriteMask = default)
+		public unsafe RenderTargetBlendDesc1(Bool32 blendEnable = default, Bool32 logicOpEnable = default, Blend srcBlend = default, Blend destBlend = default, BlendOp blendOp = default, Blend srcBlendAlpha = default, Blend destBlendAlpha = default, BlendOp blendOpAlpha = default, LogicOp logicOp = default, byte renderTargetWriteMask = default)
 		{
 			BlendEnable = blendEnable;
 			LogicOpEnable = logicOpEnable;

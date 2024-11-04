@@ -68,7 +68,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int AttachedToDesktop;
+		public Bool32 AttachedToDesktop;
 
 		/// <summary>
 		/// To be documented.
@@ -133,7 +133,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe OutputDesc1(char* deviceName = default, Rect32 desktopCoordinates = default, int attachedToDesktop = default, ModeRotation rotation = default, nint monitor = default, uint bitsPerColor = default, ColorSpaceType colorSpace = default, float* redPrimary = default, float* greenPrimary = default, float* bluePrimary = default, float* whitePoint = default, float minLuminance = default, float maxLuminance = default, float maxFullFrameLuminance = default)
+		public unsafe OutputDesc1(char* deviceName = default, Rect32 desktopCoordinates = default, Bool32 attachedToDesktop = default, ModeRotation rotation = default, nint monitor = default, uint bitsPerColor = default, ColorSpaceType colorSpace = default, float* redPrimary = default, float* greenPrimary = default, float* bluePrimary = default, float* whitePoint = default, float minLuminance = default, float maxLuminance = default, float maxFullFrameLuminance = default)
 		{
 			if (deviceName != default(char*))
 			{
@@ -204,7 +204,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe OutputDesc1(Span<char> deviceName = default, Rect32 desktopCoordinates = default, int attachedToDesktop = default, ModeRotation rotation = default, nint monitor = default, uint bitsPerColor = default, ColorSpaceType colorSpace = default, Span<float> redPrimary = default, Span<float> greenPrimary = default, Span<float> bluePrimary = default, Span<float> whitePoint = default, float minLuminance = default, float maxLuminance = default, float maxFullFrameLuminance = default)
+		public unsafe OutputDesc1(Span<char> deviceName = default, Rect32 desktopCoordinates = default, Bool32 attachedToDesktop = default, ModeRotation rotation = default, nint monitor = default, uint bitsPerColor = default, ColorSpaceType colorSpace = default, Span<float> redPrimary = default, Span<float> greenPrimary = default, Span<float> bluePrimary = default, Span<float> whitePoint = default, float minLuminance = default, float maxLuminance = default, float maxFullFrameLuminance = default)
 		{
 			if (deviceName != default(Span<char>))
 			{

@@ -57,7 +57,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int EnableAutoProcessing;
+		public Bool32 EnableAutoProcessing;
 
 		/// <summary>
 		/// To be documented.
@@ -73,7 +73,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataVideoProcessReferenceInfo(uint nodeIndex = default, VideoProcessDeinterlaceFlags deinterlaceMode = default, VideoProcessFilterFlags filters = default, VideoProcessFeatureFlags featureSupport = default, Rational inputFrameRate = default, Rational outputFrameRate = default, int enableAutoProcessing = default, uint pastFrames = default, uint futureFrames = default)
+		public unsafe FeatureDataVideoProcessReferenceInfo(uint nodeIndex = default, VideoProcessDeinterlaceFlags deinterlaceMode = default, VideoProcessFilterFlags filters = default, VideoProcessFeatureFlags featureSupport = default, Rational inputFrameRate = default, Rational outputFrameRate = default, Bool32 enableAutoProcessing = default, uint pastFrames = default, uint futureFrames = default)
 		{
 			NodeIndex = nodeIndex;
 			DeinterlaceMode = deinterlaceMode;

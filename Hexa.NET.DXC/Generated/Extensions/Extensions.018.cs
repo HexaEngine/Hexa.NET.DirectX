@@ -21,7 +21,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -38,7 +38,7 @@ namespace Hexa.NET.DXC
 								{
 									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 										return ret;
 									}
 								}
@@ -52,7 +52,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -99,7 +99,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize1 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr1);
@@ -119,7 +119,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -134,7 +134,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -147,7 +147,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -192,7 +192,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr1);
@@ -211,7 +211,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -228,7 +228,7 @@ namespace Hexa.NET.DXC
 								{
 									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 										return ret;
 									}
 								}
@@ -242,7 +242,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -289,7 +289,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize1 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr1);
@@ -309,7 +309,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -326,7 +326,7 @@ namespace Hexa.NET.DXC
 								{
 									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 										return ret;
 									}
 								}
@@ -340,7 +340,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -402,7 +402,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize2 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr2);
@@ -425,7 +425,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -444,7 +444,7 @@ namespace Hexa.NET.DXC
 									{
 										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 										{
-											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 											return ret;
 										}
 									}
@@ -459,7 +459,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, IDxcOperationResult** ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -523,7 +523,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize2 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr2);
@@ -547,14 +547,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcOperationResult** pppResult = &ppResult)
 			{
 				fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 					return ret;
 				}
 			}
@@ -563,13 +563,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
 			{
 				ppDebugBlob = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
 				return ret;
 			}
 		}
@@ -577,7 +577,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -586,7 +586,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						return ret;
 					}
 				}
@@ -596,13 +596,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
 			{
 				ppDebugBlob = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
 				return ret;
 			}
 		}
@@ -610,7 +610,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -619,7 +619,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						return ret;
 					}
 				}
@@ -629,7 +629,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -653,7 +653,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -666,7 +666,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -677,7 +677,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -688,7 +688,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -714,7 +714,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -728,7 +728,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -737,7 +737,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						return ret;
 					}
 				}
@@ -747,7 +747,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -771,7 +771,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -784,7 +784,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -795,7 +795,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -806,7 +806,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -832,7 +832,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -846,7 +846,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -857,7 +857,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -868,7 +868,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -909,7 +909,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -926,7 +926,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -939,7 +939,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -951,7 +951,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -994,7 +994,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -1012,7 +1012,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -1021,7 +1021,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						return ret;
 					}
 				}
@@ -1031,7 +1031,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1055,7 +1055,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1068,7 +1068,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1079,7 +1079,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -1090,7 +1090,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1116,7 +1116,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1130,7 +1130,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -1141,7 +1141,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -1152,7 +1152,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1193,7 +1193,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1210,7 +1210,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1223,7 +1223,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -1235,7 +1235,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1278,7 +1278,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -1296,7 +1296,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -1307,7 +1307,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -1318,7 +1318,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1359,7 +1359,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1376,7 +1376,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1389,7 +1389,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -1401,7 +1401,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1444,7 +1444,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -1462,7 +1462,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -1475,7 +1475,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -1487,7 +1487,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1545,7 +1545,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 					if (pStrSize2 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr2);
@@ -1566,7 +1566,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1581,7 +1581,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -1594,7 +1594,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1654,7 +1654,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize2 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr2);
@@ -1676,7 +1676,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char** ppArguments = &pArguments)
@@ -1685,7 +1685,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						return ret;
 					}
 				}
@@ -1695,7 +1695,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char** ppArguments = &pArguments)
@@ -1703,7 +1703,7 @@ namespace Hexa.NET.DXC
 				fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
 				{
 					ppDebugBlob = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1712,7 +1712,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1723,7 +1723,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -1734,7 +1734,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char** ppArguments = &pArguments)
@@ -1742,7 +1742,7 @@ namespace Hexa.NET.DXC
 				fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
 				{
 					ppDebugBlob = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1751,7 +1751,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -1762,7 +1762,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -1773,7 +1773,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1799,7 +1799,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1813,7 +1813,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1826,7 +1826,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -1838,7 +1838,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1866,7 +1866,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -1881,7 +1881,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -1892,7 +1892,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -1903,7 +1903,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1929,7 +1929,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1943,7 +1943,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1956,7 +1956,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -1968,7 +1968,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1996,7 +1996,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -2011,7 +2011,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -2024,7 +2024,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -2036,7 +2036,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2079,7 +2079,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -2097,7 +2097,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2112,7 +2112,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -2125,7 +2125,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2170,7 +2170,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr1);
@@ -2189,7 +2189,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -2200,7 +2200,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -2211,7 +2211,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2237,7 +2237,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -2251,7 +2251,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2264,7 +2264,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -2276,7 +2276,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2304,7 +2304,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -2319,7 +2319,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -2332,7 +2332,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -2344,7 +2344,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2387,7 +2387,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -2405,7 +2405,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2420,7 +2420,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -2433,7 +2433,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2478,7 +2478,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr1);
@@ -2497,7 +2497,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -2510,7 +2510,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -2522,7 +2522,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2565,7 +2565,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -2583,7 +2583,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2598,7 +2598,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -2611,7 +2611,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2656,7 +2656,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr1);
@@ -2675,7 +2675,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -2690,7 +2690,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -2703,7 +2703,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2763,7 +2763,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize2 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr2);
@@ -2785,7 +2785,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2802,7 +2802,7 @@ namespace Hexa.NET.DXC
 								{
 									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 										return ret;
 									}
 								}
@@ -2816,7 +2816,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2878,7 +2878,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize2 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr2);
@@ -2901,7 +2901,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (Define* ppDefines = &pDefines)
@@ -2910,7 +2910,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						return ret;
 					}
 				}
@@ -2920,7 +2920,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (Define* ppDefines = &pDefines)
@@ -2928,7 +2928,7 @@ namespace Hexa.NET.DXC
 				fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
 				{
 					ppDebugBlob = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2937,7 +2937,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2948,7 +2948,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -2959,7 +2959,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (Define* ppDefines = &pDefines)
@@ -2967,7 +2967,7 @@ namespace Hexa.NET.DXC
 				fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
 				{
 					ppDebugBlob = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2976,7 +2976,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -2987,7 +2987,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -2998,7 +2998,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3024,7 +3024,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -3038,7 +3038,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3051,7 +3051,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -3063,7 +3063,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3091,7 +3091,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -3106,7 +3106,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -3117,7 +3117,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -3128,7 +3128,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3154,7 +3154,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -3168,7 +3168,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3181,7 +3181,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -3193,7 +3193,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3221,7 +3221,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -3236,7 +3236,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -3249,7 +3249,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -3261,7 +3261,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3304,7 +3304,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -3322,7 +3322,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3337,7 +3337,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -3350,7 +3350,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3395,7 +3395,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr1);
@@ -3414,7 +3414,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -3425,7 +3425,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -3436,7 +3436,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3462,7 +3462,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -3476,7 +3476,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3489,7 +3489,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -3501,7 +3501,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3529,7 +3529,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -3544,7 +3544,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -3557,7 +3557,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -3569,7 +3569,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3612,7 +3612,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -3630,7 +3630,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3645,7 +3645,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -3658,7 +3658,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3703,7 +3703,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr1);
@@ -3722,7 +3722,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -3735,7 +3735,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -3747,7 +3747,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3790,7 +3790,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -3808,7 +3808,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3823,7 +3823,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -3836,7 +3836,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3881,7 +3881,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr1);
@@ -3900,7 +3900,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -3915,7 +3915,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -3928,7 +3928,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3988,7 +3988,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 						if (pStrSize2 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr2);
@@ -4010,7 +4010,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4027,7 +4027,7 @@ namespace Hexa.NET.DXC
 								{
 									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 										return ret;
 									}
 								}
@@ -4041,7 +4041,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4103,7 +4103,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize2 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr2);
@@ -4126,7 +4126,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char** ppArguments = &pArguments)
@@ -4137,7 +4137,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							return ret;
 						}
 					}
@@ -4148,7 +4148,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char** ppArguments = &pArguments)
@@ -4158,7 +4158,7 @@ namespace Hexa.NET.DXC
 					fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
 					{
 						ppDebugBlob = default;
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4168,7 +4168,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4181,7 +4181,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -4193,7 +4193,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, char** ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char** ppArguments = &pArguments)
@@ -4203,7 +4203,7 @@ namespace Hexa.NET.DXC
 					fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
 					{
 						ppDebugBlob = default;
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4213,7 +4213,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -4226,7 +4226,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -4238,7 +4238,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4266,7 +4266,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -4281,7 +4281,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4296,7 +4296,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -4309,7 +4309,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4339,7 +4339,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize0 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr0);
@@ -4355,7 +4355,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -4368,7 +4368,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -4380,7 +4380,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4408,7 +4408,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -4423,7 +4423,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4438,7 +4438,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -4451,7 +4451,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4481,7 +4481,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize0 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr0);
@@ -4497,7 +4497,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -4512,7 +4512,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -4525,7 +4525,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4570,7 +4570,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr1);
@@ -4589,7 +4589,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4606,7 +4606,7 @@ namespace Hexa.NET.DXC
 								{
 									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 										return ret;
 									}
 								}
@@ -4620,7 +4620,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4667,7 +4667,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize1 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr1);
@@ -4687,7 +4687,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -4700,7 +4700,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								return ret;
 							}
 						}
@@ -4712,7 +4712,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4740,7 +4740,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -4755,7 +4755,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4770,7 +4770,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -4783,7 +4783,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4813,7 +4813,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize0 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr0);
@@ -4829,7 +4829,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -4844,7 +4844,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -4857,7 +4857,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4902,7 +4902,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr1);
@@ -4921,7 +4921,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4938,7 +4938,7 @@ namespace Hexa.NET.DXC
 								{
 									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 										return ret;
 									}
 								}
@@ -4952,7 +4952,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4999,7 +4999,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize1 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr1);
@@ -5019,7 +5019,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		public static HResult CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, char** ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -5034,7 +5034,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, HResult>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, ppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}

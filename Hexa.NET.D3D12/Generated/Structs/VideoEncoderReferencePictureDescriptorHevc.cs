@@ -32,12 +32,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int IsRefUsedByCurrentPic;
+		public Bool32 IsRefUsedByCurrentPic;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int IsLongTermReference;
+		public Bool32 IsLongTermReference;
 
 		/// <summary>
 		/// To be documented.
@@ -53,7 +53,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe VideoEncoderReferencePictureDescriptorHevc(uint reconstructedPictureResourceIndex = default, int isRefUsedByCurrentPic = default, int isLongTermReference = default, uint pictureOrderCountNumber = default, uint temporalLayerIndex = default)
+		public unsafe VideoEncoderReferencePictureDescriptorHevc(uint reconstructedPictureResourceIndex = default, Bool32 isRefUsedByCurrentPic = default, Bool32 isLongTermReference = default, uint pictureOrderCountNumber = default, uint temporalLayerIndex = default)
 		{
 			ReconstructedPictureResourceIndex = reconstructedPictureResourceIndex;
 			IsRefUsedByCurrentPic = isRefUsedByCurrentPic;

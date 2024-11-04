@@ -36,13 +36,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DesktopImageInSystemMemory;
+		public Bool32 DesktopImageInSystemMemory;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe OutduplDesc(ModeDesc modeDesc = default, ModeRotation rotation = default, int desktopImageInSystemMemory = default)
+		public unsafe OutduplDesc(ModeDesc modeDesc = default, ModeRotation rotation = default, Bool32 desktopImageInSystemMemory = default)
 		{
 			ModeDesc = modeDesc;
 			Rotation = rotation;

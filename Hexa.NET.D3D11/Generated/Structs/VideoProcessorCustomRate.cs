@@ -37,7 +37,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int InputInterlaced;
+		public Bool32 InputInterlaced;
 
 		/// <summary>
 		/// To be documented.
@@ -48,7 +48,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe VideoProcessorCustomRate(Rational customRate = default, uint outputFrames = default, int inputInterlaced = default, uint inputFramesOrFields = default)
+		public unsafe VideoProcessorCustomRate(Rational customRate = default, uint outputFrames = default, Bool32 inputInterlaced = default, uint inputFramesOrFields = default)
 		{
 			CustomRate = customRate;
 			OutputFrames = outputFrames;

@@ -23,7 +23,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device4> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, ref uint pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device4> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, ref uint pDescriptionLength) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -87,7 +87,7 @@ namespace Hexa.NET.D3D11
 							}
 							fixed (uint* ppDescriptionLength = &pDescriptionLength)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, (uint*)ppDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, (uint*)ppDescriptionLength);
 								if (pStrSize2 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr2);
@@ -111,7 +111,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device4> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, ref uint pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device4> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, ref uint pDescriptionLength) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -130,7 +130,7 @@ namespace Hexa.NET.D3D11
 									{
 										fixed (uint* ppDescriptionLength = &pDescriptionLength)
 										{
-											int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, (uint*)ppDescriptionLength);
+											HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, (uint*)ppDescriptionLength);
 											return ret;
 										}
 									}
@@ -145,7 +145,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device4> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, ref uint pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device4> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, ref uint pDescriptionLength) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -209,7 +209,7 @@ namespace Hexa.NET.D3D11
 							}
 							fixed (uint* ppDescriptionLength = &pDescriptionLength)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, (uint*)ppDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, (uint*)ppDescriptionLength);
 								if (pStrSize2 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr2);
@@ -233,7 +233,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device4> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, ref uint pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device4> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, ref uint pDescriptionLength) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -254,7 +254,7 @@ namespace Hexa.NET.D3D11
 										{
 											fixed (uint* ppDescriptionLength = &pDescriptionLength)
 											{
-												int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, (uint*)ppDescriptionLength);
+												HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, (uint*)ppDescriptionLength);
 												return ret;
 											}
 										}
@@ -270,7 +270,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device4> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, ref uint pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device4> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, ref uint pDescriptionLength) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -336,7 +336,7 @@ namespace Hexa.NET.D3D11
 								}
 								fixed (uint* ppDescriptionLength = &pDescriptionLength)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, (uint*)ppDescriptionLength);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, (uint*)ppDescriptionLength);
 									if (pStrSize2 >= Utils.MaxStackallocSize)
 									{
 										Utils.Free(pStr2);
@@ -361,42 +361,42 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckFeatureSupport(this ComPtr<ID3D11Device4> comObj, Feature feature, void* pFeatureSupportData, uint featureSupportDataSize) 
+		public static HResult CheckFeatureSupport(this ComPtr<ID3D11Device4> comObj, Feature feature, void* pFeatureSupportData, uint featureSupportDataSize) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Feature, void*, uint, int>)(handle->LpVtbl[33]))(handle, feature, pFeatureSupportData, featureSupportDataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Feature, void*, uint, HResult>)(handle->LpVtbl[33]))(handle, feature, pFeatureSupportData, featureSupportDataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckFeatureSupport<T>(this ComPtr<ID3D11Device4> comObj, Feature feature, ComPtr<T> pFeatureSupportData, uint featureSupportDataSize) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult CheckFeatureSupport<T>(this ComPtr<ID3D11Device4> comObj, Feature feature, ComPtr<T> pFeatureSupportData, uint featureSupportDataSize) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Feature, void*, uint, int>)(handle->LpVtbl[33]))(handle, feature, (void*)pFeatureSupportData.Handle, featureSupportDataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Feature, void*, uint, HResult>)(handle->LpVtbl[33]))(handle, feature, (void*)pFeatureSupportData.Handle, featureSupportDataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Device4> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Device4> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, int>)(handle->LpVtbl[34]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[34]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Device4> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Device4> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, int>)(handle->LpVtbl[34]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[34]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -404,12 +404,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Device4> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Device4> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, int>)(handle->LpVtbl[34]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[34]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -417,14 +417,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11Device4> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11Device4> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, int>)(handle->LpVtbl[34]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[34]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -433,22 +433,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Device4> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Device4> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, int>)(handle->LpVtbl[34]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[34]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Device4> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Device4> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, int>)(handle->LpVtbl[34]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[34]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -456,12 +456,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Device4> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Device4> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, int>)(handle->LpVtbl[34]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[34]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -469,14 +469,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11Device4> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11Device4> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, int>)(handle->LpVtbl[34]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[34]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -485,22 +485,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Device4> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Device4> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint, void*, int>)(handle->LpVtbl[35]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint, void*, HResult>)(handle->LpVtbl[35]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11Device4> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11Device4> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint, void*, int>)(handle->LpVtbl[35]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, uint, void*, HResult>)(handle->LpVtbl[35]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -508,22 +508,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Device4> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Device4> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, IUnknown*, int>)(handle->LpVtbl[36]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[36]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Device4> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Device4> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, IUnknown*, int>)(handle->LpVtbl[36]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[36]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -531,12 +531,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Device4> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Device4> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, IUnknown*, int>)(handle->LpVtbl[36]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[36]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -544,24 +544,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Device4> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Device4> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, IUnknown*, int>)(handle->LpVtbl[36]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[36]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Device4> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Device4> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, IUnknown*, int>)(handle->LpVtbl[36]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[36]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -570,12 +570,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11Device4> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11Device4> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, IUnknown*, int>)(handle->LpVtbl[36]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[36]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -603,10 +603,10 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDeviceRemovedReason(this ComPtr<ID3D11Device4> comObj) 
+		public static HResult GetDeviceRemovedReason(this ComPtr<ID3D11Device4> comObj) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, int>)(handle->LpVtbl[39]))(handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, HResult>)(handle->LpVtbl[39]))(handle);
 			return ret;
 		}
 
@@ -644,10 +644,10 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetExceptionMode(this ComPtr<ID3D11Device4> comObj, uint raiseFlags) 
+		public static HResult SetExceptionMode(this ComPtr<ID3D11Device4> comObj, uint raiseFlags) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, int>)(handle->LpVtbl[41]))(handle, raiseFlags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, HResult>)(handle->LpVtbl[41]))(handle, raiseFlags);
 			return ret;
 		}
 
@@ -695,22 +695,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeferredContext1(this ComPtr<ID3D11Device4> comObj, uint contextFlags, ID3D11DeviceContext1** ppDeferredContext) 
+		public static HResult CreateDeferredContext1(this ComPtr<ID3D11Device4> comObj, uint contextFlags, ID3D11DeviceContext1** ppDeferredContext) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext1**, int>)(handle->LpVtbl[44]))(handle, contextFlags, ppDeferredContext);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext1**, HResult>)(handle->LpVtbl[44]))(handle, contextFlags, ppDeferredContext);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeferredContext1(this ComPtr<ID3D11Device4> comObj, uint contextFlags, ref ID3D11DeviceContext1* ppDeferredContext) 
+		public static HResult CreateDeferredContext1(this ComPtr<ID3D11Device4> comObj, uint contextFlags, ref ID3D11DeviceContext1* ppDeferredContext) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11DeviceContext1** pppDeferredContext = &ppDeferredContext)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext1**, int>)(handle->LpVtbl[44]))(handle, contextFlags, (ID3D11DeviceContext1**)pppDeferredContext);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext1**, HResult>)(handle->LpVtbl[44]))(handle, contextFlags, (ID3D11DeviceContext1**)pppDeferredContext);
 				return ret;
 			}
 		}
@@ -718,33 +718,33 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeferredContext1(this ComPtr<ID3D11Device4> comObj, uint contextFlags, out ComPtr<ID3D11DeviceContext1> ppDeferredContext) 
+		public static HResult CreateDeferredContext1(this ComPtr<ID3D11Device4> comObj, uint contextFlags, out ComPtr<ID3D11DeviceContext1> ppDeferredContext) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppDeferredContext = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext1**, int>)(handle->LpVtbl[44]))(handle, contextFlags, (ID3D11DeviceContext1**)ppDeferredContext.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext1**, HResult>)(handle->LpVtbl[44]))(handle, contextFlags, (ID3D11DeviceContext1**)ppDeferredContext.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlendState1(this ComPtr<ID3D11Device4> comObj, BlendDesc1* pBlendStateDesc, ID3D11BlendState1** ppBlendState) 
+		public static HResult CreateBlendState1(this ComPtr<ID3D11Device4> comObj, BlendDesc1* pBlendStateDesc, ID3D11BlendState1** ppBlendState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, BlendDesc1*, ID3D11BlendState1**, int>)(handle->LpVtbl[45]))(handle, pBlendStateDesc, ppBlendState);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, BlendDesc1*, ID3D11BlendState1**, HResult>)(handle->LpVtbl[45]))(handle, pBlendStateDesc, ppBlendState);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlendState1(this ComPtr<ID3D11Device4> comObj, ref BlendDesc1 pBlendStateDesc, ID3D11BlendState1** ppBlendState) 
+		public static HResult CreateBlendState1(this ComPtr<ID3D11Device4> comObj, ref BlendDesc1 pBlendStateDesc, ID3D11BlendState1** ppBlendState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (BlendDesc1* ppBlendStateDesc = &pBlendStateDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, BlendDesc1*, ID3D11BlendState1**, int>)(handle->LpVtbl[45]))(handle, (BlendDesc1*)ppBlendStateDesc, ppBlendState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, BlendDesc1*, ID3D11BlendState1**, HResult>)(handle->LpVtbl[45]))(handle, (BlendDesc1*)ppBlendStateDesc, ppBlendState);
 				return ret;
 			}
 		}
@@ -752,12 +752,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlendState1(this ComPtr<ID3D11Device4> comObj, BlendDesc1* pBlendStateDesc, ref ID3D11BlendState1* ppBlendState) 
+		public static HResult CreateBlendState1(this ComPtr<ID3D11Device4> comObj, BlendDesc1* pBlendStateDesc, ref ID3D11BlendState1* ppBlendState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11BlendState1** pppBlendState = &ppBlendState)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, BlendDesc1*, ID3D11BlendState1**, int>)(handle->LpVtbl[45]))(handle, pBlendStateDesc, (ID3D11BlendState1**)pppBlendState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, BlendDesc1*, ID3D11BlendState1**, HResult>)(handle->LpVtbl[45]))(handle, pBlendStateDesc, (ID3D11BlendState1**)pppBlendState);
 				return ret;
 			}
 		}
@@ -765,25 +765,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlendState1(this ComPtr<ID3D11Device4> comObj, BlendDesc1* pBlendStateDesc, out ComPtr<ID3D11BlendState1> ppBlendState) 
+		public static HResult CreateBlendState1(this ComPtr<ID3D11Device4> comObj, BlendDesc1* pBlendStateDesc, out ComPtr<ID3D11BlendState1> ppBlendState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppBlendState = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, BlendDesc1*, ID3D11BlendState1**, int>)(handle->LpVtbl[45]))(handle, pBlendStateDesc, (ID3D11BlendState1**)ppBlendState.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, BlendDesc1*, ID3D11BlendState1**, HResult>)(handle->LpVtbl[45]))(handle, pBlendStateDesc, (ID3D11BlendState1**)ppBlendState.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlendState1(this ComPtr<ID3D11Device4> comObj, ref BlendDesc1 pBlendStateDesc, ref ID3D11BlendState1* ppBlendState) 
+		public static HResult CreateBlendState1(this ComPtr<ID3D11Device4> comObj, ref BlendDesc1 pBlendStateDesc, ref ID3D11BlendState1* ppBlendState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (BlendDesc1* ppBlendStateDesc = &pBlendStateDesc)
 			{
 				fixed (ID3D11BlendState1** pppBlendState = &ppBlendState)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, BlendDesc1*, ID3D11BlendState1**, int>)(handle->LpVtbl[45]))(handle, (BlendDesc1*)ppBlendStateDesc, (ID3D11BlendState1**)pppBlendState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, BlendDesc1*, ID3D11BlendState1**, HResult>)(handle->LpVtbl[45]))(handle, (BlendDesc1*)ppBlendStateDesc, (ID3D11BlendState1**)pppBlendState);
 					return ret;
 				}
 			}
@@ -792,13 +792,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlendState1(this ComPtr<ID3D11Device4> comObj, ref BlendDesc1 pBlendStateDesc, out ComPtr<ID3D11BlendState1> ppBlendState) 
+		public static HResult CreateBlendState1(this ComPtr<ID3D11Device4> comObj, ref BlendDesc1 pBlendStateDesc, out ComPtr<ID3D11BlendState1> ppBlendState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (BlendDesc1* ppBlendStateDesc = &pBlendStateDesc)
 			{
 				ppBlendState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, BlendDesc1*, ID3D11BlendState1**, int>)(handle->LpVtbl[45]))(handle, (BlendDesc1*)ppBlendStateDesc, (ID3D11BlendState1**)ppBlendState.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, BlendDesc1*, ID3D11BlendState1**, HResult>)(handle->LpVtbl[45]))(handle, (BlendDesc1*)ppBlendStateDesc, (ID3D11BlendState1**)ppBlendState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -806,22 +806,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRasterizerState1(this ComPtr<ID3D11Device4> comObj, RasterizerDesc1* pRasterizerDesc, ID3D11RasterizerState1** ppRasterizerState) 
+		public static HResult CreateRasterizerState1(this ComPtr<ID3D11Device4> comObj, RasterizerDesc1* pRasterizerDesc, ID3D11RasterizerState1** ppRasterizerState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc1*, ID3D11RasterizerState1**, int>)(handle->LpVtbl[46]))(handle, pRasterizerDesc, ppRasterizerState);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc1*, ID3D11RasterizerState1**, HResult>)(handle->LpVtbl[46]))(handle, pRasterizerDesc, ppRasterizerState);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRasterizerState1(this ComPtr<ID3D11Device4> comObj, ref RasterizerDesc1 pRasterizerDesc, ID3D11RasterizerState1** ppRasterizerState) 
+		public static HResult CreateRasterizerState1(this ComPtr<ID3D11Device4> comObj, ref RasterizerDesc1 pRasterizerDesc, ID3D11RasterizerState1** ppRasterizerState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (RasterizerDesc1* ppRasterizerDesc = &pRasterizerDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc1*, ID3D11RasterizerState1**, int>)(handle->LpVtbl[46]))(handle, (RasterizerDesc1*)ppRasterizerDesc, ppRasterizerState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc1*, ID3D11RasterizerState1**, HResult>)(handle->LpVtbl[46]))(handle, (RasterizerDesc1*)ppRasterizerDesc, ppRasterizerState);
 				return ret;
 			}
 		}
@@ -829,12 +829,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRasterizerState1(this ComPtr<ID3D11Device4> comObj, RasterizerDesc1* pRasterizerDesc, ref ID3D11RasterizerState1* ppRasterizerState) 
+		public static HResult CreateRasterizerState1(this ComPtr<ID3D11Device4> comObj, RasterizerDesc1* pRasterizerDesc, ref ID3D11RasterizerState1* ppRasterizerState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11RasterizerState1** pppRasterizerState = &ppRasterizerState)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc1*, ID3D11RasterizerState1**, int>)(handle->LpVtbl[46]))(handle, pRasterizerDesc, (ID3D11RasterizerState1**)pppRasterizerState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc1*, ID3D11RasterizerState1**, HResult>)(handle->LpVtbl[46]))(handle, pRasterizerDesc, (ID3D11RasterizerState1**)pppRasterizerState);
 				return ret;
 			}
 		}
@@ -842,25 +842,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRasterizerState1(this ComPtr<ID3D11Device4> comObj, RasterizerDesc1* pRasterizerDesc, out ComPtr<ID3D11RasterizerState1> ppRasterizerState) 
+		public static HResult CreateRasterizerState1(this ComPtr<ID3D11Device4> comObj, RasterizerDesc1* pRasterizerDesc, out ComPtr<ID3D11RasterizerState1> ppRasterizerState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppRasterizerState = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc1*, ID3D11RasterizerState1**, int>)(handle->LpVtbl[46]))(handle, pRasterizerDesc, (ID3D11RasterizerState1**)ppRasterizerState.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc1*, ID3D11RasterizerState1**, HResult>)(handle->LpVtbl[46]))(handle, pRasterizerDesc, (ID3D11RasterizerState1**)ppRasterizerState.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRasterizerState1(this ComPtr<ID3D11Device4> comObj, ref RasterizerDesc1 pRasterizerDesc, ref ID3D11RasterizerState1* ppRasterizerState) 
+		public static HResult CreateRasterizerState1(this ComPtr<ID3D11Device4> comObj, ref RasterizerDesc1 pRasterizerDesc, ref ID3D11RasterizerState1* ppRasterizerState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (RasterizerDesc1* ppRasterizerDesc = &pRasterizerDesc)
 			{
 				fixed (ID3D11RasterizerState1** pppRasterizerState = &ppRasterizerState)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc1*, ID3D11RasterizerState1**, int>)(handle->LpVtbl[46]))(handle, (RasterizerDesc1*)ppRasterizerDesc, (ID3D11RasterizerState1**)pppRasterizerState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc1*, ID3D11RasterizerState1**, HResult>)(handle->LpVtbl[46]))(handle, (RasterizerDesc1*)ppRasterizerDesc, (ID3D11RasterizerState1**)pppRasterizerState);
 					return ret;
 				}
 			}
@@ -869,13 +869,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRasterizerState1(this ComPtr<ID3D11Device4> comObj, ref RasterizerDesc1 pRasterizerDesc, out ComPtr<ID3D11RasterizerState1> ppRasterizerState) 
+		public static HResult CreateRasterizerState1(this ComPtr<ID3D11Device4> comObj, ref RasterizerDesc1 pRasterizerDesc, out ComPtr<ID3D11RasterizerState1> ppRasterizerState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (RasterizerDesc1* ppRasterizerDesc = &pRasterizerDesc)
 			{
 				ppRasterizerState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc1*, ID3D11RasterizerState1**, int>)(handle->LpVtbl[46]))(handle, (RasterizerDesc1*)ppRasterizerDesc, (ID3D11RasterizerState1**)ppRasterizerState.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc1*, ID3D11RasterizerState1**, HResult>)(handle->LpVtbl[46]))(handle, (RasterizerDesc1*)ppRasterizerDesc, (ID3D11RasterizerState1**)ppRasterizerState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -883,22 +883,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, FeatureLevel* pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, FeatureLevel* pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, emulatedInterface, pChosenFeatureLevel, ppContextState);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, emulatedInterface, pChosenFeatureLevel, ppContextState);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, FeatureLevel* pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, FeatureLevel* pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, emulatedInterface, pChosenFeatureLevel, ppContextState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, emulatedInterface, pChosenFeatureLevel, ppContextState);
 				return ret;
 			}
 		}
@@ -906,12 +906,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, FeatureLevel* pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, FeatureLevel* pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* pemulatedInterface = &emulatedInterface)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, pChosenFeatureLevel, ppContextState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, pChosenFeatureLevel, ppContextState);
 				return ret;
 			}
 		}
@@ -919,14 +919,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, FeatureLevel* pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, FeatureLevel* pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (Guid* pemulatedInterface = &emulatedInterface)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, pChosenFeatureLevel, ppContextState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, pChosenFeatureLevel, ppContextState);
 					return ret;
 				}
 			}
@@ -935,12 +935,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (FeatureLevel* ppChosenFeatureLevel = &pChosenFeatureLevel)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, emulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, ppContextState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, emulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, ppContextState);
 				return ret;
 			}
 		}
@@ -948,14 +948,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (FeatureLevel* ppChosenFeatureLevel = &pChosenFeatureLevel)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, emulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, ppContextState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, emulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, ppContextState);
 					return ret;
 				}
 			}
@@ -964,14 +964,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* pemulatedInterface = &emulatedInterface)
 			{
 				fixed (FeatureLevel* ppChosenFeatureLevel = &pChosenFeatureLevel)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, ppContextState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, ppContextState);
 					return ret;
 				}
 			}
@@ -980,7 +980,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ID3DDeviceContextState** ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
@@ -989,7 +989,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppChosenFeatureLevel = &pChosenFeatureLevel)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, ppContextState);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, ppContextState);
 						return ret;
 					}
 				}
@@ -999,12 +999,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, FeatureLevel* pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, FeatureLevel* pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3DDeviceContextState** pppContextState = &ppContextState)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, emulatedInterface, pChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, emulatedInterface, pChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
 				return ret;
 			}
 		}
@@ -1012,14 +1012,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, FeatureLevel* pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, FeatureLevel* pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3DDeviceContextState** pppContextState = &ppContextState)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, emulatedInterface, pChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, emulatedInterface, pChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
 					return ret;
 				}
 			}
@@ -1028,14 +1028,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, FeatureLevel* pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, FeatureLevel* pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* pemulatedInterface = &emulatedInterface)
 			{
 				fixed (ID3DDeviceContextState** pppContextState = &ppContextState)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, pChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, pChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
 					return ret;
 				}
 			}
@@ -1044,7 +1044,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, FeatureLevel* pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, FeatureLevel* pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
@@ -1053,7 +1053,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3DDeviceContextState** pppContextState = &ppContextState)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, pChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, pChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
 						return ret;
 					}
 				}
@@ -1063,14 +1063,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (FeatureLevel* ppChosenFeatureLevel = &pChosenFeatureLevel)
 			{
 				fixed (ID3DDeviceContextState** pppContextState = &ppContextState)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, emulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, emulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
 					return ret;
 				}
 			}
@@ -1079,7 +1079,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, Guid* emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
@@ -1088,7 +1088,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3DDeviceContextState** pppContextState = &ppContextState)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, emulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, emulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
 						return ret;
 					}
 				}
@@ -1098,7 +1098,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* pemulatedInterface = &emulatedInterface)
@@ -1107,7 +1107,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3DDeviceContextState** pppContextState = &ppContextState)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, pFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
 						return ret;
 					}
 				}
@@ -1117,7 +1117,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
+		public static HResult CreateDeviceContextState(this ComPtr<ID3D11Device4> comObj, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref Guid emulatedInterface, ref FeatureLevel pChosenFeatureLevel, ref ID3DDeviceContextState* ppContextState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
@@ -1128,7 +1128,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3DDeviceContextState** pppContextState = &ppContextState)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, int>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, FeatureLevel*, uint, uint, Guid*, FeatureLevel*, ID3DDeviceContextState**, HResult>)(handle->LpVtbl[47]))(handle, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (Guid*)pemulatedInterface, (FeatureLevel*)ppChosenFeatureLevel, (ID3DDeviceContextState**)pppContextState);
 							return ret;
 						}
 					}
@@ -1139,22 +1139,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResource1(this ComPtr<ID3D11Device4> comObj, nint hResource, Guid* returnedInterface, void** ppResource) 
+		public static HResult OpenSharedResource1(this ComPtr<ID3D11Device4> comObj, nint hResource, Guid* returnedInterface, void** ppResource) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, nint, Guid*, void**, int>)(handle->LpVtbl[48]))(handle, hResource, returnedInterface, ppResource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, nint, Guid*, void**, HResult>)(handle->LpVtbl[48]))(handle, hResource, returnedInterface, ppResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResource1(this ComPtr<ID3D11Device4> comObj, nint hResource, ref Guid returnedInterface, void** ppResource) 
+		public static HResult OpenSharedResource1(this ComPtr<ID3D11Device4> comObj, nint hResource, ref Guid returnedInterface, void** ppResource) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* preturnedInterface = &returnedInterface)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, nint, Guid*, void**, int>)(handle->LpVtbl[48]))(handle, hResource, (Guid*)preturnedInterface, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, nint, Guid*, void**, HResult>)(handle->LpVtbl[48]))(handle, hResource, (Guid*)preturnedInterface, ppResource);
 				return ret;
 			}
 		}
@@ -1162,24 +1162,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResource1<T>(this ComPtr<ID3D11Device4> comObj, nint hResource, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult OpenSharedResource1<T>(this ComPtr<ID3D11Device4> comObj, nint hResource, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, nint, Guid*, void**, int>)(handle->LpVtbl[48]))(handle, hResource, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, nint, Guid*, void**, HResult>)(handle->LpVtbl[48]))(handle, hResource, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResource1<T>(this ComPtr<ID3D11Device4> comObj, nint hResource, ref Guid returnedInterface, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult OpenSharedResource1<T>(this ComPtr<ID3D11Device4> comObj, nint hResource, ref Guid returnedInterface, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* preturnedInterface = &returnedInterface)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, nint, Guid*, void**, int>)(handle->LpVtbl[48]))(handle, hResource, (Guid*)preturnedInterface, (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, nint, Guid*, void**, HResult>)(handle->LpVtbl[48]))(handle, hResource, (Guid*)preturnedInterface, (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1187,22 +1187,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResourceByName(this ComPtr<ID3D11Device4> comObj, char* lpName, uint dwDesiredAccess, Guid* returnedInterface, void** ppResource) 
+		public static HResult OpenSharedResourceByName(this ComPtr<ID3D11Device4> comObj, char* lpName, uint dwDesiredAccess, Guid* returnedInterface, void** ppResource) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, int>)(handle->LpVtbl[49]))(handle, lpName, dwDesiredAccess, returnedInterface, ppResource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, HResult>)(handle->LpVtbl[49]))(handle, lpName, dwDesiredAccess, returnedInterface, ppResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResourceByName(this ComPtr<ID3D11Device4> comObj, ReadOnlySpan<char> lpName, uint dwDesiredAccess, Guid* returnedInterface, void** ppResource) 
+		public static HResult OpenSharedResourceByName(this ComPtr<ID3D11Device4> comObj, ReadOnlySpan<char> lpName, uint dwDesiredAccess, Guid* returnedInterface, void** ppResource) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (char* plpName = lpName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, int>)(handle->LpVtbl[49]))(handle, (char*)plpName, dwDesiredAccess, returnedInterface, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, HResult>)(handle->LpVtbl[49]))(handle, (char*)plpName, dwDesiredAccess, returnedInterface, ppResource);
 				return ret;
 			}
 		}
@@ -1210,7 +1210,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResourceByName(this ComPtr<ID3D11Device4> comObj, string lpName, uint dwDesiredAccess, Guid* returnedInterface, void** ppResource) 
+		public static HResult OpenSharedResourceByName(this ComPtr<ID3D11Device4> comObj, string lpName, uint dwDesiredAccess, Guid* returnedInterface, void** ppResource) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1230,7 +1230,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF16(lpName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, int>)(handle->LpVtbl[49]))(handle, pStr0, dwDesiredAccess, returnedInterface, ppResource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, HResult>)(handle->LpVtbl[49]))(handle, pStr0, dwDesiredAccess, returnedInterface, ppResource);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -1241,12 +1241,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResourceByName(this ComPtr<ID3D11Device4> comObj, char* lpName, uint dwDesiredAccess, ref Guid returnedInterface, void** ppResource) 
+		public static HResult OpenSharedResourceByName(this ComPtr<ID3D11Device4> comObj, char* lpName, uint dwDesiredAccess, ref Guid returnedInterface, void** ppResource) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* preturnedInterface = &returnedInterface)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, int>)(handle->LpVtbl[49]))(handle, lpName, dwDesiredAccess, (Guid*)preturnedInterface, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, HResult>)(handle->LpVtbl[49]))(handle, lpName, dwDesiredAccess, (Guid*)preturnedInterface, ppResource);
 				return ret;
 			}
 		}
@@ -1254,14 +1254,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResourceByName(this ComPtr<ID3D11Device4> comObj, ReadOnlySpan<char> lpName, uint dwDesiredAccess, ref Guid returnedInterface, void** ppResource) 
+		public static HResult OpenSharedResourceByName(this ComPtr<ID3D11Device4> comObj, ReadOnlySpan<char> lpName, uint dwDesiredAccess, ref Guid returnedInterface, void** ppResource) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (char* plpName = lpName)
 			{
 				fixed (Guid* preturnedInterface = &returnedInterface)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, int>)(handle->LpVtbl[49]))(handle, (char*)plpName, dwDesiredAccess, (Guid*)preturnedInterface, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, HResult>)(handle->LpVtbl[49]))(handle, (char*)plpName, dwDesiredAccess, (Guid*)preturnedInterface, ppResource);
 					return ret;
 				}
 			}
@@ -1270,7 +1270,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResourceByName(this ComPtr<ID3D11Device4> comObj, string lpName, uint dwDesiredAccess, ref Guid returnedInterface, void** ppResource) 
+		public static HResult OpenSharedResourceByName(this ComPtr<ID3D11Device4> comObj, string lpName, uint dwDesiredAccess, ref Guid returnedInterface, void** ppResource) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1292,7 +1292,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (Guid* preturnedInterface = &returnedInterface)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, int>)(handle->LpVtbl[49]))(handle, pStr0, dwDesiredAccess, (Guid*)preturnedInterface, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, HResult>)(handle->LpVtbl[49]))(handle, pStr0, dwDesiredAccess, (Guid*)preturnedInterface, ppResource);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1304,24 +1304,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResourceByName<T>(this ComPtr<ID3D11Device4> comObj, char* lpName, uint dwDesiredAccess, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult OpenSharedResourceByName<T>(this ComPtr<ID3D11Device4> comObj, char* lpName, uint dwDesiredAccess, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, int>)(handle->LpVtbl[49]))(handle, lpName, dwDesiredAccess, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, HResult>)(handle->LpVtbl[49]))(handle, lpName, dwDesiredAccess, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResourceByName<T>(this ComPtr<ID3D11Device4> comObj, char* lpName, uint dwDesiredAccess, ref Guid returnedInterface, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult OpenSharedResourceByName<T>(this ComPtr<ID3D11Device4> comObj, char* lpName, uint dwDesiredAccess, ref Guid returnedInterface, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Guid* preturnedInterface = &returnedInterface)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, int>)(handle->LpVtbl[49]))(handle, lpName, dwDesiredAccess, (Guid*)preturnedInterface, (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, char*, uint, Guid*, void**, HResult>)(handle->LpVtbl[49]))(handle, lpName, dwDesiredAccess, (Guid*)preturnedInterface, (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1360,22 +1360,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeferredContext2(this ComPtr<ID3D11Device4> comObj, uint contextFlags, ID3D11DeviceContext2** ppDeferredContext) 
+		public static HResult CreateDeferredContext2(this ComPtr<ID3D11Device4> comObj, uint contextFlags, ID3D11DeviceContext2** ppDeferredContext) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext2**, int>)(handle->LpVtbl[51]))(handle, contextFlags, ppDeferredContext);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext2**, HResult>)(handle->LpVtbl[51]))(handle, contextFlags, ppDeferredContext);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeferredContext2(this ComPtr<ID3D11Device4> comObj, uint contextFlags, ref ID3D11DeviceContext2* ppDeferredContext) 
+		public static HResult CreateDeferredContext2(this ComPtr<ID3D11Device4> comObj, uint contextFlags, ref ID3D11DeviceContext2* ppDeferredContext) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11DeviceContext2** pppDeferredContext = &ppDeferredContext)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext2**, int>)(handle->LpVtbl[51]))(handle, contextFlags, (ID3D11DeviceContext2**)pppDeferredContext);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext2**, HResult>)(handle->LpVtbl[51]))(handle, contextFlags, (ID3D11DeviceContext2**)pppDeferredContext);
 				return ret;
 			}
 		}
@@ -1383,11 +1383,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeferredContext2(this ComPtr<ID3D11Device4> comObj, uint contextFlags, out ComPtr<ID3D11DeviceContext2> ppDeferredContext) 
+		public static HResult CreateDeferredContext2(this ComPtr<ID3D11Device4> comObj, uint contextFlags, out ComPtr<ID3D11DeviceContext2> ppDeferredContext) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppDeferredContext = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext2**, int>)(handle->LpVtbl[51]))(handle, contextFlags, (ID3D11DeviceContext2**)ppDeferredContext.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext2**, HResult>)(handle->LpVtbl[51]))(handle, contextFlags, (ID3D11DeviceContext2**)ppDeferredContext.GetAddressOf());
 			return ret;
 		}
 
@@ -3074,22 +3074,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckMultisampleQualityLevels1(this ComPtr<ID3D11Device4> comObj, Format format, uint sampleCount, uint flags, uint* pNumQualityLevels) 
+		public static HResult CheckMultisampleQualityLevels1(this ComPtr<ID3D11Device4> comObj, Format format, uint sampleCount, uint flags, uint* pNumQualityLevels) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Format, uint, uint, uint*, int>)(handle->LpVtbl[53]))(handle, format, sampleCount, flags, pNumQualityLevels);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Format, uint, uint, uint*, HResult>)(handle->LpVtbl[53]))(handle, format, sampleCount, flags, pNumQualityLevels);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckMultisampleQualityLevels1(this ComPtr<ID3D11Device4> comObj, Format format, uint sampleCount, uint flags, ref uint pNumQualityLevels) 
+		public static HResult CheckMultisampleQualityLevels1(this ComPtr<ID3D11Device4> comObj, Format format, uint sampleCount, uint flags, ref uint pNumQualityLevels) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (uint* ppNumQualityLevels = &pNumQualityLevels)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Format, uint, uint, uint*, int>)(handle->LpVtbl[53]))(handle, format, sampleCount, flags, (uint*)ppNumQualityLevels);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Format, uint, uint, uint*, HResult>)(handle->LpVtbl[53]))(handle, format, sampleCount, flags, (uint*)ppNumQualityLevels);
 				return ret;
 			}
 		}
@@ -3097,22 +3097,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, Texture2DDesc1* pDesc1, SubresourceData* pInitialData, ID3D11Texture2D1** ppTexture2D) 
+		public static HResult CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, Texture2DDesc1* pDesc1, SubresourceData* pInitialData, ID3D11Texture2D1** ppTexture2D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, int>)(handle->LpVtbl[54]))(handle, pDesc1, pInitialData, ppTexture2D);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, HResult>)(handle->LpVtbl[54]))(handle, pDesc1, pInitialData, ppTexture2D);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, ref Texture2DDesc1 pDesc1, SubresourceData* pInitialData, ID3D11Texture2D1** ppTexture2D) 
+		public static HResult CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, ref Texture2DDesc1 pDesc1, SubresourceData* pInitialData, ID3D11Texture2D1** ppTexture2D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Texture2DDesc1* ppDesc1 = &pDesc1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, int>)(handle->LpVtbl[54]))(handle, (Texture2DDesc1*)ppDesc1, pInitialData, ppTexture2D);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, HResult>)(handle->LpVtbl[54]))(handle, (Texture2DDesc1*)ppDesc1, pInitialData, ppTexture2D);
 				return ret;
 			}
 		}
@@ -3120,12 +3120,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, Texture2DDesc1* pDesc1, ref SubresourceData pInitialData, ID3D11Texture2D1** ppTexture2D) 
+		public static HResult CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, Texture2DDesc1* pDesc1, ref SubresourceData pInitialData, ID3D11Texture2D1** ppTexture2D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, int>)(handle->LpVtbl[54]))(handle, pDesc1, (SubresourceData*)ppInitialData, ppTexture2D);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, HResult>)(handle->LpVtbl[54]))(handle, pDesc1, (SubresourceData*)ppInitialData, ppTexture2D);
 				return ret;
 			}
 		}
@@ -3133,14 +3133,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, ref Texture2DDesc1 pDesc1, ref SubresourceData pInitialData, ID3D11Texture2D1** ppTexture2D) 
+		public static HResult CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, ref Texture2DDesc1 pDesc1, ref SubresourceData pInitialData, ID3D11Texture2D1** ppTexture2D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Texture2DDesc1* ppDesc1 = &pDesc1)
 			{
 				fixed (SubresourceData* ppInitialData = &pInitialData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, int>)(handle->LpVtbl[54]))(handle, (Texture2DDesc1*)ppDesc1, (SubresourceData*)ppInitialData, ppTexture2D);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, HResult>)(handle->LpVtbl[54]))(handle, (Texture2DDesc1*)ppDesc1, (SubresourceData*)ppInitialData, ppTexture2D);
 					return ret;
 				}
 			}
@@ -3149,12 +3149,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, Texture2DDesc1* pDesc1, SubresourceData* pInitialData, ref ID3D11Texture2D1* ppTexture2D) 
+		public static HResult CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, Texture2DDesc1* pDesc1, SubresourceData* pInitialData, ref ID3D11Texture2D1* ppTexture2D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Texture2D1** pppTexture2D = &ppTexture2D)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, int>)(handle->LpVtbl[54]))(handle, pDesc1, pInitialData, (ID3D11Texture2D1**)pppTexture2D);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, HResult>)(handle->LpVtbl[54]))(handle, pDesc1, pInitialData, (ID3D11Texture2D1**)pppTexture2D);
 				return ret;
 			}
 		}
@@ -3162,25 +3162,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, Texture2DDesc1* pDesc1, SubresourceData* pInitialData, out ComPtr<ID3D11Texture2D1> ppTexture2D) 
+		public static HResult CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, Texture2DDesc1* pDesc1, SubresourceData* pInitialData, out ComPtr<ID3D11Texture2D1> ppTexture2D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppTexture2D = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, int>)(handle->LpVtbl[54]))(handle, pDesc1, pInitialData, (ID3D11Texture2D1**)ppTexture2D.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, HResult>)(handle->LpVtbl[54]))(handle, pDesc1, pInitialData, (ID3D11Texture2D1**)ppTexture2D.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, ref Texture2DDesc1 pDesc1, SubresourceData* pInitialData, ref ID3D11Texture2D1* ppTexture2D) 
+		public static HResult CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, ref Texture2DDesc1 pDesc1, SubresourceData* pInitialData, ref ID3D11Texture2D1* ppTexture2D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Texture2DDesc1* ppDesc1 = &pDesc1)
 			{
 				fixed (ID3D11Texture2D1** pppTexture2D = &ppTexture2D)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, int>)(handle->LpVtbl[54]))(handle, (Texture2DDesc1*)ppDesc1, pInitialData, (ID3D11Texture2D1**)pppTexture2D);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, HResult>)(handle->LpVtbl[54]))(handle, (Texture2DDesc1*)ppDesc1, pInitialData, (ID3D11Texture2D1**)pppTexture2D);
 					return ret;
 				}
 			}
@@ -3189,13 +3189,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, ref Texture2DDesc1 pDesc1, SubresourceData* pInitialData, out ComPtr<ID3D11Texture2D1> ppTexture2D) 
+		public static HResult CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, ref Texture2DDesc1 pDesc1, SubresourceData* pInitialData, out ComPtr<ID3D11Texture2D1> ppTexture2D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Texture2DDesc1* ppDesc1 = &pDesc1)
 			{
 				ppTexture2D = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, int>)(handle->LpVtbl[54]))(handle, (Texture2DDesc1*)ppDesc1, pInitialData, (ID3D11Texture2D1**)ppTexture2D.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, HResult>)(handle->LpVtbl[54]))(handle, (Texture2DDesc1*)ppDesc1, pInitialData, (ID3D11Texture2D1**)ppTexture2D.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3203,14 +3203,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, Texture2DDesc1* pDesc1, ref SubresourceData pInitialData, ref ID3D11Texture2D1* ppTexture2D) 
+		public static HResult CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, Texture2DDesc1* pDesc1, ref SubresourceData pInitialData, ref ID3D11Texture2D1* ppTexture2D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
 				fixed (ID3D11Texture2D1** pppTexture2D = &ppTexture2D)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, int>)(handle->LpVtbl[54]))(handle, pDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture2D1**)pppTexture2D);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, HResult>)(handle->LpVtbl[54]))(handle, pDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture2D1**)pppTexture2D);
 					return ret;
 				}
 			}
@@ -3219,13 +3219,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, Texture2DDesc1* pDesc1, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture2D1> ppTexture2D) 
+		public static HResult CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, Texture2DDesc1* pDesc1, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture2D1> ppTexture2D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
 				ppTexture2D = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, int>)(handle->LpVtbl[54]))(handle, pDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture2D1**)ppTexture2D.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, HResult>)(handle->LpVtbl[54]))(handle, pDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture2D1**)ppTexture2D.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3233,7 +3233,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, ref Texture2DDesc1 pDesc1, ref SubresourceData pInitialData, ref ID3D11Texture2D1* ppTexture2D) 
+		public static HResult CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, ref Texture2DDesc1 pDesc1, ref SubresourceData pInitialData, ref ID3D11Texture2D1* ppTexture2D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Texture2DDesc1* ppDesc1 = &pDesc1)
@@ -3242,7 +3242,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Texture2D1** pppTexture2D = &ppTexture2D)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, int>)(handle->LpVtbl[54]))(handle, (Texture2DDesc1*)ppDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture2D1**)pppTexture2D);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, HResult>)(handle->LpVtbl[54]))(handle, (Texture2DDesc1*)ppDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture2D1**)pppTexture2D);
 						return ret;
 					}
 				}
@@ -3252,7 +3252,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, ref Texture2DDesc1 pDesc1, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture2D1> ppTexture2D) 
+		public static HResult CreateTexture2D1(this ComPtr<ID3D11Device4> comObj, ref Texture2DDesc1 pDesc1, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture2D1> ppTexture2D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Texture2DDesc1* ppDesc1 = &pDesc1)
@@ -3260,7 +3260,7 @@ namespace Hexa.NET.D3D11
 				fixed (SubresourceData* ppInitialData = &pInitialData)
 				{
 					ppTexture2D = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, int>)(handle->LpVtbl[54]))(handle, (Texture2DDesc1*)ppDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture2D1**)ppTexture2D.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture2DDesc1*, SubresourceData*, ID3D11Texture2D1**, HResult>)(handle->LpVtbl[54]))(handle, (Texture2DDesc1*)ppDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture2D1**)ppTexture2D.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3269,22 +3269,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, Texture3DDesc1* pDesc1, SubresourceData* pInitialData, ID3D11Texture3D1** ppTexture3D) 
+		public static HResult CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, Texture3DDesc1* pDesc1, SubresourceData* pInitialData, ID3D11Texture3D1** ppTexture3D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, int>)(handle->LpVtbl[55]))(handle, pDesc1, pInitialData, ppTexture3D);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, HResult>)(handle->LpVtbl[55]))(handle, pDesc1, pInitialData, ppTexture3D);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, ref Texture3DDesc1 pDesc1, SubresourceData* pInitialData, ID3D11Texture3D1** ppTexture3D) 
+		public static HResult CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, ref Texture3DDesc1 pDesc1, SubresourceData* pInitialData, ID3D11Texture3D1** ppTexture3D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Texture3DDesc1* ppDesc1 = &pDesc1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, int>)(handle->LpVtbl[55]))(handle, (Texture3DDesc1*)ppDesc1, pInitialData, ppTexture3D);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, HResult>)(handle->LpVtbl[55]))(handle, (Texture3DDesc1*)ppDesc1, pInitialData, ppTexture3D);
 				return ret;
 			}
 		}
@@ -3292,12 +3292,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, Texture3DDesc1* pDesc1, ref SubresourceData pInitialData, ID3D11Texture3D1** ppTexture3D) 
+		public static HResult CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, Texture3DDesc1* pDesc1, ref SubresourceData pInitialData, ID3D11Texture3D1** ppTexture3D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, int>)(handle->LpVtbl[55]))(handle, pDesc1, (SubresourceData*)ppInitialData, ppTexture3D);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, HResult>)(handle->LpVtbl[55]))(handle, pDesc1, (SubresourceData*)ppInitialData, ppTexture3D);
 				return ret;
 			}
 		}
@@ -3305,14 +3305,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, ref Texture3DDesc1 pDesc1, ref SubresourceData pInitialData, ID3D11Texture3D1** ppTexture3D) 
+		public static HResult CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, ref Texture3DDesc1 pDesc1, ref SubresourceData pInitialData, ID3D11Texture3D1** ppTexture3D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Texture3DDesc1* ppDesc1 = &pDesc1)
 			{
 				fixed (SubresourceData* ppInitialData = &pInitialData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, int>)(handle->LpVtbl[55]))(handle, (Texture3DDesc1*)ppDesc1, (SubresourceData*)ppInitialData, ppTexture3D);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, HResult>)(handle->LpVtbl[55]))(handle, (Texture3DDesc1*)ppDesc1, (SubresourceData*)ppInitialData, ppTexture3D);
 					return ret;
 				}
 			}
@@ -3321,12 +3321,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, Texture3DDesc1* pDesc1, SubresourceData* pInitialData, ref ID3D11Texture3D1* ppTexture3D) 
+		public static HResult CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, Texture3DDesc1* pDesc1, SubresourceData* pInitialData, ref ID3D11Texture3D1* ppTexture3D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Texture3D1** pppTexture3D = &ppTexture3D)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, int>)(handle->LpVtbl[55]))(handle, pDesc1, pInitialData, (ID3D11Texture3D1**)pppTexture3D);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, HResult>)(handle->LpVtbl[55]))(handle, pDesc1, pInitialData, (ID3D11Texture3D1**)pppTexture3D);
 				return ret;
 			}
 		}
@@ -3334,25 +3334,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, Texture3DDesc1* pDesc1, SubresourceData* pInitialData, out ComPtr<ID3D11Texture3D1> ppTexture3D) 
+		public static HResult CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, Texture3DDesc1* pDesc1, SubresourceData* pInitialData, out ComPtr<ID3D11Texture3D1> ppTexture3D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppTexture3D = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, int>)(handle->LpVtbl[55]))(handle, pDesc1, pInitialData, (ID3D11Texture3D1**)ppTexture3D.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, HResult>)(handle->LpVtbl[55]))(handle, pDesc1, pInitialData, (ID3D11Texture3D1**)ppTexture3D.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, ref Texture3DDesc1 pDesc1, SubresourceData* pInitialData, ref ID3D11Texture3D1* ppTexture3D) 
+		public static HResult CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, ref Texture3DDesc1 pDesc1, SubresourceData* pInitialData, ref ID3D11Texture3D1* ppTexture3D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Texture3DDesc1* ppDesc1 = &pDesc1)
 			{
 				fixed (ID3D11Texture3D1** pppTexture3D = &ppTexture3D)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, int>)(handle->LpVtbl[55]))(handle, (Texture3DDesc1*)ppDesc1, pInitialData, (ID3D11Texture3D1**)pppTexture3D);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, HResult>)(handle->LpVtbl[55]))(handle, (Texture3DDesc1*)ppDesc1, pInitialData, (ID3D11Texture3D1**)pppTexture3D);
 					return ret;
 				}
 			}
@@ -3361,13 +3361,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, ref Texture3DDesc1 pDesc1, SubresourceData* pInitialData, out ComPtr<ID3D11Texture3D1> ppTexture3D) 
+		public static HResult CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, ref Texture3DDesc1 pDesc1, SubresourceData* pInitialData, out ComPtr<ID3D11Texture3D1> ppTexture3D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Texture3DDesc1* ppDesc1 = &pDesc1)
 			{
 				ppTexture3D = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, int>)(handle->LpVtbl[55]))(handle, (Texture3DDesc1*)ppDesc1, pInitialData, (ID3D11Texture3D1**)ppTexture3D.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, HResult>)(handle->LpVtbl[55]))(handle, (Texture3DDesc1*)ppDesc1, pInitialData, (ID3D11Texture3D1**)ppTexture3D.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3375,14 +3375,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, Texture3DDesc1* pDesc1, ref SubresourceData pInitialData, ref ID3D11Texture3D1* ppTexture3D) 
+		public static HResult CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, Texture3DDesc1* pDesc1, ref SubresourceData pInitialData, ref ID3D11Texture3D1* ppTexture3D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
 				fixed (ID3D11Texture3D1** pppTexture3D = &ppTexture3D)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, int>)(handle->LpVtbl[55]))(handle, pDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture3D1**)pppTexture3D);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, HResult>)(handle->LpVtbl[55]))(handle, pDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture3D1**)pppTexture3D);
 					return ret;
 				}
 			}
@@ -3391,13 +3391,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, Texture3DDesc1* pDesc1, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture3D1> ppTexture3D) 
+		public static HResult CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, Texture3DDesc1* pDesc1, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture3D1> ppTexture3D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
 				ppTexture3D = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, int>)(handle->LpVtbl[55]))(handle, pDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture3D1**)ppTexture3D.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, HResult>)(handle->LpVtbl[55]))(handle, pDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture3D1**)ppTexture3D.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3405,7 +3405,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, ref Texture3DDesc1 pDesc1, ref SubresourceData pInitialData, ref ID3D11Texture3D1* ppTexture3D) 
+		public static HResult CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, ref Texture3DDesc1 pDesc1, ref SubresourceData pInitialData, ref ID3D11Texture3D1* ppTexture3D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Texture3DDesc1* ppDesc1 = &pDesc1)
@@ -3414,7 +3414,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Texture3D1** pppTexture3D = &ppTexture3D)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, int>)(handle->LpVtbl[55]))(handle, (Texture3DDesc1*)ppDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture3D1**)pppTexture3D);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, HResult>)(handle->LpVtbl[55]))(handle, (Texture3DDesc1*)ppDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture3D1**)pppTexture3D);
 						return ret;
 					}
 				}
@@ -3424,7 +3424,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, ref Texture3DDesc1 pDesc1, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture3D1> ppTexture3D) 
+		public static HResult CreateTexture3D1(this ComPtr<ID3D11Device4> comObj, ref Texture3DDesc1 pDesc1, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture3D1> ppTexture3D) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (Texture3DDesc1* ppDesc1 = &pDesc1)
@@ -3432,7 +3432,7 @@ namespace Hexa.NET.D3D11
 				fixed (SubresourceData* ppInitialData = &pInitialData)
 				{
 					ppTexture3D = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, int>)(handle->LpVtbl[55]))(handle, (Texture3DDesc1*)ppDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture3D1**)ppTexture3D.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, Texture3DDesc1*, SubresourceData*, ID3D11Texture3D1**, HResult>)(handle->LpVtbl[55]))(handle, (Texture3DDesc1*)ppDesc1, (SubresourceData*)ppInitialData, (ID3D11Texture3D1**)ppTexture3D.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3441,22 +3441,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRasterizerState2(this ComPtr<ID3D11Device4> comObj, RasterizerDesc2* pRasterizerDesc, ID3D11RasterizerState2** ppRasterizerState) 
+		public static HResult CreateRasterizerState2(this ComPtr<ID3D11Device4> comObj, RasterizerDesc2* pRasterizerDesc, ID3D11RasterizerState2** ppRasterizerState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc2*, ID3D11RasterizerState2**, int>)(handle->LpVtbl[56]))(handle, pRasterizerDesc, ppRasterizerState);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc2*, ID3D11RasterizerState2**, HResult>)(handle->LpVtbl[56]))(handle, pRasterizerDesc, ppRasterizerState);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRasterizerState2(this ComPtr<ID3D11Device4> comObj, ref RasterizerDesc2 pRasterizerDesc, ID3D11RasterizerState2** ppRasterizerState) 
+		public static HResult CreateRasterizerState2(this ComPtr<ID3D11Device4> comObj, ref RasterizerDesc2 pRasterizerDesc, ID3D11RasterizerState2** ppRasterizerState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (RasterizerDesc2* ppRasterizerDesc = &pRasterizerDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc2*, ID3D11RasterizerState2**, int>)(handle->LpVtbl[56]))(handle, (RasterizerDesc2*)ppRasterizerDesc, ppRasterizerState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc2*, ID3D11RasterizerState2**, HResult>)(handle->LpVtbl[56]))(handle, (RasterizerDesc2*)ppRasterizerDesc, ppRasterizerState);
 				return ret;
 			}
 		}
@@ -3464,12 +3464,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRasterizerState2(this ComPtr<ID3D11Device4> comObj, RasterizerDesc2* pRasterizerDesc, ref ID3D11RasterizerState2* ppRasterizerState) 
+		public static HResult CreateRasterizerState2(this ComPtr<ID3D11Device4> comObj, RasterizerDesc2* pRasterizerDesc, ref ID3D11RasterizerState2* ppRasterizerState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11RasterizerState2** pppRasterizerState = &ppRasterizerState)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc2*, ID3D11RasterizerState2**, int>)(handle->LpVtbl[56]))(handle, pRasterizerDesc, (ID3D11RasterizerState2**)pppRasterizerState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc2*, ID3D11RasterizerState2**, HResult>)(handle->LpVtbl[56]))(handle, pRasterizerDesc, (ID3D11RasterizerState2**)pppRasterizerState);
 				return ret;
 			}
 		}
@@ -3477,25 +3477,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRasterizerState2(this ComPtr<ID3D11Device4> comObj, RasterizerDesc2* pRasterizerDesc, out ComPtr<ID3D11RasterizerState2> ppRasterizerState) 
+		public static HResult CreateRasterizerState2(this ComPtr<ID3D11Device4> comObj, RasterizerDesc2* pRasterizerDesc, out ComPtr<ID3D11RasterizerState2> ppRasterizerState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppRasterizerState = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc2*, ID3D11RasterizerState2**, int>)(handle->LpVtbl[56]))(handle, pRasterizerDesc, (ID3D11RasterizerState2**)ppRasterizerState.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc2*, ID3D11RasterizerState2**, HResult>)(handle->LpVtbl[56]))(handle, pRasterizerDesc, (ID3D11RasterizerState2**)ppRasterizerState.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRasterizerState2(this ComPtr<ID3D11Device4> comObj, ref RasterizerDesc2 pRasterizerDesc, ref ID3D11RasterizerState2* ppRasterizerState) 
+		public static HResult CreateRasterizerState2(this ComPtr<ID3D11Device4> comObj, ref RasterizerDesc2 pRasterizerDesc, ref ID3D11RasterizerState2* ppRasterizerState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (RasterizerDesc2* ppRasterizerDesc = &pRasterizerDesc)
 			{
 				fixed (ID3D11RasterizerState2** pppRasterizerState = &ppRasterizerState)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc2*, ID3D11RasterizerState2**, int>)(handle->LpVtbl[56]))(handle, (RasterizerDesc2*)ppRasterizerDesc, (ID3D11RasterizerState2**)pppRasterizerState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc2*, ID3D11RasterizerState2**, HResult>)(handle->LpVtbl[56]))(handle, (RasterizerDesc2*)ppRasterizerDesc, (ID3D11RasterizerState2**)pppRasterizerState);
 					return ret;
 				}
 			}
@@ -3504,13 +3504,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRasterizerState2(this ComPtr<ID3D11Device4> comObj, ref RasterizerDesc2 pRasterizerDesc, out ComPtr<ID3D11RasterizerState2> ppRasterizerState) 
+		public static HResult CreateRasterizerState2(this ComPtr<ID3D11Device4> comObj, ref RasterizerDesc2 pRasterizerDesc, out ComPtr<ID3D11RasterizerState2> ppRasterizerState) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (RasterizerDesc2* ppRasterizerDesc = &pRasterizerDesc)
 			{
 				ppRasterizerState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc2*, ID3D11RasterizerState2**, int>)(handle->LpVtbl[56]))(handle, (RasterizerDesc2*)ppRasterizerDesc, (ID3D11RasterizerState2**)ppRasterizerState.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, RasterizerDesc2*, ID3D11RasterizerState2**, HResult>)(handle->LpVtbl[56]))(handle, (RasterizerDesc2*)ppRasterizerDesc, (ID3D11RasterizerState2**)ppRasterizerState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3518,22 +3518,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ShaderResourceViewDesc1* pDesc1, ID3D11ShaderResourceView1** ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ShaderResourceViewDesc1* pDesc1, ID3D11ShaderResourceView1** ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, pResource, pDesc1, ppSRView1);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, pResource, pDesc1, ppSRView1);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ShaderResourceViewDesc1* pDesc1, ID3D11ShaderResourceView1** ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ShaderResourceViewDesc1* pDesc1, ID3D11ShaderResourceView1** ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)ppResource, pDesc1, ppSRView1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)ppResource, pDesc1, ppSRView1);
 				return ret;
 			}
 		}
@@ -3541,22 +3541,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ShaderResourceViewDesc1* pDesc1, ID3D11ShaderResourceView1** ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ShaderResourceViewDesc1* pDesc1, ID3D11ShaderResourceView1** ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)pResource.Handle, pDesc1, ppSRView1);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)pResource.Handle, pDesc1, ppSRView1);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref ShaderResourceViewDesc1 pDesc1, ID3D11ShaderResourceView1** ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref ShaderResourceViewDesc1 pDesc1, ID3D11ShaderResourceView1** ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ShaderResourceViewDesc1* ppDesc1 = &pDesc1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, pResource, (ShaderResourceViewDesc1*)ppDesc1, ppSRView1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, pResource, (ShaderResourceViewDesc1*)ppDesc1, ppSRView1);
 				return ret;
 			}
 		}
@@ -3564,14 +3564,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ref ShaderResourceViewDesc1 pDesc1, ID3D11ShaderResourceView1** ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ref ShaderResourceViewDesc1 pDesc1, ID3D11ShaderResourceView1** ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ShaderResourceViewDesc1* ppDesc1 = &pDesc1)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)ppResource, (ShaderResourceViewDesc1*)ppDesc1, ppSRView1);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)ppResource, (ShaderResourceViewDesc1*)ppDesc1, ppSRView1);
 					return ret;
 				}
 			}
@@ -3580,12 +3580,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ref ShaderResourceViewDesc1 pDesc1, ID3D11ShaderResourceView1** ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ref ShaderResourceViewDesc1 pDesc1, ID3D11ShaderResourceView1** ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ShaderResourceViewDesc1* ppDesc1 = &pDesc1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)pResource.Handle, (ShaderResourceViewDesc1*)ppDesc1, ppSRView1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)pResource.Handle, (ShaderResourceViewDesc1*)ppDesc1, ppSRView1);
 				return ret;
 			}
 		}
@@ -3593,12 +3593,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ShaderResourceViewDesc1* pDesc1, ref ID3D11ShaderResourceView1* ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ShaderResourceViewDesc1* pDesc1, ref ID3D11ShaderResourceView1* ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11ShaderResourceView1** pppSRView1 = &ppSRView1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, pResource, pDesc1, (ID3D11ShaderResourceView1**)pppSRView1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, pResource, pDesc1, (ID3D11ShaderResourceView1**)pppSRView1);
 				return ret;
 			}
 		}
@@ -3606,25 +3606,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ShaderResourceViewDesc1* pDesc1, out ComPtr<ID3D11ShaderResourceView1> ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ShaderResourceViewDesc1* pDesc1, out ComPtr<ID3D11ShaderResourceView1> ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppSRView1 = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, pResource, pDesc1, (ID3D11ShaderResourceView1**)ppSRView1.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, pResource, pDesc1, (ID3D11ShaderResourceView1**)ppSRView1.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ShaderResourceViewDesc1* pDesc1, ref ID3D11ShaderResourceView1* ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ShaderResourceViewDesc1* pDesc1, ref ID3D11ShaderResourceView1* ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11ShaderResourceView1** pppSRView1 = &ppSRView1)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)ppResource, pDesc1, (ID3D11ShaderResourceView1**)pppSRView1);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)ppResource, pDesc1, (ID3D11ShaderResourceView1**)pppSRView1);
 					return ret;
 				}
 			}
@@ -3633,25 +3633,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ShaderResourceViewDesc1* pDesc1, out ComPtr<ID3D11ShaderResourceView1> ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ShaderResourceViewDesc1* pDesc1, out ComPtr<ID3D11ShaderResourceView1> ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppSRView1 = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)pResource.Handle, pDesc1, (ID3D11ShaderResourceView1**)ppSRView1.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)pResource.Handle, pDesc1, (ID3D11ShaderResourceView1**)ppSRView1.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref ShaderResourceViewDesc1 pDesc1, ref ID3D11ShaderResourceView1* ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref ShaderResourceViewDesc1 pDesc1, ref ID3D11ShaderResourceView1* ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ShaderResourceViewDesc1* ppDesc1 = &pDesc1)
 			{
 				fixed (ID3D11ShaderResourceView1** pppSRView1 = &ppSRView1)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, pResource, (ShaderResourceViewDesc1*)ppDesc1, (ID3D11ShaderResourceView1**)pppSRView1);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, pResource, (ShaderResourceViewDesc1*)ppDesc1, (ID3D11ShaderResourceView1**)pppSRView1);
 					return ret;
 				}
 			}
@@ -3660,13 +3660,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref ShaderResourceViewDesc1 pDesc1, out ComPtr<ID3D11ShaderResourceView1> ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref ShaderResourceViewDesc1 pDesc1, out ComPtr<ID3D11ShaderResourceView1> ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ShaderResourceViewDesc1* ppDesc1 = &pDesc1)
 			{
 				ppSRView1 = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, pResource, (ShaderResourceViewDesc1*)ppDesc1, (ID3D11ShaderResourceView1**)ppSRView1.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, pResource, (ShaderResourceViewDesc1*)ppDesc1, (ID3D11ShaderResourceView1**)ppSRView1.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3674,7 +3674,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ref ShaderResourceViewDesc1 pDesc1, ref ID3D11ShaderResourceView1* ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ref ShaderResourceViewDesc1 pDesc1, ref ID3D11ShaderResourceView1* ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -3683,7 +3683,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11ShaderResourceView1** pppSRView1 = &ppSRView1)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)ppResource, (ShaderResourceViewDesc1*)ppDesc1, (ID3D11ShaderResourceView1**)pppSRView1);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)ppResource, (ShaderResourceViewDesc1*)ppDesc1, (ID3D11ShaderResourceView1**)pppSRView1);
 						return ret;
 					}
 				}
@@ -3693,13 +3693,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ref ShaderResourceViewDesc1 pDesc1, out ComPtr<ID3D11ShaderResourceView1> ppSRView1) 
+		public static HResult CreateShaderResourceView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ref ShaderResourceViewDesc1 pDesc1, out ComPtr<ID3D11ShaderResourceView1> ppSRView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ShaderResourceViewDesc1* ppDesc1 = &pDesc1)
 			{
 				ppSRView1 = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, int>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)pResource.Handle, (ShaderResourceViewDesc1*)ppDesc1, (ID3D11ShaderResourceView1**)ppSRView1.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, ShaderResourceViewDesc1*, ID3D11ShaderResourceView1**, HResult>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)pResource.Handle, (ShaderResourceViewDesc1*)ppDesc1, (ID3D11ShaderResourceView1**)ppSRView1.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3707,22 +3707,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, UnorderedAccessViewDesc1* pDesc1, ID3D11UnorderedAccessView1** ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, UnorderedAccessViewDesc1* pDesc1, ID3D11UnorderedAccessView1** ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, pResource, pDesc1, ppUAView1);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, pResource, pDesc1, ppUAView1);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, UnorderedAccessViewDesc1* pDesc1, ID3D11UnorderedAccessView1** ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, UnorderedAccessViewDesc1* pDesc1, ID3D11UnorderedAccessView1** ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)ppResource, pDesc1, ppUAView1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)ppResource, pDesc1, ppUAView1);
 				return ret;
 			}
 		}
@@ -3730,22 +3730,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, UnorderedAccessViewDesc1* pDesc1, ID3D11UnorderedAccessView1** ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, UnorderedAccessViewDesc1* pDesc1, ID3D11UnorderedAccessView1** ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)pResource.Handle, pDesc1, ppUAView1);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)pResource.Handle, pDesc1, ppUAView1);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref UnorderedAccessViewDesc1 pDesc1, ID3D11UnorderedAccessView1** ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref UnorderedAccessViewDesc1 pDesc1, ID3D11UnorderedAccessView1** ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (UnorderedAccessViewDesc1* ppDesc1 = &pDesc1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, pResource, (UnorderedAccessViewDesc1*)ppDesc1, ppUAView1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, pResource, (UnorderedAccessViewDesc1*)ppDesc1, ppUAView1);
 				return ret;
 			}
 		}
@@ -3753,14 +3753,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ref UnorderedAccessViewDesc1 pDesc1, ID3D11UnorderedAccessView1** ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ref UnorderedAccessViewDesc1 pDesc1, ID3D11UnorderedAccessView1** ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (UnorderedAccessViewDesc1* ppDesc1 = &pDesc1)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)ppResource, (UnorderedAccessViewDesc1*)ppDesc1, ppUAView1);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)ppResource, (UnorderedAccessViewDesc1*)ppDesc1, ppUAView1);
 					return ret;
 				}
 			}
@@ -3769,12 +3769,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ref UnorderedAccessViewDesc1 pDesc1, ID3D11UnorderedAccessView1** ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ref UnorderedAccessViewDesc1 pDesc1, ID3D11UnorderedAccessView1** ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (UnorderedAccessViewDesc1* ppDesc1 = &pDesc1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)pResource.Handle, (UnorderedAccessViewDesc1*)ppDesc1, ppUAView1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)pResource.Handle, (UnorderedAccessViewDesc1*)ppDesc1, ppUAView1);
 				return ret;
 			}
 		}
@@ -3782,12 +3782,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, UnorderedAccessViewDesc1* pDesc1, ref ID3D11UnorderedAccessView1* ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, UnorderedAccessViewDesc1* pDesc1, ref ID3D11UnorderedAccessView1* ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11UnorderedAccessView1** pppUAView1 = &ppUAView1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, pResource, pDesc1, (ID3D11UnorderedAccessView1**)pppUAView1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, pResource, pDesc1, (ID3D11UnorderedAccessView1**)pppUAView1);
 				return ret;
 			}
 		}
@@ -3795,25 +3795,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, UnorderedAccessViewDesc1* pDesc1, out ComPtr<ID3D11UnorderedAccessView1> ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, UnorderedAccessViewDesc1* pDesc1, out ComPtr<ID3D11UnorderedAccessView1> ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppUAView1 = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, pResource, pDesc1, (ID3D11UnorderedAccessView1**)ppUAView1.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, pResource, pDesc1, (ID3D11UnorderedAccessView1**)ppUAView1.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, UnorderedAccessViewDesc1* pDesc1, ref ID3D11UnorderedAccessView1* ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, UnorderedAccessViewDesc1* pDesc1, ref ID3D11UnorderedAccessView1* ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11UnorderedAccessView1** pppUAView1 = &ppUAView1)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)ppResource, pDesc1, (ID3D11UnorderedAccessView1**)pppUAView1);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)ppResource, pDesc1, (ID3D11UnorderedAccessView1**)pppUAView1);
 					return ret;
 				}
 			}
@@ -3822,25 +3822,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, UnorderedAccessViewDesc1* pDesc1, out ComPtr<ID3D11UnorderedAccessView1> ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, UnorderedAccessViewDesc1* pDesc1, out ComPtr<ID3D11UnorderedAccessView1> ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppUAView1 = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)pResource.Handle, pDesc1, (ID3D11UnorderedAccessView1**)ppUAView1.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)pResource.Handle, pDesc1, (ID3D11UnorderedAccessView1**)ppUAView1.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref UnorderedAccessViewDesc1 pDesc1, ref ID3D11UnorderedAccessView1* ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref UnorderedAccessViewDesc1 pDesc1, ref ID3D11UnorderedAccessView1* ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (UnorderedAccessViewDesc1* ppDesc1 = &pDesc1)
 			{
 				fixed (ID3D11UnorderedAccessView1** pppUAView1 = &ppUAView1)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, pResource, (UnorderedAccessViewDesc1*)ppDesc1, (ID3D11UnorderedAccessView1**)pppUAView1);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, pResource, (UnorderedAccessViewDesc1*)ppDesc1, (ID3D11UnorderedAccessView1**)pppUAView1);
 					return ret;
 				}
 			}
@@ -3849,13 +3849,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref UnorderedAccessViewDesc1 pDesc1, out ComPtr<ID3D11UnorderedAccessView1> ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref UnorderedAccessViewDesc1 pDesc1, out ComPtr<ID3D11UnorderedAccessView1> ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (UnorderedAccessViewDesc1* ppDesc1 = &pDesc1)
 			{
 				ppUAView1 = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, pResource, (UnorderedAccessViewDesc1*)ppDesc1, (ID3D11UnorderedAccessView1**)ppUAView1.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, pResource, (UnorderedAccessViewDesc1*)ppDesc1, (ID3D11UnorderedAccessView1**)ppUAView1.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3863,7 +3863,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ref UnorderedAccessViewDesc1 pDesc1, ref ID3D11UnorderedAccessView1* ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ref UnorderedAccessViewDesc1 pDesc1, ref ID3D11UnorderedAccessView1* ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -3872,7 +3872,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11UnorderedAccessView1** pppUAView1 = &ppUAView1)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)ppResource, (UnorderedAccessViewDesc1*)ppDesc1, (ID3D11UnorderedAccessView1**)pppUAView1);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)ppResource, (UnorderedAccessViewDesc1*)ppDesc1, (ID3D11UnorderedAccessView1**)pppUAView1);
 						return ret;
 					}
 				}
@@ -3882,13 +3882,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ref UnorderedAccessViewDesc1 pDesc1, out ComPtr<ID3D11UnorderedAccessView1> ppUAView1) 
+		public static HResult CreateUnorderedAccessView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ref UnorderedAccessViewDesc1 pDesc1, out ComPtr<ID3D11UnorderedAccessView1> ppUAView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (UnorderedAccessViewDesc1* ppDesc1 = &pDesc1)
 			{
 				ppUAView1 = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, int>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)pResource.Handle, (UnorderedAccessViewDesc1*)ppDesc1, (ID3D11UnorderedAccessView1**)ppUAView1.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, UnorderedAccessViewDesc1*, ID3D11UnorderedAccessView1**, HResult>)(handle->LpVtbl[58]))(handle, (ID3D11Resource*)pResource.Handle, (UnorderedAccessViewDesc1*)ppDesc1, (ID3D11UnorderedAccessView1**)ppUAView1.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3896,22 +3896,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, RenderTargetViewDesc1* pDesc1, ID3D11RenderTargetView1** ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, RenderTargetViewDesc1* pDesc1, ID3D11RenderTargetView1** ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, pResource, pDesc1, ppRTView1);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, pResource, pDesc1, ppRTView1);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, RenderTargetViewDesc1* pDesc1, ID3D11RenderTargetView1** ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, RenderTargetViewDesc1* pDesc1, ID3D11RenderTargetView1** ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)ppResource, pDesc1, ppRTView1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)ppResource, pDesc1, ppRTView1);
 				return ret;
 			}
 		}
@@ -3919,22 +3919,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, RenderTargetViewDesc1* pDesc1, ID3D11RenderTargetView1** ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, RenderTargetViewDesc1* pDesc1, ID3D11RenderTargetView1** ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)pResource.Handle, pDesc1, ppRTView1);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)pResource.Handle, pDesc1, ppRTView1);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref RenderTargetViewDesc1 pDesc1, ID3D11RenderTargetView1** ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref RenderTargetViewDesc1 pDesc1, ID3D11RenderTargetView1** ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (RenderTargetViewDesc1* ppDesc1 = &pDesc1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, pResource, (RenderTargetViewDesc1*)ppDesc1, ppRTView1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, pResource, (RenderTargetViewDesc1*)ppDesc1, ppRTView1);
 				return ret;
 			}
 		}
@@ -3942,14 +3942,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ref RenderTargetViewDesc1 pDesc1, ID3D11RenderTargetView1** ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ref RenderTargetViewDesc1 pDesc1, ID3D11RenderTargetView1** ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (RenderTargetViewDesc1* ppDesc1 = &pDesc1)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)ppResource, (RenderTargetViewDesc1*)ppDesc1, ppRTView1);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)ppResource, (RenderTargetViewDesc1*)ppDesc1, ppRTView1);
 					return ret;
 				}
 			}
@@ -3958,12 +3958,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ref RenderTargetViewDesc1 pDesc1, ID3D11RenderTargetView1** ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ref RenderTargetViewDesc1 pDesc1, ID3D11RenderTargetView1** ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (RenderTargetViewDesc1* ppDesc1 = &pDesc1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)pResource.Handle, (RenderTargetViewDesc1*)ppDesc1, ppRTView1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)pResource.Handle, (RenderTargetViewDesc1*)ppDesc1, ppRTView1);
 				return ret;
 			}
 		}
@@ -3971,12 +3971,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, RenderTargetViewDesc1* pDesc1, ref ID3D11RenderTargetView1* ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, RenderTargetViewDesc1* pDesc1, ref ID3D11RenderTargetView1* ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11RenderTargetView1** pppRTView1 = &ppRTView1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, pResource, pDesc1, (ID3D11RenderTargetView1**)pppRTView1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, pResource, pDesc1, (ID3D11RenderTargetView1**)pppRTView1);
 				return ret;
 			}
 		}
@@ -3984,25 +3984,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, RenderTargetViewDesc1* pDesc1, out ComPtr<ID3D11RenderTargetView1> ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, RenderTargetViewDesc1* pDesc1, out ComPtr<ID3D11RenderTargetView1> ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppRTView1 = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, pResource, pDesc1, (ID3D11RenderTargetView1**)ppRTView1.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, pResource, pDesc1, (ID3D11RenderTargetView1**)ppRTView1.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, RenderTargetViewDesc1* pDesc1, ref ID3D11RenderTargetView1* ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, RenderTargetViewDesc1* pDesc1, ref ID3D11RenderTargetView1* ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11RenderTargetView1** pppRTView1 = &ppRTView1)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)ppResource, pDesc1, (ID3D11RenderTargetView1**)pppRTView1);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)ppResource, pDesc1, (ID3D11RenderTargetView1**)pppRTView1);
 					return ret;
 				}
 			}
@@ -4011,25 +4011,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, RenderTargetViewDesc1* pDesc1, out ComPtr<ID3D11RenderTargetView1> ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, RenderTargetViewDesc1* pDesc1, out ComPtr<ID3D11RenderTargetView1> ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppRTView1 = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)pResource.Handle, pDesc1, (ID3D11RenderTargetView1**)ppRTView1.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)pResource.Handle, pDesc1, (ID3D11RenderTargetView1**)ppRTView1.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref RenderTargetViewDesc1 pDesc1, ref ID3D11RenderTargetView1* ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref RenderTargetViewDesc1 pDesc1, ref ID3D11RenderTargetView1* ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (RenderTargetViewDesc1* ppDesc1 = &pDesc1)
 			{
 				fixed (ID3D11RenderTargetView1** pppRTView1 = &ppRTView1)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, pResource, (RenderTargetViewDesc1*)ppDesc1, (ID3D11RenderTargetView1**)pppRTView1);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, pResource, (RenderTargetViewDesc1*)ppDesc1, (ID3D11RenderTargetView1**)pppRTView1);
 					return ret;
 				}
 			}
@@ -4038,13 +4038,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref RenderTargetViewDesc1 pDesc1, out ComPtr<ID3D11RenderTargetView1> ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ID3D11Resource* pResource, ref RenderTargetViewDesc1 pDesc1, out ComPtr<ID3D11RenderTargetView1> ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (RenderTargetViewDesc1* ppDesc1 = &pDesc1)
 			{
 				ppRTView1 = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, pResource, (RenderTargetViewDesc1*)ppDesc1, (ID3D11RenderTargetView1**)ppRTView1.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, pResource, (RenderTargetViewDesc1*)ppDesc1, (ID3D11RenderTargetView1**)ppRTView1.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4052,7 +4052,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ref RenderTargetViewDesc1 pDesc1, ref ID3D11RenderTargetView1* ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ref ID3D11Resource pResource, ref RenderTargetViewDesc1 pDesc1, ref ID3D11RenderTargetView1* ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -4061,7 +4061,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11RenderTargetView1** pppRTView1 = &ppRTView1)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)ppResource, (RenderTargetViewDesc1*)ppDesc1, (ID3D11RenderTargetView1**)pppRTView1);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)ppResource, (RenderTargetViewDesc1*)ppDesc1, (ID3D11RenderTargetView1**)pppRTView1);
 						return ret;
 					}
 				}
@@ -4071,13 +4071,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ref RenderTargetViewDesc1 pDesc1, out ComPtr<ID3D11RenderTargetView1> ppRTView1) 
+		public static HResult CreateRenderTargetView1(this ComPtr<ID3D11Device4> comObj, ComPtr<ID3D11Resource> pResource, ref RenderTargetViewDesc1 pDesc1, out ComPtr<ID3D11RenderTargetView1> ppRTView1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (RenderTargetViewDesc1* ppDesc1 = &pDesc1)
 			{
 				ppRTView1 = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, int>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)pResource.Handle, (RenderTargetViewDesc1*)ppDesc1, (ID3D11RenderTargetView1**)ppRTView1.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, ID3D11Resource*, RenderTargetViewDesc1*, ID3D11RenderTargetView1**, HResult>)(handle->LpVtbl[59]))(handle, (ID3D11Resource*)pResource.Handle, (RenderTargetViewDesc1*)ppDesc1, (ID3D11RenderTargetView1**)ppRTView1.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4085,22 +4085,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateQuery1(this ComPtr<ID3D11Device4> comObj, QueryDesc1* pQueryDesc1, ID3D11Query1** ppQuery1) 
+		public static HResult CreateQuery1(this ComPtr<ID3D11Device4> comObj, QueryDesc1* pQueryDesc1, ID3D11Query1** ppQuery1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, QueryDesc1*, ID3D11Query1**, int>)(handle->LpVtbl[60]))(handle, pQueryDesc1, ppQuery1);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, QueryDesc1*, ID3D11Query1**, HResult>)(handle->LpVtbl[60]))(handle, pQueryDesc1, ppQuery1);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateQuery1(this ComPtr<ID3D11Device4> comObj, ref QueryDesc1 pQueryDesc1, ID3D11Query1** ppQuery1) 
+		public static HResult CreateQuery1(this ComPtr<ID3D11Device4> comObj, ref QueryDesc1 pQueryDesc1, ID3D11Query1** ppQuery1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (QueryDesc1* ppQueryDesc1 = &pQueryDesc1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, QueryDesc1*, ID3D11Query1**, int>)(handle->LpVtbl[60]))(handle, (QueryDesc1*)ppQueryDesc1, ppQuery1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, QueryDesc1*, ID3D11Query1**, HResult>)(handle->LpVtbl[60]))(handle, (QueryDesc1*)ppQueryDesc1, ppQuery1);
 				return ret;
 			}
 		}
@@ -4108,12 +4108,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateQuery1(this ComPtr<ID3D11Device4> comObj, QueryDesc1* pQueryDesc1, ref ID3D11Query1* ppQuery1) 
+		public static HResult CreateQuery1(this ComPtr<ID3D11Device4> comObj, QueryDesc1* pQueryDesc1, ref ID3D11Query1* ppQuery1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11Query1** pppQuery1 = &ppQuery1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, QueryDesc1*, ID3D11Query1**, int>)(handle->LpVtbl[60]))(handle, pQueryDesc1, (ID3D11Query1**)pppQuery1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, QueryDesc1*, ID3D11Query1**, HResult>)(handle->LpVtbl[60]))(handle, pQueryDesc1, (ID3D11Query1**)pppQuery1);
 				return ret;
 			}
 		}
@@ -4121,25 +4121,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateQuery1(this ComPtr<ID3D11Device4> comObj, QueryDesc1* pQueryDesc1, out ComPtr<ID3D11Query1> ppQuery1) 
+		public static HResult CreateQuery1(this ComPtr<ID3D11Device4> comObj, QueryDesc1* pQueryDesc1, out ComPtr<ID3D11Query1> ppQuery1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppQuery1 = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, QueryDesc1*, ID3D11Query1**, int>)(handle->LpVtbl[60]))(handle, pQueryDesc1, (ID3D11Query1**)ppQuery1.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, QueryDesc1*, ID3D11Query1**, HResult>)(handle->LpVtbl[60]))(handle, pQueryDesc1, (ID3D11Query1**)ppQuery1.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateQuery1(this ComPtr<ID3D11Device4> comObj, ref QueryDesc1 pQueryDesc1, ref ID3D11Query1* ppQuery1) 
+		public static HResult CreateQuery1(this ComPtr<ID3D11Device4> comObj, ref QueryDesc1 pQueryDesc1, ref ID3D11Query1* ppQuery1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (QueryDesc1* ppQueryDesc1 = &pQueryDesc1)
 			{
 				fixed (ID3D11Query1** pppQuery1 = &ppQuery1)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, QueryDesc1*, ID3D11Query1**, int>)(handle->LpVtbl[60]))(handle, (QueryDesc1*)ppQueryDesc1, (ID3D11Query1**)pppQuery1);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, QueryDesc1*, ID3D11Query1**, HResult>)(handle->LpVtbl[60]))(handle, (QueryDesc1*)ppQueryDesc1, (ID3D11Query1**)pppQuery1);
 					return ret;
 				}
 			}
@@ -4148,13 +4148,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateQuery1(this ComPtr<ID3D11Device4> comObj, ref QueryDesc1 pQueryDesc1, out ComPtr<ID3D11Query1> ppQuery1) 
+		public static HResult CreateQuery1(this ComPtr<ID3D11Device4> comObj, ref QueryDesc1 pQueryDesc1, out ComPtr<ID3D11Query1> ppQuery1) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (QueryDesc1* ppQueryDesc1 = &pQueryDesc1)
 			{
 				ppQuery1 = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, QueryDesc1*, ID3D11Query1**, int>)(handle->LpVtbl[60]))(handle, (QueryDesc1*)ppQueryDesc1, (ID3D11Query1**)ppQuery1.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, QueryDesc1*, ID3D11Query1**, HResult>)(handle->LpVtbl[60]))(handle, (QueryDesc1*)ppQueryDesc1, (ID3D11Query1**)ppQuery1.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4193,22 +4193,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeferredContext3(this ComPtr<ID3D11Device4> comObj, uint contextFlags, ID3D11DeviceContext3** ppDeferredContext) 
+		public static HResult CreateDeferredContext3(this ComPtr<ID3D11Device4> comObj, uint contextFlags, ID3D11DeviceContext3** ppDeferredContext) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext3**, int>)(handle->LpVtbl[62]))(handle, contextFlags, ppDeferredContext);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext3**, HResult>)(handle->LpVtbl[62]))(handle, contextFlags, ppDeferredContext);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeferredContext3(this ComPtr<ID3D11Device4> comObj, uint contextFlags, ref ID3D11DeviceContext3* ppDeferredContext) 
+		public static HResult CreateDeferredContext3(this ComPtr<ID3D11Device4> comObj, uint contextFlags, ref ID3D11DeviceContext3* ppDeferredContext) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (ID3D11DeviceContext3** pppDeferredContext = &ppDeferredContext)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext3**, int>)(handle->LpVtbl[62]))(handle, contextFlags, (ID3D11DeviceContext3**)pppDeferredContext);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext3**, HResult>)(handle->LpVtbl[62]))(handle, contextFlags, (ID3D11DeviceContext3**)pppDeferredContext);
 				return ret;
 			}
 		}
@@ -4216,11 +4216,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeferredContext3(this ComPtr<ID3D11Device4> comObj, uint contextFlags, out ComPtr<ID3D11DeviceContext3> ppDeferredContext) 
+		public static HResult CreateDeferredContext3(this ComPtr<ID3D11Device4> comObj, uint contextFlags, out ComPtr<ID3D11DeviceContext3> ppDeferredContext) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			ppDeferredContext = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext3**, int>)(handle->LpVtbl[62]))(handle, contextFlags, (ID3D11DeviceContext3**)ppDeferredContext.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, uint, ID3D11DeviceContext3**, HResult>)(handle->LpVtbl[62]))(handle, contextFlags, (ID3D11DeviceContext3**)ppDeferredContext.GetAddressOf());
 			return ret;
 		}
 
@@ -4407,22 +4407,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterDeviceRemovedEvent(this ComPtr<ID3D11Device4> comObj, nint hEvent, uint* pdwCookie) 
+		public static HResult RegisterDeviceRemovedEvent(this ComPtr<ID3D11Device4> comObj, nint hEvent, uint* pdwCookie) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, nint, uint*, int>)(handle->LpVtbl[65]))(handle, hEvent, pdwCookie);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, nint, uint*, HResult>)(handle->LpVtbl[65]))(handle, hEvent, pdwCookie);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterDeviceRemovedEvent(this ComPtr<ID3D11Device4> comObj, nint hEvent, ref uint pdwCookie) 
+		public static HResult RegisterDeviceRemovedEvent(this ComPtr<ID3D11Device4> comObj, nint hEvent, ref uint pdwCookie) 
 		{
 			ID3D11Device4* handle = comObj.Handle;
 			fixed (uint* ppdwCookie = &pdwCookie)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, nint, uint*, int>)(handle->LpVtbl[65]))(handle, hEvent, (uint*)ppdwCookie);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device4*, nint, uint*, HResult>)(handle->LpVtbl[65]))(handle, hEvent, (uint*)ppdwCookie);
 				return ret;
 			}
 		}
@@ -4439,22 +4439,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Device5> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Device5> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Device5> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Device5> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -4462,24 +4462,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Device5> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Device5> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Device5> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Device5> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4507,22 +4507,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBuffer(this ComPtr<ID3D11Device5> comObj, BufferDesc* pDesc, SubresourceData* pInitialData, ID3D11Buffer** ppBuffer) 
+		public static HResult CreateBuffer(this ComPtr<ID3D11Device5> comObj, BufferDesc* pDesc, SubresourceData* pInitialData, ID3D11Buffer** ppBuffer) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, int>)(handle->LpVtbl[3]))(handle, pDesc, pInitialData, ppBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, HResult>)(handle->LpVtbl[3]))(handle, pDesc, pInitialData, ppBuffer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBuffer(this ComPtr<ID3D11Device5> comObj, ref BufferDesc pDesc, SubresourceData* pInitialData, ID3D11Buffer** ppBuffer) 
+		public static HResult CreateBuffer(this ComPtr<ID3D11Device5> comObj, ref BufferDesc pDesc, SubresourceData* pInitialData, ID3D11Buffer** ppBuffer) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (BufferDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, int>)(handle->LpVtbl[3]))(handle, (BufferDesc*)ppDesc, pInitialData, ppBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, HResult>)(handle->LpVtbl[3]))(handle, (BufferDesc*)ppDesc, pInitialData, ppBuffer);
 				return ret;
 			}
 		}
@@ -4530,12 +4530,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBuffer(this ComPtr<ID3D11Device5> comObj, BufferDesc* pDesc, ref SubresourceData pInitialData, ID3D11Buffer** ppBuffer) 
+		public static HResult CreateBuffer(this ComPtr<ID3D11Device5> comObj, BufferDesc* pDesc, ref SubresourceData pInitialData, ID3D11Buffer** ppBuffer) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, int>)(handle->LpVtbl[3]))(handle, pDesc, (SubresourceData*)ppInitialData, ppBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, HResult>)(handle->LpVtbl[3]))(handle, pDesc, (SubresourceData*)ppInitialData, ppBuffer);
 				return ret;
 			}
 		}
@@ -4543,14 +4543,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBuffer(this ComPtr<ID3D11Device5> comObj, ref BufferDesc pDesc, ref SubresourceData pInitialData, ID3D11Buffer** ppBuffer) 
+		public static HResult CreateBuffer(this ComPtr<ID3D11Device5> comObj, ref BufferDesc pDesc, ref SubresourceData pInitialData, ID3D11Buffer** ppBuffer) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (BufferDesc* ppDesc = &pDesc)
 			{
 				fixed (SubresourceData* ppInitialData = &pInitialData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, int>)(handle->LpVtbl[3]))(handle, (BufferDesc*)ppDesc, (SubresourceData*)ppInitialData, ppBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, HResult>)(handle->LpVtbl[3]))(handle, (BufferDesc*)ppDesc, (SubresourceData*)ppInitialData, ppBuffer);
 					return ret;
 				}
 			}
@@ -4559,12 +4559,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBuffer(this ComPtr<ID3D11Device5> comObj, BufferDesc* pDesc, SubresourceData* pInitialData, ref ID3D11Buffer* ppBuffer) 
+		public static HResult CreateBuffer(this ComPtr<ID3D11Device5> comObj, BufferDesc* pDesc, SubresourceData* pInitialData, ref ID3D11Buffer* ppBuffer) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (ID3D11Buffer** pppBuffer = &ppBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, int>)(handle->LpVtbl[3]))(handle, pDesc, pInitialData, (ID3D11Buffer**)pppBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, HResult>)(handle->LpVtbl[3]))(handle, pDesc, pInitialData, (ID3D11Buffer**)pppBuffer);
 				return ret;
 			}
 		}
@@ -4572,25 +4572,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBuffer(this ComPtr<ID3D11Device5> comObj, BufferDesc* pDesc, SubresourceData* pInitialData, out ComPtr<ID3D11Buffer> ppBuffer) 
+		public static HResult CreateBuffer(this ComPtr<ID3D11Device5> comObj, BufferDesc* pDesc, SubresourceData* pInitialData, out ComPtr<ID3D11Buffer> ppBuffer) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			ppBuffer = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, int>)(handle->LpVtbl[3]))(handle, pDesc, pInitialData, (ID3D11Buffer**)ppBuffer.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, HResult>)(handle->LpVtbl[3]))(handle, pDesc, pInitialData, (ID3D11Buffer**)ppBuffer.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBuffer(this ComPtr<ID3D11Device5> comObj, ref BufferDesc pDesc, SubresourceData* pInitialData, ref ID3D11Buffer* ppBuffer) 
+		public static HResult CreateBuffer(this ComPtr<ID3D11Device5> comObj, ref BufferDesc pDesc, SubresourceData* pInitialData, ref ID3D11Buffer* ppBuffer) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (BufferDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D11Buffer** pppBuffer = &ppBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, int>)(handle->LpVtbl[3]))(handle, (BufferDesc*)ppDesc, pInitialData, (ID3D11Buffer**)pppBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, HResult>)(handle->LpVtbl[3]))(handle, (BufferDesc*)ppDesc, pInitialData, (ID3D11Buffer**)pppBuffer);
 					return ret;
 				}
 			}
@@ -4599,13 +4599,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBuffer(this ComPtr<ID3D11Device5> comObj, ref BufferDesc pDesc, SubresourceData* pInitialData, out ComPtr<ID3D11Buffer> ppBuffer) 
+		public static HResult CreateBuffer(this ComPtr<ID3D11Device5> comObj, ref BufferDesc pDesc, SubresourceData* pInitialData, out ComPtr<ID3D11Buffer> ppBuffer) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (BufferDesc* ppDesc = &pDesc)
 			{
 				ppBuffer = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, int>)(handle->LpVtbl[3]))(handle, (BufferDesc*)ppDesc, pInitialData, (ID3D11Buffer**)ppBuffer.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, HResult>)(handle->LpVtbl[3]))(handle, (BufferDesc*)ppDesc, pInitialData, (ID3D11Buffer**)ppBuffer.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4613,14 +4613,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBuffer(this ComPtr<ID3D11Device5> comObj, BufferDesc* pDesc, ref SubresourceData pInitialData, ref ID3D11Buffer* ppBuffer) 
+		public static HResult CreateBuffer(this ComPtr<ID3D11Device5> comObj, BufferDesc* pDesc, ref SubresourceData pInitialData, ref ID3D11Buffer* ppBuffer) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
 				fixed (ID3D11Buffer** pppBuffer = &ppBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, int>)(handle->LpVtbl[3]))(handle, pDesc, (SubresourceData*)ppInitialData, (ID3D11Buffer**)pppBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, HResult>)(handle->LpVtbl[3]))(handle, pDesc, (SubresourceData*)ppInitialData, (ID3D11Buffer**)pppBuffer);
 					return ret;
 				}
 			}
@@ -4629,13 +4629,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBuffer(this ComPtr<ID3D11Device5> comObj, BufferDesc* pDesc, ref SubresourceData pInitialData, out ComPtr<ID3D11Buffer> ppBuffer) 
+		public static HResult CreateBuffer(this ComPtr<ID3D11Device5> comObj, BufferDesc* pDesc, ref SubresourceData pInitialData, out ComPtr<ID3D11Buffer> ppBuffer) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
 				ppBuffer = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, int>)(handle->LpVtbl[3]))(handle, pDesc, (SubresourceData*)ppInitialData, (ID3D11Buffer**)ppBuffer.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, HResult>)(handle->LpVtbl[3]))(handle, pDesc, (SubresourceData*)ppInitialData, (ID3D11Buffer**)ppBuffer.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4643,7 +4643,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBuffer(this ComPtr<ID3D11Device5> comObj, ref BufferDesc pDesc, ref SubresourceData pInitialData, ref ID3D11Buffer* ppBuffer) 
+		public static HResult CreateBuffer(this ComPtr<ID3D11Device5> comObj, ref BufferDesc pDesc, ref SubresourceData pInitialData, ref ID3D11Buffer* ppBuffer) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (BufferDesc* ppDesc = &pDesc)
@@ -4652,7 +4652,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Buffer** pppBuffer = &ppBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, int>)(handle->LpVtbl[3]))(handle, (BufferDesc*)ppDesc, (SubresourceData*)ppInitialData, (ID3D11Buffer**)pppBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, HResult>)(handle->LpVtbl[3]))(handle, (BufferDesc*)ppDesc, (SubresourceData*)ppInitialData, (ID3D11Buffer**)pppBuffer);
 						return ret;
 					}
 				}
@@ -4662,7 +4662,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBuffer(this ComPtr<ID3D11Device5> comObj, ref BufferDesc pDesc, ref SubresourceData pInitialData, out ComPtr<ID3D11Buffer> ppBuffer) 
+		public static HResult CreateBuffer(this ComPtr<ID3D11Device5> comObj, ref BufferDesc pDesc, ref SubresourceData pInitialData, out ComPtr<ID3D11Buffer> ppBuffer) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (BufferDesc* ppDesc = &pDesc)
@@ -4670,7 +4670,7 @@ namespace Hexa.NET.D3D11
 				fixed (SubresourceData* ppInitialData = &pInitialData)
 				{
 					ppBuffer = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, int>)(handle->LpVtbl[3]))(handle, (BufferDesc*)ppDesc, (SubresourceData*)ppInitialData, (ID3D11Buffer**)ppBuffer.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, BufferDesc*, SubresourceData*, ID3D11Buffer**, HResult>)(handle->LpVtbl[3]))(handle, (BufferDesc*)ppDesc, (SubresourceData*)ppInitialData, (ID3D11Buffer**)ppBuffer.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4679,22 +4679,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture1D(this ComPtr<ID3D11Device5> comObj, Texture1DDesc* pDesc, SubresourceData* pInitialData, ID3D11Texture1D** ppTexture1D) 
+		public static HResult CreateTexture1D(this ComPtr<ID3D11Device5> comObj, Texture1DDesc* pDesc, SubresourceData* pInitialData, ID3D11Texture1D** ppTexture1D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, int>)(handle->LpVtbl[4]))(handle, pDesc, pInitialData, ppTexture1D);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, HResult>)(handle->LpVtbl[4]))(handle, pDesc, pInitialData, ppTexture1D);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture1D(this ComPtr<ID3D11Device5> comObj, ref Texture1DDesc pDesc, SubresourceData* pInitialData, ID3D11Texture1D** ppTexture1D) 
+		public static HResult CreateTexture1D(this ComPtr<ID3D11Device5> comObj, ref Texture1DDesc pDesc, SubresourceData* pInitialData, ID3D11Texture1D** ppTexture1D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Texture1DDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, int>)(handle->LpVtbl[4]))(handle, (Texture1DDesc*)ppDesc, pInitialData, ppTexture1D);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, HResult>)(handle->LpVtbl[4]))(handle, (Texture1DDesc*)ppDesc, pInitialData, ppTexture1D);
 				return ret;
 			}
 		}
@@ -4702,12 +4702,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture1D(this ComPtr<ID3D11Device5> comObj, Texture1DDesc* pDesc, ref SubresourceData pInitialData, ID3D11Texture1D** ppTexture1D) 
+		public static HResult CreateTexture1D(this ComPtr<ID3D11Device5> comObj, Texture1DDesc* pDesc, ref SubresourceData pInitialData, ID3D11Texture1D** ppTexture1D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, int>)(handle->LpVtbl[4]))(handle, pDesc, (SubresourceData*)ppInitialData, ppTexture1D);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, HResult>)(handle->LpVtbl[4]))(handle, pDesc, (SubresourceData*)ppInitialData, ppTexture1D);
 				return ret;
 			}
 		}
@@ -4715,14 +4715,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture1D(this ComPtr<ID3D11Device5> comObj, ref Texture1DDesc pDesc, ref SubresourceData pInitialData, ID3D11Texture1D** ppTexture1D) 
+		public static HResult CreateTexture1D(this ComPtr<ID3D11Device5> comObj, ref Texture1DDesc pDesc, ref SubresourceData pInitialData, ID3D11Texture1D** ppTexture1D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Texture1DDesc* ppDesc = &pDesc)
 			{
 				fixed (SubresourceData* ppInitialData = &pInitialData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, int>)(handle->LpVtbl[4]))(handle, (Texture1DDesc*)ppDesc, (SubresourceData*)ppInitialData, ppTexture1D);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, HResult>)(handle->LpVtbl[4]))(handle, (Texture1DDesc*)ppDesc, (SubresourceData*)ppInitialData, ppTexture1D);
 					return ret;
 				}
 			}
@@ -4731,12 +4731,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture1D(this ComPtr<ID3D11Device5> comObj, Texture1DDesc* pDesc, SubresourceData* pInitialData, ref ID3D11Texture1D* ppTexture1D) 
+		public static HResult CreateTexture1D(this ComPtr<ID3D11Device5> comObj, Texture1DDesc* pDesc, SubresourceData* pInitialData, ref ID3D11Texture1D* ppTexture1D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (ID3D11Texture1D** pppTexture1D = &ppTexture1D)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, int>)(handle->LpVtbl[4]))(handle, pDesc, pInitialData, (ID3D11Texture1D**)pppTexture1D);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, HResult>)(handle->LpVtbl[4]))(handle, pDesc, pInitialData, (ID3D11Texture1D**)pppTexture1D);
 				return ret;
 			}
 		}
@@ -4744,25 +4744,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture1D(this ComPtr<ID3D11Device5> comObj, Texture1DDesc* pDesc, SubresourceData* pInitialData, out ComPtr<ID3D11Texture1D> ppTexture1D) 
+		public static HResult CreateTexture1D(this ComPtr<ID3D11Device5> comObj, Texture1DDesc* pDesc, SubresourceData* pInitialData, out ComPtr<ID3D11Texture1D> ppTexture1D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			ppTexture1D = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, int>)(handle->LpVtbl[4]))(handle, pDesc, pInitialData, (ID3D11Texture1D**)ppTexture1D.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, HResult>)(handle->LpVtbl[4]))(handle, pDesc, pInitialData, (ID3D11Texture1D**)ppTexture1D.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture1D(this ComPtr<ID3D11Device5> comObj, ref Texture1DDesc pDesc, SubresourceData* pInitialData, ref ID3D11Texture1D* ppTexture1D) 
+		public static HResult CreateTexture1D(this ComPtr<ID3D11Device5> comObj, ref Texture1DDesc pDesc, SubresourceData* pInitialData, ref ID3D11Texture1D* ppTexture1D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Texture1DDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D11Texture1D** pppTexture1D = &ppTexture1D)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, int>)(handle->LpVtbl[4]))(handle, (Texture1DDesc*)ppDesc, pInitialData, (ID3D11Texture1D**)pppTexture1D);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, HResult>)(handle->LpVtbl[4]))(handle, (Texture1DDesc*)ppDesc, pInitialData, (ID3D11Texture1D**)pppTexture1D);
 					return ret;
 				}
 			}
@@ -4771,13 +4771,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture1D(this ComPtr<ID3D11Device5> comObj, ref Texture1DDesc pDesc, SubresourceData* pInitialData, out ComPtr<ID3D11Texture1D> ppTexture1D) 
+		public static HResult CreateTexture1D(this ComPtr<ID3D11Device5> comObj, ref Texture1DDesc pDesc, SubresourceData* pInitialData, out ComPtr<ID3D11Texture1D> ppTexture1D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Texture1DDesc* ppDesc = &pDesc)
 			{
 				ppTexture1D = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, int>)(handle->LpVtbl[4]))(handle, (Texture1DDesc*)ppDesc, pInitialData, (ID3D11Texture1D**)ppTexture1D.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, HResult>)(handle->LpVtbl[4]))(handle, (Texture1DDesc*)ppDesc, pInitialData, (ID3D11Texture1D**)ppTexture1D.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4785,14 +4785,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture1D(this ComPtr<ID3D11Device5> comObj, Texture1DDesc* pDesc, ref SubresourceData pInitialData, ref ID3D11Texture1D* ppTexture1D) 
+		public static HResult CreateTexture1D(this ComPtr<ID3D11Device5> comObj, Texture1DDesc* pDesc, ref SubresourceData pInitialData, ref ID3D11Texture1D* ppTexture1D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
 				fixed (ID3D11Texture1D** pppTexture1D = &ppTexture1D)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, int>)(handle->LpVtbl[4]))(handle, pDesc, (SubresourceData*)ppInitialData, (ID3D11Texture1D**)pppTexture1D);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, HResult>)(handle->LpVtbl[4]))(handle, pDesc, (SubresourceData*)ppInitialData, (ID3D11Texture1D**)pppTexture1D);
 					return ret;
 				}
 			}
@@ -4801,13 +4801,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture1D(this ComPtr<ID3D11Device5> comObj, Texture1DDesc* pDesc, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture1D> ppTexture1D) 
+		public static HResult CreateTexture1D(this ComPtr<ID3D11Device5> comObj, Texture1DDesc* pDesc, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture1D> ppTexture1D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
 				ppTexture1D = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, int>)(handle->LpVtbl[4]))(handle, pDesc, (SubresourceData*)ppInitialData, (ID3D11Texture1D**)ppTexture1D.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, HResult>)(handle->LpVtbl[4]))(handle, pDesc, (SubresourceData*)ppInitialData, (ID3D11Texture1D**)ppTexture1D.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4815,7 +4815,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture1D(this ComPtr<ID3D11Device5> comObj, ref Texture1DDesc pDesc, ref SubresourceData pInitialData, ref ID3D11Texture1D* ppTexture1D) 
+		public static HResult CreateTexture1D(this ComPtr<ID3D11Device5> comObj, ref Texture1DDesc pDesc, ref SubresourceData pInitialData, ref ID3D11Texture1D* ppTexture1D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Texture1DDesc* ppDesc = &pDesc)
@@ -4824,7 +4824,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Texture1D** pppTexture1D = &ppTexture1D)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, int>)(handle->LpVtbl[4]))(handle, (Texture1DDesc*)ppDesc, (SubresourceData*)ppInitialData, (ID3D11Texture1D**)pppTexture1D);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, HResult>)(handle->LpVtbl[4]))(handle, (Texture1DDesc*)ppDesc, (SubresourceData*)ppInitialData, (ID3D11Texture1D**)pppTexture1D);
 						return ret;
 					}
 				}
@@ -4834,7 +4834,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture1D(this ComPtr<ID3D11Device5> comObj, ref Texture1DDesc pDesc, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture1D> ppTexture1D) 
+		public static HResult CreateTexture1D(this ComPtr<ID3D11Device5> comObj, ref Texture1DDesc pDesc, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture1D> ppTexture1D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Texture1DDesc* ppDesc = &pDesc)
@@ -4842,7 +4842,7 @@ namespace Hexa.NET.D3D11
 				fixed (SubresourceData* ppInitialData = &pInitialData)
 				{
 					ppTexture1D = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, int>)(handle->LpVtbl[4]))(handle, (Texture1DDesc*)ppDesc, (SubresourceData*)ppInitialData, (ID3D11Texture1D**)ppTexture1D.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture1DDesc*, SubresourceData*, ID3D11Texture1D**, HResult>)(handle->LpVtbl[4]))(handle, (Texture1DDesc*)ppDesc, (SubresourceData*)ppInitialData, (ID3D11Texture1D**)ppTexture1D.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4851,22 +4851,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D(this ComPtr<ID3D11Device5> comObj, Texture2DDesc* pDesc, SubresourceData* pInitialData, ID3D11Texture2D** ppTexture2D) 
+		public static HResult CreateTexture2D(this ComPtr<ID3D11Device5> comObj, Texture2DDesc* pDesc, SubresourceData* pInitialData, ID3D11Texture2D** ppTexture2D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, int>)(handle->LpVtbl[5]))(handle, pDesc, pInitialData, ppTexture2D);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, HResult>)(handle->LpVtbl[5]))(handle, pDesc, pInitialData, ppTexture2D);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D(this ComPtr<ID3D11Device5> comObj, ref Texture2DDesc pDesc, SubresourceData* pInitialData, ID3D11Texture2D** ppTexture2D) 
+		public static HResult CreateTexture2D(this ComPtr<ID3D11Device5> comObj, ref Texture2DDesc pDesc, SubresourceData* pInitialData, ID3D11Texture2D** ppTexture2D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Texture2DDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, int>)(handle->LpVtbl[5]))(handle, (Texture2DDesc*)ppDesc, pInitialData, ppTexture2D);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, HResult>)(handle->LpVtbl[5]))(handle, (Texture2DDesc*)ppDesc, pInitialData, ppTexture2D);
 				return ret;
 			}
 		}
@@ -4874,12 +4874,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D(this ComPtr<ID3D11Device5> comObj, Texture2DDesc* pDesc, ref SubresourceData pInitialData, ID3D11Texture2D** ppTexture2D) 
+		public static HResult CreateTexture2D(this ComPtr<ID3D11Device5> comObj, Texture2DDesc* pDesc, ref SubresourceData pInitialData, ID3D11Texture2D** ppTexture2D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, int>)(handle->LpVtbl[5]))(handle, pDesc, (SubresourceData*)ppInitialData, ppTexture2D);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, HResult>)(handle->LpVtbl[5]))(handle, pDesc, (SubresourceData*)ppInitialData, ppTexture2D);
 				return ret;
 			}
 		}
@@ -4887,14 +4887,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D(this ComPtr<ID3D11Device5> comObj, ref Texture2DDesc pDesc, ref SubresourceData pInitialData, ID3D11Texture2D** ppTexture2D) 
+		public static HResult CreateTexture2D(this ComPtr<ID3D11Device5> comObj, ref Texture2DDesc pDesc, ref SubresourceData pInitialData, ID3D11Texture2D** ppTexture2D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Texture2DDesc* ppDesc = &pDesc)
 			{
 				fixed (SubresourceData* ppInitialData = &pInitialData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, int>)(handle->LpVtbl[5]))(handle, (Texture2DDesc*)ppDesc, (SubresourceData*)ppInitialData, ppTexture2D);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, HResult>)(handle->LpVtbl[5]))(handle, (Texture2DDesc*)ppDesc, (SubresourceData*)ppInitialData, ppTexture2D);
 					return ret;
 				}
 			}
@@ -4903,12 +4903,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D(this ComPtr<ID3D11Device5> comObj, Texture2DDesc* pDesc, SubresourceData* pInitialData, ref ID3D11Texture2D* ppTexture2D) 
+		public static HResult CreateTexture2D(this ComPtr<ID3D11Device5> comObj, Texture2DDesc* pDesc, SubresourceData* pInitialData, ref ID3D11Texture2D* ppTexture2D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (ID3D11Texture2D** pppTexture2D = &ppTexture2D)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, int>)(handle->LpVtbl[5]))(handle, pDesc, pInitialData, (ID3D11Texture2D**)pppTexture2D);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, HResult>)(handle->LpVtbl[5]))(handle, pDesc, pInitialData, (ID3D11Texture2D**)pppTexture2D);
 				return ret;
 			}
 		}
@@ -4916,25 +4916,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D(this ComPtr<ID3D11Device5> comObj, Texture2DDesc* pDesc, SubresourceData* pInitialData, out ComPtr<ID3D11Texture2D> ppTexture2D) 
+		public static HResult CreateTexture2D(this ComPtr<ID3D11Device5> comObj, Texture2DDesc* pDesc, SubresourceData* pInitialData, out ComPtr<ID3D11Texture2D> ppTexture2D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			ppTexture2D = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, int>)(handle->LpVtbl[5]))(handle, pDesc, pInitialData, (ID3D11Texture2D**)ppTexture2D.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, HResult>)(handle->LpVtbl[5]))(handle, pDesc, pInitialData, (ID3D11Texture2D**)ppTexture2D.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D(this ComPtr<ID3D11Device5> comObj, ref Texture2DDesc pDesc, SubresourceData* pInitialData, ref ID3D11Texture2D* ppTexture2D) 
+		public static HResult CreateTexture2D(this ComPtr<ID3D11Device5> comObj, ref Texture2DDesc pDesc, SubresourceData* pInitialData, ref ID3D11Texture2D* ppTexture2D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Texture2DDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D11Texture2D** pppTexture2D = &ppTexture2D)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, int>)(handle->LpVtbl[5]))(handle, (Texture2DDesc*)ppDesc, pInitialData, (ID3D11Texture2D**)pppTexture2D);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, HResult>)(handle->LpVtbl[5]))(handle, (Texture2DDesc*)ppDesc, pInitialData, (ID3D11Texture2D**)pppTexture2D);
 					return ret;
 				}
 			}
@@ -4943,13 +4943,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D(this ComPtr<ID3D11Device5> comObj, ref Texture2DDesc pDesc, SubresourceData* pInitialData, out ComPtr<ID3D11Texture2D> ppTexture2D) 
+		public static HResult CreateTexture2D(this ComPtr<ID3D11Device5> comObj, ref Texture2DDesc pDesc, SubresourceData* pInitialData, out ComPtr<ID3D11Texture2D> ppTexture2D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Texture2DDesc* ppDesc = &pDesc)
 			{
 				ppTexture2D = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, int>)(handle->LpVtbl[5]))(handle, (Texture2DDesc*)ppDesc, pInitialData, (ID3D11Texture2D**)ppTexture2D.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, HResult>)(handle->LpVtbl[5]))(handle, (Texture2DDesc*)ppDesc, pInitialData, (ID3D11Texture2D**)ppTexture2D.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4957,14 +4957,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D(this ComPtr<ID3D11Device5> comObj, Texture2DDesc* pDesc, ref SubresourceData pInitialData, ref ID3D11Texture2D* ppTexture2D) 
+		public static HResult CreateTexture2D(this ComPtr<ID3D11Device5> comObj, Texture2DDesc* pDesc, ref SubresourceData pInitialData, ref ID3D11Texture2D* ppTexture2D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
 				fixed (ID3D11Texture2D** pppTexture2D = &ppTexture2D)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, int>)(handle->LpVtbl[5]))(handle, pDesc, (SubresourceData*)ppInitialData, (ID3D11Texture2D**)pppTexture2D);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, HResult>)(handle->LpVtbl[5]))(handle, pDesc, (SubresourceData*)ppInitialData, (ID3D11Texture2D**)pppTexture2D);
 					return ret;
 				}
 			}
@@ -4973,13 +4973,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D(this ComPtr<ID3D11Device5> comObj, Texture2DDesc* pDesc, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture2D> ppTexture2D) 
+		public static HResult CreateTexture2D(this ComPtr<ID3D11Device5> comObj, Texture2DDesc* pDesc, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture2D> ppTexture2D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (SubresourceData* ppInitialData = &pInitialData)
 			{
 				ppTexture2D = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, int>)(handle->LpVtbl[5]))(handle, pDesc, (SubresourceData*)ppInitialData, (ID3D11Texture2D**)ppTexture2D.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, HResult>)(handle->LpVtbl[5]))(handle, pDesc, (SubresourceData*)ppInitialData, (ID3D11Texture2D**)ppTexture2D.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4987,7 +4987,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D(this ComPtr<ID3D11Device5> comObj, ref Texture2DDesc pDesc, ref SubresourceData pInitialData, ref ID3D11Texture2D* ppTexture2D) 
+		public static HResult CreateTexture2D(this ComPtr<ID3D11Device5> comObj, ref Texture2DDesc pDesc, ref SubresourceData pInitialData, ref ID3D11Texture2D* ppTexture2D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Texture2DDesc* ppDesc = &pDesc)
@@ -4996,7 +4996,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Texture2D** pppTexture2D = &ppTexture2D)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, int>)(handle->LpVtbl[5]))(handle, (Texture2DDesc*)ppDesc, (SubresourceData*)ppInitialData, (ID3D11Texture2D**)pppTexture2D);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, HResult>)(handle->LpVtbl[5]))(handle, (Texture2DDesc*)ppDesc, (SubresourceData*)ppInitialData, (ID3D11Texture2D**)pppTexture2D);
 						return ret;
 					}
 				}
@@ -5006,7 +5006,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateTexture2D(this ComPtr<ID3D11Device5> comObj, ref Texture2DDesc pDesc, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture2D> ppTexture2D) 
+		public static HResult CreateTexture2D(this ComPtr<ID3D11Device5> comObj, ref Texture2DDesc pDesc, ref SubresourceData pInitialData, out ComPtr<ID3D11Texture2D> ppTexture2D) 
 		{
 			ID3D11Device5* handle = comObj.Handle;
 			fixed (Texture2DDesc* ppDesc = &pDesc)
@@ -5014,7 +5014,7 @@ namespace Hexa.NET.D3D11
 				fixed (SubresourceData* ppInitialData = &pInitialData)
 				{
 					ppTexture2D = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, int>)(handle->LpVtbl[5]))(handle, (Texture2DDesc*)ppDesc, (SubresourceData*)ppInitialData, (ID3D11Texture2D**)ppTexture2D.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device5*, Texture2DDesc*, SubresourceData*, ID3D11Texture2D**, HResult>)(handle->LpVtbl[5]))(handle, (Texture2DDesc*)ppDesc, (SubresourceData*)ppInitialData, (ID3D11Texture2D**)ppTexture2D.GetAddressOf());
 					return ret;
 				}
 			}

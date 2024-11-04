@@ -23,7 +23,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -33,7 +33,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppCode = &ppCode)
 						{
-							int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 							return ret;
 						}
 					}
@@ -44,7 +44,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -69,7 +69,7 @@ namespace Hexa.NET.D3DCompiler
 					}
 					fixed (ID3D10Blob** pppCode = &ppCode)
 					{
-						int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr0, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr0, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -83,7 +83,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -95,7 +95,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppCode = &ppCode)
 							{
-								int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+								HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 								return ret;
 							}
 						}
@@ -107,7 +107,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -149,7 +149,7 @@ namespace Hexa.NET.D3DCompiler
 					}
 					fixed (ID3D10Blob** pppCode = &ppCode)
 					{
-						int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -167,7 +167,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (byte* ppEntrypoint = pEntrypoint)
 			{
@@ -175,7 +175,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppCode = &ppCode)
 					{
-						int ret = CompileFromFileNative(pFileName, pDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 						return ret;
 					}
 				}
@@ -185,7 +185,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -223,7 +223,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3D10Blob** pppCode = &ppCode)
 			{
-				int ret = CompileFromFileNative(pFileName, pDefines, pInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+				HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -239,7 +239,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -249,7 +249,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppCode = &ppCode)
 						{
-							int ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+							HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 							return ret;
 						}
 					}
@@ -260,7 +260,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -315,7 +315,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3D10Blob** pppCode = &ppCode)
 			{
-				int ret = CompileFromFileNative(pStr0, pDefines, pInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+				HResult ret = CompileFromFileNative(pStr0, pDefines, pInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 				if (pStrSize2 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr2);
@@ -335,7 +335,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -345,7 +345,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppCode = &ppCode)
 						{
-							int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 							return ret;
 						}
 					}
@@ -356,7 +356,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -396,7 +396,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppCode = &ppCode)
 				{
-					int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -413,7 +413,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -425,7 +425,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppCode = &ppCode)
 							{
-								int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+								HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 								return ret;
 							}
 						}
@@ -437,7 +437,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -494,7 +494,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppCode = &ppCode)
 				{
-					int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 					if (pStrSize2 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr2);
@@ -515,7 +515,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -525,7 +525,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppCode = &ppCode)
 						{
-							int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 							return ret;
 						}
 					}
@@ -536,7 +536,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -576,7 +576,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppCode = &ppCode)
 				{
-					int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -593,7 +593,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -605,7 +605,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppCode = &ppCode)
 							{
-								int ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+								HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 								return ret;
 							}
 						}
@@ -617,7 +617,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -674,7 +674,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppCode = &ppCode)
 				{
-					int ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 					if (pStrSize2 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr2);
@@ -695,7 +695,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -707,7 +707,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppCode = &ppCode)
 							{
-								int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+								HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 								return ret;
 							}
 						}
@@ -719,7 +719,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -761,7 +761,7 @@ namespace Hexa.NET.D3DCompiler
 					}
 					fixed (ID3D10Blob** pppCode = &ppCode)
 					{
-						int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -779,7 +779,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -793,7 +793,7 @@ namespace Hexa.NET.D3DCompiler
 							{
 								fixed (ID3D10Blob** pppCode = &ppCode)
 								{
-									int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+									HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 									return ret;
 								}
 							}
@@ -806,7 +806,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ID3D10Blob** ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -865,7 +865,7 @@ namespace Hexa.NET.D3DCompiler
 					}
 					fixed (ID3D10Blob** pppCode = &ppCode)
 					{
-						int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, ppErrorMsgs);
 						if (pStrSize2 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr2);
@@ -887,11 +887,11 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 			{
-				int ret = CompileFromFileNative(pFileName, pDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+				HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 				return ret;
 			}
 		}
@@ -899,13 +899,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -914,7 +914,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -935,7 +935,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 			{
-				int ret = CompileFromFileNative(pStr0, pDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+				HResult ret = CompileFromFileNative(pStr0, pDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -947,13 +947,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -962,7 +962,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -970,7 +970,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -980,7 +980,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1003,7 +1003,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1016,13 +1016,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -1031,11 +1031,11 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ComPtr<ID3DInclude> pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ComPtr<ID3DInclude> pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 			{
-				int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)pInclude.Handle, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+				HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)pInclude.Handle, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 				return ret;
 			}
 		}
@@ -1043,7 +1043,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -1051,7 +1051,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1061,7 +1061,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1084,7 +1084,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1097,7 +1097,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -1105,7 +1105,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1115,13 +1115,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ComPtr<ID3DInclude> pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ComPtr<ID3DInclude> pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)pInclude.Handle, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)pInclude.Handle, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -1130,7 +1130,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -1140,7 +1140,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -1151,7 +1151,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1176,7 +1176,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1190,13 +1190,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppEntrypoint = pEntrypoint)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, pDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -1205,7 +1205,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1226,7 +1226,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 			{
-				int ret = CompileFromFileNative(pFileName, pDefines, pInclude, pStr0, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+				HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, pStr0, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1238,7 +1238,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -1246,7 +1246,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1256,7 +1256,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1294,7 +1294,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 			{
-				int ret = CompileFromFileNative(pStr0, pDefines, pInclude, pStr1, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+				HResult ret = CompileFromFileNative(pStr0, pDefines, pInclude, pStr1, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -1310,7 +1310,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -1318,7 +1318,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1328,7 +1328,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -1351,7 +1351,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pStr0, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pStr0, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1364,7 +1364,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -1374,7 +1374,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -1385,7 +1385,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1425,7 +1425,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pStr1, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pStr1, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1442,7 +1442,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -1450,7 +1450,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1460,7 +1460,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -1483,7 +1483,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pStr0, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pStr0, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1496,7 +1496,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -1506,7 +1506,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -1517,7 +1517,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1557,7 +1557,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pStr1, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pStr1, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1574,7 +1574,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -1584,7 +1584,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -1595,7 +1595,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -1620,7 +1620,7 @@ namespace Hexa.NET.D3DCompiler
 					}
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr0, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr0, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1634,7 +1634,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -1646,7 +1646,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -1658,7 +1658,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1700,7 +1700,7 @@ namespace Hexa.NET.D3DCompiler
 					}
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr1, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr1, pTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -1718,13 +1718,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppTarget = pTarget)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, pDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -1733,7 +1733,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1754,7 +1754,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 			{
-				int ret = CompileFromFileNative(pFileName, pDefines, pInclude, pEntrypoint, pStr0, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+				HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, pEntrypoint, pStr0, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1766,7 +1766,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -1774,7 +1774,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1784,7 +1784,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1822,7 +1822,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 			{
-				int ret = CompileFromFileNative(pStr0, pDefines, pInclude, pEntrypoint, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+				HResult ret = CompileFromFileNative(pStr0, pDefines, pInclude, pEntrypoint, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -1838,7 +1838,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -1846,7 +1846,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1856,7 +1856,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -1879,7 +1879,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pStr0, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pStr0, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1892,7 +1892,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -1902,7 +1902,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -1913,7 +1913,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1953,7 +1953,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1970,7 +1970,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -1978,7 +1978,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1988,7 +1988,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -2011,7 +2011,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr0, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr0, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2024,7 +2024,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -2034,7 +2034,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -2045,7 +2045,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2085,7 +2085,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -2102,7 +2102,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -2112,7 +2112,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -2123,7 +2123,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -2148,7 +2148,7 @@ namespace Hexa.NET.D3DCompiler
 					}
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr0, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr0, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -2162,7 +2162,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -2174,7 +2174,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -2186,7 +2186,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2228,7 +2228,7 @@ namespace Hexa.NET.D3DCompiler
 					}
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -2246,7 +2246,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppEntrypoint = pEntrypoint)
 			{
@@ -2254,7 +2254,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, pDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -2264,7 +2264,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2302,7 +2302,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 			{
-				int ret = CompileFromFileNative(pFileName, pDefines, pInclude, pStr0, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+				HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, pStr0, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -2318,7 +2318,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -2328,7 +2328,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -2339,7 +2339,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2394,7 +2394,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 			{
-				int ret = CompileFromFileNative(pStr0, pDefines, pInclude, pStr1, pStr2, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+				HResult ret = CompileFromFileNative(pStr0, pDefines, pInclude, pStr1, pStr2, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 				if (pStrSize2 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr2);
@@ -2414,7 +2414,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -2424,7 +2424,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -2435,7 +2435,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -2475,7 +2475,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pStr0, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pStr0, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -2492,7 +2492,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -2504,7 +2504,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -2516,7 +2516,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2573,7 +2573,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pStr1, pStr2, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pStr1, pStr2, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize2 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr2);
@@ -2594,7 +2594,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -2604,7 +2604,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -2615,7 +2615,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -2655,7 +2655,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pStr0, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pStr0, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -2672,7 +2672,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -2684,7 +2684,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -2696,7 +2696,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2753,7 +2753,7 @@ namespace Hexa.NET.D3DCompiler
 				}
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pStr1, pStr2, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pStr1, pStr2, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize2 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr2);
@@ -2774,7 +2774,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -2786,7 +2786,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -2798,7 +2798,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -2840,7 +2840,7 @@ namespace Hexa.NET.D3DCompiler
 					}
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr0, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr0, pStr1, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -2858,7 +2858,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -2872,7 +2872,7 @@ namespace Hexa.NET.D3DCompiler
 							{
 								fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 								{
-									int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+									HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 									return ret;
 								}
 							}
@@ -2885,7 +2885,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ID3D10Blob** ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2944,7 +2944,7 @@ namespace Hexa.NET.D3DCompiler
 					}
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr1, pStr2, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr1, pStr2, flags1, flags2, ppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize2 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr2);
@@ -2966,13 +2966,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3D10Blob** pppCode = &ppCode)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, pDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -2981,7 +2981,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -2989,7 +2989,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -2999,7 +2999,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3022,7 +3022,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pStr0, pDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, pDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3035,7 +3035,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -3043,7 +3043,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -3053,7 +3053,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -3063,7 +3063,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -3074,7 +3074,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3099,7 +3099,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -3113,7 +3113,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -3121,7 +3121,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -3131,13 +3131,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ComPtr<ID3DInclude> pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ComPtr<ID3DInclude> pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3D10Blob** pppCode = &ppCode)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)pInclude.Handle, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)pInclude.Handle, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -3146,7 +3146,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -3156,7 +3156,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -3167,7 +3167,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3192,7 +3192,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -3206,7 +3206,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -3216,7 +3216,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -3227,7 +3227,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ComPtr<ID3DInclude> pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ComPtr<ID3DInclude> pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -3235,7 +3235,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)pInclude.Handle, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)pInclude.Handle, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -3245,7 +3245,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -3257,7 +3257,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -3269,7 +3269,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3296,7 +3296,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -3311,7 +3311,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppEntrypoint = pEntrypoint)
 			{
@@ -3319,7 +3319,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, pDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -3329,7 +3329,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3352,7 +3352,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, pDefines, pInclude, pStr0, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, pStr0, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3365,7 +3365,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -3375,7 +3375,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -3386,7 +3386,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3426,7 +3426,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pStr0, pDefines, pInclude, pStr1, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, pDefines, pInclude, pStr1, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -3443,7 +3443,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -3453,7 +3453,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -3464,7 +3464,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -3489,7 +3489,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pStr0, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pStr0, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -3503,7 +3503,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -3515,7 +3515,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -3527,7 +3527,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3569,7 +3569,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pStr1, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pStr1, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -3587,7 +3587,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -3597,7 +3597,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -3608,7 +3608,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -3633,7 +3633,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pStr0, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pStr0, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -3647,7 +3647,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -3659,7 +3659,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -3671,7 +3671,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3713,7 +3713,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pStr1, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pStr1, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -3731,7 +3731,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -3743,7 +3743,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -3755,7 +3755,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -3782,7 +3782,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr0, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr0, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -3797,7 +3797,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -3811,7 +3811,7 @@ namespace Hexa.NET.D3DCompiler
 							{
 								fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 								{
-									int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+									HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 									return ret;
 								}
 							}
@@ -3824,7 +3824,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, byte* pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3868,7 +3868,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr1, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr1, pTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr1);
@@ -3887,7 +3887,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppTarget = pTarget)
 			{
@@ -3895,7 +3895,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, pDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -3905,7 +3905,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -3928,7 +3928,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, pDefines, pInclude, pEntrypoint, pStr0, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, pEntrypoint, pStr0, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3941,7 +3941,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -3951,7 +3951,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -3962,7 +3962,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -4002,7 +4002,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pStr0, pDefines, pInclude, pEntrypoint, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, pDefines, pInclude, pEntrypoint, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -4019,7 +4019,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -4029,7 +4029,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -4040,7 +4040,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -4065,7 +4065,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pStr0, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pStr0, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -4079,7 +4079,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -4091,7 +4091,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -4103,7 +4103,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -4145,7 +4145,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pEntrypoint, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -4163,7 +4163,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -4173,7 +4173,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -4184,7 +4184,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -4209,7 +4209,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr0, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr0, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -4223,7 +4223,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -4235,7 +4235,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -4247,7 +4247,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -4289,7 +4289,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -4307,7 +4307,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -4319,7 +4319,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -4331,7 +4331,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -4358,7 +4358,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr0, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr0, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -4373,7 +4373,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -4387,7 +4387,7 @@ namespace Hexa.NET.D3DCompiler
 							{
 								fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 								{
-									int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+									HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 									return ret;
 								}
 							}
@@ -4400,7 +4400,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, byte* pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -4444,7 +4444,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pEntrypoint, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr1);
@@ -4463,7 +4463,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppEntrypoint = pEntrypoint)
 			{
@@ -4473,7 +4473,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pFileName, pDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -4484,7 +4484,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -4524,7 +4524,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pFileName, pDefines, pInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pFileName, pDefines, pInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -4541,7 +4541,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -4553,7 +4553,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -4565,7 +4565,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -4622,7 +4622,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = CompileFromFileNative(pStr0, pDefines, pInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = CompileFromFileNative(pStr0, pDefines, pInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize2 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr2);
@@ -4643,7 +4643,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -4655,7 +4655,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -4667,7 +4667,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -4709,7 +4709,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, pInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -4727,7 +4727,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -4741,7 +4741,7 @@ namespace Hexa.NET.D3DCompiler
 							{
 								fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 								{
-									int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+									HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, pInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 									return ret;
 								}
 							}
@@ -4754,7 +4754,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ID3DInclude* pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -4813,7 +4813,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, pInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize2 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr2);
@@ -4835,7 +4835,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -4847,7 +4847,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -4859,7 +4859,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -4901,7 +4901,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pFileName, pDefines, (ID3DInclude*)ppInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -4919,7 +4919,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -4933,7 +4933,7 @@ namespace Hexa.NET.D3DCompiler
 							{
 								fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 								{
-									int ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+									HResult ret = CompileFromFileNative((char*)ppFileName, pDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 									return ret;
 								}
 							}
@@ -4946,7 +4946,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ShaderMacro* pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -5005,7 +5005,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = CompileFromFileNative(pStr0, pDefines, (ID3DInclude*)ppInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize2 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr2);

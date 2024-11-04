@@ -62,13 +62,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Created;
+		public Bool32 Created;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe ClassInstanceDesc(uint instanceId = default, uint instanceIndex = default, uint typeId = default, uint constantBuffer = default, uint baseConstantBufferOffset = default, uint baseTexture = default, uint baseSampler = default, int created = default)
+		public unsafe ClassInstanceDesc(uint instanceId = default, uint instanceIndex = default, uint typeId = default, uint constantBuffer = default, uint baseConstantBufferOffset = default, uint baseTexture = default, uint baseSampler = default, Bool32 created = default)
 		{
 			InstanceId = instanceId;
 			InstanceIndex = instanceIndex;

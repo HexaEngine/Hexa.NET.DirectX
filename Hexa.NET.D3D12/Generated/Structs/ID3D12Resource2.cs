@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -104,22 +104,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -127,12 +127,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -140,14 +140,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -156,22 +156,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -179,12 +179,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -192,14 +192,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -208,22 +208,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(Guid* guid, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint, void*, int>)(LpVtbl[4]))(ptr, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint, void*, HResult>)(LpVtbl[4]))(ptr, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -231,22 +231,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, HResult>)(LpVtbl[5]))(ptr, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -254,12 +254,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, HResult>)(LpVtbl[5]))(ptr, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -267,24 +267,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, HResult>)(LpVtbl[5]))(ptr, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -293,12 +293,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -306,22 +306,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetName(char* name) 
+		public readonly unsafe HResult SetName(char* name) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, char*, int>)(LpVtbl[6]))(ptr, name);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, char*, HResult>)(LpVtbl[6]))(ptr, name);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetName(ReadOnlySpan<char> name) 
+		public readonly unsafe HResult SetName(ReadOnlySpan<char> name) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* pname = name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, char*, int>)(LpVtbl[6]))(ptr, (char*)pname);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, char*, HResult>)(LpVtbl[6]))(ptr, (char*)pname);
 				return ret;
 			}
 		}
@@ -329,7 +329,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetName(string name) 
+		public readonly unsafe HResult SetName(string name) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -349,7 +349,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, char*, int>)(LpVtbl[6]))(ptr, pStr0);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, char*, HResult>)(LpVtbl[6]))(ptr, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -360,22 +360,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDevice(Guid* riid, void** ppvDevice) 
+		public readonly unsafe HResult GetDevice(Guid* riid, void** ppvDevice) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(LpVtbl[7]))(ptr, riid, ppvDevice);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, HResult>)(LpVtbl[7]))(ptr, riid, ppvDevice);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDevice(ref Guid riid, void** ppvDevice) 
+		public readonly unsafe HResult GetDevice(ref Guid riid, void** ppvDevice) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (Guid*)priid, ppvDevice);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, HResult>)(LpVtbl[7]))(ptr, (Guid*)priid, ppvDevice);
 				return ret;
 			}
 		}
@@ -383,24 +383,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDevice<T>(out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetDevice<T>(out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvDevice = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDevice.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, HResult>)(LpVtbl[7]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDevice.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDevice<T>(ref Guid riid, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetDevice<T>(ref Guid riid, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvDevice = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (Guid*)priid, (void**)ppvDevice.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, HResult>)(LpVtbl[7]))(ptr, (Guid*)priid, (void**)ppvDevice.GetAddressOf());
 				return ret;
 			}
 		}
@@ -408,22 +408,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Map(uint subresource, Range* pReadRange, void** ppData) 
+		public readonly unsafe HResult Map(uint subresource, Range* pReadRange, void** ppData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void**, int>)(LpVtbl[8]))(ptr, subresource, pReadRange, ppData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void**, HResult>)(LpVtbl[8]))(ptr, subresource, pReadRange, ppData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Map(uint subresource, ref Range pReadRange, void** ppData) 
+		public readonly unsafe HResult Map(uint subresource, ref Range pReadRange, void** ppData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Range* ppReadRange = &pReadRange)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void**, int>)(LpVtbl[8]))(ptr, subresource, (Range*)ppReadRange, ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void**, HResult>)(LpVtbl[8]))(ptr, subresource, (Range*)ppReadRange, ppData);
 				return ret;
 			}
 		}
@@ -431,24 +431,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Map<T>(uint subresource, Range* pReadRange, out ComPtr<T> ppData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult Map<T>(uint subresource, Range* pReadRange, out ComPtr<T> ppData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppData = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void**, int>)(LpVtbl[8]))(ptr, subresource, pReadRange, (void**)ppData.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void**, HResult>)(LpVtbl[8]))(ptr, subresource, pReadRange, (void**)ppData.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Map<T>(uint subresource, ref Range pReadRange, out ComPtr<T> ppData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult Map<T>(uint subresource, ref Range pReadRange, out ComPtr<T> ppData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Range* ppReadRange = &pReadRange)
 			{
 				ppData = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void**, int>)(LpVtbl[8]))(ptr, subresource, (Range*)ppReadRange, (void**)ppData.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void**, HResult>)(LpVtbl[8]))(ptr, subresource, (Range*)ppReadRange, (void**)ppData.GetAddressOf());
 				return ret;
 			}
 		}
@@ -497,22 +497,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int WriteToSubresource(uint dstSubresource, Box* pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
+		public readonly unsafe HResult WriteToSubresource(uint dstSubresource, Box* pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Box*, void*, uint, uint, int>)(LpVtbl[12]))(ptr, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Box*, void*, uint, uint, HResult>)(LpVtbl[12]))(ptr, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int WriteToSubresource(uint dstSubresource, ref Box pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
+		public readonly unsafe HResult WriteToSubresource(uint dstSubresource, ref Box pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Box* ppDstBox = &pDstBox)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Box*, void*, uint, uint, int>)(LpVtbl[12]))(ptr, dstSubresource, (Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Box*, void*, uint, uint, HResult>)(LpVtbl[12]))(ptr, dstSubresource, (Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch);
 				return ret;
 			}
 		}
@@ -520,32 +520,32 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ReadFromSubresource(void* pDstData, uint dstRowPitch, uint dstDepthPitch, uint srcSubresource, Box* pSrcBox) 
+		public readonly unsafe HResult ReadFromSubresource(void* pDstData, uint dstRowPitch, uint dstDepthPitch, uint srcSubresource, Box* pSrcBox) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, Box*, int>)(LpVtbl[13]))(ptr, pDstData, dstRowPitch, dstDepthPitch, srcSubresource, pSrcBox);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, Box*, HResult>)(LpVtbl[13]))(ptr, pDstData, dstRowPitch, dstDepthPitch, srcSubresource, pSrcBox);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ReadFromSubresource<T>(ComPtr<T> pDstData, uint dstRowPitch, uint dstDepthPitch, uint srcSubresource, Box* pSrcBox) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult ReadFromSubresource<T>(ComPtr<T> pDstData, uint dstRowPitch, uint dstDepthPitch, uint srcSubresource, Box* pSrcBox) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, Box*, int>)(LpVtbl[13]))(ptr, (void*)pDstData.Handle, dstRowPitch, dstDepthPitch, srcSubresource, pSrcBox);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, Box*, HResult>)(LpVtbl[13]))(ptr, (void*)pDstData.Handle, dstRowPitch, dstDepthPitch, srcSubresource, pSrcBox);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ReadFromSubresource(void* pDstData, uint dstRowPitch, uint dstDepthPitch, uint srcSubresource, ref Box pSrcBox) 
+		public readonly unsafe HResult ReadFromSubresource(void* pDstData, uint dstRowPitch, uint dstDepthPitch, uint srcSubresource, ref Box pSrcBox) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, Box*, int>)(LpVtbl[13]))(ptr, pDstData, dstRowPitch, dstDepthPitch, srcSubresource, (Box*)ppSrcBox);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, Box*, HResult>)(LpVtbl[13]))(ptr, pDstData, dstRowPitch, dstDepthPitch, srcSubresource, (Box*)ppSrcBox);
 				return ret;
 			}
 		}
@@ -553,12 +553,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ReadFromSubresource<T>(ComPtr<T> pDstData, uint dstRowPitch, uint dstDepthPitch, uint srcSubresource, ref Box pSrcBox) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult ReadFromSubresource<T>(ComPtr<T> pDstData, uint dstRowPitch, uint dstDepthPitch, uint srcSubresource, ref Box pSrcBox) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, Box*, int>)(LpVtbl[13]))(ptr, (void*)pDstData.Handle, dstRowPitch, dstDepthPitch, srcSubresource, (Box*)ppSrcBox);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, Box*, HResult>)(LpVtbl[13]))(ptr, (void*)pDstData.Handle, dstRowPitch, dstDepthPitch, srcSubresource, (Box*)ppSrcBox);
 				return ret;
 			}
 		}
@@ -566,22 +566,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetHeapProperties(HeapProperties* pHeapProperties, HeapFlags* pHeapFlags) 
+		public readonly unsafe HResult GetHeapProperties(HeapProperties* pHeapProperties, HeapFlags* pHeapFlags) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, HeapProperties*, HeapFlags*, int>)(LpVtbl[14]))(ptr, pHeapProperties, pHeapFlags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, HeapProperties*, HeapFlags*, HResult>)(LpVtbl[14]))(ptr, pHeapProperties, pHeapFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetHeapProperties(ref HeapProperties pHeapProperties, HeapFlags* pHeapFlags) 
+		public readonly unsafe HResult GetHeapProperties(ref HeapProperties pHeapProperties, HeapFlags* pHeapFlags) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, HeapProperties*, HeapFlags*, int>)(LpVtbl[14]))(ptr, (HeapProperties*)ppHeapProperties, pHeapFlags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, HeapProperties*, HeapFlags*, HResult>)(LpVtbl[14]))(ptr, (HeapProperties*)ppHeapProperties, pHeapFlags);
 				return ret;
 			}
 		}
@@ -589,12 +589,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetHeapProperties(HeapProperties* pHeapProperties, ref HeapFlags pHeapFlags) 
+		public readonly unsafe HResult GetHeapProperties(HeapProperties* pHeapProperties, ref HeapFlags pHeapFlags) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapFlags* ppHeapFlags = &pHeapFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, HeapProperties*, HeapFlags*, int>)(LpVtbl[14]))(ptr, pHeapProperties, (HeapFlags*)ppHeapFlags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, HeapProperties*, HeapFlags*, HResult>)(LpVtbl[14]))(ptr, pHeapProperties, (HeapFlags*)ppHeapFlags);
 				return ret;
 			}
 		}
@@ -602,14 +602,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetHeapProperties(ref HeapProperties pHeapProperties, ref HeapFlags pHeapFlags) 
+		public readonly unsafe HResult GetHeapProperties(ref HeapProperties pHeapProperties, ref HeapFlags pHeapFlags) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (HeapFlags* ppHeapFlags = &pHeapFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, HeapProperties*, HeapFlags*, int>)(LpVtbl[14]))(ptr, (HeapProperties*)ppHeapProperties, (HeapFlags*)ppHeapFlags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, HeapProperties*, HeapFlags*, HResult>)(LpVtbl[14]))(ptr, (HeapProperties*)ppHeapProperties, (HeapFlags*)ppHeapFlags);
 					return ret;
 				}
 			}
@@ -618,22 +618,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetProtectedResourceSession(Guid* riid, void** ppProtectedSession) 
+		public readonly unsafe HResult GetProtectedResourceSession(Guid* riid, void** ppProtectedSession) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(LpVtbl[15]))(ptr, riid, ppProtectedSession);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, HResult>)(LpVtbl[15]))(ptr, riid, ppProtectedSession);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetProtectedResourceSession(ref Guid riid, void** ppProtectedSession) 
+		public readonly unsafe HResult GetProtectedResourceSession(ref Guid riid, void** ppProtectedSession) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(LpVtbl[15]))(ptr, (Guid*)priid, ppProtectedSession);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, HResult>)(LpVtbl[15]))(ptr, (Guid*)priid, ppProtectedSession);
 				return ret;
 			}
 		}
@@ -641,24 +641,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetProtectedResourceSession<T>(out ComPtr<T> ppProtectedSession) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetProtectedResourceSession<T>(out ComPtr<T> ppProtectedSession) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppProtectedSession = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(LpVtbl[15]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppProtectedSession.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, HResult>)(LpVtbl[15]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppProtectedSession.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetProtectedResourceSession<T>(ref Guid riid, out ComPtr<T> ppProtectedSession) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetProtectedResourceSession<T>(ref Guid riid, out ComPtr<T> ppProtectedSession) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppProtectedSession = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(LpVtbl[15]))(ptr, (Guid*)priid, (void**)ppProtectedSession.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, HResult>)(LpVtbl[15]))(ptr, (Guid*)priid, (void**)ppProtectedSession.GetAddressOf());
 				return ret;
 			}
 		}

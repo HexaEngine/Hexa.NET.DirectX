@@ -31,22 +31,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -54,24 +54,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -99,22 +99,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		public readonly unsafe int Validate(IDxcBlob* pShader, uint flags, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Validate(IDxcBlob* pShader, uint flags, IDxcOperationResult** ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, pShader, flags, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, pShader, flags, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		public readonly unsafe int Validate(ref IDxcBlob pShader, uint flags, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Validate(ref IDxcBlob pShader, uint flags, IDxcOperationResult** ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppShader = &pShader)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)ppShader, flags, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, (IDxcBlob*)ppShader, flags, ppResult);
 				return ret;
 			}
 		}
@@ -122,22 +122,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		public readonly unsafe int Validate(ComPtr<IDxcBlob> pShader, uint flags, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Validate(ComPtr<IDxcBlob> pShader, uint flags, IDxcOperationResult** ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)pShader.Handle, flags, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, (IDxcBlob*)pShader.Handle, flags, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		public readonly unsafe int Validate(IDxcBlob* pShader, uint flags, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Validate(IDxcBlob* pShader, uint flags, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcOperationResult** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, pShader, flags, (IDxcOperationResult**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, pShader, flags, (IDxcOperationResult**)pppResult);
 				return ret;
 			}
 		}
@@ -145,25 +145,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		public readonly unsafe int Validate(IDxcBlob* pShader, uint flags, out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe HResult Validate(IDxcBlob* pShader, uint flags, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, pShader, flags, (IDxcOperationResult**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, pShader, flags, (IDxcOperationResult**)ppResult.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		public readonly unsafe int Validate(ref IDxcBlob pShader, uint flags, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Validate(ref IDxcBlob pShader, uint flags, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppShader = &pShader)
 			{
 				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)ppShader, flags, (IDxcOperationResult**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, (IDxcBlob*)ppShader, flags, (IDxcOperationResult**)pppResult);
 					return ret;
 				}
 			}
@@ -172,11 +172,11 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		public readonly unsafe int Validate(ComPtr<IDxcBlob> pShader, uint flags, out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe HResult Validate(ComPtr<IDxcBlob> pShader, uint flags, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)pShader.Handle, flags, (IDxcOperationResult**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, (IDxcBlob*)pShader.Handle, flags, (IDxcOperationResult**)ppResult.GetAddressOf());
 			return ret;
 		}
 

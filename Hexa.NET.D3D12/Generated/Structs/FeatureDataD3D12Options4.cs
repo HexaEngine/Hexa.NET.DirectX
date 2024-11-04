@@ -27,7 +27,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int MSAA64KBAlignedTextureSupported;
+		public Bool32 MSAA64KBAlignedTextureSupported;
 
 		/// <summary>
 		/// To be documented.
@@ -37,13 +37,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Native16BitShaderOpsSupported;
+		public Bool32 Native16BitShaderOpsSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D12Options4(int msaa64KbAlignedTextureSupported = default, SharedResourceCompatibilityTier sharedResourceCompatibilityTier = default, int native16BitShaderOpsSupported = default)
+		public unsafe FeatureDataD3D12Options4(Bool32 msaa64KbAlignedTextureSupported = default, SharedResourceCompatibilityTier sharedResourceCompatibilityTier = default, Bool32 native16BitShaderOpsSupported = default)
 		{
 			MSAA64KBAlignedTextureSupported = msaa64KbAlignedTextureSupported;
 			SharedResourceCompatibilityTier = sharedResourceCompatibilityTier;

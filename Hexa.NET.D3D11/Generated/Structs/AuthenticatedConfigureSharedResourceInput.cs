@@ -42,13 +42,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int AllowAccess;
+		public Bool32 AllowAccess;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe AuthenticatedConfigureSharedResourceInput(AuthenticatedConfigureInput parameters = default, AuthenticatedProcessIdentifierType processType = default, nint processHandle = default, int allowAccess = default)
+		public unsafe AuthenticatedConfigureSharedResourceInput(AuthenticatedConfigureInput parameters = default, AuthenticatedProcessIdentifierType processType = default, nint processHandle = default, Bool32 allowAccess = default)
 		{
 			Parameters = parameters;
 			ProcessType = processType;

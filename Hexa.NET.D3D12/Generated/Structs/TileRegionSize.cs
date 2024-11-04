@@ -32,7 +32,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int UseBox;
+		public Bool32 UseBox;
 
 		/// <summary>
 		/// To be documented.
@@ -53,7 +53,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe TileRegionSize(uint numTiles = default, int useBox = default, uint width = default, ushort height = default, ushort depth = default)
+		public unsafe TileRegionSize(uint numTiles = default, Bool32 useBox = default, uint width = default, ushort height = default, ushort depth = default)
 		{
 			NumTiles = numTiles;
 			UseBox = useBox;

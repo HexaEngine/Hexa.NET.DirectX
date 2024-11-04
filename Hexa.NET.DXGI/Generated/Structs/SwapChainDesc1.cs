@@ -41,7 +41,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Stereo;
+		public Bool32 Stereo;
 
 		/// <summary>
 		/// To be documented.
@@ -82,7 +82,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe SwapChainDesc1(uint width = default, uint height = default, Format format = default, int stereo = default, SampleDesc sampleDesc = default, uint bufferUsage = default, uint bufferCount = default, Scaling scaling = default, SwapEffect swapEffect = default, AlphaMode alphaMode = default, uint flags = default)
+		public unsafe SwapChainDesc1(uint width = default, uint height = default, Format format = default, Bool32 stereo = default, SampleDesc sampleDesc = default, uint bufferUsage = default, uint bufferCount = default, Scaling scaling = default, SwapEffect swapEffect = default, AlphaMode alphaMode = default, uint flags = default)
 		{
 			Width = width;
 			Height = height;

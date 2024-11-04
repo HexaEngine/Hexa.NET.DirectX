@@ -31,22 +31,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -54,24 +54,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -99,22 +99,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetAvailablePassCount(uint* pCount) 
+		public readonly unsafe HResult GetAvailablePassCount(uint* pCount) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, uint*, int>)(LpVtbl[3]))(ptr, pCount);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, uint*, HResult>)(LpVtbl[3]))(ptr, pCount);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetAvailablePassCount(ref uint pCount) 
+		public readonly unsafe HResult GetAvailablePassCount(ref uint pCount) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCount = &pCount)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, uint*, int>)(LpVtbl[3]))(ptr, (uint*)ppCount);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, uint*, HResult>)(LpVtbl[3]))(ptr, (uint*)ppCount);
 				return ret;
 			}
 		}
@@ -122,22 +122,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetAvailablePass(uint index, IDxcOptimizerPass** ppResult) 
+		public readonly unsafe HResult GetAvailablePass(uint index, IDxcOptimizerPass** ppResult) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, uint, IDxcOptimizerPass**, int>)(LpVtbl[4]))(ptr, index, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, uint, IDxcOptimizerPass**, HResult>)(LpVtbl[4]))(ptr, index, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetAvailablePass(uint index, ref IDxcOptimizerPass* ppResult) 
+		public readonly unsafe HResult GetAvailablePass(uint index, ref IDxcOptimizerPass* ppResult) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcOptimizerPass** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, uint, IDxcOptimizerPass**, int>)(LpVtbl[4]))(ptr, index, (IDxcOptimizerPass**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, uint, IDxcOptimizerPass**, HResult>)(LpVtbl[4]))(ptr, index, (IDxcOptimizerPass**)pppResult);
 				return ret;
 			}
 		}
@@ -145,33 +145,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetAvailablePass(uint index, out ComPtr<IDxcOptimizerPass> ppResult) 
+		public readonly unsafe HResult GetAvailablePass(uint index, out ComPtr<IDxcOptimizerPass> ppResult) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, uint, IDxcOptimizerPass**, int>)(LpVtbl[4]))(ptr, index, (IDxcOptimizerPass**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, uint, IDxcOptimizerPass**, HResult>)(LpVtbl[4]))(ptr, index, (IDxcOptimizerPass**)ppResult.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, pOutputModule, ppOutputText);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, pOutputModule, ppOutputText);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ref IDxcBlob pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, ppOptions, optionCount, pOutputModule, ppOutputText);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, ppOptions, optionCount, pOutputModule, ppOutputText);
 				return ret;
 			}
 		}
@@ -179,22 +179,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ComPtr<IDxcBlob> pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, ppOptions, optionCount, pOutputModule, ppOutputText);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, ppOptions, optionCount, pOutputModule, ppOutputText);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, pOutputModule, ppOutputText);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, pOutputModule, ppOutputText);
 				return ret;
 			}
 		}
@@ -202,14 +202,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ref IDxcBlob pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (char** pppOptions = &ppOptions)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, (char**)pppOptions, optionCount, pOutputModule, ppOutputText);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, (char**)pppOptions, optionCount, pOutputModule, ppOutputText);
 					return ret;
 				}
 			}
@@ -218,12 +218,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ComPtr<IDxcBlob> pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, (char**)pppOptions, optionCount, pOutputModule, ppOutputText);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, (char**)pppOptions, optionCount, pOutputModule, ppOutputText);
 				return ret;
 			}
 		}
@@ -231,12 +231,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** ppOutputModule = &pOutputModule)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
 				return ret;
 			}
 		}
@@ -244,12 +244,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlob>* ppOutputModule = &pOutputModule)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
 				return ret;
 			}
 		}
@@ -257,14 +257,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, char** ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ref IDxcBlob pBlob, char** ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IDxcBlob** ppOutputModule = &pOutputModule)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
 					return ret;
 				}
 			}
@@ -273,12 +273,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, char** ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ComPtr<IDxcBlob> pBlob, char** ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlob>* ppOutputModule = &pOutputModule)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
 				return ret;
 			}
 		}
@@ -286,14 +286,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
 			{
 				fixed (IDxcBlob** ppOutputModule = &pOutputModule)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
 					return ret;
 				}
 			}
@@ -302,14 +302,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
 			{
 				fixed (ComPtr<IDxcBlob>* ppOutputModule = &pOutputModule)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
 					return ret;
 				}
 			}
@@ -318,7 +318,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, ref char* ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ref IDxcBlob pBlob, ref char* ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -327,7 +327,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** ppOutputModule = &pOutputModule)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
 						return ret;
 					}
 				}
@@ -337,14 +337,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, ref char* ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ComPtr<IDxcBlob> pBlob, ref char* ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
 			{
 				fixed (ComPtr<IDxcBlob>* ppOutputModule = &pOutputModule)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, ppOutputText);
 					return ret;
 				}
 			}
@@ -353,12 +353,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** pppOutputText = &ppOutputText)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)pppOutputText);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)pppOutputText);
 				return ret;
 			}
 		}
@@ -366,25 +366,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppOutputText = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ref IDxcBlob pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IDxcBlobEncoding** pppOutputText = &ppOutputText)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, ppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)pppOutputText);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, ppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)pppOutputText);
 					return ret;
 				}
 			}
@@ -393,25 +393,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ComPtr<IDxcBlob> pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppOutputText = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, ppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, ppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
 			{
 				fixed (IDxcBlobEncoding** pppOutputText = &ppOutputText)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)pppOutputText);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)pppOutputText);
 					return ret;
 				}
 			}
@@ -420,13 +420,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
 			{
 				ppOutputText = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
 				return ret;
 			}
 		}
@@ -434,7 +434,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ref IDxcBlob pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -443,7 +443,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlobEncoding** pppOutputText = &ppOutputText)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, (char**)pppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)pppOutputText);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, (char**)pppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)pppOutputText);
 						return ret;
 					}
 				}
@@ -453,13 +453,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ComPtr<IDxcBlob> pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
 			{
 				ppOutputText = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, (char**)pppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, (char**)pppOptions, optionCount, pOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
 				return ret;
 			}
 		}
@@ -467,14 +467,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** ppOutputModule = &pOutputModule)
 			{
 				fixed (IDxcBlobEncoding** pppOutputText = &ppOutputText)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)pppOutputText);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)pppOutputText);
 					return ret;
 				}
 			}
@@ -483,13 +483,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlob>* ppOutputModule = &pOutputModule)
 			{
 				ppOutputText = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
 				return ret;
 			}
 		}
@@ -497,7 +497,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, char** ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ref IDxcBlob pBlob, char** ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -506,7 +506,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlobEncoding** pppOutputText = &ppOutputText)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)pppOutputText);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)pppOutputText);
 						return ret;
 					}
 				}
@@ -516,13 +516,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, char** ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ComPtr<IDxcBlob> pBlob, char** ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlob>* ppOutputModule = &pOutputModule)
 			{
 				ppOutputText = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, ppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
 				return ret;
 			}
 		}
@@ -530,7 +530,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
@@ -539,7 +539,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlobEncoding** pppOutputText = &ppOutputText)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)pppOutputText);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)pppOutputText);
 						return ret;
 					}
 				}
@@ -549,7 +549,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
@@ -557,7 +557,7 @@ namespace Hexa.NET.DXC
 				fixed (ComPtr<IDxcBlob>* ppOutputModule = &pOutputModule)
 				{
 					ppOutputText = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pBlob, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
 					return ret;
 				}
 			}
@@ -566,7 +566,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, ref char* ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ref IDxcBlob pBlob, ref char* ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -577,7 +577,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcBlobEncoding** pppOutputText = &ppOutputText)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)pppOutputText);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)ppBlob, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)pppOutputText);
 							return ret;
 						}
 					}
@@ -588,7 +588,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, ref char* ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe HResult RunOptimizer(ComPtr<IDxcBlob> pBlob, ref char* ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
@@ -596,7 +596,7 @@ namespace Hexa.NET.DXC
 				fixed (ComPtr<IDxcBlob>* ppOutputModule = &pOutputModule)
 				{
 					ppOutputText = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, (char**)pppOptions, optionCount, (IDxcBlob**)ppOutputModule, (IDxcBlobEncoding**)ppOutputText.GetAddressOf());
 					return ret;
 				}
 			}

@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -104,22 +104,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, VideoDecoderConfig* pConfig, ID3D11VideoDecoder** ppDecoder) 
+		public readonly unsafe HResult CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, VideoDecoderConfig* pConfig, ID3D11VideoDecoder** ppDecoder) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, pConfig, ppDecoder);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, HResult>)(LpVtbl[3]))(ptr, pVideoDesc, pConfig, ppDecoder);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, VideoDecoderConfig* pConfig, ID3D11VideoDecoder** ppDecoder) 
+		public readonly unsafe HResult CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, VideoDecoderConfig* pConfig, ID3D11VideoDecoder** ppDecoder) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, pConfig, ppDecoder);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, HResult>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, pConfig, ppDecoder);
 				return ret;
 			}
 		}
@@ -127,12 +127,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, ref VideoDecoderConfig pConfig, ID3D11VideoDecoder** ppDecoder) 
+		public readonly unsafe HResult CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, ref VideoDecoderConfig pConfig, ID3D11VideoDecoder** ppDecoder) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderConfig* ppConfig = &pConfig)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, (VideoDecoderConfig*)ppConfig, ppDecoder);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, HResult>)(LpVtbl[3]))(ptr, pVideoDesc, (VideoDecoderConfig*)ppConfig, ppDecoder);
 				return ret;
 			}
 		}
@@ -140,14 +140,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, ref VideoDecoderConfig pConfig, ID3D11VideoDecoder** ppDecoder) 
+		public readonly unsafe HResult CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, ref VideoDecoderConfig pConfig, ID3D11VideoDecoder** ppDecoder) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
 			{
 				fixed (VideoDecoderConfig* ppConfig = &pConfig)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, (VideoDecoderConfig*)ppConfig, ppDecoder);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, HResult>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, (VideoDecoderConfig*)ppConfig, ppDecoder);
 					return ret;
 				}
 			}
@@ -156,12 +156,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, VideoDecoderConfig* pConfig, ref ID3D11VideoDecoder* ppDecoder) 
+		public readonly unsafe HResult CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, VideoDecoderConfig* pConfig, ref ID3D11VideoDecoder* ppDecoder) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, pConfig, (ID3D11VideoDecoder**)pppDecoder);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, HResult>)(LpVtbl[3]))(ptr, pVideoDesc, pConfig, (ID3D11VideoDecoder**)pppDecoder);
 				return ret;
 			}
 		}
@@ -169,25 +169,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, VideoDecoderConfig* pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
+		public readonly unsafe HResult CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, VideoDecoderConfig* pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppDecoder = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, pConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, HResult>)(LpVtbl[3]))(ptr, pVideoDesc, pConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, VideoDecoderConfig* pConfig, ref ID3D11VideoDecoder* ppDecoder) 
+		public readonly unsafe HResult CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, VideoDecoderConfig* pConfig, ref ID3D11VideoDecoder* ppDecoder) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
 			{
 				fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, pConfig, (ID3D11VideoDecoder**)pppDecoder);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, HResult>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, pConfig, (ID3D11VideoDecoder**)pppDecoder);
 					return ret;
 				}
 			}
@@ -196,13 +196,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, VideoDecoderConfig* pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
+		public readonly unsafe HResult CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, VideoDecoderConfig* pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
 			{
 				ppDecoder = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, pConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, HResult>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, pConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
 				return ret;
 			}
 		}
@@ -210,14 +210,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, ref VideoDecoderConfig pConfig, ref ID3D11VideoDecoder* ppDecoder) 
+		public readonly unsafe HResult CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, ref VideoDecoderConfig pConfig, ref ID3D11VideoDecoder* ppDecoder) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)pppDecoder);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, HResult>)(LpVtbl[3]))(ptr, pVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)pppDecoder);
 					return ret;
 				}
 			}
@@ -226,13 +226,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, ref VideoDecoderConfig pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
+		public readonly unsafe HResult CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, ref VideoDecoderConfig pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderConfig* ppConfig = &pConfig)
 			{
 				ppDecoder = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, HResult>)(LpVtbl[3]))(ptr, pVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
 				return ret;
 			}
 		}
@@ -240,7 +240,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, ref VideoDecoderConfig pConfig, ref ID3D11VideoDecoder* ppDecoder) 
+		public readonly unsafe HResult CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, ref VideoDecoderConfig pConfig, ref ID3D11VideoDecoder* ppDecoder) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
@@ -249,7 +249,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)pppDecoder);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, HResult>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)pppDecoder);
 						return ret;
 					}
 				}
@@ -259,7 +259,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, ref VideoDecoderConfig pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
+		public readonly unsafe HResult CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, ref VideoDecoderConfig pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
@@ -267,7 +267,7 @@ namespace Hexa.NET.D3D11
 				fixed (VideoDecoderConfig* ppConfig = &pConfig)
 				{
 					ppDecoder = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, HResult>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
 					return ret;
 				}
 			}
@@ -276,22 +276,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessor(ID3D11VideoProcessorEnumerator* pEnum, uint rateConversionIndex, ID3D11VideoProcessor** ppVideoProcessor) 
+		public readonly unsafe HResult CreateVideoProcessor(ID3D11VideoProcessorEnumerator* pEnum, uint rateConversionIndex, ID3D11VideoProcessor** ppVideoProcessor) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(LpVtbl[4]))(ptr, pEnum, rateConversionIndex, ppVideoProcessor);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, HResult>)(LpVtbl[4]))(ptr, pEnum, rateConversionIndex, ppVideoProcessor);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessor(ref ID3D11VideoProcessorEnumerator pEnum, uint rateConversionIndex, ID3D11VideoProcessor** ppVideoProcessor) 
+		public readonly unsafe HResult CreateVideoProcessor(ref ID3D11VideoProcessorEnumerator pEnum, uint rateConversionIndex, ID3D11VideoProcessor** ppVideoProcessor) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(LpVtbl[4]))(ptr, (ID3D11VideoProcessorEnumerator*)ppEnum, rateConversionIndex, ppVideoProcessor);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, HResult>)(LpVtbl[4]))(ptr, (ID3D11VideoProcessorEnumerator*)ppEnum, rateConversionIndex, ppVideoProcessor);
 				return ret;
 			}
 		}
@@ -299,22 +299,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessor(ComPtr<ID3D11VideoProcessorEnumerator> pEnum, uint rateConversionIndex, ID3D11VideoProcessor** ppVideoProcessor) 
+		public readonly unsafe HResult CreateVideoProcessor(ComPtr<ID3D11VideoProcessorEnumerator> pEnum, uint rateConversionIndex, ID3D11VideoProcessor** ppVideoProcessor) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(LpVtbl[4]))(ptr, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, rateConversionIndex, ppVideoProcessor);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, HResult>)(LpVtbl[4]))(ptr, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, rateConversionIndex, ppVideoProcessor);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessor(ID3D11VideoProcessorEnumerator* pEnum, uint rateConversionIndex, ref ID3D11VideoProcessor* ppVideoProcessor) 
+		public readonly unsafe HResult CreateVideoProcessor(ID3D11VideoProcessorEnumerator* pEnum, uint rateConversionIndex, ref ID3D11VideoProcessor* ppVideoProcessor) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessor** pppVideoProcessor = &ppVideoProcessor)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(LpVtbl[4]))(ptr, pEnum, rateConversionIndex, (ID3D11VideoProcessor**)pppVideoProcessor);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, HResult>)(LpVtbl[4]))(ptr, pEnum, rateConversionIndex, (ID3D11VideoProcessor**)pppVideoProcessor);
 				return ret;
 			}
 		}
@@ -322,25 +322,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessor(ID3D11VideoProcessorEnumerator* pEnum, uint rateConversionIndex, out ComPtr<ID3D11VideoProcessor> ppVideoProcessor) 
+		public readonly unsafe HResult CreateVideoProcessor(ID3D11VideoProcessorEnumerator* pEnum, uint rateConversionIndex, out ComPtr<ID3D11VideoProcessor> ppVideoProcessor) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoProcessor = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(LpVtbl[4]))(ptr, pEnum, rateConversionIndex, (ID3D11VideoProcessor**)ppVideoProcessor.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, HResult>)(LpVtbl[4]))(ptr, pEnum, rateConversionIndex, (ID3D11VideoProcessor**)ppVideoProcessor.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessor(ref ID3D11VideoProcessorEnumerator pEnum, uint rateConversionIndex, ref ID3D11VideoProcessor* ppVideoProcessor) 
+		public readonly unsafe HResult CreateVideoProcessor(ref ID3D11VideoProcessorEnumerator pEnum, uint rateConversionIndex, ref ID3D11VideoProcessor* ppVideoProcessor) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
 				fixed (ID3D11VideoProcessor** pppVideoProcessor = &ppVideoProcessor)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(LpVtbl[4]))(ptr, (ID3D11VideoProcessorEnumerator*)ppEnum, rateConversionIndex, (ID3D11VideoProcessor**)pppVideoProcessor);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, HResult>)(LpVtbl[4]))(ptr, (ID3D11VideoProcessorEnumerator*)ppEnum, rateConversionIndex, (ID3D11VideoProcessor**)pppVideoProcessor);
 					return ret;
 				}
 			}
@@ -349,33 +349,33 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessor(ComPtr<ID3D11VideoProcessorEnumerator> pEnum, uint rateConversionIndex, out ComPtr<ID3D11VideoProcessor> ppVideoProcessor) 
+		public readonly unsafe HResult CreateVideoProcessor(ComPtr<ID3D11VideoProcessorEnumerator> pEnum, uint rateConversionIndex, out ComPtr<ID3D11VideoProcessor> ppVideoProcessor) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoProcessor = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(LpVtbl[4]))(ptr, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, rateConversionIndex, (ID3D11VideoProcessor**)ppVideoProcessor.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, HResult>)(LpVtbl[4]))(ptr, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, rateConversionIndex, (ID3D11VideoProcessor**)ppVideoProcessor.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateAuthenticatedChannel(AuthenticatedChannelType channelType, ID3D11AuthenticatedChannel** ppAuthenticatedChannel) 
+		public readonly unsafe HResult CreateAuthenticatedChannel(AuthenticatedChannelType channelType, ID3D11AuthenticatedChannel** ppAuthenticatedChannel) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(LpVtbl[5]))(ptr, channelType, ppAuthenticatedChannel);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, AuthenticatedChannelType, ID3D11AuthenticatedChannel**, HResult>)(LpVtbl[5]))(ptr, channelType, ppAuthenticatedChannel);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateAuthenticatedChannel(AuthenticatedChannelType channelType, ref ID3D11AuthenticatedChannel* ppAuthenticatedChannel) 
+		public readonly unsafe HResult CreateAuthenticatedChannel(AuthenticatedChannelType channelType, ref ID3D11AuthenticatedChannel* ppAuthenticatedChannel) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11AuthenticatedChannel** pppAuthenticatedChannel = &ppAuthenticatedChannel)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(LpVtbl[5]))(ptr, channelType, (ID3D11AuthenticatedChannel**)pppAuthenticatedChannel);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, AuthenticatedChannelType, ID3D11AuthenticatedChannel**, HResult>)(LpVtbl[5]))(ptr, channelType, (ID3D11AuthenticatedChannel**)pppAuthenticatedChannel);
 				return ret;
 			}
 		}
@@ -383,33 +383,33 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateAuthenticatedChannel(AuthenticatedChannelType channelType, out ComPtr<ID3D11AuthenticatedChannel> ppAuthenticatedChannel) 
+		public readonly unsafe HResult CreateAuthenticatedChannel(AuthenticatedChannelType channelType, out ComPtr<ID3D11AuthenticatedChannel> ppAuthenticatedChannel) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppAuthenticatedChannel = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(LpVtbl[5]))(ptr, channelType, (ID3D11AuthenticatedChannel**)ppAuthenticatedChannel.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, AuthenticatedChannelType, ID3D11AuthenticatedChannel**, HResult>)(LpVtbl[5]))(ptr, channelType, (ID3D11AuthenticatedChannel**)ppAuthenticatedChannel.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, pCryptoType, pDecoderProfile, pKeyExchangeType, ppCryptoSession);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, pCryptoType, pDecoderProfile, pKeyExchangeType, ppCryptoSession);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, pKeyExchangeType, ppCryptoSession);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, pKeyExchangeType, ppCryptoSession);
 				return ret;
 			}
 		}
@@ -417,12 +417,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, ppCryptoSession);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, ppCryptoSession);
 				return ret;
 			}
 		}
@@ -430,14 +430,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
 				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, ppCryptoSession);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, ppCryptoSession);
 					return ret;
 				}
 			}
@@ -446,12 +446,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, pCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, pCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
 				return ret;
 			}
 		}
@@ -459,14 +459,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
 				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
 					return ret;
 				}
 			}
@@ -475,14 +475,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
 				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
 					return ret;
 				}
 			}
@@ -491,7 +491,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -500,7 +500,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
 						return ret;
 					}
 				}
@@ -510,12 +510,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, pCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, pCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
 				return ret;
 			}
 		}
@@ -523,25 +523,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppCryptoSession = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, pCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, pCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
 				fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
 					return ret;
 				}
 			}
@@ -550,13 +550,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
 				ppCryptoSession = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
 				return ret;
 			}
 		}
@@ -564,14 +564,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
 				fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
 					return ret;
 				}
 			}
@@ -580,13 +580,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
 				ppCryptoSession = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
 				return ret;
 			}
 		}
@@ -594,7 +594,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -603,7 +603,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
 						return ret;
 					}
 				}
@@ -613,7 +613,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -621,7 +621,7 @@ namespace Hexa.NET.D3D11
 				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 				{
 					ppCryptoSession = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
 					return ret;
 				}
 			}
@@ -630,14 +630,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
 			{
 				fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, pCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, pCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
 					return ret;
 				}
 			}
@@ -646,13 +646,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
 			{
 				ppCryptoSession = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, pCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, pCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
 				return ret;
 			}
 		}
@@ -660,7 +660,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -669,7 +669,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
 						return ret;
 					}
 				}
@@ -679,7 +679,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -687,7 +687,7 @@ namespace Hexa.NET.D3D11
 				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
 				{
 					ppCryptoSession = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
 					return ret;
 				}
 			}
@@ -696,7 +696,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -705,7 +705,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
 						return ret;
 					}
 				}
@@ -715,7 +715,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -723,7 +723,7 @@ namespace Hexa.NET.D3D11
 				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
 				{
 					ppCryptoSession = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
 					return ret;
 				}
 			}
@@ -732,7 +732,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -743,7 +743,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
 							return ret;
 						}
 					}
@@ -754,7 +754,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe HResult CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -764,7 +764,7 @@ namespace Hexa.NET.D3D11
 					fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
 					{
 						ppCryptoSession = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, HResult>)(LpVtbl[6]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
 						return ret;
 					}
 				}
@@ -774,22 +774,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ID3D11Resource* pResource, VideoDecoderOutputViewDesc* pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ID3D11Resource* pResource, VideoDecoderOutputViewDesc* pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, pDesc, ppVDOVView);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, pResource, pDesc, ppVDOVView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ref ID3D11Resource pResource, VideoDecoderOutputViewDesc* pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ref ID3D11Resource pResource, VideoDecoderOutputViewDesc* pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, pDesc, ppVDOVView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, pDesc, ppVDOVView);
 				return ret;
 			}
 		}
@@ -797,22 +797,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ComPtr<ID3D11Resource> pResource, VideoDecoderOutputViewDesc* pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ComPtr<ID3D11Resource> pResource, VideoDecoderOutputViewDesc* pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, pDesc, ppVDOVView);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, pDesc, ppVDOVView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ID3D11Resource* pResource, ref VideoDecoderOutputViewDesc pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ID3D11Resource* pResource, ref VideoDecoderOutputViewDesc pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderOutputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, (VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, pResource, (VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
 				return ret;
 			}
 		}
@@ -820,14 +820,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ref ID3D11Resource pResource, ref VideoDecoderOutputViewDesc pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ref ID3D11Resource pResource, ref VideoDecoderOutputViewDesc pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (VideoDecoderOutputViewDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, (VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, (VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
 					return ret;
 				}
 			}
@@ -836,12 +836,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ComPtr<ID3D11Resource> pResource, ref VideoDecoderOutputViewDesc pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ComPtr<ID3D11Resource> pResource, ref VideoDecoderOutputViewDesc pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderOutputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, (VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, (VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
 				return ret;
 			}
 		}
@@ -849,12 +849,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ID3D11Resource* pResource, VideoDecoderOutputViewDesc* pDesc, ref ID3D11VideoDecoderOutputView* ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ID3D11Resource* pResource, VideoDecoderOutputViewDesc* pDesc, ref ID3D11VideoDecoderOutputView* ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoDecoderOutputView** pppVDOVView = &ppVDOVView)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, pDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, pResource, pDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
 				return ret;
 			}
 		}
@@ -862,25 +862,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ID3D11Resource* pResource, VideoDecoderOutputViewDesc* pDesc, out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ID3D11Resource* pResource, VideoDecoderOutputViewDesc* pDesc, out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVDOVView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, pDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, pResource, pDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ref ID3D11Resource pResource, VideoDecoderOutputViewDesc* pDesc, ref ID3D11VideoDecoderOutputView* ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ref ID3D11Resource pResource, VideoDecoderOutputViewDesc* pDesc, ref ID3D11VideoDecoderOutputView* ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoDecoderOutputView** pppVDOVView = &ppVDOVView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, pDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, pDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
 					return ret;
 				}
 			}
@@ -889,25 +889,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ComPtr<ID3D11Resource> pResource, VideoDecoderOutputViewDesc* pDesc, out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ComPtr<ID3D11Resource> pResource, VideoDecoderOutputViewDesc* pDesc, out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVDOVView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, pDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, pDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ID3D11Resource* pResource, ref VideoDecoderOutputViewDesc pDesc, ref ID3D11VideoDecoderOutputView* ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ID3D11Resource* pResource, ref VideoDecoderOutputViewDesc pDesc, ref ID3D11VideoDecoderOutputView* ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderOutputViewDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D11VideoDecoderOutputView** pppVDOVView = &ppVDOVView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, (VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, pResource, (VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
 					return ret;
 				}
 			}
@@ -916,13 +916,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ID3D11Resource* pResource, ref VideoDecoderOutputViewDesc pDesc, out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ID3D11Resource* pResource, ref VideoDecoderOutputViewDesc pDesc, out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderOutputViewDesc* ppDesc = &pDesc)
 			{
 				ppVDOVView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, (VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, pResource, (VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -930,7 +930,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ref ID3D11Resource pResource, ref VideoDecoderOutputViewDesc pDesc, ref ID3D11VideoDecoderOutputView* ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ref ID3D11Resource pResource, ref VideoDecoderOutputViewDesc pDesc, ref ID3D11VideoDecoderOutputView* ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -939,7 +939,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11VideoDecoderOutputView** pppVDOVView = &ppVDOVView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, (VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, (VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
 						return ret;
 					}
 				}
@@ -949,13 +949,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoDecoderOutputView(ComPtr<ID3D11Resource> pResource, ref VideoDecoderOutputViewDesc pDesc, out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
+		public readonly unsafe HResult CreateVideoDecoderOutputView(ComPtr<ID3D11Resource> pResource, ref VideoDecoderOutputViewDesc pDesc, out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderOutputViewDesc* ppDesc = &pDesc)
 			{
 				ppVDOVView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, (VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, HResult>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, (VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -963,22 +963,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, pDesc, ppVPIView);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, pEnum, pDesc, ppVPIView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, ppVPIView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, ppVPIView);
 				return ret;
 			}
 		}
@@ -986,22 +986,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, ppVPIView);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, ppVPIView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPIView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPIView);
 				return ret;
 			}
 		}
@@ -1009,24 +1009,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPIView);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPIView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPIView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPIView);
 					return ret;
 				}
 			}
@@ -1035,22 +1035,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPIView);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPIView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 				return ret;
 			}
 		}
@@ -1058,14 +1058,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 					return ret;
 				}
 			}
@@ -1074,12 +1074,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 				return ret;
 			}
 		}
@@ -1087,14 +1087,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
 				fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 					return ret;
 				}
 			}
@@ -1103,12 +1103,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 				return ret;
 			}
 		}
@@ -1116,7 +1116,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -1125,7 +1125,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 						return ret;
 					}
 				}
@@ -1135,12 +1135,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 				return ret;
 			}
 		}
@@ -1148,12 +1148,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 				return ret;
 			}
 		}
@@ -1161,25 +1161,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPIView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 					return ret;
 				}
 			}
@@ -1188,25 +1188,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPIView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorInputViewDesc* pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorInputViewDesc* pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
 				fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 					return ret;
 				}
 			}
@@ -1215,18 +1215,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorInputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorInputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPIView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorInputViewDesc* pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorInputViewDesc* pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -1235,7 +1235,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 						return ret;
 					}
 				}
@@ -1245,25 +1245,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorInputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorInputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPIView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 					return ret;
 				}
 			}
@@ -1272,13 +1272,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPIView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1286,7 +1286,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -1295,7 +1295,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 						return ret;
 					}
 				}
@@ -1305,13 +1305,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPIView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1319,7 +1319,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorInputViewDesc pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorInputViewDesc pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
@@ -1328,7 +1328,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 						return ret;
 					}
 				}
@@ -1338,13 +1338,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorInputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorInputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPIView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1352,7 +1352,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorInputViewDesc pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorInputViewDesc pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -1363,7 +1363,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 							return ret;
 						}
 					}
@@ -1374,13 +1374,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorInputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe HResult CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorInputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPIView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, HResult>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1388,22 +1388,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, pDesc, ppVPOView);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, pEnum, pDesc, ppVPOView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, ppVPOView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, ppVPOView);
 				return ret;
 			}
 		}
@@ -1411,22 +1411,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, ppVPOView);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, ppVPOView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPOView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPOView);
 				return ret;
 			}
 		}
@@ -1434,24 +1434,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPOView);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPOView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPOView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPOView);
 					return ret;
 				}
 			}
@@ -1460,22 +1460,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPOView);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPOView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 				return ret;
 			}
 		}
@@ -1483,14 +1483,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 					return ret;
 				}
 			}
@@ -1499,12 +1499,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 				return ret;
 			}
 		}
@@ -1512,14 +1512,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
 				fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 					return ret;
 				}
 			}
@@ -1528,12 +1528,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 				return ret;
 			}
 		}
@@ -1541,7 +1541,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -1550,7 +1550,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 						return ret;
 					}
 				}
@@ -1560,12 +1560,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 				return ret;
 			}
 		}
@@ -1573,12 +1573,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 				return ret;
 			}
 		}
@@ -1586,25 +1586,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPOView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 					return ret;
 				}
 			}
@@ -1613,25 +1613,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPOView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorOutputViewDesc* pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorOutputViewDesc* pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
 				fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 					return ret;
 				}
 			}
@@ -1640,18 +1640,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorOutputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorOutputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPOView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorOutputViewDesc* pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorOutputViewDesc* pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -1660,7 +1660,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 						return ret;
 					}
 				}
@@ -1670,25 +1670,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorOutputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorOutputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPOView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 					return ret;
 				}
 			}
@@ -1697,13 +1697,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPOView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1711,7 +1711,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -1720,7 +1720,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 						return ret;
 					}
 				}
@@ -1730,13 +1730,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPOView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1744,7 +1744,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorOutputViewDesc pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorOutputViewDesc pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
@@ -1753,7 +1753,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 						return ret;
 					}
 				}
@@ -1763,13 +1763,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorOutputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorOutputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPOView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1777,7 +1777,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorOutputViewDesc pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorOutputViewDesc pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -1788,7 +1788,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 							return ret;
 						}
 					}
@@ -1799,13 +1799,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorOutputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe HResult CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorOutputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPOView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, HResult>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1813,22 +1813,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorEnumerator(VideoProcessorContentDesc* pDesc, ID3D11VideoProcessorEnumerator** ppEnum) 
+		public readonly unsafe HResult CreateVideoProcessorEnumerator(VideoProcessorContentDesc* pDesc, ID3D11VideoProcessorEnumerator** ppEnum) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, pDesc, ppEnum);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, HResult>)(LpVtbl[10]))(ptr, pDesc, ppEnum);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorEnumerator(ref VideoProcessorContentDesc pDesc, ID3D11VideoProcessorEnumerator** ppEnum) 
+		public readonly unsafe HResult CreateVideoProcessorEnumerator(ref VideoProcessorContentDesc pDesc, ID3D11VideoProcessorEnumerator** ppEnum) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorContentDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, (VideoProcessorContentDesc*)ppDesc, ppEnum);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, HResult>)(LpVtbl[10]))(ptr, (VideoProcessorContentDesc*)ppDesc, ppEnum);
 				return ret;
 			}
 		}
@@ -1836,12 +1836,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorEnumerator(VideoProcessorContentDesc* pDesc, ref ID3D11VideoProcessorEnumerator* ppEnum) 
+		public readonly unsafe HResult CreateVideoProcessorEnumerator(VideoProcessorContentDesc* pDesc, ref ID3D11VideoProcessorEnumerator* ppEnum) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator** pppEnum = &ppEnum)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, pDesc, (ID3D11VideoProcessorEnumerator**)pppEnum);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, HResult>)(LpVtbl[10]))(ptr, pDesc, (ID3D11VideoProcessorEnumerator**)pppEnum);
 				return ret;
 			}
 		}
@@ -1849,25 +1849,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorEnumerator(VideoProcessorContentDesc* pDesc, out ComPtr<ID3D11VideoProcessorEnumerator> ppEnum) 
+		public readonly unsafe HResult CreateVideoProcessorEnumerator(VideoProcessorContentDesc* pDesc, out ComPtr<ID3D11VideoProcessorEnumerator> ppEnum) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppEnum = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, pDesc, (ID3D11VideoProcessorEnumerator**)ppEnum.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, HResult>)(LpVtbl[10]))(ptr, pDesc, (ID3D11VideoProcessorEnumerator**)ppEnum.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorEnumerator(ref VideoProcessorContentDesc pDesc, ref ID3D11VideoProcessorEnumerator* ppEnum) 
+		public readonly unsafe HResult CreateVideoProcessorEnumerator(ref VideoProcessorContentDesc pDesc, ref ID3D11VideoProcessorEnumerator* ppEnum) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorContentDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D11VideoProcessorEnumerator** pppEnum = &ppEnum)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, (VideoProcessorContentDesc*)ppDesc, (ID3D11VideoProcessorEnumerator**)pppEnum);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, HResult>)(LpVtbl[10]))(ptr, (VideoProcessorContentDesc*)ppDesc, (ID3D11VideoProcessorEnumerator**)pppEnum);
 					return ret;
 				}
 			}
@@ -1876,13 +1876,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateVideoProcessorEnumerator(ref VideoProcessorContentDesc pDesc, out ComPtr<ID3D11VideoProcessorEnumerator> ppEnum) 
+		public readonly unsafe HResult CreateVideoProcessorEnumerator(ref VideoProcessorContentDesc pDesc, out ComPtr<ID3D11VideoProcessorEnumerator> ppEnum) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoProcessorContentDesc* ppDesc = &pDesc)
 			{
 				ppEnum = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, (VideoProcessorContentDesc*)ppDesc, (ID3D11VideoProcessorEnumerator**)ppEnum.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, HResult>)(LpVtbl[10]))(ptr, (VideoProcessorContentDesc*)ppDesc, (ID3D11VideoProcessorEnumerator**)ppEnum.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1900,22 +1900,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVideoDecoderProfile(uint index, Guid* pDecoderProfile) 
+		public readonly unsafe HResult GetVideoDecoderProfile(uint index, Guid* pDecoderProfile) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, uint, Guid*, int>)(LpVtbl[12]))(ptr, index, pDecoderProfile);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, uint, Guid*, HResult>)(LpVtbl[12]))(ptr, index, pDecoderProfile);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVideoDecoderProfile(uint index, ref Guid pDecoderProfile) 
+		public readonly unsafe HResult GetVideoDecoderProfile(uint index, ref Guid pDecoderProfile) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, uint, Guid*, int>)(LpVtbl[12]))(ptr, index, (Guid*)ppDecoderProfile);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, uint, Guid*, HResult>)(LpVtbl[12]))(ptr, index, (Guid*)ppDecoderProfile);
 				return ret;
 			}
 		}
@@ -1923,22 +1923,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckVideoDecoderFormat(Guid* pDecoderProfile, Format format, int* pSupported) 
+		public readonly unsafe HResult CheckVideoDecoderFormat(Guid* pDecoderProfile, Format format, Bool32* pSupported) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Format, int*, int>)(LpVtbl[13]))(ptr, pDecoderProfile, format, pSupported);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Format, Bool32*, HResult>)(LpVtbl[13]))(ptr, pDecoderProfile, format, pSupported);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckVideoDecoderFormat(ref Guid pDecoderProfile, Format format, int* pSupported) 
+		public readonly unsafe HResult CheckVideoDecoderFormat(ref Guid pDecoderProfile, Format format, Bool32* pSupported) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Format, int*, int>)(LpVtbl[13]))(ptr, (Guid*)ppDecoderProfile, format, pSupported);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Format, Bool32*, HResult>)(LpVtbl[13]))(ptr, (Guid*)ppDecoderProfile, format, pSupported);
 				return ret;
 			}
 		}
@@ -1946,12 +1946,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckVideoDecoderFormat(Guid* pDecoderProfile, Format format, ref int pSupported) 
+		public readonly unsafe HResult CheckVideoDecoderFormat(Guid* pDecoderProfile, Format format, ref Bool32 pSupported) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (int* ppSupported = &pSupported)
+			fixed (Bool32* ppSupported = &pSupported)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Format, int*, int>)(LpVtbl[13]))(ptr, pDecoderProfile, format, (int*)ppSupported);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Format, Bool32*, HResult>)(LpVtbl[13]))(ptr, pDecoderProfile, format, (Bool32*)ppSupported);
 				return ret;
 			}
 		}
@@ -1959,14 +1959,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckVideoDecoderFormat(ref Guid pDecoderProfile, Format format, ref int pSupported) 
+		public readonly unsafe HResult CheckVideoDecoderFormat(ref Guid pDecoderProfile, Format format, ref Bool32 pSupported) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				fixed (int* ppSupported = &pSupported)
+				fixed (Bool32* ppSupported = &pSupported)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Format, int*, int>)(LpVtbl[13]))(ptr, (Guid*)ppDecoderProfile, format, (int*)ppSupported);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Format, Bool32*, HResult>)(LpVtbl[13]))(ptr, (Guid*)ppDecoderProfile, format, (Bool32*)ppSupported);
 					return ret;
 				}
 			}
@@ -1975,22 +1975,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVideoDecoderConfigCount(VideoDecoderDesc* pDesc, uint* pCount) 
+		public readonly unsafe HResult GetVideoDecoderConfigCount(VideoDecoderDesc* pDesc, uint* pCount) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint*, int>)(LpVtbl[14]))(ptr, pDesc, pCount);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint*, HResult>)(LpVtbl[14]))(ptr, pDesc, pCount);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVideoDecoderConfigCount(ref VideoDecoderDesc pDesc, uint* pCount) 
+		public readonly unsafe HResult GetVideoDecoderConfigCount(ref VideoDecoderDesc pDesc, uint* pCount) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint*, int>)(LpVtbl[14]))(ptr, (VideoDecoderDesc*)ppDesc, pCount);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint*, HResult>)(LpVtbl[14]))(ptr, (VideoDecoderDesc*)ppDesc, pCount);
 				return ret;
 			}
 		}
@@ -1998,12 +1998,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVideoDecoderConfigCount(VideoDecoderDesc* pDesc, ref uint pCount) 
+		public readonly unsafe HResult GetVideoDecoderConfigCount(VideoDecoderDesc* pDesc, ref uint pCount) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCount = &pCount)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint*, int>)(LpVtbl[14]))(ptr, pDesc, (uint*)ppCount);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint*, HResult>)(LpVtbl[14]))(ptr, pDesc, (uint*)ppCount);
 				return ret;
 			}
 		}
@@ -2011,14 +2011,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVideoDecoderConfigCount(ref VideoDecoderDesc pDesc, ref uint pCount) 
+		public readonly unsafe HResult GetVideoDecoderConfigCount(ref VideoDecoderDesc pDesc, ref uint pCount) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				fixed (uint* ppCount = &pCount)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint*, int>)(LpVtbl[14]))(ptr, (VideoDecoderDesc*)ppDesc, (uint*)ppCount);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint*, HResult>)(LpVtbl[14]))(ptr, (VideoDecoderDesc*)ppDesc, (uint*)ppCount);
 					return ret;
 				}
 			}
@@ -2027,22 +2027,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVideoDecoderConfig(VideoDecoderDesc* pDesc, uint index, VideoDecoderConfig* pConfig) 
+		public readonly unsafe HResult GetVideoDecoderConfig(VideoDecoderDesc* pDesc, uint index, VideoDecoderConfig* pConfig) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint, VideoDecoderConfig*, int>)(LpVtbl[15]))(ptr, pDesc, index, pConfig);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint, VideoDecoderConfig*, HResult>)(LpVtbl[15]))(ptr, pDesc, index, pConfig);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVideoDecoderConfig(ref VideoDecoderDesc pDesc, uint index, VideoDecoderConfig* pConfig) 
+		public readonly unsafe HResult GetVideoDecoderConfig(ref VideoDecoderDesc pDesc, uint index, VideoDecoderConfig* pConfig) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint, VideoDecoderConfig*, int>)(LpVtbl[15]))(ptr, (VideoDecoderDesc*)ppDesc, index, pConfig);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint, VideoDecoderConfig*, HResult>)(LpVtbl[15]))(ptr, (VideoDecoderDesc*)ppDesc, index, pConfig);
 				return ret;
 			}
 		}
@@ -2050,12 +2050,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVideoDecoderConfig(VideoDecoderDesc* pDesc, uint index, ref VideoDecoderConfig pConfig) 
+		public readonly unsafe HResult GetVideoDecoderConfig(VideoDecoderDesc* pDesc, uint index, ref VideoDecoderConfig pConfig) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderConfig* ppConfig = &pConfig)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint, VideoDecoderConfig*, int>)(LpVtbl[15]))(ptr, pDesc, index, (VideoDecoderConfig*)ppConfig);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint, VideoDecoderConfig*, HResult>)(LpVtbl[15]))(ptr, pDesc, index, (VideoDecoderConfig*)ppConfig);
 				return ret;
 			}
 		}
@@ -2063,14 +2063,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetVideoDecoderConfig(ref VideoDecoderDesc pDesc, uint index, ref VideoDecoderConfig pConfig) 
+		public readonly unsafe HResult GetVideoDecoderConfig(ref VideoDecoderDesc pDesc, uint index, ref VideoDecoderConfig pConfig) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				fixed (VideoDecoderConfig* ppConfig = &pConfig)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint, VideoDecoderConfig*, int>)(LpVtbl[15]))(ptr, (VideoDecoderDesc*)ppDesc, index, (VideoDecoderConfig*)ppConfig);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, uint, VideoDecoderConfig*, HResult>)(LpVtbl[15]))(ptr, (VideoDecoderDesc*)ppDesc, index, (VideoDecoderConfig*)ppConfig);
 					return ret;
 				}
 			}
@@ -2079,22 +2079,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetContentProtectionCaps(Guid* pCryptoType, Guid* pDecoderProfile, VideoContentProtectionCaps* pCaps) 
+		public readonly unsafe HResult GetContentProtectionCaps(Guid* pCryptoType, Guid* pDecoderProfile, VideoContentProtectionCaps* pCaps) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, pCryptoType, pDecoderProfile, pCaps);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, HResult>)(LpVtbl[16]))(ptr, pCryptoType, pDecoderProfile, pCaps);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetContentProtectionCaps(ref Guid pCryptoType, Guid* pDecoderProfile, VideoContentProtectionCaps* pCaps) 
+		public readonly unsafe HResult GetContentProtectionCaps(ref Guid pCryptoType, Guid* pDecoderProfile, VideoContentProtectionCaps* pCaps) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, pCaps);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, HResult>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, pCaps);
 				return ret;
 			}
 		}
@@ -2102,12 +2102,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetContentProtectionCaps(Guid* pCryptoType, ref Guid pDecoderProfile, VideoContentProtectionCaps* pCaps) 
+		public readonly unsafe HResult GetContentProtectionCaps(Guid* pCryptoType, ref Guid pDecoderProfile, VideoContentProtectionCaps* pCaps) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, pCaps);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, HResult>)(LpVtbl[16]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, pCaps);
 				return ret;
 			}
 		}
@@ -2115,14 +2115,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetContentProtectionCaps(ref Guid pCryptoType, ref Guid pDecoderProfile, VideoContentProtectionCaps* pCaps) 
+		public readonly unsafe HResult GetContentProtectionCaps(ref Guid pCryptoType, ref Guid pDecoderProfile, VideoContentProtectionCaps* pCaps) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
 				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pCaps);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, HResult>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pCaps);
 					return ret;
 				}
 			}
@@ -2131,12 +2131,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetContentProtectionCaps(Guid* pCryptoType, Guid* pDecoderProfile, ref VideoContentProtectionCaps pCaps) 
+		public readonly unsafe HResult GetContentProtectionCaps(Guid* pCryptoType, Guid* pDecoderProfile, ref VideoContentProtectionCaps pCaps) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (VideoContentProtectionCaps* ppCaps = &pCaps)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, pCryptoType, pDecoderProfile, (VideoContentProtectionCaps*)ppCaps);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, HResult>)(LpVtbl[16]))(ptr, pCryptoType, pDecoderProfile, (VideoContentProtectionCaps*)ppCaps);
 				return ret;
 			}
 		}
@@ -2144,14 +2144,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetContentProtectionCaps(ref Guid pCryptoType, Guid* pDecoderProfile, ref VideoContentProtectionCaps pCaps) 
+		public readonly unsafe HResult GetContentProtectionCaps(ref Guid pCryptoType, Guid* pDecoderProfile, ref VideoContentProtectionCaps pCaps) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
 				fixed (VideoContentProtectionCaps* ppCaps = &pCaps)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, (VideoContentProtectionCaps*)ppCaps);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, HResult>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, (VideoContentProtectionCaps*)ppCaps);
 					return ret;
 				}
 			}
@@ -2160,14 +2160,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetContentProtectionCaps(Guid* pCryptoType, ref Guid pDecoderProfile, ref VideoContentProtectionCaps pCaps) 
+		public readonly unsafe HResult GetContentProtectionCaps(Guid* pCryptoType, ref Guid pDecoderProfile, ref VideoContentProtectionCaps pCaps) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
 				fixed (VideoContentProtectionCaps* ppCaps = &pCaps)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, (VideoContentProtectionCaps*)ppCaps);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, HResult>)(LpVtbl[16]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, (VideoContentProtectionCaps*)ppCaps);
 					return ret;
 				}
 			}
@@ -2176,7 +2176,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetContentProtectionCaps(ref Guid pCryptoType, ref Guid pDecoderProfile, ref VideoContentProtectionCaps pCaps) 
+		public readonly unsafe HResult GetContentProtectionCaps(ref Guid pCryptoType, ref Guid pDecoderProfile, ref VideoContentProtectionCaps pCaps) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -2185,7 +2185,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (VideoContentProtectionCaps* ppCaps = &pCaps)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (VideoContentProtectionCaps*)ppCaps);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, VideoContentProtectionCaps*, HResult>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (VideoContentProtectionCaps*)ppCaps);
 						return ret;
 					}
 				}
@@ -2195,22 +2195,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckCryptoKeyExchange(Guid* pCryptoType, Guid* pDecoderProfile, uint index, Guid* pKeyExchangeType) 
+		public readonly unsafe HResult CheckCryptoKeyExchange(Guid* pCryptoType, Guid* pDecoderProfile, uint index, Guid* pKeyExchangeType) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, int>)(LpVtbl[17]))(ptr, pCryptoType, pDecoderProfile, index, pKeyExchangeType);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, HResult>)(LpVtbl[17]))(ptr, pCryptoType, pDecoderProfile, index, pKeyExchangeType);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckCryptoKeyExchange(ref Guid pCryptoType, Guid* pDecoderProfile, uint index, Guid* pKeyExchangeType) 
+		public readonly unsafe HResult CheckCryptoKeyExchange(ref Guid pCryptoType, Guid* pDecoderProfile, uint index, Guid* pKeyExchangeType) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, int>)(LpVtbl[17]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, index, pKeyExchangeType);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, HResult>)(LpVtbl[17]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, index, pKeyExchangeType);
 				return ret;
 			}
 		}
@@ -2218,12 +2218,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckCryptoKeyExchange(Guid* pCryptoType, ref Guid pDecoderProfile, uint index, Guid* pKeyExchangeType) 
+		public readonly unsafe HResult CheckCryptoKeyExchange(Guid* pCryptoType, ref Guid pDecoderProfile, uint index, Guid* pKeyExchangeType) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, int>)(LpVtbl[17]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, index, pKeyExchangeType);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, HResult>)(LpVtbl[17]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, index, pKeyExchangeType);
 				return ret;
 			}
 		}
@@ -2231,14 +2231,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckCryptoKeyExchange(ref Guid pCryptoType, ref Guid pDecoderProfile, uint index, Guid* pKeyExchangeType) 
+		public readonly unsafe HResult CheckCryptoKeyExchange(ref Guid pCryptoType, ref Guid pDecoderProfile, uint index, Guid* pKeyExchangeType) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
 				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, int>)(LpVtbl[17]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, index, pKeyExchangeType);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, HResult>)(LpVtbl[17]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, index, pKeyExchangeType);
 					return ret;
 				}
 			}
@@ -2247,12 +2247,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckCryptoKeyExchange(Guid* pCryptoType, Guid* pDecoderProfile, uint index, ref Guid pKeyExchangeType) 
+		public readonly unsafe HResult CheckCryptoKeyExchange(Guid* pCryptoType, Guid* pDecoderProfile, uint index, ref Guid pKeyExchangeType) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, int>)(LpVtbl[17]))(ptr, pCryptoType, pDecoderProfile, index, (Guid*)ppKeyExchangeType);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, HResult>)(LpVtbl[17]))(ptr, pCryptoType, pDecoderProfile, index, (Guid*)ppKeyExchangeType);
 				return ret;
 			}
 		}
@@ -2260,14 +2260,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckCryptoKeyExchange(ref Guid pCryptoType, Guid* pDecoderProfile, uint index, ref Guid pKeyExchangeType) 
+		public readonly unsafe HResult CheckCryptoKeyExchange(ref Guid pCryptoType, Guid* pDecoderProfile, uint index, ref Guid pKeyExchangeType) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
 				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, int>)(LpVtbl[17]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, index, (Guid*)ppKeyExchangeType);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, HResult>)(LpVtbl[17]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, index, (Guid*)ppKeyExchangeType);
 					return ret;
 				}
 			}
@@ -2276,14 +2276,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckCryptoKeyExchange(Guid* pCryptoType, ref Guid pDecoderProfile, uint index, ref Guid pKeyExchangeType) 
+		public readonly unsafe HResult CheckCryptoKeyExchange(Guid* pCryptoType, ref Guid pDecoderProfile, uint index, ref Guid pKeyExchangeType) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
 				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, int>)(LpVtbl[17]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, index, (Guid*)ppKeyExchangeType);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, HResult>)(LpVtbl[17]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, index, (Guid*)ppKeyExchangeType);
 					return ret;
 				}
 			}
@@ -2292,7 +2292,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CheckCryptoKeyExchange(ref Guid pCryptoType, ref Guid pDecoderProfile, uint index, ref Guid pKeyExchangeType) 
+		public readonly unsafe HResult CheckCryptoKeyExchange(ref Guid pCryptoType, ref Guid pDecoderProfile, uint index, ref Guid pKeyExchangeType) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -2301,7 +2301,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, int>)(LpVtbl[17]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, index, (Guid*)ppKeyExchangeType);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, uint, Guid*, HResult>)(LpVtbl[17]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, index, (Guid*)ppKeyExchangeType);
 						return ret;
 					}
 				}
@@ -2311,22 +2311,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(Guid* guid, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, uint, void*, int>)(LpVtbl[18]))(ptr, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, uint, void*, HResult>)(LpVtbl[18]))(ptr, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, uint, void*, int>)(LpVtbl[18]))(ptr, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, uint, void*, HResult>)(LpVtbl[18]))(ptr, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -2334,22 +2334,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, IUnknown*, int>)(LpVtbl[19]))(ptr, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, IUnknown*, HResult>)(LpVtbl[19]))(ptr, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, IUnknown*, int>)(LpVtbl[19]))(ptr, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, IUnknown*, HResult>)(LpVtbl[19]))(ptr, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -2357,12 +2357,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, IUnknown*, int>)(LpVtbl[19]))(ptr, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, IUnknown*, HResult>)(LpVtbl[19]))(ptr, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -2370,24 +2370,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, IUnknown*, int>)(LpVtbl[19]))(ptr, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, IUnknown*, HResult>)(LpVtbl[19]))(ptr, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, IUnknown*, int>)(LpVtbl[19]))(ptr, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, IUnknown*, HResult>)(LpVtbl[19]))(ptr, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -2396,12 +2396,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11VideoDevice* ptr = (ID3D11VideoDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, IUnknown*, int>)(LpVtbl[19]))(ptr, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, IUnknown*, HResult>)(LpVtbl[19]))(ptr, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}

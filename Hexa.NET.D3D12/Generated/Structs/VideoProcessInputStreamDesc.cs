@@ -62,7 +62,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int EnableOrientation;
+		public Bool32 EnableOrientation;
 
 		/// <summary>
 		/// To be documented.
@@ -87,7 +87,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int EnableAlphaBlending;
+		public Bool32 EnableAlphaBlending;
 
 		/// <summary>
 		/// To be documented.
@@ -107,13 +107,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int EnableAutoProcessing;
+		public Bool32 EnableAutoProcessing;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe VideoProcessInputStreamDesc(Format format = default, ColorSpaceType colorSpace = default, Rational sourceAspectRatio = default, Rational destinationAspectRatio = default, Rational frameRate = default, VideoSizeRange sourceSizeRange = default, VideoSizeRange destinationSizeRange = default, int enableOrientation = default, VideoProcessFilterFlags filterFlags = default, VideoFrameStereoFormat stereoFormat = default, VideoFieldType fieldType = default, VideoProcessDeinterlaceFlags deinterlaceMode = default, int enableAlphaBlending = default, VideoProcessLumaKey lumaKey = default, uint numPastFrames = default, uint numFutureFrames = default, int enableAutoProcessing = default)
+		public unsafe VideoProcessInputStreamDesc(Format format = default, ColorSpaceType colorSpace = default, Rational sourceAspectRatio = default, Rational destinationAspectRatio = default, Rational frameRate = default, VideoSizeRange sourceSizeRange = default, VideoSizeRange destinationSizeRange = default, Bool32 enableOrientation = default, VideoProcessFilterFlags filterFlags = default, VideoFrameStereoFormat stereoFormat = default, VideoFieldType fieldType = default, VideoProcessDeinterlaceFlags deinterlaceMode = default, Bool32 enableAlphaBlending = default, VideoProcessLumaKey lumaKey = default, uint numPastFrames = default, uint numFutureFrames = default, Bool32 enableAutoProcessing = default)
 		{
 			Format = format;
 			ColorSpace = colorSpace;

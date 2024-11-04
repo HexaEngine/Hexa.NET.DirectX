@@ -31,22 +31,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -54,24 +54,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -99,22 +99,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOptionName(char** ppResult) 
+		public readonly unsafe HResult GetOptionName(char** ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, char**, int>)(LpVtbl[3]))(ptr, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, char**, HResult>)(LpVtbl[3]))(ptr, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOptionName(ref char* ppResult) 
+		public readonly unsafe HResult GetOptionName(ref char* ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, char**, int>)(LpVtbl[3]))(ptr, (char**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, char**, HResult>)(LpVtbl[3]))(ptr, (char**)pppResult);
 				return ret;
 			}
 		}
@@ -122,22 +122,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDescription(char** ppResult) 
+		public readonly unsafe HResult GetDescription(char** ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, char**, int>)(LpVtbl[4]))(ptr, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, char**, HResult>)(LpVtbl[4]))(ptr, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDescription(ref char* ppResult) 
+		public readonly unsafe HResult GetDescription(ref char* ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, char**, int>)(LpVtbl[4]))(ptr, (char**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, char**, HResult>)(LpVtbl[4]))(ptr, (char**)pppResult);
 				return ret;
 			}
 		}
@@ -145,22 +145,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOptionArgCount(uint* pCount) 
+		public readonly unsafe HResult GetOptionArgCount(uint* pCount) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint*, int>)(LpVtbl[5]))(ptr, pCount);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint*, HResult>)(LpVtbl[5]))(ptr, pCount);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOptionArgCount(ref uint pCount) 
+		public readonly unsafe HResult GetOptionArgCount(ref uint pCount) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCount = &pCount)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint*, int>)(LpVtbl[5]))(ptr, (uint*)ppCount);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint*, HResult>)(LpVtbl[5]))(ptr, (uint*)ppCount);
 				return ret;
 			}
 		}
@@ -168,22 +168,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOptionArgName(uint argIndex, char** ppResult) 
+		public readonly unsafe HResult GetOptionArgName(uint argIndex, char** ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint, char**, int>)(LpVtbl[6]))(ptr, argIndex, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint, char**, HResult>)(LpVtbl[6]))(ptr, argIndex, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOptionArgName(uint argIndex, ref char* ppResult) 
+		public readonly unsafe HResult GetOptionArgName(uint argIndex, ref char* ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint, char**, int>)(LpVtbl[6]))(ptr, argIndex, (char**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint, char**, HResult>)(LpVtbl[6]))(ptr, argIndex, (char**)pppResult);
 				return ret;
 			}
 		}
@@ -191,22 +191,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOptionArgDescription(uint argIndex, char** ppResult) 
+		public readonly unsafe HResult GetOptionArgDescription(uint argIndex, char** ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint, char**, int>)(LpVtbl[7]))(ptr, argIndex, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint, char**, HResult>)(LpVtbl[7]))(ptr, argIndex, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOptionArgDescription(uint argIndex, ref char* ppResult) 
+		public readonly unsafe HResult GetOptionArgDescription(uint argIndex, ref char* ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint, char**, int>)(LpVtbl[7]))(ptr, argIndex, (char**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint, char**, HResult>)(LpVtbl[7]))(ptr, argIndex, (char**)pppResult);
 				return ret;
 			}
 		}

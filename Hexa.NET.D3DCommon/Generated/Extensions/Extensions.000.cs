@@ -20,22 +20,22 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D10Blob> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D10Blob> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D10Blob* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D10Blob> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D10Blob> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D10Blob* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -43,24 +43,24 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D10Blob> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D10Blob> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D10Blob* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D10Blob> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D10Blob> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D10Blob* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -108,22 +108,22 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3DDestructionNotifier> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3DDestructionNotifier> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3DDestructionNotifier* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3DDestructionNotifier> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3DDestructionNotifier> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3DDestructionNotifier* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -131,24 +131,24 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3DDestructionNotifier> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3DDestructionNotifier> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3DDestructionNotifier* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3DDestructionNotifier> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3DDestructionNotifier> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3DDestructionNotifier* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -176,32 +176,32 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterDestructionCallback(this ComPtr<ID3DDestructionNotifier> comObj, PfnDestructionCallback callbackFn, void* pData, uint* pCallbackID) 
+		public static HResult RegisterDestructionCallback(this ComPtr<ID3DDestructionNotifier> comObj, PfnDestructionCallback callbackFn, void* pData, uint* pCallbackID) 
 		{
 			ID3DDestructionNotifier* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, int>)(handle->LpVtbl[3]))(handle, callbackFn, pData, pCallbackID);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, HResult>)(handle->LpVtbl[3]))(handle, callbackFn, pData, pCallbackID);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterDestructionCallback<T>(this ComPtr<ID3DDestructionNotifier> comObj, PfnDestructionCallback callbackFn, ComPtr<T> pData, uint* pCallbackID) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult RegisterDestructionCallback<T>(this ComPtr<ID3DDestructionNotifier> comObj, PfnDestructionCallback callbackFn, ComPtr<T> pData, uint* pCallbackID) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3DDestructionNotifier* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, int>)(handle->LpVtbl[3]))(handle, callbackFn, (void*)pData.Handle, pCallbackID);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, HResult>)(handle->LpVtbl[3]))(handle, callbackFn, (void*)pData.Handle, pCallbackID);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterDestructionCallback(this ComPtr<ID3DDestructionNotifier> comObj, PfnDestructionCallback callbackFn, void* pData, ref uint pCallbackID) 
+		public static HResult RegisterDestructionCallback(this ComPtr<ID3DDestructionNotifier> comObj, PfnDestructionCallback callbackFn, void* pData, ref uint pCallbackID) 
 		{
 			ID3DDestructionNotifier* handle = comObj.Handle;
 			fixed (uint* ppCallbackID = &pCallbackID)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, int>)(handle->LpVtbl[3]))(handle, callbackFn, pData, (uint*)ppCallbackID);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, HResult>)(handle->LpVtbl[3]))(handle, callbackFn, pData, (uint*)ppCallbackID);
 				return ret;
 			}
 		}
@@ -209,12 +209,12 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterDestructionCallback<T>(this ComPtr<ID3DDestructionNotifier> comObj, PfnDestructionCallback callbackFn, ComPtr<T> pData, ref uint pCallbackID) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult RegisterDestructionCallback<T>(this ComPtr<ID3DDestructionNotifier> comObj, PfnDestructionCallback callbackFn, ComPtr<T> pData, ref uint pCallbackID) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3DDestructionNotifier* handle = comObj.Handle;
 			fixed (uint* ppCallbackID = &pCallbackID)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, int>)(handle->LpVtbl[3]))(handle, callbackFn, (void*)pData.Handle, (uint*)ppCallbackID);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, HResult>)(handle->LpVtbl[3]))(handle, callbackFn, (void*)pData.Handle, (uint*)ppCallbackID);
 				return ret;
 			}
 		}
@@ -222,32 +222,32 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int UnregisterDestructionCallback(this ComPtr<ID3DDestructionNotifier> comObj, uint callbackID) 
+		public static HResult UnregisterDestructionCallback(this ComPtr<ID3DDestructionNotifier> comObj, uint callbackID) 
 		{
 			ID3DDestructionNotifier* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, uint, int>)(handle->LpVtbl[4]))(handle, callbackID);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, uint, HResult>)(handle->LpVtbl[4]))(handle, callbackID);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, byte* pFileName, void* pParentData, void** ppData, uint* pBytes) 
+		public static HResult Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, byte* pFileName, void* pParentData, void** ppData, uint* pBytes) 
 		{
 			ID3DInclude* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*handle->LpVtbl))(handle, includeType, pFileName, pParentData, ppData, pBytes);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*handle->LpVtbl))(handle, includeType, pFileName, pParentData, ppData, pBytes);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, void** ppData, uint* pBytes) 
+		public static HResult Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, void** ppData, uint* pBytes) 
 		{
 			ID3DInclude* handle = comObj.Handle;
 			fixed (byte* ppFileName = pFileName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*handle->LpVtbl))(handle, includeType, (byte*)ppFileName, pParentData, ppData, pBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*handle->LpVtbl))(handle, includeType, (byte*)ppFileName, pParentData, ppData, pBytes);
 				return ret;
 			}
 		}
@@ -255,7 +255,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, string pFileName, void* pParentData, void** ppData, uint* pBytes) 
+		public static HResult Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, string pFileName, void* pParentData, void** ppData, uint* pBytes) 
 		{
 			ID3DInclude* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -275,7 +275,7 @@ namespace Hexa.NET.D3DCommon
 				int pStrOffset0 = Utils.EncodeStringUTF8(pFileName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*handle->LpVtbl))(handle, includeType, pStr0, pParentData, ppData, pBytes);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*handle->LpVtbl))(handle, includeType, pStr0, pParentData, ppData, pBytes);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -286,12 +286,12 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, byte* pFileName, void* pParentData, ref void* ppData, uint* pBytes) 
+		public static HResult Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, byte* pFileName, void* pParentData, ref void* ppData, uint* pBytes) 
 		{
 			ID3DInclude* handle = comObj.Handle;
 			fixed (void** pppData = &ppData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*handle->LpVtbl))(handle, includeType, pFileName, pParentData, (void**)pppData, pBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*handle->LpVtbl))(handle, includeType, pFileName, pParentData, (void**)pppData, pBytes);
 				return ret;
 			}
 		}
@@ -299,14 +299,14 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, ref void* ppData, uint* pBytes) 
+		public static HResult Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, ref void* ppData, uint* pBytes) 
 		{
 			ID3DInclude* handle = comObj.Handle;
 			fixed (byte* ppFileName = pFileName)
 			{
 				fixed (void** pppData = &ppData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*handle->LpVtbl))(handle, includeType, (byte*)ppFileName, pParentData, (void**)pppData, pBytes);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*handle->LpVtbl))(handle, includeType, (byte*)ppFileName, pParentData, (void**)pppData, pBytes);
 					return ret;
 				}
 			}
@@ -315,7 +315,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, string pFileName, void* pParentData, ref void* ppData, uint* pBytes) 
+		public static HResult Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, string pFileName, void* pParentData, ref void* ppData, uint* pBytes) 
 		{
 			ID3DInclude* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -337,7 +337,7 @@ namespace Hexa.NET.D3DCommon
 			}
 			fixed (void** pppData = &ppData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*handle->LpVtbl))(handle, includeType, pStr0, pParentData, (void**)pppData, pBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*handle->LpVtbl))(handle, includeType, pStr0, pParentData, (void**)pppData, pBytes);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -349,12 +349,12 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, byte* pFileName, void* pParentData, void** ppData, ref uint pBytes) 
+		public static HResult Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, byte* pFileName, void* pParentData, void** ppData, ref uint pBytes) 
 		{
 			ID3DInclude* handle = comObj.Handle;
 			fixed (uint* ppBytes = &pBytes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*handle->LpVtbl))(handle, includeType, pFileName, pParentData, ppData, (uint*)ppBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*handle->LpVtbl))(handle, includeType, pFileName, pParentData, ppData, (uint*)ppBytes);
 				return ret;
 			}
 		}
@@ -362,14 +362,14 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, void** ppData, ref uint pBytes) 
+		public static HResult Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, void** ppData, ref uint pBytes) 
 		{
 			ID3DInclude* handle = comObj.Handle;
 			fixed (byte* ppFileName = pFileName)
 			{
 				fixed (uint* ppBytes = &pBytes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*handle->LpVtbl))(handle, includeType, (byte*)ppFileName, pParentData, ppData, (uint*)ppBytes);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*handle->LpVtbl))(handle, includeType, (byte*)ppFileName, pParentData, ppData, (uint*)ppBytes);
 					return ret;
 				}
 			}
@@ -378,7 +378,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, string pFileName, void* pParentData, void** ppData, ref uint pBytes) 
+		public static HResult Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, string pFileName, void* pParentData, void** ppData, ref uint pBytes) 
 		{
 			ID3DInclude* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -400,7 +400,7 @@ namespace Hexa.NET.D3DCommon
 			}
 			fixed (uint* ppBytes = &pBytes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*handle->LpVtbl))(handle, includeType, pStr0, pParentData, ppData, (uint*)ppBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*handle->LpVtbl))(handle, includeType, pStr0, pParentData, ppData, (uint*)ppBytes);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -412,14 +412,14 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, byte* pFileName, void* pParentData, ref void* ppData, ref uint pBytes) 
+		public static HResult Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, byte* pFileName, void* pParentData, ref void* ppData, ref uint pBytes) 
 		{
 			ID3DInclude* handle = comObj.Handle;
 			fixed (void** pppData = &ppData)
 			{
 				fixed (uint* ppBytes = &pBytes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*handle->LpVtbl))(handle, includeType, pFileName, pParentData, (void**)pppData, (uint*)ppBytes);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*handle->LpVtbl))(handle, includeType, pFileName, pParentData, (void**)pppData, (uint*)ppBytes);
 					return ret;
 				}
 			}
@@ -428,7 +428,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, ref void* ppData, ref uint pBytes) 
+		public static HResult Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, ref void* ppData, ref uint pBytes) 
 		{
 			ID3DInclude* handle = comObj.Handle;
 			fixed (byte* ppFileName = pFileName)
@@ -437,7 +437,7 @@ namespace Hexa.NET.D3DCommon
 				{
 					fixed (uint* ppBytes = &pBytes)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*handle->LpVtbl))(handle, includeType, (byte*)ppFileName, pParentData, (void**)pppData, (uint*)ppBytes);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*handle->LpVtbl))(handle, includeType, (byte*)ppFileName, pParentData, (void**)pppData, (uint*)ppBytes);
 						return ret;
 					}
 				}
@@ -447,7 +447,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, string pFileName, void* pParentData, ref void* ppData, ref uint pBytes) 
+		public static HResult Open(this ComPtr<ID3DInclude> comObj, IncludeType includeType, string pFileName, void* pParentData, ref void* ppData, ref uint pBytes) 
 		{
 			ID3DInclude* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -471,7 +471,7 @@ namespace Hexa.NET.D3DCommon
 			{
 				fixed (uint* ppBytes = &pBytes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*handle->LpVtbl))(handle, includeType, pStr0, pParentData, (void**)pppData, (uint*)ppBytes);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*handle->LpVtbl))(handle, includeType, pStr0, pParentData, (void**)pppData, (uint*)ppBytes);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -484,10 +484,10 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Close(this ComPtr<ID3DInclude> comObj, void* pData) 
+		public static HResult Close(this ComPtr<ID3DInclude> comObj, void* pData) 
 		{
 			ID3DInclude* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, void*, int>)(handle->LpVtbl[1]))(handle, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, void*, HResult>)(handle->LpVtbl[1]))(handle, pData);
 			return ret;
 		}
 

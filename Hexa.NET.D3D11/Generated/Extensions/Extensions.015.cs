@@ -23,22 +23,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, byte* pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
+		public static HResult CreateInstance(this ComPtr<ID3D11Module> comObj, byte* pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
 		{
 			ID3D11Module* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, pNamespace, ppModuleInstance);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(handle->LpVtbl[4]))(handle, pNamespace, ppModuleInstance);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, ReadOnlySpan<byte> pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
+		public static HResult CreateInstance(this ComPtr<ID3D11Module> comObj, ReadOnlySpan<byte> pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
 		{
 			ID3D11Module* handle = comObj.Handle;
 			fixed (byte* ppNamespace = pNamespace)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, (byte*)ppNamespace, ppModuleInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(handle->LpVtbl[4]))(handle, (byte*)ppNamespace, ppModuleInstance);
 				return ret;
 			}
 		}
@@ -46,7 +46,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, string pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
+		public static HResult CreateInstance(this ComPtr<ID3D11Module> comObj, string pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
 		{
 			ID3D11Module* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -66,7 +66,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pNamespace, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, pStr0, ppModuleInstance);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(handle->LpVtbl[4]))(handle, pStr0, ppModuleInstance);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -77,12 +77,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, byte* pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
+		public static HResult CreateInstance(this ComPtr<ID3D11Module> comObj, byte* pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
 		{
 			ID3D11Module* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, pNamespace, (ID3D11ModuleInstance**)pppModuleInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(handle->LpVtbl[4]))(handle, pNamespace, (ID3D11ModuleInstance**)pppModuleInstance);
 				return ret;
 			}
 		}
@@ -90,25 +90,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, byte* pNamespace, out ComPtr<ID3D11ModuleInstance> ppModuleInstance) 
+		public static HResult CreateInstance(this ComPtr<ID3D11Module> comObj, byte* pNamespace, out ComPtr<ID3D11ModuleInstance> ppModuleInstance) 
 		{
 			ID3D11Module* handle = comObj.Handle;
 			ppModuleInstance = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, pNamespace, (ID3D11ModuleInstance**)ppModuleInstance.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(handle->LpVtbl[4]))(handle, pNamespace, (ID3D11ModuleInstance**)ppModuleInstance.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, ReadOnlySpan<byte> pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
+		public static HResult CreateInstance(this ComPtr<ID3D11Module> comObj, ReadOnlySpan<byte> pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
 		{
 			ID3D11Module* handle = comObj.Handle;
 			fixed (byte* ppNamespace = pNamespace)
 			{
 				fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, (byte*)ppNamespace, (ID3D11ModuleInstance**)pppModuleInstance);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(handle->LpVtbl[4]))(handle, (byte*)ppNamespace, (ID3D11ModuleInstance**)pppModuleInstance);
 					return ret;
 				}
 			}
@@ -117,7 +117,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, string pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
+		public static HResult CreateInstance(this ComPtr<ID3D11Module> comObj, string pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
 		{
 			ID3D11Module* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -139,7 +139,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, pStr0, (ID3D11ModuleInstance**)pppModuleInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(handle->LpVtbl[4]))(handle, pStr0, (ID3D11ModuleInstance**)pppModuleInstance);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -151,22 +151,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Linker> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Linker> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Linker> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Linker> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -174,24 +174,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Linker> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Linker> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11Linker> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11Linker> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -219,12 +219,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Linker> comObj, Guid* iid, ref void* ppv) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Linker> comObj, Guid* iid, ref void* ppv) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (void** pppv = &ppv)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, iid, (void**)pppv);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, iid, (void**)pppv);
 				return ret;
 			}
 		}
@@ -232,14 +232,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11Linker> comObj, ref Guid iid, ref void* ppv) 
+		public static HResult QueryInterface(this ComPtr<ID3D11Linker> comObj, ref Guid iid, ref void* ppv) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (Guid* piid = &iid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (Guid*)piid, (void**)pppv);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (Guid*)piid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -248,22 +248,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -271,22 +271,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (byte* ppEntryName = pEntryName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -294,7 +294,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -314,7 +314,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -325,14 +325,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
 			{
 				fixed (byte* ppEntryName = pEntryName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 					return ret;
 				}
 			}
@@ -341,7 +341,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -363,7 +363,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -375,12 +375,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (byte* ppTargetName = pTargetName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -388,7 +388,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -408,7 +408,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pTargetName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pStr0, uFlags, ppShaderBlob, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pStr0, uFlags, ppShaderBlob, ppErrorBuffer);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -419,14 +419,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
 			{
 				fixed (byte* ppTargetName = pTargetName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 					return ret;
 				}
 			}
@@ -435,7 +435,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -457,7 +457,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(pTargetName, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, ppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, ppShaderBlob, ppErrorBuffer);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -469,14 +469,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (byte* ppEntryName = pEntryName)
 			{
 				fixed (byte* ppTargetName = pTargetName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 					return ret;
 				}
 			}
@@ -485,7 +485,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -522,7 +522,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset1 = Utils.EncodeStringUTF8(pTargetName, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pStr1, uFlags, ppShaderBlob, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pStr1, uFlags, ppShaderBlob, ppErrorBuffer);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -537,7 +537,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -546,7 +546,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* ppTargetName = pTargetName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
 						return ret;
 					}
 				}
@@ -556,7 +556,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -595,7 +595,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset1 = Utils.EncodeStringUTF8(pTargetName, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, ppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, ppShaderBlob, ppErrorBuffer);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -611,12 +611,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -624,14 +624,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
 			{
 				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 					return ret;
 				}
 			}
@@ -640,12 +640,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -653,14 +653,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (byte* ppEntryName = pEntryName)
 			{
 				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 					return ret;
 				}
 			}
@@ -669,7 +669,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -691,7 +691,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -703,7 +703,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -712,7 +712,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 						return ret;
 					}
 				}
@@ -722,7 +722,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -746,7 +746,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -759,14 +759,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (byte* ppTargetName = pTargetName)
 			{
 				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 					return ret;
 				}
 			}
@@ -775,7 +775,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -797,7 +797,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -809,7 +809,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -818,7 +818,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 						return ret;
 					}
 				}
@@ -828,7 +828,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -852,7 +852,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -865,7 +865,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (byte* ppEntryName = pEntryName)
@@ -874,7 +874,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 						return ret;
 					}
 				}
@@ -884,7 +884,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -923,7 +923,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -939,7 +939,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -950,7 +950,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 							return ret;
 						}
 					}
@@ -961,7 +961,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1002,7 +1002,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1019,12 +1019,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 				return ret;
 			}
 		}
@@ -1032,14 +1032,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -1048,12 +1048,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 				return ret;
 			}
 		}
@@ -1061,14 +1061,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (byte* ppEntryName = pEntryName)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -1077,7 +1077,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -1099,7 +1099,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1111,7 +1111,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1120,7 +1120,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						return ret;
 					}
 				}
@@ -1130,7 +1130,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1154,7 +1154,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1167,14 +1167,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (byte* ppTargetName = pTargetName)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -1183,7 +1183,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -1205,7 +1205,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pStr0, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pStr0, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1217,7 +1217,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1226,7 +1226,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						return ret;
 					}
 				}
@@ -1236,7 +1236,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1260,7 +1260,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1273,7 +1273,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (byte* ppEntryName = pEntryName)
@@ -1282,7 +1282,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						return ret;
 					}
 				}
@@ -1292,7 +1292,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -1331,7 +1331,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pStr1, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pStr1, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -1347,7 +1347,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1358,7 +1358,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 							return ret;
 						}
 					}
@@ -1369,7 +1369,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1410,7 +1410,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1427,14 +1427,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -1443,7 +1443,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1452,7 +1452,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						return ret;
 					}
 				}
@@ -1462,14 +1462,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -1478,7 +1478,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (byte* ppEntryName = pEntryName)
@@ -1487,7 +1487,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						return ret;
 					}
 				}
@@ -1497,7 +1497,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -1521,7 +1521,7 @@ namespace Hexa.NET.D3D11
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1534,7 +1534,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1545,7 +1545,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 							return ret;
 						}
 					}
@@ -1556,7 +1556,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1582,7 +1582,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1596,7 +1596,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (byte* ppTargetName = pTargetName)
@@ -1605,7 +1605,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						return ret;
 					}
 				}
@@ -1615,7 +1615,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -1639,7 +1639,7 @@ namespace Hexa.NET.D3D11
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1652,7 +1652,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1663,7 +1663,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 							return ret;
 						}
 					}
@@ -1674,7 +1674,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1700,7 +1700,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1714,7 +1714,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (byte* ppEntryName = pEntryName)
@@ -1725,7 +1725,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 							return ret;
 						}
 					}
@@ -1736,7 +1736,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -1777,7 +1777,7 @@ namespace Hexa.NET.D3D11
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1794,7 +1794,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1807,7 +1807,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 								return ret;
 							}
 						}
@@ -1819,7 +1819,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult Link(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1862,7 +1862,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -1880,22 +1880,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int UseLibrary(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pLibraryMI) 
+		public static HResult UseLibrary(this ComPtr<ID3D11Linker> comObj, ID3D11ModuleInstance* pLibraryMI) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, int>)(handle->LpVtbl[5]))(handle, pLibraryMI);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, HResult>)(handle->LpVtbl[5]))(handle, pLibraryMI);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int UseLibrary(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pLibraryMI) 
+		public static HResult UseLibrary(this ComPtr<ID3D11Linker> comObj, ref ID3D11ModuleInstance pLibraryMI) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance* ppLibraryMI = &pLibraryMI)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, int>)(handle->LpVtbl[5]))(handle, (ID3D11ModuleInstance*)ppLibraryMI);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, HResult>)(handle->LpVtbl[5]))(handle, (ID3D11ModuleInstance*)ppLibraryMI);
 				return ret;
 			}
 		}
@@ -1903,42 +1903,42 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int UseLibrary(this ComPtr<ID3D11Linker> comObj, ComPtr<ID3D11ModuleInstance> pLibraryMI) 
+		public static HResult UseLibrary(this ComPtr<ID3D11Linker> comObj, ComPtr<ID3D11ModuleInstance> pLibraryMI) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, int>)(handle->LpVtbl[5]))(handle, (ID3D11ModuleInstance*)pLibraryMI.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, HResult>)(handle->LpVtbl[5]))(handle, (ID3D11ModuleInstance*)pLibraryMI.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddClipPlaneFromCBuffer(this ComPtr<ID3D11Linker> comObj, uint uCBufferSlot, uint uCBufferEntry) 
+		public static HResult AddClipPlaneFromCBuffer(this ComPtr<ID3D11Linker> comObj, uint uCBufferSlot, uint uCBufferEntry) 
 		{
 			ID3D11Linker* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, uint, uint, int>)(handle->LpVtbl[6]))(handle, uCBufferSlot, uCBufferEntry);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, uint, uint, HResult>)(handle->LpVtbl[6]))(handle, uCBufferSlot, uCBufferEntry);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11LinkingNode> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11LinkingNode> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11LinkingNode* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11LinkingNode> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11LinkingNode> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11LinkingNode* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1946,24 +1946,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11LinkingNode> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11LinkingNode> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11LinkingNode* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11LinkingNode> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11LinkingNode> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11LinkingNode* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1991,12 +1991,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11LinkingNode> comObj, Guid* iid, ref void* ppv) 
+		public static HResult QueryInterface(this ComPtr<ID3D11LinkingNode> comObj, Guid* iid, ref void* ppv) 
 		{
 			ID3D11LinkingNode* handle = comObj.Handle;
 			fixed (void** pppv = &ppv)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, iid, (void**)pppv);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, iid, (void**)pppv);
 				return ret;
 			}
 		}
@@ -2004,14 +2004,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11LinkingNode> comObj, ref Guid iid, ref void* ppv) 
+		public static HResult QueryInterface(this ComPtr<ID3D11LinkingNode> comObj, ref Guid iid, ref void* ppv) 
 		{
 			ID3D11LinkingNode* handle = comObj.Handle;
 			fixed (Guid* piid = &iid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (Guid*)piid, (void**)pppv);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (Guid*)piid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -2020,22 +2020,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11FunctionLinkingGraph> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11FunctionLinkingGraph> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2043,24 +2043,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11FunctionLinkingGraph> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11FunctionLinkingGraph> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2088,12 +2088,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11FunctionLinkingGraph> comObj, Guid* iid, ref void* ppv) 
+		public static HResult QueryInterface(this ComPtr<ID3D11FunctionLinkingGraph> comObj, Guid* iid, ref void* ppv) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (void** pppv = &ppv)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, iid, (void**)pppv);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, iid, (void**)pppv);
 				return ret;
 			}
 		}
@@ -2101,14 +2101,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref Guid iid, ref void* ppv) 
+		public static HResult QueryInterface(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref Guid iid, ref void* ppv) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (Guid* piid = &iid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (Guid*)piid, (void**)pppv);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (Guid*)piid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -2117,22 +2117,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateModuleInstance(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11ModuleInstance** ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
+		public static HResult CreateModuleInstance(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11ModuleInstance** ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, ppModuleInstance, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, ppModuleInstance, ppErrorBuffer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateModuleInstance(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11ModuleInstance* ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
+		public static HResult CreateModuleInstance(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11ModuleInstance* ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance**)pppModuleInstance, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance**)pppModuleInstance, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -2140,12 +2140,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateModuleInstance(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ComPtr<ID3D11ModuleInstance> ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
+		public static HResult CreateModuleInstance(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ComPtr<ID3D11ModuleInstance> ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ComPtr<ID3D11ModuleInstance>* pppModuleInstance = &ppModuleInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance**)pppModuleInstance, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance**)pppModuleInstance, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -2153,12 +2153,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateModuleInstance(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11ModuleInstance** ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult CreateModuleInstance(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11ModuleInstance** ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, ppModuleInstance, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, ppModuleInstance, (ID3D10Blob**)pppErrorBuffer);
 				return ret;
 			}
 		}
@@ -2166,14 +2166,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateModuleInstance(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11ModuleInstance* ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult CreateModuleInstance(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11ModuleInstance* ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance**)pppModuleInstance, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance**)pppModuleInstance, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -2182,14 +2182,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateModuleInstance(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ComPtr<ID3D11ModuleInstance> ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult CreateModuleInstance(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ComPtr<ID3D11ModuleInstance> ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ComPtr<ID3D11ModuleInstance>* pppModuleInstance = &ppModuleInstance)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance**)pppModuleInstance, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, HResult>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance**)pppModuleInstance, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -2198,22 +2198,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetInputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ParameterDesc* pInputParameters, uint cInputParameters, ID3D11LinkingNode** ppInputNode) 
+		public static HResult SetInputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ParameterDesc* pInputParameters, uint cInputParameters, ID3D11LinkingNode** ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(handle->LpVtbl[5]))(handle, pInputParameters, cInputParameters, ppInputNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[5]))(handle, pInputParameters, cInputParameters, ppInputNode);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetInputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ParameterDesc pInputParameters, uint cInputParameters, ID3D11LinkingNode** ppInputNode) 
+		public static HResult SetInputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ParameterDesc pInputParameters, uint cInputParameters, ID3D11LinkingNode** ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ParameterDesc* ppInputParameters = &pInputParameters)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(handle->LpVtbl[5]))(handle, (ParameterDesc*)ppInputParameters, cInputParameters, ppInputNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[5]))(handle, (ParameterDesc*)ppInputParameters, cInputParameters, ppInputNode);
 				return ret;
 			}
 		}
@@ -2221,12 +2221,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetInputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ParameterDesc* pInputParameters, uint cInputParameters, ref ID3D11LinkingNode* ppInputNode) 
+		public static HResult SetInputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ParameterDesc* pInputParameters, uint cInputParameters, ref ID3D11LinkingNode* ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode** pppInputNode = &ppInputNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(handle->LpVtbl[5]))(handle, pInputParameters, cInputParameters, (ID3D11LinkingNode**)pppInputNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[5]))(handle, pInputParameters, cInputParameters, (ID3D11LinkingNode**)pppInputNode);
 				return ret;
 			}
 		}
@@ -2234,25 +2234,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetInputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ParameterDesc* pInputParameters, uint cInputParameters, out ComPtr<ID3D11LinkingNode> ppInputNode) 
+		public static HResult SetInputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ParameterDesc* pInputParameters, uint cInputParameters, out ComPtr<ID3D11LinkingNode> ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			ppInputNode = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(handle->LpVtbl[5]))(handle, pInputParameters, cInputParameters, (ID3D11LinkingNode**)ppInputNode.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[5]))(handle, pInputParameters, cInputParameters, (ID3D11LinkingNode**)ppInputNode.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetInputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ParameterDesc pInputParameters, uint cInputParameters, ref ID3D11LinkingNode* ppInputNode) 
+		public static HResult SetInputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ParameterDesc pInputParameters, uint cInputParameters, ref ID3D11LinkingNode* ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ParameterDesc* ppInputParameters = &pInputParameters)
 			{
 				fixed (ID3D11LinkingNode** pppInputNode = &ppInputNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(handle->LpVtbl[5]))(handle, (ParameterDesc*)ppInputParameters, cInputParameters, (ID3D11LinkingNode**)pppInputNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[5]))(handle, (ParameterDesc*)ppInputParameters, cInputParameters, (ID3D11LinkingNode**)pppInputNode);
 					return ret;
 				}
 			}
@@ -2261,13 +2261,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetInputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ParameterDesc pInputParameters, uint cInputParameters, out ComPtr<ID3D11LinkingNode> ppInputNode) 
+		public static HResult SetInputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ParameterDesc pInputParameters, uint cInputParameters, out ComPtr<ID3D11LinkingNode> ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ParameterDesc* ppInputParameters = &pInputParameters)
 			{
 				ppInputNode = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(handle->LpVtbl[5]))(handle, (ParameterDesc*)ppInputParameters, cInputParameters, (ID3D11LinkingNode**)ppInputNode.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[5]))(handle, (ParameterDesc*)ppInputParameters, cInputParameters, (ID3D11LinkingNode**)ppInputNode.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2275,22 +2275,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetOutputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ParameterDesc* pOutputParameters, uint cOutputParameters, ID3D11LinkingNode** ppOutputNode) 
+		public static HResult SetOutputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ParameterDesc* pOutputParameters, uint cOutputParameters, ID3D11LinkingNode** ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(handle->LpVtbl[6]))(handle, pOutputParameters, cOutputParameters, ppOutputNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[6]))(handle, pOutputParameters, cOutputParameters, ppOutputNode);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetOutputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ParameterDesc pOutputParameters, uint cOutputParameters, ID3D11LinkingNode** ppOutputNode) 
+		public static HResult SetOutputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ParameterDesc pOutputParameters, uint cOutputParameters, ID3D11LinkingNode** ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ParameterDesc* ppOutputParameters = &pOutputParameters)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(handle->LpVtbl[6]))(handle, (ParameterDesc*)ppOutputParameters, cOutputParameters, ppOutputNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[6]))(handle, (ParameterDesc*)ppOutputParameters, cOutputParameters, ppOutputNode);
 				return ret;
 			}
 		}
@@ -2298,12 +2298,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetOutputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ParameterDesc* pOutputParameters, uint cOutputParameters, ref ID3D11LinkingNode* ppOutputNode) 
+		public static HResult SetOutputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ParameterDesc* pOutputParameters, uint cOutputParameters, ref ID3D11LinkingNode* ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode** pppOutputNode = &ppOutputNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(handle->LpVtbl[6]))(handle, pOutputParameters, cOutputParameters, (ID3D11LinkingNode**)pppOutputNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[6]))(handle, pOutputParameters, cOutputParameters, (ID3D11LinkingNode**)pppOutputNode);
 				return ret;
 			}
 		}
@@ -2311,25 +2311,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetOutputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ParameterDesc* pOutputParameters, uint cOutputParameters, out ComPtr<ID3D11LinkingNode> ppOutputNode) 
+		public static HResult SetOutputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ParameterDesc* pOutputParameters, uint cOutputParameters, out ComPtr<ID3D11LinkingNode> ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			ppOutputNode = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(handle->LpVtbl[6]))(handle, pOutputParameters, cOutputParameters, (ID3D11LinkingNode**)ppOutputNode.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[6]))(handle, pOutputParameters, cOutputParameters, (ID3D11LinkingNode**)ppOutputNode.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetOutputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ParameterDesc pOutputParameters, uint cOutputParameters, ref ID3D11LinkingNode* ppOutputNode) 
+		public static HResult SetOutputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ParameterDesc pOutputParameters, uint cOutputParameters, ref ID3D11LinkingNode* ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ParameterDesc* ppOutputParameters = &pOutputParameters)
 			{
 				fixed (ID3D11LinkingNode** pppOutputNode = &ppOutputNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(handle->LpVtbl[6]))(handle, (ParameterDesc*)ppOutputParameters, cOutputParameters, (ID3D11LinkingNode**)pppOutputNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[6]))(handle, (ParameterDesc*)ppOutputParameters, cOutputParameters, (ID3D11LinkingNode**)pppOutputNode);
 					return ret;
 				}
 			}
@@ -2338,13 +2338,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetOutputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ParameterDesc pOutputParameters, uint cOutputParameters, out ComPtr<ID3D11LinkingNode> ppOutputNode) 
+		public static HResult SetOutputSignature(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ParameterDesc pOutputParameters, uint cOutputParameters, out ComPtr<ID3D11LinkingNode> ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ParameterDesc* ppOutputParameters = &pOutputParameters)
 			{
 				ppOutputNode = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(handle->LpVtbl[6]))(handle, (ParameterDesc*)ppOutputParameters, cOutputParameters, (ID3D11LinkingNode**)ppOutputNode.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[6]))(handle, (ParameterDesc*)ppOutputParameters, cOutputParameters, (ID3D11LinkingNode**)ppOutputNode.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2352,22 +2352,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, ppCallNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, ppCallNode);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, ppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, ppCallNode);
 				return ret;
 			}
 		}
@@ -2375,7 +2375,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -2395,7 +2395,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pModuleInstanceNamespace, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pStr0, pModuleWithFunctionPrototype, pFunctionName, ppCallNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pStr0, pModuleWithFunctionPrototype, pFunctionName, ppCallNode);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -2406,12 +2406,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, ppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, ppCallNode);
 				return ret;
 			}
 		}
@@ -2419,24 +2419,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ComPtr<ID3D11Module> pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ComPtr<ID3D11Module> pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)pModuleWithFunctionPrototype.Handle, pFunctionName, ppCallNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)pModuleWithFunctionPrototype.Handle, pFunctionName, ppCallNode);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
 			{
 				fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, ppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, ppCallNode);
 					return ret;
 				}
 			}
@@ -2445,7 +2445,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -2467,7 +2467,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, ppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, ppCallNode);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2479,12 +2479,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppFunctionName = pFunctionName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
 				return ret;
 			}
 		}
@@ -2492,7 +2492,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -2512,7 +2512,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pFunctionName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pStr0, ppCallNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pStr0, ppCallNode);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -2523,14 +2523,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
 			{
 				fixed (byte* ppFunctionName = pFunctionName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
 					return ret;
 				}
 			}
@@ -2539,7 +2539,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -2576,7 +2576,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset1 = Utils.EncodeStringUTF8(pFunctionName, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pStr0, pModuleWithFunctionPrototype, pStr1, ppCallNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pStr0, pModuleWithFunctionPrototype, pStr1, ppCallNode);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -2591,14 +2591,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
 			{
 				fixed (byte* ppFunctionName = pFunctionName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
 					return ret;
 				}
 			}
@@ -2607,7 +2607,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
@@ -2629,7 +2629,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(pFunctionName, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr0, ppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr0, ppCallNode);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2641,7 +2641,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -2650,7 +2650,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* ppFunctionName = pFunctionName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
 						return ret;
 					}
 				}
@@ -2660,7 +2660,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -2699,7 +2699,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset1 = Utils.EncodeStringUTF8(pFunctionName, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr1, ppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr1, ppCallNode);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -2715,12 +2715,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
 				return ret;
 			}
 		}
@@ -2728,25 +2728,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, out ComPtr<ID3D11LinkingNode> ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, out ComPtr<ID3D11LinkingNode> ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			ppCallNode = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)ppCallNode.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)ppCallNode.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
 			{
 				fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
 					return ret;
 				}
 			}
@@ -2755,7 +2755,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -2777,7 +2777,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pStr0, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pStr0, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2789,14 +2789,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
 			{
 				fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
 					return ret;
 				}
 			}
@@ -2805,18 +2805,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ComPtr<ID3D11Module> pModuleWithFunctionPrototype, byte* pFunctionName, out ComPtr<ID3D11LinkingNode> ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ComPtr<ID3D11Module> pModuleWithFunctionPrototype, byte* pFunctionName, out ComPtr<ID3D11LinkingNode> ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			ppCallNode = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)pModuleWithFunctionPrototype.Handle, pFunctionName, (ID3D11LinkingNode**)ppCallNode.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)pModuleWithFunctionPrototype.Handle, pFunctionName, (ID3D11LinkingNode**)ppCallNode.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -2825,7 +2825,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
 						return ret;
 					}
 				}
@@ -2835,7 +2835,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -2859,7 +2859,7 @@ namespace Hexa.NET.D3D11
 			{
 				fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2872,14 +2872,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppFunctionName = pFunctionName)
 			{
 				fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
 					return ret;
 				}
 			}
@@ -2888,7 +2888,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -2910,7 +2910,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pStr0, (ID3D11LinkingNode**)pppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pStr0, (ID3D11LinkingNode**)pppCallNode);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2922,7 +2922,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -2931,7 +2931,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
 						return ret;
 					}
 				}
@@ -2941,7 +2941,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -2980,7 +2980,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pStr0, pModuleWithFunctionPrototype, pStr1, (ID3D11LinkingNode**)pppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pStr0, pModuleWithFunctionPrototype, pStr1, (ID3D11LinkingNode**)pppCallNode);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -2996,7 +2996,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
@@ -3005,7 +3005,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
 						return ret;
 					}
 				}
@@ -3015,7 +3015,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
@@ -3039,7 +3039,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr0, (ID3D11LinkingNode**)pppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr0, (ID3D11LinkingNode**)pppCallNode);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3052,7 +3052,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -3063,7 +3063,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
 							return ret;
 						}
 					}
@@ -3074,7 +3074,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public static HResult CallFunction(this ComPtr<ID3D11FunctionLinkingGraph> comObj, string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -3115,7 +3115,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(handle->LpVtbl[7]))(handle, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr1, (ID3D11LinkingNode**)pppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(handle->LpVtbl[7]))(handle, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr1, (ID3D11LinkingNode**)pppCallNode);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -3132,22 +3132,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
+		public static HResult PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(handle->LpVtbl[8]))(handle, pSrcNode, srcParameterIndex, pDstNode, dstParameterIndex);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(handle->LpVtbl[8]))(handle, pSrcNode, srcParameterIndex, pDstNode, dstParameterIndex);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
+		public static HResult PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(handle->LpVtbl[8]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pDstNode, dstParameterIndex);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(handle->LpVtbl[8]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pDstNode, dstParameterIndex);
 				return ret;
 			}
 		}
@@ -3155,22 +3155,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
+		public static HResult PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(handle->LpVtbl[8]))(handle, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pDstNode, dstParameterIndex);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(handle->LpVtbl[8]))(handle, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pDstNode, dstParameterIndex);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ref ID3D11LinkingNode pDstNode, int dstParameterIndex) 
+		public static HResult PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ref ID3D11LinkingNode pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(handle->LpVtbl[8]))(handle, pSrcNode, srcParameterIndex, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(handle->LpVtbl[8]))(handle, pSrcNode, srcParameterIndex, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex);
 				return ret;
 			}
 		}
@@ -3178,24 +3178,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex) 
+		public static HResult PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(handle->LpVtbl[8]))(handle, pSrcNode, srcParameterIndex, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(handle->LpVtbl[8]))(handle, pSrcNode, srcParameterIndex, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ref ID3D11LinkingNode pDstNode, int dstParameterIndex) 
+		public static HResult PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ref ID3D11LinkingNode pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
 			{
 				fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(handle->LpVtbl[8]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(handle->LpVtbl[8]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex);
 					return ret;
 				}
 			}
@@ -3204,32 +3204,32 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex) 
+		public static HResult PassValue(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(handle->LpVtbl[8]))(handle, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(handle->LpVtbl[8]))(handle, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
 				return ret;
 			}
 		}
@@ -3237,22 +3237,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppSrcSwizzle = pSrcSwizzle)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
 				return ret;
 			}
 		}
@@ -3260,7 +3260,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -3280,7 +3280,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pSrcSwizzle, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pDstSwizzle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pDstSwizzle);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -3291,14 +3291,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
 			{
 				fixed (byte* ppSrcSwizzle = pSrcSwizzle)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
 					return ret;
 				}
 			}
@@ -3307,7 +3307,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -3329,7 +3329,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(pSrcSwizzle, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pDstSwizzle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pDstSwizzle);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3341,12 +3341,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
 				return ret;
 			}
 		}
@@ -3354,24 +3354,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex, pDstSwizzle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex, pDstSwizzle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
 			{
 				fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
 					return ret;
 				}
 			}
@@ -3380,24 +3380,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex, pDstSwizzle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex, pDstSwizzle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppSrcSwizzle = pSrcSwizzle)
 			{
 				fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
 					return ret;
 				}
 			}
@@ -3406,7 +3406,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -3428,7 +3428,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3440,7 +3440,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -3449,7 +3449,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
 						return ret;
 					}
 				}
@@ -3459,7 +3459,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -3483,7 +3483,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3496,12 +3496,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppDstSwizzle = pDstSwizzle)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 				return ret;
 			}
 		}
@@ -3509,7 +3509,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -3529,7 +3529,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDstSwizzle, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pStr0);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -3540,14 +3540,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
 			{
 				fixed (byte* ppDstSwizzle = pDstSwizzle)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 					return ret;
 				}
 			}
@@ -3556,7 +3556,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -3578,7 +3578,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(pDstSwizzle, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pStr0);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pStr0);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3590,14 +3590,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppSrcSwizzle = pSrcSwizzle)
 			{
 				fixed (byte* ppDstSwizzle = pDstSwizzle)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 					return ret;
 				}
 			}
@@ -3606,7 +3606,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -3643,7 +3643,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset1 = Utils.EncodeStringUTF8(pDstSwizzle, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pStr1);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pStr1);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -3658,7 +3658,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -3667,7 +3667,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* ppDstSwizzle = pDstSwizzle)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 						return ret;
 					}
 				}
@@ -3677,7 +3677,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -3716,7 +3716,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset1 = Utils.EncodeStringUTF8(pDstSwizzle, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pStr1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pStr1);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -3732,14 +3732,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 			{
 				fixed (byte* ppDstSwizzle = pDstSwizzle)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 					return ret;
 				}
 			}
@@ -3748,7 +3748,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
@@ -3770,7 +3770,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(pDstSwizzle, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr0);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr0);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3782,7 +3782,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -3791,7 +3791,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* ppDstSwizzle = pDstSwizzle)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 						return ret;
 					}
 				}
@@ -3801,7 +3801,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -3825,7 +3825,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset0 = Utils.EncodeStringUTF8(pDstSwizzle, pStr0, pStrSize0);
 						pStr0[pStrOffset0] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr0);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr0);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3838,7 +3838,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (byte* ppSrcSwizzle = pSrcSwizzle)
@@ -3847,7 +3847,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* ppDstSwizzle = pDstSwizzle)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 						return ret;
 					}
 				}
@@ -3857,7 +3857,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -3896,7 +3896,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset1 = Utils.EncodeStringUTF8(pDstSwizzle, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, pSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr1);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -3912,7 +3912,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -3923,7 +3923,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (byte* ppDstSwizzle = pDstSwizzle)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 							return ret;
 						}
 					}
@@ -3934,7 +3934,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public static HResult PassValueWithSwizzle(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -3975,7 +3975,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset1 = Utils.EncodeStringUTF8(pDstSwizzle, pStr1, pStrSize1);
 						pStr1[pStrOffset1] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr1);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(handle->LpVtbl[9]))(handle, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr1);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -3992,22 +3992,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetLastError(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D10Blob** ppErrorBuffer) 
+		public static HResult GetLastError(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D10Blob**, int>)(handle->LpVtbl[10]))(handle, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D10Blob**, HResult>)(handle->LpVtbl[10]))(handle, ppErrorBuffer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetLastError(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D10Blob* ppErrorBuffer) 
+		public static HResult GetLastError(this ComPtr<ID3D11FunctionLinkingGraph> comObj, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D10Blob**, int>)(handle->LpVtbl[10]))(handle, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D10Blob**, HResult>)(handle->LpVtbl[10]))(handle, (ID3D10Blob**)pppErrorBuffer);
 				return ret;
 			}
 		}
@@ -4015,22 +4015,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GenerateHlsl(this ComPtr<ID3D11FunctionLinkingGraph> comObj, uint uFlags, ID3D10Blob** ppBuffer) 
+		public static HResult GenerateHlsl(this ComPtr<ID3D11FunctionLinkingGraph> comObj, uint uFlags, ID3D10Blob** ppBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, uint, ID3D10Blob**, int>)(handle->LpVtbl[11]))(handle, uFlags, ppBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, uint, ID3D10Blob**, HResult>)(handle->LpVtbl[11]))(handle, uFlags, ppBuffer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GenerateHlsl(this ComPtr<ID3D11FunctionLinkingGraph> comObj, uint uFlags, ref ID3D10Blob* ppBuffer) 
+		public static HResult GenerateHlsl(this ComPtr<ID3D11FunctionLinkingGraph> comObj, uint uFlags, ref ID3D10Blob* ppBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* handle = comObj.Handle;
 			fixed (ID3D10Blob** pppBuffer = &ppBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, uint, ID3D10Blob**, int>)(handle->LpVtbl[11]))(handle, uFlags, (ID3D10Blob**)pppBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, uint, ID3D10Blob**, HResult>)(handle->LpVtbl[11]))(handle, uFlags, (ID3D10Blob**)pppBuffer);
 				return ret;
 			}
 		}
@@ -4038,22 +4038,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11ShaderTrace> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11ShaderTrace> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11ShaderTrace> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11ShaderTrace> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -4061,24 +4061,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11ShaderTrace> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11ShaderTrace> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11ShaderTrace> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11ShaderTrace> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4106,22 +4106,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int TraceReady(this ComPtr<ID3D11ShaderTrace> comObj, ulong* pTestCount) 
+		public static HResult TraceReady(this ComPtr<ID3D11ShaderTrace> comObj, ulong* pTestCount) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, ulong*, int>)(handle->LpVtbl[3]))(handle, pTestCount);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, ulong*, HResult>)(handle->LpVtbl[3]))(handle, pTestCount);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int TraceReady(this ComPtr<ID3D11ShaderTrace> comObj, ref ulong pTestCount) 
+		public static HResult TraceReady(this ComPtr<ID3D11ShaderTrace> comObj, ref ulong pTestCount) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (ulong* ppTestCount = &pTestCount)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, ulong*, int>)(handle->LpVtbl[3]))(handle, (ulong*)ppTestCount);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, ulong*, HResult>)(handle->LpVtbl[3]))(handle, (ulong*)ppTestCount);
 				return ret;
 			}
 		}
@@ -4138,22 +4138,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetTraceStats(this ComPtr<ID3D11ShaderTrace> comObj, TraceStats* pTraceStats) 
+		public static HResult GetTraceStats(this ComPtr<ID3D11ShaderTrace> comObj, TraceStats* pTraceStats) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceStats*, int>)(handle->LpVtbl[5]))(handle, pTraceStats);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceStats*, HResult>)(handle->LpVtbl[5]))(handle, pTraceStats);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetTraceStats(this ComPtr<ID3D11ShaderTrace> comObj, ref TraceStats pTraceStats) 
+		public static HResult GetTraceStats(this ComPtr<ID3D11ShaderTrace> comObj, ref TraceStats pTraceStats) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (TraceStats* ppTraceStats = &pTraceStats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceStats*, int>)(handle->LpVtbl[5]))(handle, (TraceStats*)ppTraceStats);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceStats*, HResult>)(handle->LpVtbl[5]))(handle, (TraceStats*)ppTraceStats);
 				return ret;
 			}
 		}
@@ -4161,32 +4161,32 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PSSelectStamp(this ComPtr<ID3D11ShaderTrace> comObj, uint stampIndex) 
+		public static HResult PSSelectStamp(this ComPtr<ID3D11ShaderTrace> comObj, uint stampIndex) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, int>)(handle->LpVtbl[6]))(handle, stampIndex);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, HResult>)(handle->LpVtbl[6]))(handle, stampIndex);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetInitialRegisterContents(this ComPtr<ID3D11ShaderTrace> comObj, TraceRegister* pRegister, TraceValue* pValue) 
+		public static HResult GetInitialRegisterContents(this ComPtr<ID3D11ShaderTrace> comObj, TraceRegister* pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, int>)(handle->LpVtbl[7]))(handle, pRegister, pValue);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, HResult>)(handle->LpVtbl[7]))(handle, pRegister, pValue);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetInitialRegisterContents(this ComPtr<ID3D11ShaderTrace> comObj, ref TraceRegister pRegister, TraceValue* pValue) 
+		public static HResult GetInitialRegisterContents(this ComPtr<ID3D11ShaderTrace> comObj, ref TraceRegister pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (TraceRegister* ppRegister = &pRegister)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, int>)(handle->LpVtbl[7]))(handle, (TraceRegister*)ppRegister, pValue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, HResult>)(handle->LpVtbl[7]))(handle, (TraceRegister*)ppRegister, pValue);
 				return ret;
 			}
 		}
@@ -4194,12 +4194,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetInitialRegisterContents(this ComPtr<ID3D11ShaderTrace> comObj, TraceRegister* pRegister, ref TraceValue pValue) 
+		public static HResult GetInitialRegisterContents(this ComPtr<ID3D11ShaderTrace> comObj, TraceRegister* pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (TraceValue* ppValue = &pValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, int>)(handle->LpVtbl[7]))(handle, pRegister, (TraceValue*)ppValue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, HResult>)(handle->LpVtbl[7]))(handle, pRegister, (TraceValue*)ppValue);
 				return ret;
 			}
 		}
@@ -4207,14 +4207,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetInitialRegisterContents(this ComPtr<ID3D11ShaderTrace> comObj, ref TraceRegister pRegister, ref TraceValue pValue) 
+		public static HResult GetInitialRegisterContents(this ComPtr<ID3D11ShaderTrace> comObj, ref TraceRegister pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (TraceRegister* ppRegister = &pRegister)
 			{
 				fixed (TraceValue* ppValue = &pValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, int>)(handle->LpVtbl[7]))(handle, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, HResult>)(handle->LpVtbl[7]))(handle, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
 					return ret;
 				}
 			}
@@ -4223,22 +4223,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetStep(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, TraceStep* pTraceStep) 
+		public static HResult GetStep(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, TraceStep* pTraceStep) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, TraceStep*, int>)(handle->LpVtbl[8]))(handle, stepIndex, pTraceStep);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, TraceStep*, HResult>)(handle->LpVtbl[8]))(handle, stepIndex, pTraceStep);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetStep(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, ref TraceStep pTraceStep) 
+		public static HResult GetStep(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, ref TraceStep pTraceStep) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (TraceStep* ppTraceStep = &pTraceStep)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, TraceStep*, int>)(handle->LpVtbl[8]))(handle, stepIndex, (TraceStep*)ppTraceStep);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, TraceStep*, HResult>)(handle->LpVtbl[8]))(handle, stepIndex, (TraceStep*)ppTraceStep);
 				return ret;
 			}
 		}
@@ -4246,22 +4246,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetWrittenRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint writtenRegisterIndex, TraceRegister* pRegister, TraceValue* pValue) 
+		public static HResult GetWrittenRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint writtenRegisterIndex, TraceRegister* pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(handle->LpVtbl[9]))(handle, stepIndex, writtenRegisterIndex, pRegister, pValue);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(handle->LpVtbl[9]))(handle, stepIndex, writtenRegisterIndex, pRegister, pValue);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetWrittenRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint writtenRegisterIndex, ref TraceRegister pRegister, TraceValue* pValue) 
+		public static HResult GetWrittenRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint writtenRegisterIndex, ref TraceRegister pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (TraceRegister* ppRegister = &pRegister)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(handle->LpVtbl[9]))(handle, stepIndex, writtenRegisterIndex, (TraceRegister*)ppRegister, pValue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(handle->LpVtbl[9]))(handle, stepIndex, writtenRegisterIndex, (TraceRegister*)ppRegister, pValue);
 				return ret;
 			}
 		}
@@ -4269,12 +4269,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetWrittenRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint writtenRegisterIndex, TraceRegister* pRegister, ref TraceValue pValue) 
+		public static HResult GetWrittenRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint writtenRegisterIndex, TraceRegister* pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (TraceValue* ppValue = &pValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(handle->LpVtbl[9]))(handle, stepIndex, writtenRegisterIndex, pRegister, (TraceValue*)ppValue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(handle->LpVtbl[9]))(handle, stepIndex, writtenRegisterIndex, pRegister, (TraceValue*)ppValue);
 				return ret;
 			}
 		}
@@ -4282,14 +4282,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetWrittenRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint writtenRegisterIndex, ref TraceRegister pRegister, ref TraceValue pValue) 
+		public static HResult GetWrittenRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint writtenRegisterIndex, ref TraceRegister pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (TraceRegister* ppRegister = &pRegister)
 			{
 				fixed (TraceValue* ppValue = &pValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(handle->LpVtbl[9]))(handle, stepIndex, writtenRegisterIndex, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(handle->LpVtbl[9]))(handle, stepIndex, writtenRegisterIndex, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
 					return ret;
 				}
 			}
@@ -4298,22 +4298,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetReadRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint readRegisterIndex, TraceRegister* pRegister, TraceValue* pValue) 
+		public static HResult GetReadRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint readRegisterIndex, TraceRegister* pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(handle->LpVtbl[10]))(handle, stepIndex, readRegisterIndex, pRegister, pValue);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(handle->LpVtbl[10]))(handle, stepIndex, readRegisterIndex, pRegister, pValue);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetReadRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint readRegisterIndex, ref TraceRegister pRegister, TraceValue* pValue) 
+		public static HResult GetReadRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint readRegisterIndex, ref TraceRegister pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (TraceRegister* ppRegister = &pRegister)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(handle->LpVtbl[10]))(handle, stepIndex, readRegisterIndex, (TraceRegister*)ppRegister, pValue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(handle->LpVtbl[10]))(handle, stepIndex, readRegisterIndex, (TraceRegister*)ppRegister, pValue);
 				return ret;
 			}
 		}
@@ -4321,12 +4321,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetReadRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint readRegisterIndex, TraceRegister* pRegister, ref TraceValue pValue) 
+		public static HResult GetReadRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint readRegisterIndex, TraceRegister* pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (TraceValue* ppValue = &pValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(handle->LpVtbl[10]))(handle, stepIndex, readRegisterIndex, pRegister, (TraceValue*)ppValue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(handle->LpVtbl[10]))(handle, stepIndex, readRegisterIndex, pRegister, (TraceValue*)ppValue);
 				return ret;
 			}
 		}
@@ -4334,14 +4334,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetReadRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint readRegisterIndex, ref TraceRegister pRegister, ref TraceValue pValue) 
+		public static HResult GetReadRegister(this ComPtr<ID3D11ShaderTrace> comObj, uint stepIndex, uint readRegisterIndex, ref TraceRegister pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* handle = comObj.Handle;
 			fixed (TraceRegister* ppRegister = &pRegister)
 			{
 				fixed (TraceValue* ppValue = &pValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(handle->LpVtbl[10]))(handle, stepIndex, readRegisterIndex, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, HResult>)(handle->LpVtbl[10]))(handle, stepIndex, readRegisterIndex, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
 					return ret;
 				}
 			}
@@ -4350,22 +4350,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11ShaderTraceFactory> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11ShaderTraceFactory> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11ShaderTraceFactory> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11ShaderTraceFactory> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -4373,24 +4373,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11ShaderTraceFactory> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11ShaderTraceFactory> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11ShaderTraceFactory> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11ShaderTraceFactory> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4418,22 +4418,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, IUnknown* pShader, ShaderTraceDesc* pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, IUnknown* pShader, ShaderTraceDesc* pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, pShader, pTraceDesc, ppShaderTrace);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, pShader, pTraceDesc, ppShaderTrace);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ref IUnknown pShader, ShaderTraceDesc* pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ref IUnknown pShader, ShaderTraceDesc* pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			fixed (IUnknown* ppShader = &pShader)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, (IUnknown*)ppShader, pTraceDesc, ppShaderTrace);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, (IUnknown*)ppShader, pTraceDesc, ppShaderTrace);
 				return ret;
 			}
 		}
@@ -4441,22 +4441,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ComPtr<IUnknown> pShader, ShaderTraceDesc* pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ComPtr<IUnknown> pShader, ShaderTraceDesc* pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, (IUnknown*)pShader.Handle, pTraceDesc, ppShaderTrace);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, (IUnknown*)pShader.Handle, pTraceDesc, ppShaderTrace);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, IUnknown* pShader, ref ShaderTraceDesc pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, IUnknown* pShader, ref ShaderTraceDesc pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			fixed (ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, pShader, (ShaderTraceDesc*)ppTraceDesc, ppShaderTrace);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, pShader, (ShaderTraceDesc*)ppTraceDesc, ppShaderTrace);
 				return ret;
 			}
 		}
@@ -4464,14 +4464,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ref IUnknown pShader, ref ShaderTraceDesc pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ref IUnknown pShader, ref ShaderTraceDesc pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			fixed (IUnknown* ppShader = &pShader)
 			{
 				fixed (ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, (IUnknown*)ppShader, (ShaderTraceDesc*)ppTraceDesc, ppShaderTrace);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, (IUnknown*)ppShader, (ShaderTraceDesc*)ppTraceDesc, ppShaderTrace);
 					return ret;
 				}
 			}
@@ -4480,12 +4480,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ComPtr<IUnknown> pShader, ref ShaderTraceDesc pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ComPtr<IUnknown> pShader, ref ShaderTraceDesc pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			fixed (ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, (IUnknown*)pShader.Handle, (ShaderTraceDesc*)ppTraceDesc, ppShaderTrace);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, (IUnknown*)pShader.Handle, (ShaderTraceDesc*)ppTraceDesc, ppShaderTrace);
 				return ret;
 			}
 		}
@@ -4493,12 +4493,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, IUnknown* pShader, ShaderTraceDesc* pTraceDesc, ref ID3D11ShaderTrace* ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, IUnknown* pShader, ShaderTraceDesc* pTraceDesc, ref ID3D11ShaderTrace* ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			fixed (ID3D11ShaderTrace** pppShaderTrace = &ppShaderTrace)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, pShader, pTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, pShader, pTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
 				return ret;
 			}
 		}
@@ -4506,25 +4506,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, IUnknown* pShader, ShaderTraceDesc* pTraceDesc, out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, IUnknown* pShader, ShaderTraceDesc* pTraceDesc, out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			ppShaderTrace = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, pShader, pTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, pShader, pTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ref IUnknown pShader, ShaderTraceDesc* pTraceDesc, ref ID3D11ShaderTrace* ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ref IUnknown pShader, ShaderTraceDesc* pTraceDesc, ref ID3D11ShaderTrace* ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			fixed (IUnknown* ppShader = &pShader)
 			{
 				fixed (ID3D11ShaderTrace** pppShaderTrace = &ppShaderTrace)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, (IUnknown*)ppShader, pTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, (IUnknown*)ppShader, pTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
 					return ret;
 				}
 			}
@@ -4533,25 +4533,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ComPtr<IUnknown> pShader, ShaderTraceDesc* pTraceDesc, out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ComPtr<IUnknown> pShader, ShaderTraceDesc* pTraceDesc, out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			ppShaderTrace = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, (IUnknown*)pShader.Handle, pTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, (IUnknown*)pShader.Handle, pTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, IUnknown* pShader, ref ShaderTraceDesc pTraceDesc, ref ID3D11ShaderTrace* ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, IUnknown* pShader, ref ShaderTraceDesc pTraceDesc, ref ID3D11ShaderTrace* ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			fixed (ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
 			{
 				fixed (ID3D11ShaderTrace** pppShaderTrace = &ppShaderTrace)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, pShader, (ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, pShader, (ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
 					return ret;
 				}
 			}
@@ -4560,13 +4560,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, IUnknown* pShader, ref ShaderTraceDesc pTraceDesc, out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, IUnknown* pShader, ref ShaderTraceDesc pTraceDesc, out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			fixed (ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
 			{
 				ppShaderTrace = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, pShader, (ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, pShader, (ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4574,7 +4574,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ref IUnknown pShader, ref ShaderTraceDesc pTraceDesc, ref ID3D11ShaderTrace* ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ref IUnknown pShader, ref ShaderTraceDesc pTraceDesc, ref ID3D11ShaderTrace* ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			fixed (IUnknown* ppShader = &pShader)
@@ -4583,7 +4583,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11ShaderTrace** pppShaderTrace = &ppShaderTrace)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, (IUnknown*)ppShader, (ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, (IUnknown*)ppShader, (ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
 						return ret;
 					}
 				}
@@ -4593,13 +4593,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ComPtr<IUnknown> pShader, ref ShaderTraceDesc pTraceDesc, out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
+		public static HResult CreateShaderTrace(this ComPtr<ID3D11ShaderTraceFactory> comObj, ComPtr<IUnknown> pShader, ref ShaderTraceDesc pTraceDesc, out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* handle = comObj.Handle;
 			fixed (ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
 			{
 				ppShaderTrace = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(handle->LpVtbl[3]))(handle, (IUnknown*)pShader.Handle, (ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, HResult>)(handle->LpVtbl[3]))(handle, (IUnknown*)pShader.Handle, (ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4607,22 +4607,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11BlendState1> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11BlendState1> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11BlendState1> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11BlendState1> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -4630,24 +4630,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11BlendState1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11BlendState1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11BlendState1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11BlendState1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4706,22 +4706,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -4729,12 +4729,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -4742,14 +4742,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -4758,22 +4758,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -4781,12 +4781,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -4794,14 +4794,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -4810,22 +4810,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, uint, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -4833,22 +4833,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, IUnknown* pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -4856,12 +4856,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -4869,24 +4869,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11BlendState1> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, ref IUnknown pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -4895,12 +4895,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		public static HResult SetPrivateDataInterface(this ComPtr<ID3D11BlendState1> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11BlendState1* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11BlendState1*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -4950,22 +4950,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11RasterizerState1> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11RasterizerState1> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D11RasterizerState1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D11RasterizerState1> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D11RasterizerState1> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D11RasterizerState1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -4973,24 +4973,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11RasterizerState1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11RasterizerState1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11RasterizerState1* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D11RasterizerState1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D11RasterizerState1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11RasterizerState1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}

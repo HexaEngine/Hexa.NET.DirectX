@@ -27,7 +27,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Enable;
+		public Bool32 Enable;
 
 		/// <summary>
 		/// To be documented.
@@ -38,7 +38,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe VideoProcessAlphaBlending(int enable = default, float alpha = default)
+		public unsafe VideoProcessAlphaBlending(Bool32 enable = default, float alpha = default)
 		{
 			Enable = enable;
 			Alpha = alpha;

@@ -31,22 +31,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -54,24 +54,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -99,22 +99,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetMalloc(IMalloc* pMalloc) 
+		public readonly unsafe HResult SetMalloc(IMalloc* pMalloc) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, int>)(LpVtbl[3]))(ptr, pMalloc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, HResult>)(LpVtbl[3]))(ptr, pMalloc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetMalloc(ref IMalloc pMalloc) 
+		public readonly unsafe HResult SetMalloc(ref IMalloc pMalloc) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, int>)(LpVtbl[3]))(ptr, (IMalloc*)ppMalloc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, HResult>)(LpVtbl[3]))(ptr, (IMalloc*)ppMalloc);
 				return ret;
 			}
 		}
@@ -122,32 +122,32 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetMalloc(ComPtr<IMalloc> pMalloc) 
+		public readonly unsafe HResult SetMalloc(ComPtr<IMalloc> pMalloc) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, int>)(LpVtbl[3]))(ptr, (IMalloc*)pMalloc.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, HResult>)(LpVtbl[3]))(ptr, (IMalloc*)pMalloc.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, IDxcBlob** ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, IDxcBlob** ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[4]))(ptr, pBlob, offset, length, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[4]))(ptr, pBlob, offset, length, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(ref IDxcBlob pBlob, uint offset, uint length, IDxcBlob** ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(ref IDxcBlob pBlob, uint offset, uint length, IDxcBlob** ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[4]))(ptr, (IDxcBlob*)ppBlob, offset, length, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[4]))(ptr, (IDxcBlob*)ppBlob, offset, length, ppResult);
 				return ret;
 			}
 		}
@@ -155,22 +155,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(ComPtr<IDxcBlob> pBlob, uint offset, uint length, IDxcBlob** ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(ComPtr<IDxcBlob> pBlob, uint offset, uint length, IDxcBlob** ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[4]))(ptr, (IDxcBlob*)pBlob.Handle, offset, length, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[4]))(ptr, (IDxcBlob*)pBlob.Handle, offset, length, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[4]))(ptr, pBlob, offset, length, (IDxcBlob**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[4]))(ptr, pBlob, offset, length, (IDxcBlob**)pppResult);
 				return ret;
 			}
 		}
@@ -178,25 +178,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[4]))(ptr, pBlob, offset, length, (IDxcBlob**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[4]))(ptr, pBlob, offset, length, (IDxcBlob**)ppResult.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(ref IDxcBlob pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(ref IDxcBlob pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IDxcBlob** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[4]))(ptr, (IDxcBlob*)ppBlob, offset, length, (IDxcBlob**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[4]))(ptr, (IDxcBlob*)ppBlob, offset, length, (IDxcBlob**)pppResult);
 					return ret;
 				}
 			}
@@ -205,33 +205,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(ComPtr<IDxcBlob> pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(ComPtr<IDxcBlob> pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[4]))(ptr, (IDxcBlob*)pBlob.Handle, offset, length, (IDxcBlob**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[4]))(ptr, (IDxcBlob*)pBlob.Handle, offset, length, (IDxcBlob**)ppResult.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(char* pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(char* pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pFileName, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pFileName, codePage, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(ReadOnlySpan<char> pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(ReadOnlySpan<char> pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFileName = pFileName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (char*)ppFileName, codePage, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (char*)ppFileName, codePage, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -239,7 +239,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(string pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(string pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -259,7 +259,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pFileName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pStr0, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pStr0, codePage, pBlobEncoding);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -270,12 +270,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(char* pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(char* pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* pcodePage = &codePage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pFileName, (uint*)pcodePage, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pFileName, (uint*)pcodePage, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -283,14 +283,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(ReadOnlySpan<char> pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(ReadOnlySpan<char> pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFileName = pFileName)
 			{
 				fixed (uint* pcodePage = &codePage)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (char*)ppFileName, (uint*)pcodePage, pBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (char*)ppFileName, (uint*)pcodePage, pBlobEncoding);
 					return ret;
 				}
 			}
@@ -299,7 +299,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(string pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(string pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -321,7 +321,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (uint* pcodePage = &codePage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pStr0, (uint*)pcodePage, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pStr0, (uint*)pcodePage, pBlobEncoding);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -333,12 +333,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(char* pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(char* pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pFileName, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pFileName, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -346,25 +346,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(char* pFileName, uint* codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(char* pFileName, uint* codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pFileName, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pFileName, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(ReadOnlySpan<char> pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(ReadOnlySpan<char> pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFileName = pFileName)
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (char*)ppFileName, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (char*)ppFileName, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -373,7 +373,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(string pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(string pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -395,7 +395,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pStr0, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pStr0, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -407,14 +407,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(char* pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(char* pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* pcodePage = &codePage)
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pFileName, (uint*)pcodePage, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pFileName, (uint*)pcodePage, (IDxcBlobEncoding**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -423,13 +423,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(char* pFileName, ref uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(char* pFileName, ref uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* pcodePage = &codePage)
 			{
 				pBlobEncoding = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pFileName, (uint*)pcodePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pFileName, (uint*)pcodePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 				return ret;
 			}
 		}
@@ -437,7 +437,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(ReadOnlySpan<char> pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(ReadOnlySpan<char> pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFileName = pFileName)
@@ -446,7 +446,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (char*)ppFileName, (uint*)pcodePage, (IDxcBlobEncoding**)ppBlobEncoding);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, (char*)ppFileName, (uint*)pcodePage, (IDxcBlobEncoding**)ppBlobEncoding);
 						return ret;
 					}
 				}
@@ -456,7 +456,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobFromFile(string pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromFile(string pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -480,7 +480,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pStr0, (uint*)pcodePage, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pStr0, (uint*)pcodePage, (IDxcBlobEncoding**)ppBlobEncoding);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -493,22 +493,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobWithEncodingFromPinned(void* pText, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobWithEncodingFromPinned(void* pText, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[6]))(ptr, pText, size, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[6]))(ptr, pText, size, codePage, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobWithEncodingFromPinned(void* pText, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobWithEncodingFromPinned(void* pText, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[6]))(ptr, pText, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[6]))(ptr, pText, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -516,33 +516,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobWithEncodingFromPinned(void* pText, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobWithEncodingFromPinned(void* pText, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[6]))(ptr, pText, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[6]))(ptr, pText, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobWithEncodingOnHeapCopy(void* pText, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobWithEncodingOnHeapCopy(void* pText, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pText, size, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, pText, size, codePage, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobWithEncodingOnHeapCopy(void* pText, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobWithEncodingOnHeapCopy(void* pText, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pText, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, pText, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -550,33 +550,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobWithEncodingOnHeapCopy(void* pText, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobWithEncodingOnHeapCopy(void* pText, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pText, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, pText, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, IMalloc* pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobWithEncodingOnMalloc(void* pText, IMalloc* pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[8]))(ptr, pText, pIMalloc, size, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[8]))(ptr, pText, pIMalloc, size, codePage, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, ref IMalloc pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobWithEncodingOnMalloc(void* pText, ref IMalloc pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IMalloc* ppIMalloc = &pIMalloc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[8]))(ptr, pText, (IMalloc*)ppIMalloc, size, codePage, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[8]))(ptr, pText, (IMalloc*)ppIMalloc, size, codePage, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -584,22 +584,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobWithEncodingOnMalloc(void* pText, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[8]))(ptr, pText, (IMalloc*)pIMalloc.Handle, size, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[8]))(ptr, pText, (IMalloc*)pIMalloc.Handle, size, codePage, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, IMalloc* pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobWithEncodingOnMalloc(void* pText, IMalloc* pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[8]))(ptr, pText, pIMalloc, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[8]))(ptr, pText, pIMalloc, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -607,25 +607,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, IMalloc* pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobWithEncodingOnMalloc(void* pText, IMalloc* pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[8]))(ptr, pText, pIMalloc, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[8]))(ptr, pText, pIMalloc, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, ref IMalloc pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobWithEncodingOnMalloc(void* pText, ref IMalloc pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IMalloc* ppIMalloc = &pIMalloc)
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[8]))(ptr, pText, (IMalloc*)ppIMalloc, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[8]))(ptr, pText, (IMalloc*)ppIMalloc, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -634,33 +634,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobWithEncodingOnMalloc(void* pText, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[8]))(ptr, pText, (IMalloc*)pIMalloc.Handle, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[8]))(ptr, pText, (IMalloc*)pIMalloc.Handle, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateIncludeHandler(IDxcIncludeHandler** ppResult) 
+		public readonly unsafe HResult CreateIncludeHandler(IDxcIncludeHandler** ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcIncludeHandler**, int>)(LpVtbl[9]))(ptr, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcIncludeHandler**, HResult>)(LpVtbl[9]))(ptr, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateIncludeHandler(ref IDxcIncludeHandler* ppResult) 
+		public readonly unsafe HResult CreateIncludeHandler(ref IDxcIncludeHandler* ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcIncludeHandler** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcIncludeHandler**, int>)(LpVtbl[9]))(ptr, (IDxcIncludeHandler**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcIncludeHandler**, HResult>)(LpVtbl[9]))(ptr, (IDxcIncludeHandler**)pppResult);
 				return ret;
 			}
 		}
@@ -668,33 +668,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateIncludeHandler(out ComPtr<IDxcIncludeHandler> ppResult) 
+		public readonly unsafe HResult CreateIncludeHandler(out ComPtr<IDxcIncludeHandler> ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcIncludeHandler**, int>)(LpVtbl[9]))(ptr, (IDxcIncludeHandler**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcIncludeHandler**, HResult>)(LpVtbl[9]))(ptr, (IDxcIncludeHandler**)ppResult.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateStreamFromBlobReadOnly(IDxcBlob* pBlob, IStream** ppStream) 
+		public readonly unsafe HResult CreateStreamFromBlobReadOnly(IDxcBlob* pBlob, IStream** ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(LpVtbl[10]))(ptr, pBlob, ppStream);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(LpVtbl[10]))(ptr, pBlob, ppStream);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateStreamFromBlobReadOnly(ref IDxcBlob pBlob, IStream** ppStream) 
+		public readonly unsafe HResult CreateStreamFromBlobReadOnly(ref IDxcBlob pBlob, IStream** ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(LpVtbl[10]))(ptr, (IDxcBlob*)ppBlob, ppStream);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(LpVtbl[10]))(ptr, (IDxcBlob*)ppBlob, ppStream);
 				return ret;
 			}
 		}
@@ -702,22 +702,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateStreamFromBlobReadOnly(ComPtr<IDxcBlob> pBlob, IStream** ppStream) 
+		public readonly unsafe HResult CreateStreamFromBlobReadOnly(ComPtr<IDxcBlob> pBlob, IStream** ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(LpVtbl[10]))(ptr, (IDxcBlob*)pBlob.Handle, ppStream);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(LpVtbl[10]))(ptr, (IDxcBlob*)pBlob.Handle, ppStream);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateStreamFromBlobReadOnly(IDxcBlob* pBlob, ref IStream* ppStream) 
+		public readonly unsafe HResult CreateStreamFromBlobReadOnly(IDxcBlob* pBlob, ref IStream* ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IStream** pppStream = &ppStream)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(LpVtbl[10]))(ptr, pBlob, (IStream**)pppStream);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(LpVtbl[10]))(ptr, pBlob, (IStream**)pppStream);
 				return ret;
 			}
 		}
@@ -725,25 +725,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateStreamFromBlobReadOnly(IDxcBlob* pBlob, out ComPtr<IStream> ppStream) 
+		public readonly unsafe HResult CreateStreamFromBlobReadOnly(IDxcBlob* pBlob, out ComPtr<IStream> ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppStream = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(LpVtbl[10]))(ptr, pBlob, (IStream**)ppStream.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(LpVtbl[10]))(ptr, pBlob, (IStream**)ppStream.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateStreamFromBlobReadOnly(ref IDxcBlob pBlob, ref IStream* ppStream) 
+		public readonly unsafe HResult CreateStreamFromBlobReadOnly(ref IDxcBlob pBlob, ref IStream* ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IStream** pppStream = &ppStream)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(LpVtbl[10]))(ptr, (IDxcBlob*)ppBlob, (IStream**)pppStream);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(LpVtbl[10]))(ptr, (IDxcBlob*)ppBlob, (IStream**)pppStream);
 					return ret;
 				}
 			}
@@ -752,33 +752,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateStreamFromBlobReadOnly(ComPtr<IDxcBlob> pBlob, out ComPtr<IStream> ppStream) 
+		public readonly unsafe HResult CreateStreamFromBlobReadOnly(ComPtr<IDxcBlob> pBlob, out ComPtr<IStream> ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppStream = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(LpVtbl[10]))(ptr, (IDxcBlob*)pBlob.Handle, (IStream**)ppStream.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(LpVtbl[10]))(ptr, (IDxcBlob*)pBlob.Handle, (IStream**)ppStream.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[11]))(ptr, pBlob, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[11]))(ptr, pBlob, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(ref IDxcBlob pBlob, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(ref IDxcBlob pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[11]))(ptr, (IDxcBlob*)ppBlob, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[11]))(ptr, (IDxcBlob*)ppBlob, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -786,22 +786,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(ComPtr<IDxcBlob> pBlob, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(ComPtr<IDxcBlob> pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[11]))(ptr, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[11]))(ptr, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(IDxcBlob* pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(IDxcBlob* pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[11]))(ptr, pBlob, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[11]))(ptr, pBlob, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -809,25 +809,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(IDxcBlob* pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(IDxcBlob* pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[11]))(ptr, pBlob, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[11]))(ptr, pBlob, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(ref IDxcBlob pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(ref IDxcBlob pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[11]))(ptr, (IDxcBlob*)ppBlob, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[11]))(ptr, (IDxcBlob*)ppBlob, (IDxcBlobEncoding**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -836,33 +836,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[11]))(ptr, (IDxcBlob*)pBlob.Handle, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[11]))(ptr, (IDxcBlob*)pBlob.Handle, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[12]))(ptr, pBlob, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[12]))(ptr, pBlob, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(ref IDxcBlob pBlob, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(ref IDxcBlob pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[12]))(ptr, (IDxcBlob*)ppBlob, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[12]))(ptr, (IDxcBlob*)ppBlob, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -870,22 +870,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(ComPtr<IDxcBlob> pBlob, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(ComPtr<IDxcBlob> pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[12]))(ptr, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[12]))(ptr, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(IDxcBlob* pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(IDxcBlob* pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[12]))(ptr, pBlob, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[12]))(ptr, pBlob, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -893,25 +893,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(IDxcBlob* pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(IDxcBlob* pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[12]))(ptr, pBlob, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[12]))(ptr, pBlob, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(ref IDxcBlob pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(ref IDxcBlob pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[12]))(ptr, (IDxcBlob*)ppBlob, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[12]))(ptr, (IDxcBlob*)ppBlob, (IDxcBlobEncoding**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -920,11 +920,11 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[12]))(ptr, (IDxcBlob*)pBlob.Handle, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(LpVtbl[12]))(ptr, (IDxcBlob*)pBlob.Handle, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 

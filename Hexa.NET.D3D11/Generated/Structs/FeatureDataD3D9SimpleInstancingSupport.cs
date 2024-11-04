@@ -27,13 +27,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int SimpleInstancingSupported;
+		public Bool32 SimpleInstancingSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D9SimpleInstancingSupport(int simpleInstancingSupported = default)
+		public unsafe FeatureDataD3D9SimpleInstancingSupport(Bool32 simpleInstancingSupported = default)
 		{
 			SimpleInstancingSupported = simpleInstancingSupported;
 		}

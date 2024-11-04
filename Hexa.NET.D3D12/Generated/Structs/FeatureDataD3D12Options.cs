@@ -27,12 +27,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DoublePrecisionFloatShaderOps;
+		public Bool32 DoublePrecisionFloatShaderOps;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int OutputMergerLogicOp;
+		public Bool32 OutputMergerLogicOp;
 
 		/// <summary>
 		/// To be documented.
@@ -52,17 +52,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int PSSpecifiedStencilRefSupported;
+		public Bool32 PSSpecifiedStencilRefSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int TypedUAVLoadAdditionalFormats;
+		public Bool32 TypedUAVLoadAdditionalFormats;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ROVsSupported;
+		public Bool32 ROVsSupported;
 
 		/// <summary>
 		/// To be documented.
@@ -77,7 +77,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int StandardSwizzle64KBSupported;
+		public Bool32 StandardSwizzle64KBSupported;
 
 		/// <summary>
 		/// To be documented.
@@ -87,12 +87,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int CrossAdapterRowMajorTextureSupported;
+		public Bool32 CrossAdapterRowMajorTextureSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int VPAndRTArrayIndexFromAnyShaderFeedingRasterizerSupportedWithoutGSEmulation;
+		public Bool32 VPAndRTArrayIndexFromAnyShaderFeedingRasterizerSupportedWithoutGSEmulation;
 
 		/// <summary>
 		/// To be documented.
@@ -103,7 +103,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D12Options(int doublePrecisionFloatShaderOps = default, int outputMergerLogicOp = default, ShaderMinPrecisionSupport minPrecisionSupport = default, TiledResourcesTier tiledResourcesTier = default, ResourceBindingTier resourceBindingTier = default, int psSpecifiedStencilRefSupported = default, int typedUavLoadAdditionalFormats = default, int roVsSupported = default, ConservativeRasterizationTier conservativeRasterizationTier = default, uint maxGpuVirtualAddressBitsPerResource = default, int standardSwizzle64KbSupported = default, CrossNodeSharingTier crossNodeSharingTier = default, int crossAdapterRowMajorTextureSupported = default, int vpAndRtArrayIndexFromAnyShaderFeedingRasterizerSupportedWithoutGsEmulation = default, ResourceHeapTier resourceHeapTier = default)
+		public unsafe FeatureDataD3D12Options(Bool32 doublePrecisionFloatShaderOps = default, Bool32 outputMergerLogicOp = default, ShaderMinPrecisionSupport minPrecisionSupport = default, TiledResourcesTier tiledResourcesTier = default, ResourceBindingTier resourceBindingTier = default, Bool32 psSpecifiedStencilRefSupported = default, Bool32 typedUavLoadAdditionalFormats = default, Bool32 roVsSupported = default, ConservativeRasterizationTier conservativeRasterizationTier = default, uint maxGpuVirtualAddressBitsPerResource = default, Bool32 standardSwizzle64KbSupported = default, CrossNodeSharingTier crossNodeSharingTier = default, Bool32 crossAdapterRowMajorTextureSupported = default, Bool32 vpAndRtArrayIndexFromAnyShaderFeedingRasterizerSupportedWithoutGsEmulation = default, ResourceHeapTier resourceHeapTier = default)
 		{
 			DoublePrecisionFloatShaderOps = doublePrecisionFloatShaderOps;
 			OutputMergerLogicOp = outputMergerLogicOp;

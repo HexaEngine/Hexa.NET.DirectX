@@ -177,23 +177,23 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// TRUE, if function returns a value, false - it is a subroutine<br/>
 		/// </summary>
-		public int HasReturn;
+		public Bool32 HasReturn;
 
 		/// <summary>
 		/// TRUE, if there is a 10L9 VS blob<br/>
 		/// </summary>
-		public int Has10Level9VertexShader;
+		public Bool32 Has10Level9VertexShader;
 
 		/// <summary>
 		/// TRUE, if there is a 10L9 PS blob<br/>
 		/// </summary>
-		public int Has10Level9PixelShader;
+		public Bool32 Has10Level9PixelShader;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FunctionDesc(uint version = default, byte* creator = default, uint flags = default, uint constantBuffers = default, uint boundResources = default, uint instructionCount = default, uint tempRegisterCount = default, uint tempArrayCount = default, uint defCount = default, uint dclCount = default, uint textureNormalInstructions = default, uint textureLoadInstructions = default, uint textureCompInstructions = default, uint textureBiasInstructions = default, uint textureGradientInstructions = default, uint floatInstructionCount = default, uint intInstructionCount = default, uint uintInstructionCount = default, uint staticFlowControlCount = default, uint dynamicFlowControlCount = default, uint macroInstructionCount = default, uint arrayInstructionCount = default, uint movInstructionCount = default, uint movcInstructionCount = default, uint conversionInstructionCount = default, uint bitwiseInstructionCount = default, FeatureLevel minFeatureLevel = default, ulong requiredFeatureFlags = default, byte* name = default, int functionParameterCount = default, int hasReturn = default, int has10Level9VertexShader = default, int has10Level9PixelShader = default)
+		public unsafe FunctionDesc(uint version = default, byte* creator = default, uint flags = default, uint constantBuffers = default, uint boundResources = default, uint instructionCount = default, uint tempRegisterCount = default, uint tempArrayCount = default, uint defCount = default, uint dclCount = default, uint textureNormalInstructions = default, uint textureLoadInstructions = default, uint textureCompInstructions = default, uint textureBiasInstructions = default, uint textureGradientInstructions = default, uint floatInstructionCount = default, uint intInstructionCount = default, uint uintInstructionCount = default, uint staticFlowControlCount = default, uint dynamicFlowControlCount = default, uint macroInstructionCount = default, uint arrayInstructionCount = default, uint movInstructionCount = default, uint movcInstructionCount = default, uint conversionInstructionCount = default, uint bitwiseInstructionCount = default, FeatureLevel minFeatureLevel = default, ulong requiredFeatureFlags = default, byte* name = default, int functionParameterCount = default, Bool32 hasReturn = default, Bool32 has10Level9VertexShader = default, Bool32 has10Level9PixelShader = default)
 		{
 			Version = version;
 			Creator = creator;

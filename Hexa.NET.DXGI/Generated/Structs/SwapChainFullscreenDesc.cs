@@ -41,13 +41,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Windowed;
+		public Bool32 Windowed;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe SwapChainFullscreenDesc(Rational refreshRate = default, ModeScanlineOrder scanlineOrdering = default, ModeScaling scaling = default, int windowed = default)
+		public unsafe SwapChainFullscreenDesc(Rational refreshRate = default, ModeScanlineOrder scanlineOrdering = default, ModeScaling scaling = default, Bool32 windowed = default)
 		{
 			RefreshRate = refreshRate;
 			ScanlineOrdering = scanlineOrdering;

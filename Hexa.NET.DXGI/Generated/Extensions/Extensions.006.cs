@@ -22,14 +22,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ref IUnknown pDevice, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ref IUnknown pDevice, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -38,24 +38,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -64,12 +64,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 				return ret;
 			}
 		}
@@ -77,7 +77,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ref IUnknown pDevice, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ref IUnknown pDevice, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -86,7 +86,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 						return ret;
 					}
 				}
@@ -96,12 +96,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ComPtr<IUnknown> pDevice, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ComPtr<IUnknown> pDevice, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 				return ret;
 			}
 		}
@@ -109,12 +109,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 				return ret;
 			}
 		}
@@ -122,25 +122,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ref IUnknown pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ref IUnknown pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -149,25 +149,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -176,13 +176,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -190,7 +190,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ref IUnknown pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ref IUnknown pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -199,7 +199,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -209,13 +209,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ComPtr<IUnknown> pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ComPtr<IUnknown> pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -223,14 +223,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 			{
 				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -239,18 +239,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ref IUnknown pDevice, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ref IUnknown pDevice, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -259,7 +259,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -269,18 +269,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
@@ -289,7 +289,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -299,13 +299,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -313,7 +313,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ref IUnknown pDevice, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ref IUnknown pDevice, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -324,7 +324,7 @@ namespace Hexa.NET.DXGI
 					{
 						fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 							return ret;
 						}
 					}
@@ -335,13 +335,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ComPtr<IUnknown> pDevice, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static HResult CreateSwapChainForComposition(this ComPtr<IDXGIFactory4> comObj, ComPtr<IUnknown> pDevice, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -359,22 +359,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumAdapterByLuid(this ComPtr<IDXGIFactory4> comObj, Luid adapterLuid, Guid* riid, void** ppvAdapter) 
+		public static HResult EnumAdapterByLuid(this ComPtr<IDXGIFactory4> comObj, Luid adapterLuid, Guid* riid, void** ppvAdapter) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Luid, Guid*, void**, int>)(handle->LpVtbl[26]))(handle, adapterLuid, riid, ppvAdapter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Luid, Guid*, void**, HResult>)(handle->LpVtbl[26]))(handle, adapterLuid, riid, ppvAdapter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumAdapterByLuid(this ComPtr<IDXGIFactory4> comObj, Luid adapterLuid, ref Guid riid, void** ppvAdapter) 
+		public static HResult EnumAdapterByLuid(this ComPtr<IDXGIFactory4> comObj, Luid adapterLuid, ref Guid riid, void** ppvAdapter) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Luid, Guid*, void**, int>)(handle->LpVtbl[26]))(handle, adapterLuid, (Guid*)priid, ppvAdapter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Luid, Guid*, void**, HResult>)(handle->LpVtbl[26]))(handle, adapterLuid, (Guid*)priid, ppvAdapter);
 				return ret;
 			}
 		}
@@ -382,24 +382,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumAdapterByLuid<T>(this ComPtr<IDXGIFactory4> comObj, Luid adapterLuid, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult EnumAdapterByLuid<T>(this ComPtr<IDXGIFactory4> comObj, Luid adapterLuid, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			ppvAdapter = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Luid, Guid*, void**, int>)(handle->LpVtbl[26]))(handle, adapterLuid, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvAdapter.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Luid, Guid*, void**, HResult>)(handle->LpVtbl[26]))(handle, adapterLuid, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvAdapter.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumAdapterByLuid<T>(this ComPtr<IDXGIFactory4> comObj, Luid adapterLuid, ref Guid riid, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult EnumAdapterByLuid<T>(this ComPtr<IDXGIFactory4> comObj, Luid adapterLuid, ref Guid riid, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvAdapter = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Luid, Guid*, void**, int>)(handle->LpVtbl[26]))(handle, adapterLuid, (Guid*)priid, (void**)ppvAdapter.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Luid, Guid*, void**, HResult>)(handle->LpVtbl[26]))(handle, adapterLuid, (Guid*)priid, (void**)ppvAdapter.GetAddressOf());
 				return ret;
 			}
 		}
@@ -407,22 +407,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumWarpAdapter(this ComPtr<IDXGIFactory4> comObj, Guid* riid, void** ppvAdapter) 
+		public static HResult EnumWarpAdapter(this ComPtr<IDXGIFactory4> comObj, Guid* riid, void** ppvAdapter) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, riid, ppvAdapter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Guid*, void**, HResult>)(handle->LpVtbl[27]))(handle, riid, ppvAdapter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumWarpAdapter(this ComPtr<IDXGIFactory4> comObj, ref Guid riid, void** ppvAdapter) 
+		public static HResult EnumWarpAdapter(this ComPtr<IDXGIFactory4> comObj, ref Guid riid, void** ppvAdapter) 
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (Guid*)priid, ppvAdapter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Guid*, void**, HResult>)(handle->LpVtbl[27]))(handle, (Guid*)priid, ppvAdapter);
 				return ret;
 			}
 		}
@@ -430,24 +430,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumWarpAdapter<T>(this ComPtr<IDXGIFactory4> comObj, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult EnumWarpAdapter<T>(this ComPtr<IDXGIFactory4> comObj, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			ppvAdapter = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvAdapter.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Guid*, void**, HResult>)(handle->LpVtbl[27]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvAdapter.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumWarpAdapter<T>(this ComPtr<IDXGIFactory4> comObj, ref Guid riid, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult EnumWarpAdapter<T>(this ComPtr<IDXGIFactory4> comObj, ref Guid riid, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactory4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvAdapter = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (Guid*)priid, (void**)ppvAdapter.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory4*, Guid*, void**, HResult>)(handle->LpVtbl[27]))(handle, (Guid*)priid, (void**)ppvAdapter.GetAddressOf());
 				return ret;
 			}
 		}
@@ -455,22 +455,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDXGIAdapter3> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDXGIAdapter3> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDXGIAdapter3> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDXGIAdapter3> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -478,24 +478,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDXGIAdapter3> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDXGIAdapter3> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDXGIAdapter3> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDXGIAdapter3> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -523,22 +523,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<IDXGIAdapter3> comObj, Guid* name, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<IDXGIAdapter3> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint, void*, HResult>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint, void*, HResult>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
 				return ret;
 			}
 		}
@@ -546,22 +546,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter3> comObj, Guid* name, IUnknown* pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIAdapter3> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, pUnknown);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, IUnknown* pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
 				return ret;
 			}
 		}
@@ -569,12 +569,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter3> comObj, Guid* name, ref IUnknown pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIAdapter3> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
 				return ret;
 			}
 		}
@@ -582,24 +582,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter3> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIAdapter3> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, ref IUnknown pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (IUnknown* ppUnknown = &pUnknown)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)ppUnknown);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)ppUnknown);
 					return ret;
 				}
 			}
@@ -608,12 +608,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)pUnknown.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)pUnknown.Handle);
 				return ret;
 			}
 		}
@@ -621,22 +621,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIAdapter3> comObj, Guid* name, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIAdapter3> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -644,12 +644,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIAdapter3> comObj, Guid* name, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIAdapter3> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -657,14 +657,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -673,22 +673,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIAdapter3> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIAdapter3> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -696,12 +696,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIAdapter3> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIAdapter3> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -709,14 +709,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIAdapter3> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -725,22 +725,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent(this ComPtr<IDXGIAdapter3> comObj, Guid* riid, void** ppParent) 
+		public static HResult GetParent(this ComPtr<IDXGIAdapter3> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, riid, ppParent);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent(this ComPtr<IDXGIAdapter3> comObj, ref Guid riid, void** ppParent) 
+		public static HResult GetParent(this ComPtr<IDXGIAdapter3> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, ppParent);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)priid, ppParent);
 				return ret;
 			}
 		}
@@ -748,24 +748,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent<T>(this ComPtr<IDXGIAdapter3> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetParent<T>(this ComPtr<IDXGIAdapter3> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			ppParent = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent<T>(this ComPtr<IDXGIAdapter3> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetParent<T>(this ComPtr<IDXGIAdapter3> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppParent = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, (void**)ppParent.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)priid, (void**)ppParent.GetAddressOf());
 				return ret;
 			}
 		}
@@ -773,22 +773,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumOutputs(this ComPtr<IDXGIAdapter3> comObj, uint output, IDXGIOutput** ppOutput) 
+		public static HResult EnumOutputs(this ComPtr<IDXGIAdapter3> comObj, uint output, IDXGIOutput** ppOutput) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, uint, IDXGIOutput**, int>)(handle->LpVtbl[7]))(handle, output, ppOutput);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, uint, IDXGIOutput**, HResult>)(handle->LpVtbl[7]))(handle, output, ppOutput);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumOutputs(this ComPtr<IDXGIAdapter3> comObj, uint output, ref IDXGIOutput* ppOutput) 
+		public static HResult EnumOutputs(this ComPtr<IDXGIAdapter3> comObj, uint output, ref IDXGIOutput* ppOutput) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (IDXGIOutput** pppOutput = &ppOutput)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, uint, IDXGIOutput**, int>)(handle->LpVtbl[7]))(handle, output, (IDXGIOutput**)pppOutput);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, uint, IDXGIOutput**, HResult>)(handle->LpVtbl[7]))(handle, output, (IDXGIOutput**)pppOutput);
 				return ret;
 			}
 		}
@@ -796,33 +796,33 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumOutputs(this ComPtr<IDXGIAdapter3> comObj, uint output, out ComPtr<IDXGIOutput> ppOutput) 
+		public static HResult EnumOutputs(this ComPtr<IDXGIAdapter3> comObj, uint output, out ComPtr<IDXGIOutput> ppOutput) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			ppOutput = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, uint, IDXGIOutput**, int>)(handle->LpVtbl[7]))(handle, output, (IDXGIOutput**)ppOutput.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, uint, IDXGIOutput**, HResult>)(handle->LpVtbl[7]))(handle, output, (IDXGIOutput**)ppOutput.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDesc(this ComPtr<IDXGIAdapter3> comObj, AdapterDesc* pDesc) 
+		public static HResult GetDesc(this ComPtr<IDXGIAdapter3> comObj, AdapterDesc* pDesc) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, AdapterDesc*, int>)(handle->LpVtbl[8]))(handle, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, AdapterDesc*, HResult>)(handle->LpVtbl[8]))(handle, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDesc(this ComPtr<IDXGIAdapter3> comObj, ref AdapterDesc pDesc) 
+		public static HResult GetDesc(this ComPtr<IDXGIAdapter3> comObj, ref AdapterDesc pDesc) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (AdapterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, AdapterDesc*, int>)(handle->LpVtbl[8]))(handle, (AdapterDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, AdapterDesc*, HResult>)(handle->LpVtbl[8]))(handle, (AdapterDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -830,22 +830,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckInterfaceSupport(this ComPtr<IDXGIAdapter3> comObj, Guid* interfaceName, long* pUMDVersion) 
+		public static HResult CheckInterfaceSupport(this ComPtr<IDXGIAdapter3> comObj, Guid* interfaceName, long* pUMDVersion) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, long*, int>)(handle->LpVtbl[9]))(handle, interfaceName, pUMDVersion);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, long*, HResult>)(handle->LpVtbl[9]))(handle, interfaceName, pUMDVersion);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckInterfaceSupport(this ComPtr<IDXGIAdapter3> comObj, ref Guid interfaceName, long* pUMDVersion) 
+		public static HResult CheckInterfaceSupport(this ComPtr<IDXGIAdapter3> comObj, ref Guid interfaceName, long* pUMDVersion) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* pinterfaceName = &interfaceName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, long*, int>)(handle->LpVtbl[9]))(handle, (Guid*)pinterfaceName, pUMDVersion);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, long*, HResult>)(handle->LpVtbl[9]))(handle, (Guid*)pinterfaceName, pUMDVersion);
 				return ret;
 			}
 		}
@@ -853,12 +853,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckInterfaceSupport(this ComPtr<IDXGIAdapter3> comObj, Guid* interfaceName, ref long pUMDVersion) 
+		public static HResult CheckInterfaceSupport(this ComPtr<IDXGIAdapter3> comObj, Guid* interfaceName, ref long pUMDVersion) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (long* ppUMDVersion = &pUMDVersion)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, long*, int>)(handle->LpVtbl[9]))(handle, interfaceName, (long*)ppUMDVersion);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, long*, HResult>)(handle->LpVtbl[9]))(handle, interfaceName, (long*)ppUMDVersion);
 				return ret;
 			}
 		}
@@ -866,14 +866,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckInterfaceSupport(this ComPtr<IDXGIAdapter3> comObj, ref Guid interfaceName, ref long pUMDVersion) 
+		public static HResult CheckInterfaceSupport(this ComPtr<IDXGIAdapter3> comObj, ref Guid interfaceName, ref long pUMDVersion) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (Guid* pinterfaceName = &interfaceName)
 			{
 				fixed (long* ppUMDVersion = &pUMDVersion)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, long*, int>)(handle->LpVtbl[9]))(handle, (Guid*)pinterfaceName, (long*)ppUMDVersion);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, Guid*, long*, HResult>)(handle->LpVtbl[9]))(handle, (Guid*)pinterfaceName, (long*)ppUMDVersion);
 					return ret;
 				}
 			}
@@ -882,22 +882,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDesc1(this ComPtr<IDXGIAdapter3> comObj, AdapterDesc1* pDesc) 
+		public static HResult GetDesc1(this ComPtr<IDXGIAdapter3> comObj, AdapterDesc1* pDesc) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, AdapterDesc1*, int>)(handle->LpVtbl[10]))(handle, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, AdapterDesc1*, HResult>)(handle->LpVtbl[10]))(handle, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDesc1(this ComPtr<IDXGIAdapter3> comObj, ref AdapterDesc1 pDesc) 
+		public static HResult GetDesc1(this ComPtr<IDXGIAdapter3> comObj, ref AdapterDesc1 pDesc) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (AdapterDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, AdapterDesc1*, int>)(handle->LpVtbl[10]))(handle, (AdapterDesc1*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, AdapterDesc1*, HResult>)(handle->LpVtbl[10]))(handle, (AdapterDesc1*)ppDesc);
 				return ret;
 			}
 		}
@@ -905,22 +905,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDesc2(this ComPtr<IDXGIAdapter3> comObj, AdapterDesc2* pDesc) 
+		public static HResult GetDesc2(this ComPtr<IDXGIAdapter3> comObj, AdapterDesc2* pDesc) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, AdapterDesc2*, int>)(handle->LpVtbl[11]))(handle, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, AdapterDesc2*, HResult>)(handle->LpVtbl[11]))(handle, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDesc2(this ComPtr<IDXGIAdapter3> comObj, ref AdapterDesc2 pDesc) 
+		public static HResult GetDesc2(this ComPtr<IDXGIAdapter3> comObj, ref AdapterDesc2 pDesc) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (AdapterDesc2* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, AdapterDesc2*, int>)(handle->LpVtbl[11]))(handle, (AdapterDesc2*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, AdapterDesc2*, HResult>)(handle->LpVtbl[11]))(handle, (AdapterDesc2*)ppDesc);
 				return ret;
 			}
 		}
@@ -928,22 +928,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterHardwareContentProtectionTeardownStatusEvent(this ComPtr<IDXGIAdapter3> comObj, nint hEvent, uint* pdwCookie) 
+		public static HResult RegisterHardwareContentProtectionTeardownStatusEvent(this ComPtr<IDXGIAdapter3> comObj, nint hEvent, uint* pdwCookie) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, nint, uint*, int>)(handle->LpVtbl[12]))(handle, hEvent, pdwCookie);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, nint, uint*, HResult>)(handle->LpVtbl[12]))(handle, hEvent, pdwCookie);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterHardwareContentProtectionTeardownStatusEvent(this ComPtr<IDXGIAdapter3> comObj, nint hEvent, ref uint pdwCookie) 
+		public static HResult RegisterHardwareContentProtectionTeardownStatusEvent(this ComPtr<IDXGIAdapter3> comObj, nint hEvent, ref uint pdwCookie) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (uint* ppdwCookie = &pdwCookie)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, nint, uint*, int>)(handle->LpVtbl[12]))(handle, hEvent, (uint*)ppdwCookie);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, nint, uint*, HResult>)(handle->LpVtbl[12]))(handle, hEvent, (uint*)ppdwCookie);
 				return ret;
 			}
 		}
@@ -960,22 +960,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryVideoMemoryInfo(this ComPtr<IDXGIAdapter3> comObj, uint nodeIndex, MemorySegmentGroup memorySegmentGroup, QueryVideoMemoryInfo* pVideoMemoryInfo) 
+		public static HResult QueryVideoMemoryInfo(this ComPtr<IDXGIAdapter3> comObj, uint nodeIndex, MemorySegmentGroup memorySegmentGroup, QueryVideoMemoryInfo* pVideoMemoryInfo) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, uint, MemorySegmentGroup, QueryVideoMemoryInfo*, int>)(handle->LpVtbl[14]))(handle, nodeIndex, memorySegmentGroup, pVideoMemoryInfo);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, uint, MemorySegmentGroup, QueryVideoMemoryInfo*, HResult>)(handle->LpVtbl[14]))(handle, nodeIndex, memorySegmentGroup, pVideoMemoryInfo);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryVideoMemoryInfo(this ComPtr<IDXGIAdapter3> comObj, uint nodeIndex, MemorySegmentGroup memorySegmentGroup, ref QueryVideoMemoryInfo pVideoMemoryInfo) 
+		public static HResult QueryVideoMemoryInfo(this ComPtr<IDXGIAdapter3> comObj, uint nodeIndex, MemorySegmentGroup memorySegmentGroup, ref QueryVideoMemoryInfo pVideoMemoryInfo) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (QueryVideoMemoryInfo* ppVideoMemoryInfo = &pVideoMemoryInfo)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, uint, MemorySegmentGroup, QueryVideoMemoryInfo*, int>)(handle->LpVtbl[14]))(handle, nodeIndex, memorySegmentGroup, (QueryVideoMemoryInfo*)ppVideoMemoryInfo);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, uint, MemorySegmentGroup, QueryVideoMemoryInfo*, HResult>)(handle->LpVtbl[14]))(handle, nodeIndex, memorySegmentGroup, (QueryVideoMemoryInfo*)ppVideoMemoryInfo);
 				return ret;
 			}
 		}
@@ -983,32 +983,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetVideoMemoryReservation(this ComPtr<IDXGIAdapter3> comObj, uint nodeIndex, MemorySegmentGroup memorySegmentGroup, ulong reservation) 
+		public static HResult SetVideoMemoryReservation(this ComPtr<IDXGIAdapter3> comObj, uint nodeIndex, MemorySegmentGroup memorySegmentGroup, ulong reservation) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, uint, MemorySegmentGroup, ulong, int>)(handle->LpVtbl[15]))(handle, nodeIndex, memorySegmentGroup, reservation);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, uint, MemorySegmentGroup, ulong, HResult>)(handle->LpVtbl[15]))(handle, nodeIndex, memorySegmentGroup, reservation);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterVideoMemoryBudgetChangeNotificationEvent(this ComPtr<IDXGIAdapter3> comObj, nint hEvent, uint* pdwCookie) 
+		public static HResult RegisterVideoMemoryBudgetChangeNotificationEvent(this ComPtr<IDXGIAdapter3> comObj, nint hEvent, uint* pdwCookie) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, nint, uint*, int>)(handle->LpVtbl[16]))(handle, hEvent, pdwCookie);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, nint, uint*, HResult>)(handle->LpVtbl[16]))(handle, hEvent, pdwCookie);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterVideoMemoryBudgetChangeNotificationEvent(this ComPtr<IDXGIAdapter3> comObj, nint hEvent, ref uint pdwCookie) 
+		public static HResult RegisterVideoMemoryBudgetChangeNotificationEvent(this ComPtr<IDXGIAdapter3> comObj, nint hEvent, ref uint pdwCookie) 
 		{
 			IDXGIAdapter3* handle = comObj.Handle;
 			fixed (uint* ppdwCookie = &pdwCookie)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, nint, uint*, int>)(handle->LpVtbl[16]))(handle, hEvent, (uint*)ppdwCookie);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter3*, nint, uint*, HResult>)(handle->LpVtbl[16]))(handle, hEvent, (uint*)ppdwCookie);
 				return ret;
 			}
 		}
@@ -1025,22 +1025,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDXGIOutput5> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDXGIOutput5> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDXGIOutput5> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDXGIOutput5> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1048,24 +1048,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDXGIOutput5> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDXGIOutput5> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDXGIOutput5> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDXGIOutput5> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1093,22 +1093,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<IDXGIOutput5> comObj, Guid* name, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<IDXGIOutput5> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint, void*, HResult>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<IDXGIOutput5> comObj, ref Guid name, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<IDXGIOutput5> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint, void*, HResult>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
 				return ret;
 			}
 		}
@@ -1116,22 +1116,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput5> comObj, Guid* name, IUnknown* pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIOutput5> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, pUnknown);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput5> comObj, ref Guid name, IUnknown* pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIOutput5> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
 				return ret;
 			}
 		}
@@ -1139,12 +1139,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput5> comObj, Guid* name, ref IUnknown pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIOutput5> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
 				return ret;
 			}
 		}
@@ -1152,24 +1152,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput5> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIOutput5> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput5> comObj, ref Guid name, ref IUnknown pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIOutput5> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (IUnknown* ppUnknown = &pUnknown)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)ppUnknown);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)ppUnknown);
 					return ret;
 				}
 			}
@@ -1178,12 +1178,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput5> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIOutput5> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)pUnknown.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)pUnknown.Handle);
 				return ret;
 			}
 		}
@@ -1191,22 +1191,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIOutput5> comObj, Guid* name, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIOutput5> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIOutput5> comObj, ref Guid name, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIOutput5> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -1214,12 +1214,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIOutput5> comObj, Guid* name, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIOutput5> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -1227,14 +1227,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIOutput5> comObj, ref Guid name, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIOutput5> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -1243,22 +1243,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIOutput5> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIOutput5> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIOutput5> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIOutput5> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1266,12 +1266,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIOutput5> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIOutput5> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1279,14 +1279,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIOutput5> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIOutput5> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -1295,22 +1295,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent(this ComPtr<IDXGIOutput5> comObj, Guid* riid, void** ppParent) 
+		public static HResult GetParent(this ComPtr<IDXGIOutput5> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, riid, ppParent);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent(this ComPtr<IDXGIOutput5> comObj, ref Guid riid, void** ppParent) 
+		public static HResult GetParent(this ComPtr<IDXGIOutput5> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, ppParent);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)priid, ppParent);
 				return ret;
 			}
 		}
@@ -1318,24 +1318,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent<T>(this ComPtr<IDXGIOutput5> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetParent<T>(this ComPtr<IDXGIOutput5> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			ppParent = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent<T>(this ComPtr<IDXGIOutput5> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetParent<T>(this ComPtr<IDXGIOutput5> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppParent = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, (void**)ppParent.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)priid, (void**)ppParent.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1343,22 +1343,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDesc(this ComPtr<IDXGIOutput5> comObj, OutputDesc* pDesc) 
+		public static HResult GetDesc(this ComPtr<IDXGIOutput5> comObj, OutputDesc* pDesc) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, OutputDesc*, int>)(handle->LpVtbl[7]))(handle, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, OutputDesc*, HResult>)(handle->LpVtbl[7]))(handle, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDesc(this ComPtr<IDXGIOutput5> comObj, ref OutputDesc pDesc) 
+		public static HResult GetDesc(this ComPtr<IDXGIOutput5> comObj, ref OutputDesc pDesc) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (OutputDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, OutputDesc*, int>)(handle->LpVtbl[7]))(handle, (OutputDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, OutputDesc*, HResult>)(handle->LpVtbl[7]))(handle, (OutputDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -1366,22 +1366,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplayModeList(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, uint* pNumModes, ModeDesc* pDesc) 
+		public static HResult GetDisplayModeList(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, uint* pNumModes, ModeDesc* pDesc) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc*, int>)(handle->LpVtbl[8]))(handle, enumFormat, flags, pNumModes, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc*, HResult>)(handle->LpVtbl[8]))(handle, enumFormat, flags, pNumModes, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplayModeList(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, ref uint pNumModes, ModeDesc* pDesc) 
+		public static HResult GetDisplayModeList(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, ref uint pNumModes, ModeDesc* pDesc) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (uint* ppNumModes = &pNumModes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc*, int>)(handle->LpVtbl[8]))(handle, enumFormat, flags, (uint*)ppNumModes, pDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc*, HResult>)(handle->LpVtbl[8]))(handle, enumFormat, flags, (uint*)ppNumModes, pDesc);
 				return ret;
 			}
 		}
@@ -1389,12 +1389,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplayModeList(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, uint* pNumModes, ref ModeDesc pDesc) 
+		public static HResult GetDisplayModeList(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, uint* pNumModes, ref ModeDesc pDesc) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc*, int>)(handle->LpVtbl[8]))(handle, enumFormat, flags, pNumModes, (ModeDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc*, HResult>)(handle->LpVtbl[8]))(handle, enumFormat, flags, pNumModes, (ModeDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -1402,14 +1402,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplayModeList(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, ref uint pNumModes, ref ModeDesc pDesc) 
+		public static HResult GetDisplayModeList(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, ref uint pNumModes, ref ModeDesc pDesc) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (uint* ppNumModes = &pNumModes)
 			{
 				fixed (ModeDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc*, int>)(handle->LpVtbl[8]))(handle, enumFormat, flags, (uint*)ppNumModes, (ModeDesc*)ppDesc);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc*, HResult>)(handle->LpVtbl[8]))(handle, enumFormat, flags, (uint*)ppNumModes, (ModeDesc*)ppDesc);
 					return ret;
 				}
 			}
@@ -1418,22 +1418,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ModeDesc* pModeToMatch, ModeDesc* pClosestMatch, IUnknown* pConcernedDevice) 
+		public static HResult FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ModeDesc* pModeToMatch, ModeDesc* pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, pClosestMatch, pConcernedDevice);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, HResult>)(handle->LpVtbl[9]))(handle, pModeToMatch, pClosestMatch, pConcernedDevice);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc pModeToMatch, ModeDesc* pClosestMatch, IUnknown* pConcernedDevice) 
+		public static HResult FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc pModeToMatch, ModeDesc* pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, pClosestMatch, pConcernedDevice);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, HResult>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, pClosestMatch, pConcernedDevice);
 				return ret;
 			}
 		}
@@ -1441,12 +1441,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ModeDesc* pModeToMatch, ref ModeDesc pClosestMatch, IUnknown* pConcernedDevice) 
+		public static HResult FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ModeDesc* pModeToMatch, ref ModeDesc pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, (ModeDesc*)ppClosestMatch, pConcernedDevice);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, HResult>)(handle->LpVtbl[9]))(handle, pModeToMatch, (ModeDesc*)ppClosestMatch, pConcernedDevice);
 				return ret;
 			}
 		}
@@ -1454,14 +1454,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc pModeToMatch, ref ModeDesc pClosestMatch, IUnknown* pConcernedDevice) 
+		public static HResult FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc pModeToMatch, ref ModeDesc pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
 				fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, (ModeDesc*)ppClosestMatch, pConcernedDevice);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, HResult>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, (ModeDesc*)ppClosestMatch, pConcernedDevice);
 					return ret;
 				}
 			}
@@ -1470,12 +1470,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ModeDesc* pModeToMatch, ModeDesc* pClosestMatch, ref IUnknown pConcernedDevice) 
+		public static HResult FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ModeDesc* pModeToMatch, ModeDesc* pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, HResult>)(handle->LpVtbl[9]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
 				return ret;
 			}
 		}
@@ -1483,24 +1483,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ModeDesc* pModeToMatch, ModeDesc* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
+		public static HResult FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ModeDesc* pModeToMatch, ModeDesc* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, HResult>)(handle->LpVtbl[9]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc pModeToMatch, ModeDesc* pClosestMatch, ref IUnknown pConcernedDevice) 
+		public static HResult FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc pModeToMatch, ModeDesc* pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
 				fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, HResult>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
 					return ret;
 				}
 			}
@@ -1509,12 +1509,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc pModeToMatch, ModeDesc* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
+		public static HResult FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc pModeToMatch, ModeDesc* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, HResult>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 				return ret;
 			}
 		}
@@ -1522,14 +1522,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ModeDesc* pModeToMatch, ref ModeDesc pClosestMatch, ref IUnknown pConcernedDevice) 
+		public static HResult FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ModeDesc* pModeToMatch, ref ModeDesc pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 			{
 				fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, HResult>)(handle->LpVtbl[9]))(handle, pModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
 					return ret;
 				}
 			}
@@ -1538,12 +1538,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ModeDesc* pModeToMatch, ref ModeDesc pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
+		public static HResult FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ModeDesc* pModeToMatch, ref ModeDesc pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, HResult>)(handle->LpVtbl[9]))(handle, pModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 				return ret;
 			}
 		}
@@ -1551,7 +1551,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc pModeToMatch, ref ModeDesc pClosestMatch, ref IUnknown pConcernedDevice) 
+		public static HResult FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc pModeToMatch, ref ModeDesc pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
@@ -1560,7 +1560,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, HResult>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
 						return ret;
 					}
 				}
@@ -1570,14 +1570,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc pModeToMatch, ref ModeDesc pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
+		public static HResult FindClosestMatchingMode(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc pModeToMatch, ref ModeDesc pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
 				fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc*, ModeDesc*, IUnknown*, HResult>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 					return ret;
 				}
 			}
@@ -1586,32 +1586,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int WaitForVBlank(this ComPtr<IDXGIOutput5> comObj) 
+		public static HResult WaitForVBlank(this ComPtr<IDXGIOutput5> comObj) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, int>)(handle->LpVtbl[10]))(handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, HResult>)(handle->LpVtbl[10]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int TakeOwnership(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, int exclusive) 
+		public static HResult TakeOwnership(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, Bool32 exclusive) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, int, int>)(handle->LpVtbl[11]))(handle, pDevice, exclusive);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, Bool32, HResult>)(handle->LpVtbl[11]))(handle, pDevice, exclusive);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int TakeOwnership(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, int exclusive) 
+		public static HResult TakeOwnership(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, Bool32 exclusive) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, int, int>)(handle->LpVtbl[11]))(handle, (IUnknown*)ppDevice, exclusive);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, Bool32, HResult>)(handle->LpVtbl[11]))(handle, (IUnknown*)ppDevice, exclusive);
 				return ret;
 			}
 		}
@@ -1619,10 +1619,10 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int TakeOwnership(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, int exclusive) 
+		public static HResult TakeOwnership(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, Bool32 exclusive) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, int, int>)(handle->LpVtbl[11]))(handle, (IUnknown*)pDevice.Handle, exclusive);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, Bool32, HResult>)(handle->LpVtbl[11]))(handle, (IUnknown*)pDevice.Handle, exclusive);
 			return ret;
 		}
 
@@ -1638,22 +1638,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetGammaControlCapabilities(this ComPtr<IDXGIOutput5> comObj, GammaControlCapabilities* pGammaCaps) 
+		public static HResult GetGammaControlCapabilities(this ComPtr<IDXGIOutput5> comObj, GammaControlCapabilities* pGammaCaps) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, GammaControlCapabilities*, int>)(handle->LpVtbl[13]))(handle, pGammaCaps);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, GammaControlCapabilities*, HResult>)(handle->LpVtbl[13]))(handle, pGammaCaps);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetGammaControlCapabilities(this ComPtr<IDXGIOutput5> comObj, ref GammaControlCapabilities pGammaCaps) 
+		public static HResult GetGammaControlCapabilities(this ComPtr<IDXGIOutput5> comObj, ref GammaControlCapabilities pGammaCaps) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (GammaControlCapabilities* ppGammaCaps = &pGammaCaps)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, GammaControlCapabilities*, int>)(handle->LpVtbl[13]))(handle, (GammaControlCapabilities*)ppGammaCaps);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, GammaControlCapabilities*, HResult>)(handle->LpVtbl[13]))(handle, (GammaControlCapabilities*)ppGammaCaps);
 				return ret;
 			}
 		}
@@ -1661,22 +1661,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetGammaControl(this ComPtr<IDXGIOutput5> comObj, GammaControl* pArray) 
+		public static HResult SetGammaControl(this ComPtr<IDXGIOutput5> comObj, GammaControl* pArray) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, GammaControl*, int>)(handle->LpVtbl[14]))(handle, pArray);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, GammaControl*, HResult>)(handle->LpVtbl[14]))(handle, pArray);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetGammaControl(this ComPtr<IDXGIOutput5> comObj, ref GammaControl pArray) 
+		public static HResult SetGammaControl(this ComPtr<IDXGIOutput5> comObj, ref GammaControl pArray) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (GammaControl* ppArray = &pArray)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, GammaControl*, int>)(handle->LpVtbl[14]))(handle, (GammaControl*)ppArray);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, GammaControl*, HResult>)(handle->LpVtbl[14]))(handle, (GammaControl*)ppArray);
 				return ret;
 			}
 		}
@@ -1684,22 +1684,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetGammaControl(this ComPtr<IDXGIOutput5> comObj, GammaControl* pArray) 
+		public static HResult GetGammaControl(this ComPtr<IDXGIOutput5> comObj, GammaControl* pArray) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, GammaControl*, int>)(handle->LpVtbl[15]))(handle, pArray);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, GammaControl*, HResult>)(handle->LpVtbl[15]))(handle, pArray);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetGammaControl(this ComPtr<IDXGIOutput5> comObj, ref GammaControl pArray) 
+		public static HResult GetGammaControl(this ComPtr<IDXGIOutput5> comObj, ref GammaControl pArray) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (GammaControl* ppArray = &pArray)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, GammaControl*, int>)(handle->LpVtbl[15]))(handle, (GammaControl*)ppArray);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, GammaControl*, HResult>)(handle->LpVtbl[15]))(handle, (GammaControl*)ppArray);
 				return ret;
 			}
 		}
@@ -1707,22 +1707,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetDisplaySurface(this ComPtr<IDXGIOutput5> comObj, IDXGISurface* pScanoutSurface) 
+		public static HResult SetDisplaySurface(this ComPtr<IDXGIOutput5> comObj, IDXGISurface* pScanoutSurface) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGISurface*, int>)(handle->LpVtbl[16]))(handle, pScanoutSurface);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGISurface*, HResult>)(handle->LpVtbl[16]))(handle, pScanoutSurface);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetDisplaySurface(this ComPtr<IDXGIOutput5> comObj, ref IDXGISurface pScanoutSurface) 
+		public static HResult SetDisplaySurface(this ComPtr<IDXGIOutput5> comObj, ref IDXGISurface pScanoutSurface) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IDXGISurface* ppScanoutSurface = &pScanoutSurface)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGISurface*, int>)(handle->LpVtbl[16]))(handle, (IDXGISurface*)ppScanoutSurface);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGISurface*, HResult>)(handle->LpVtbl[16]))(handle, (IDXGISurface*)ppScanoutSurface);
 				return ret;
 			}
 		}
@@ -1730,32 +1730,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetDisplaySurface(this ComPtr<IDXGIOutput5> comObj, ComPtr<IDXGISurface> pScanoutSurface) 
+		public static HResult SetDisplaySurface(this ComPtr<IDXGIOutput5> comObj, ComPtr<IDXGISurface> pScanoutSurface) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGISurface*, int>)(handle->LpVtbl[16]))(handle, (IDXGISurface*)pScanoutSurface.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGISurface*, HResult>)(handle->LpVtbl[16]))(handle, (IDXGISurface*)pScanoutSurface.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplaySurfaceData(this ComPtr<IDXGIOutput5> comObj, IDXGISurface* pDestination) 
+		public static HResult GetDisplaySurfaceData(this ComPtr<IDXGIOutput5> comObj, IDXGISurface* pDestination) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGISurface*, int>)(handle->LpVtbl[17]))(handle, pDestination);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGISurface*, HResult>)(handle->LpVtbl[17]))(handle, pDestination);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplaySurfaceData(this ComPtr<IDXGIOutput5> comObj, ref IDXGISurface pDestination) 
+		public static HResult GetDisplaySurfaceData(this ComPtr<IDXGIOutput5> comObj, ref IDXGISurface pDestination) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IDXGISurface* ppDestination = &pDestination)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGISurface*, int>)(handle->LpVtbl[17]))(handle, (IDXGISurface*)ppDestination);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGISurface*, HResult>)(handle->LpVtbl[17]))(handle, (IDXGISurface*)ppDestination);
 				return ret;
 			}
 		}
@@ -1763,32 +1763,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplaySurfaceData(this ComPtr<IDXGIOutput5> comObj, ComPtr<IDXGISurface> pDestination) 
+		public static HResult GetDisplaySurfaceData(this ComPtr<IDXGIOutput5> comObj, ComPtr<IDXGISurface> pDestination) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGISurface*, int>)(handle->LpVtbl[17]))(handle, (IDXGISurface*)pDestination.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGISurface*, HResult>)(handle->LpVtbl[17]))(handle, (IDXGISurface*)pDestination.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetFrameStatistics(this ComPtr<IDXGIOutput5> comObj, FrameStatistics* pStats) 
+		public static HResult GetFrameStatistics(this ComPtr<IDXGIOutput5> comObj, FrameStatistics* pStats) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, FrameStatistics*, int>)(handle->LpVtbl[18]))(handle, pStats);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, FrameStatistics*, HResult>)(handle->LpVtbl[18]))(handle, pStats);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetFrameStatistics(this ComPtr<IDXGIOutput5> comObj, ref FrameStatistics pStats) 
+		public static HResult GetFrameStatistics(this ComPtr<IDXGIOutput5> comObj, ref FrameStatistics pStats) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (FrameStatistics* ppStats = &pStats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, FrameStatistics*, int>)(handle->LpVtbl[18]))(handle, (FrameStatistics*)ppStats);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, FrameStatistics*, HResult>)(handle->LpVtbl[18]))(handle, (FrameStatistics*)ppStats);
 				return ret;
 			}
 		}
@@ -1796,22 +1796,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplayModeList1(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, uint* pNumModes, ModeDesc1* pDesc) 
+		public static HResult GetDisplayModeList1(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, uint* pNumModes, ModeDesc1* pDesc) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc1*, int>)(handle->LpVtbl[19]))(handle, enumFormat, flags, pNumModes, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc1*, HResult>)(handle->LpVtbl[19]))(handle, enumFormat, flags, pNumModes, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplayModeList1(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, ref uint pNumModes, ModeDesc1* pDesc) 
+		public static HResult GetDisplayModeList1(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, ref uint pNumModes, ModeDesc1* pDesc) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (uint* ppNumModes = &pNumModes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc1*, int>)(handle->LpVtbl[19]))(handle, enumFormat, flags, (uint*)ppNumModes, pDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc1*, HResult>)(handle->LpVtbl[19]))(handle, enumFormat, flags, (uint*)ppNumModes, pDesc);
 				return ret;
 			}
 		}
@@ -1819,12 +1819,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplayModeList1(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, uint* pNumModes, ref ModeDesc1 pDesc) 
+		public static HResult GetDisplayModeList1(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, uint* pNumModes, ref ModeDesc1 pDesc) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc1*, int>)(handle->LpVtbl[19]))(handle, enumFormat, flags, pNumModes, (ModeDesc1*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc1*, HResult>)(handle->LpVtbl[19]))(handle, enumFormat, flags, pNumModes, (ModeDesc1*)ppDesc);
 				return ret;
 			}
 		}
@@ -1832,14 +1832,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplayModeList1(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, ref uint pNumModes, ref ModeDesc1 pDesc) 
+		public static HResult GetDisplayModeList1(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, uint flags, ref uint pNumModes, ref ModeDesc1 pDesc) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (uint* ppNumModes = &pNumModes)
 			{
 				fixed (ModeDesc1* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc1*, int>)(handle->LpVtbl[19]))(handle, enumFormat, flags, (uint*)ppNumModes, (ModeDesc1*)ppDesc);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, uint, uint*, ModeDesc1*, HResult>)(handle->LpVtbl[19]))(handle, enumFormat, flags, (uint*)ppNumModes, (ModeDesc1*)ppDesc);
 					return ret;
 				}
 			}
@@ -1848,22 +1848,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ModeDesc1* pModeToMatch, ModeDesc1* pClosestMatch, IUnknown* pConcernedDevice) 
+		public static HResult FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ModeDesc1* pModeToMatch, ModeDesc1* pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, pModeToMatch, pClosestMatch, pConcernedDevice);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, HResult>)(handle->LpVtbl[20]))(handle, pModeToMatch, pClosestMatch, pConcernedDevice);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc1 pModeToMatch, ModeDesc1* pClosestMatch, IUnknown* pConcernedDevice) 
+		public static HResult FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc1 pModeToMatch, ModeDesc1* pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc1* ppModeToMatch = &pModeToMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, (ModeDesc1*)ppModeToMatch, pClosestMatch, pConcernedDevice);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, HResult>)(handle->LpVtbl[20]))(handle, (ModeDesc1*)ppModeToMatch, pClosestMatch, pConcernedDevice);
 				return ret;
 			}
 		}
@@ -1871,12 +1871,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ModeDesc1* pModeToMatch, ref ModeDesc1 pClosestMatch, IUnknown* pConcernedDevice) 
+		public static HResult FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ModeDesc1* pModeToMatch, ref ModeDesc1 pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc1* ppClosestMatch = &pClosestMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, pModeToMatch, (ModeDesc1*)ppClosestMatch, pConcernedDevice);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, HResult>)(handle->LpVtbl[20]))(handle, pModeToMatch, (ModeDesc1*)ppClosestMatch, pConcernedDevice);
 				return ret;
 			}
 		}
@@ -1884,14 +1884,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc1 pModeToMatch, ref ModeDesc1 pClosestMatch, IUnknown* pConcernedDevice) 
+		public static HResult FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc1 pModeToMatch, ref ModeDesc1 pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc1* ppModeToMatch = &pModeToMatch)
 			{
 				fixed (ModeDesc1* ppClosestMatch = &pClosestMatch)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, (ModeDesc1*)ppModeToMatch, (ModeDesc1*)ppClosestMatch, pConcernedDevice);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, HResult>)(handle->LpVtbl[20]))(handle, (ModeDesc1*)ppModeToMatch, (ModeDesc1*)ppClosestMatch, pConcernedDevice);
 					return ret;
 				}
 			}
@@ -1900,12 +1900,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ModeDesc1* pModeToMatch, ModeDesc1* pClosestMatch, ref IUnknown pConcernedDevice) 
+		public static HResult FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ModeDesc1* pModeToMatch, ModeDesc1* pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, HResult>)(handle->LpVtbl[20]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
 				return ret;
 			}
 		}
@@ -1913,24 +1913,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ModeDesc1* pModeToMatch, ModeDesc1* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
+		public static HResult FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ModeDesc1* pModeToMatch, ModeDesc1* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, HResult>)(handle->LpVtbl[20]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc1 pModeToMatch, ModeDesc1* pClosestMatch, ref IUnknown pConcernedDevice) 
+		public static HResult FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc1 pModeToMatch, ModeDesc1* pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc1* ppModeToMatch = &pModeToMatch)
 			{
 				fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, (ModeDesc1*)ppModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, HResult>)(handle->LpVtbl[20]))(handle, (ModeDesc1*)ppModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
 					return ret;
 				}
 			}
@@ -1939,12 +1939,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc1 pModeToMatch, ModeDesc1* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
+		public static HResult FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc1 pModeToMatch, ModeDesc1* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc1* ppModeToMatch = &pModeToMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, (ModeDesc1*)ppModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, HResult>)(handle->LpVtbl[20]))(handle, (ModeDesc1*)ppModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 				return ret;
 			}
 		}
@@ -1952,14 +1952,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ModeDesc1* pModeToMatch, ref ModeDesc1 pClosestMatch, ref IUnknown pConcernedDevice) 
+		public static HResult FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ModeDesc1* pModeToMatch, ref ModeDesc1 pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc1* ppClosestMatch = &pClosestMatch)
 			{
 				fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, pModeToMatch, (ModeDesc1*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, HResult>)(handle->LpVtbl[20]))(handle, pModeToMatch, (ModeDesc1*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
 					return ret;
 				}
 			}
@@ -1968,12 +1968,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ModeDesc1* pModeToMatch, ref ModeDesc1 pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
+		public static HResult FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ModeDesc1* pModeToMatch, ref ModeDesc1 pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc1* ppClosestMatch = &pClosestMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, pModeToMatch, (ModeDesc1*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, HResult>)(handle->LpVtbl[20]))(handle, pModeToMatch, (ModeDesc1*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 				return ret;
 			}
 		}
@@ -1981,7 +1981,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc1 pModeToMatch, ref ModeDesc1 pClosestMatch, ref IUnknown pConcernedDevice) 
+		public static HResult FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc1 pModeToMatch, ref ModeDesc1 pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc1* ppModeToMatch = &pModeToMatch)
@@ -1990,7 +1990,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, (ModeDesc1*)ppModeToMatch, (ModeDesc1*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, HResult>)(handle->LpVtbl[20]))(handle, (ModeDesc1*)ppModeToMatch, (ModeDesc1*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
 						return ret;
 					}
 				}
@@ -2000,14 +2000,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc1 pModeToMatch, ref ModeDesc1 pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
+		public static HResult FindClosestMatchingMode1(this ComPtr<IDXGIOutput5> comObj, ref ModeDesc1 pModeToMatch, ref ModeDesc1 pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (ModeDesc1* ppModeToMatch = &pModeToMatch)
 			{
 				fixed (ModeDesc1* ppClosestMatch = &pClosestMatch)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, (ModeDesc1*)ppModeToMatch, (ModeDesc1*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, ModeDesc1*, ModeDesc1*, IUnknown*, HResult>)(handle->LpVtbl[20]))(handle, (ModeDesc1*)ppModeToMatch, (ModeDesc1*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 					return ret;
 				}
 			}
@@ -2016,22 +2016,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplaySurfaceData1(this ComPtr<IDXGIOutput5> comObj, IDXGIResource* pDestination) 
+		public static HResult GetDisplaySurfaceData1(this ComPtr<IDXGIOutput5> comObj, IDXGIResource* pDestination) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGIResource*, int>)(handle->LpVtbl[21]))(handle, pDestination);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGIResource*, HResult>)(handle->LpVtbl[21]))(handle, pDestination);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplaySurfaceData1(this ComPtr<IDXGIOutput5> comObj, ref IDXGIResource pDestination) 
+		public static HResult GetDisplaySurfaceData1(this ComPtr<IDXGIOutput5> comObj, ref IDXGIResource pDestination) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IDXGIResource* ppDestination = &pDestination)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGIResource*, int>)(handle->LpVtbl[21]))(handle, (IDXGIResource*)ppDestination);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGIResource*, HResult>)(handle->LpVtbl[21]))(handle, (IDXGIResource*)ppDestination);
 				return ret;
 			}
 		}
@@ -2039,32 +2039,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDisplaySurfaceData1(this ComPtr<IDXGIOutput5> comObj, ComPtr<IDXGIResource> pDestination) 
+		public static HResult GetDisplaySurfaceData1(this ComPtr<IDXGIOutput5> comObj, ComPtr<IDXGIResource> pDestination) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGIResource*, int>)(handle->LpVtbl[21]))(handle, (IDXGIResource*)pDestination.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IDXGIResource*, HResult>)(handle->LpVtbl[21]))(handle, (IDXGIResource*)pDestination.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, IDXGIOutputDuplication** ppOutputDuplication) 
+		public static HResult DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, pDevice, ppOutputDuplication);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[22]))(handle, pDevice, ppOutputDuplication);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, IDXGIOutputDuplication** ppOutputDuplication) 
+		public static HResult DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, (IUnknown*)ppDevice, ppOutputDuplication);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[22]))(handle, (IUnknown*)ppDevice, ppOutputDuplication);
 				return ret;
 			}
 		}
@@ -2072,22 +2072,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, IDXGIOutputDuplication** ppOutputDuplication) 
+		public static HResult DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, (IUnknown*)pDevice.Handle, ppOutputDuplication);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[22]))(handle, (IUnknown*)pDevice.Handle, ppOutputDuplication);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, ref IDXGIOutputDuplication* ppOutputDuplication) 
+		public static HResult DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, ref IDXGIOutputDuplication* ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, pDevice, (IDXGIOutputDuplication**)pppOutputDuplication);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[22]))(handle, pDevice, (IDXGIOutputDuplication**)pppOutputDuplication);
 				return ret;
 			}
 		}
@@ -2095,25 +2095,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
+		public static HResult DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			ppOutputDuplication = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, pDevice, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[22]))(handle, pDevice, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, ref IDXGIOutputDuplication* ppOutputDuplication) 
+		public static HResult DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, ref IDXGIOutputDuplication* ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, (IUnknown*)ppDevice, (IDXGIOutputDuplication**)pppOutputDuplication);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[22]))(handle, (IUnknown*)ppDevice, (IDXGIOutputDuplication**)pppOutputDuplication);
 					return ret;
 				}
 			}
@@ -2122,43 +2122,43 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
+		public static HResult DuplicateOutput(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			ppOutputDuplication = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, (IUnknown*)pDevice.Handle, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[22]))(handle, (IUnknown*)pDevice.Handle, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SupportsOverlays(this ComPtr<IDXGIOutput5> comObj) 
+		public static Bool32 SupportsOverlays(this ComPtr<IDXGIOutput5> comObj) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, int>)(handle->LpVtbl[23]))(handle);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Bool32>)(handle->LpVtbl[23]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckOverlaySupport(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, IUnknown* pConcernedDevice, uint* pFlags) 
+		public static HResult CheckOverlaySupport(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, IUnknown* pConcernedDevice, uint* pFlags) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, IUnknown*, uint*, int>)(handle->LpVtbl[24]))(handle, enumFormat, pConcernedDevice, pFlags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, IUnknown*, uint*, HResult>)(handle->LpVtbl[24]))(handle, enumFormat, pConcernedDevice, pFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckOverlaySupport(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, ref IUnknown pConcernedDevice, uint* pFlags) 
+		public static HResult CheckOverlaySupport(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, ref IUnknown pConcernedDevice, uint* pFlags) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, IUnknown*, uint*, int>)(handle->LpVtbl[24]))(handle, enumFormat, (IUnknown*)ppConcernedDevice, pFlags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, IUnknown*, uint*, HResult>)(handle->LpVtbl[24]))(handle, enumFormat, (IUnknown*)ppConcernedDevice, pFlags);
 				return ret;
 			}
 		}
@@ -2166,22 +2166,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckOverlaySupport(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, ComPtr<IUnknown> pConcernedDevice, uint* pFlags) 
+		public static HResult CheckOverlaySupport(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, ComPtr<IUnknown> pConcernedDevice, uint* pFlags) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, IUnknown*, uint*, int>)(handle->LpVtbl[24]))(handle, enumFormat, (IUnknown*)pConcernedDevice.Handle, pFlags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, IUnknown*, uint*, HResult>)(handle->LpVtbl[24]))(handle, enumFormat, (IUnknown*)pConcernedDevice.Handle, pFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckOverlaySupport(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, IUnknown* pConcernedDevice, ref uint pFlags) 
+		public static HResult CheckOverlaySupport(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, IUnknown* pConcernedDevice, ref uint pFlags) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (uint* ppFlags = &pFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, IUnknown*, uint*, int>)(handle->LpVtbl[24]))(handle, enumFormat, pConcernedDevice, (uint*)ppFlags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, IUnknown*, uint*, HResult>)(handle->LpVtbl[24]))(handle, enumFormat, pConcernedDevice, (uint*)ppFlags);
 				return ret;
 			}
 		}
@@ -2189,14 +2189,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckOverlaySupport(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, ref IUnknown pConcernedDevice, ref uint pFlags) 
+		public static HResult CheckOverlaySupport(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, ref IUnknown pConcernedDevice, ref uint pFlags) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 			{
 				fixed (uint* ppFlags = &pFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, IUnknown*, uint*, int>)(handle->LpVtbl[24]))(handle, enumFormat, (IUnknown*)ppConcernedDevice, (uint*)ppFlags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, IUnknown*, uint*, HResult>)(handle->LpVtbl[24]))(handle, enumFormat, (IUnknown*)ppConcernedDevice, (uint*)ppFlags);
 					return ret;
 				}
 			}
@@ -2205,12 +2205,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckOverlaySupport(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, ComPtr<IUnknown> pConcernedDevice, ref uint pFlags) 
+		public static HResult CheckOverlaySupport(this ComPtr<IDXGIOutput5> comObj, Format enumFormat, ComPtr<IUnknown> pConcernedDevice, ref uint pFlags) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (uint* ppFlags = &pFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, IUnknown*, uint*, int>)(handle->LpVtbl[24]))(handle, enumFormat, (IUnknown*)pConcernedDevice.Handle, (uint*)ppFlags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, IUnknown*, uint*, HResult>)(handle->LpVtbl[24]))(handle, enumFormat, (IUnknown*)pConcernedDevice.Handle, (uint*)ppFlags);
 				return ret;
 			}
 		}
@@ -2218,22 +2218,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput5> comObj, Format format, ColorSpaceType colorSpace, IUnknown* pConcernedDevice, uint* pFlags) 
+		public static HResult CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput5> comObj, Format format, ColorSpaceType colorSpace, IUnknown* pConcernedDevice, uint* pFlags) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, ColorSpaceType, IUnknown*, uint*, int>)(handle->LpVtbl[25]))(handle, format, colorSpace, pConcernedDevice, pFlags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, ColorSpaceType, IUnknown*, uint*, HResult>)(handle->LpVtbl[25]))(handle, format, colorSpace, pConcernedDevice, pFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput5> comObj, Format format, ColorSpaceType colorSpace, ref IUnknown pConcernedDevice, uint* pFlags) 
+		public static HResult CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput5> comObj, Format format, ColorSpaceType colorSpace, ref IUnknown pConcernedDevice, uint* pFlags) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, ColorSpaceType, IUnknown*, uint*, int>)(handle->LpVtbl[25]))(handle, format, colorSpace, (IUnknown*)ppConcernedDevice, pFlags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, ColorSpaceType, IUnknown*, uint*, HResult>)(handle->LpVtbl[25]))(handle, format, colorSpace, (IUnknown*)ppConcernedDevice, pFlags);
 				return ret;
 			}
 		}
@@ -2241,22 +2241,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput5> comObj, Format format, ColorSpaceType colorSpace, ComPtr<IUnknown> pConcernedDevice, uint* pFlags) 
+		public static HResult CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput5> comObj, Format format, ColorSpaceType colorSpace, ComPtr<IUnknown> pConcernedDevice, uint* pFlags) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, ColorSpaceType, IUnknown*, uint*, int>)(handle->LpVtbl[25]))(handle, format, colorSpace, (IUnknown*)pConcernedDevice.Handle, pFlags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, ColorSpaceType, IUnknown*, uint*, HResult>)(handle->LpVtbl[25]))(handle, format, colorSpace, (IUnknown*)pConcernedDevice.Handle, pFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput5> comObj, Format format, ColorSpaceType colorSpace, IUnknown* pConcernedDevice, ref uint pFlags) 
+		public static HResult CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput5> comObj, Format format, ColorSpaceType colorSpace, IUnknown* pConcernedDevice, ref uint pFlags) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (uint* ppFlags = &pFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, ColorSpaceType, IUnknown*, uint*, int>)(handle->LpVtbl[25]))(handle, format, colorSpace, pConcernedDevice, (uint*)ppFlags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, ColorSpaceType, IUnknown*, uint*, HResult>)(handle->LpVtbl[25]))(handle, format, colorSpace, pConcernedDevice, (uint*)ppFlags);
 				return ret;
 			}
 		}
@@ -2264,14 +2264,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput5> comObj, Format format, ColorSpaceType colorSpace, ref IUnknown pConcernedDevice, ref uint pFlags) 
+		public static HResult CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput5> comObj, Format format, ColorSpaceType colorSpace, ref IUnknown pConcernedDevice, ref uint pFlags) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 			{
 				fixed (uint* ppFlags = &pFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, ColorSpaceType, IUnknown*, uint*, int>)(handle->LpVtbl[25]))(handle, format, colorSpace, (IUnknown*)ppConcernedDevice, (uint*)ppFlags);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, ColorSpaceType, IUnknown*, uint*, HResult>)(handle->LpVtbl[25]))(handle, format, colorSpace, (IUnknown*)ppConcernedDevice, (uint*)ppFlags);
 					return ret;
 				}
 			}
@@ -2280,12 +2280,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput5> comObj, Format format, ColorSpaceType colorSpace, ComPtr<IUnknown> pConcernedDevice, ref uint pFlags) 
+		public static HResult CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput5> comObj, Format format, ColorSpaceType colorSpace, ComPtr<IUnknown> pConcernedDevice, ref uint pFlags) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (uint* ppFlags = &pFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, ColorSpaceType, IUnknown*, uint*, int>)(handle->LpVtbl[25]))(handle, format, colorSpace, (IUnknown*)pConcernedDevice.Handle, (uint*)ppFlags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, Format, ColorSpaceType, IUnknown*, uint*, HResult>)(handle->LpVtbl[25]))(handle, format, colorSpace, (IUnknown*)pConcernedDevice.Handle, (uint*)ppFlags);
 				return ret;
 			}
 		}
@@ -2293,22 +2293,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)ppDevice, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, (IUnknown*)ppDevice, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
 				return ret;
 			}
 		}
@@ -2316,22 +2316,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Format* ppSupportedFormats = &pSupportedFormats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, ppOutputDuplication);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, ppOutputDuplication);
 				return ret;
 			}
 		}
@@ -2339,14 +2339,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (Format* ppSupportedFormats = &pSupportedFormats)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)ppDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, ppOutputDuplication);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, (IUnknown*)ppDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, ppOutputDuplication);
 					return ret;
 				}
 			}
@@ -2355,12 +2355,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Format* ppSupportedFormats = &pSupportedFormats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, (Format*)ppSupportedFormats, ppOutputDuplication);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, (Format*)ppSupportedFormats, ppOutputDuplication);
 				return ret;
 			}
 		}
@@ -2368,12 +2368,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, ref IDXGIOutputDuplication* ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, ref IDXGIOutputDuplication* ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
 				return ret;
 			}
 		}
@@ -2381,25 +2381,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			ppOutputDuplication = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, ref IDXGIOutputDuplication* ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, ref IDXGIOutputDuplication* ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)ppDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, (IUnknown*)ppDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
 					return ret;
 				}
 			}
@@ -2408,25 +2408,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			ppOutputDuplication = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, ref IDXGIOutputDuplication* ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, ref IDXGIOutputDuplication* ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Format* ppSupportedFormats = &pSupportedFormats)
 			{
 				fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
 					return ret;
 				}
 			}
@@ -2435,13 +2435,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, IUnknown* pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Format* ppSupportedFormats = &pSupportedFormats)
 			{
 				ppOutputDuplication = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2449,7 +2449,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, ref IDXGIOutputDuplication* ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ref IUnknown pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, ref IDXGIOutputDuplication* ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -2458,7 +2458,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)ppDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, (IUnknown*)ppDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
 						return ret;
 					}
 				}
@@ -2468,13 +2468,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
+		public static HResult DuplicateOutput1(this ComPtr<IDXGIOutput5> comObj, ComPtr<IUnknown> pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
 		{
 			IDXGIOutput5* handle = comObj.Handle;
 			fixed (Format* ppSupportedFormats = &pSupportedFormats)
 			{
 				ppOutputDuplication = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, (Format*)ppSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput5*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, HResult>)(handle->LpVtbl[26]))(handle, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, (Format*)ppSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2482,22 +2482,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDXGISwapChain4> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDXGISwapChain4> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDXGISwapChain4> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDXGISwapChain4> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2505,24 +2505,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDXGISwapChain4> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDXGISwapChain4> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDXGISwapChain4> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDXGISwapChain4> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2550,22 +2550,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<IDXGISwapChain4> comObj, Guid* name, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<IDXGISwapChain4> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint, void*, HResult>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint, void*, HResult>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
 				return ret;
 			}
 		}
@@ -2573,22 +2573,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain4> comObj, Guid* name, IUnknown* pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGISwapChain4> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, pUnknown);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, IUnknown* pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
 				return ret;
 			}
 		}
@@ -2596,12 +2596,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain4> comObj, Guid* name, ref IUnknown pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGISwapChain4> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
 				return ret;
 			}
 		}
@@ -2609,24 +2609,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain4> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGISwapChain4> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, ref IUnknown pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (IUnknown* ppUnknown = &pUnknown)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)ppUnknown);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)ppUnknown);
 					return ret;
 				}
 			}
@@ -2635,12 +2635,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)pUnknown.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)pUnknown.Handle);
 				return ret;
 			}
 		}
@@ -2648,22 +2648,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGISwapChain4> comObj, Guid* name, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGISwapChain4> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -2671,12 +2671,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGISwapChain4> comObj, Guid* name, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGISwapChain4> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -2684,14 +2684,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -2700,22 +2700,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGISwapChain4> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGISwapChain4> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -2723,12 +2723,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGISwapChain4> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGISwapChain4> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -2736,14 +2736,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGISwapChain4> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -2752,22 +2752,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent(this ComPtr<IDXGISwapChain4> comObj, Guid* riid, void** ppParent) 
+		public static HResult GetParent(this ComPtr<IDXGISwapChain4> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, riid, ppParent);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent(this ComPtr<IDXGISwapChain4> comObj, ref Guid riid, void** ppParent) 
+		public static HResult GetParent(this ComPtr<IDXGISwapChain4> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, ppParent);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)priid, ppParent);
 				return ret;
 			}
 		}
@@ -2775,24 +2775,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent<T>(this ComPtr<IDXGISwapChain4> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetParent<T>(this ComPtr<IDXGISwapChain4> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			ppParent = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent<T>(this ComPtr<IDXGISwapChain4> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetParent<T>(this ComPtr<IDXGISwapChain4> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppParent = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, (void**)ppParent.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)priid, (void**)ppParent.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2800,22 +2800,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDevice(this ComPtr<IDXGISwapChain4> comObj, Guid* riid, void** ppDevice) 
+		public static HResult GetDevice(this ComPtr<IDXGISwapChain4> comObj, Guid* riid, void** ppDevice) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, riid, ppDevice);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(handle->LpVtbl[7]))(handle, riid, ppDevice);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDevice(this ComPtr<IDXGISwapChain4> comObj, ref Guid riid, void** ppDevice) 
+		public static HResult GetDevice(this ComPtr<IDXGISwapChain4> comObj, ref Guid riid, void** ppDevice) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, (Guid*)priid, ppDevice);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(handle->LpVtbl[7]))(handle, (Guid*)priid, ppDevice);
 				return ret;
 			}
 		}
@@ -2823,24 +2823,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDevice<T>(this ComPtr<IDXGISwapChain4> comObj, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetDevice<T>(this ComPtr<IDXGISwapChain4> comObj, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			ppDevice = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppDevice.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(handle->LpVtbl[7]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppDevice.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDevice<T>(this ComPtr<IDXGISwapChain4> comObj, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetDevice<T>(this ComPtr<IDXGISwapChain4> comObj, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppDevice = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, (Guid*)priid, (void**)ppDevice.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(handle->LpVtbl[7]))(handle, (Guid*)priid, (void**)ppDevice.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2848,32 +2848,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Present(this ComPtr<IDXGISwapChain4> comObj, uint syncInterval, uint flags) 
+		public static HResult Present(this ComPtr<IDXGISwapChain4> comObj, uint syncInterval, uint flags) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, int>)(handle->LpVtbl[8]))(handle, syncInterval, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, HResult>)(handle->LpVtbl[8]))(handle, syncInterval, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBuffer(this ComPtr<IDXGISwapChain4> comObj, uint buffer, Guid* riid, void** ppSurface) 
+		public static HResult GetBuffer(this ComPtr<IDXGISwapChain4> comObj, uint buffer, Guid* riid, void** ppSurface) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, buffer, riid, ppSurface);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, Guid*, void**, HResult>)(handle->LpVtbl[9]))(handle, buffer, riid, ppSurface);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBuffer(this ComPtr<IDXGISwapChain4> comObj, uint buffer, ref Guid riid, void** ppSurface) 
+		public static HResult GetBuffer(this ComPtr<IDXGISwapChain4> comObj, uint buffer, ref Guid riid, void** ppSurface) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, buffer, (Guid*)priid, ppSurface);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, Guid*, void**, HResult>)(handle->LpVtbl[9]))(handle, buffer, (Guid*)priid, ppSurface);
 				return ret;
 			}
 		}
@@ -2881,24 +2881,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBuffer<T>(this ComPtr<IDXGISwapChain4> comObj, uint buffer, out ComPtr<T> ppSurface) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetBuffer<T>(this ComPtr<IDXGISwapChain4> comObj, uint buffer, out ComPtr<T> ppSurface) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			ppSurface = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, buffer, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppSurface.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, Guid*, void**, HResult>)(handle->LpVtbl[9]))(handle, buffer, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppSurface.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBuffer<T>(this ComPtr<IDXGISwapChain4> comObj, uint buffer, ref Guid riid, out ComPtr<T> ppSurface) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetBuffer<T>(this ComPtr<IDXGISwapChain4> comObj, uint buffer, ref Guid riid, out ComPtr<T> ppSurface) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppSurface = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, buffer, (Guid*)priid, (void**)ppSurface.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, Guid*, void**, HResult>)(handle->LpVtbl[9]))(handle, buffer, (Guid*)priid, (void**)ppSurface.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2906,22 +2906,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, int fullscreen, IDXGIOutput* pTarget) 
+		public static HResult SetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, Bool32 fullscreen, IDXGIOutput* pTarget) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, int, IDXGIOutput*, int>)(handle->LpVtbl[10]))(handle, fullscreen, pTarget);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Bool32, IDXGIOutput*, HResult>)(handle->LpVtbl[10]))(handle, fullscreen, pTarget);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, int fullscreen, ref IDXGIOutput pTarget) 
+		public static HResult SetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, Bool32 fullscreen, ref IDXGIOutput pTarget) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (IDXGIOutput* ppTarget = &pTarget)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, int, IDXGIOutput*, int>)(handle->LpVtbl[10]))(handle, fullscreen, (IDXGIOutput*)ppTarget);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Bool32, IDXGIOutput*, HResult>)(handle->LpVtbl[10]))(handle, fullscreen, (IDXGIOutput*)ppTarget);
 				return ret;
 			}
 		}
@@ -2929,32 +2929,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, int fullscreen, ComPtr<IDXGIOutput> pTarget) 
+		public static HResult SetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, Bool32 fullscreen, ComPtr<IDXGIOutput> pTarget) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, int, IDXGIOutput*, int>)(handle->LpVtbl[10]))(handle, fullscreen, (IDXGIOutput*)pTarget.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Bool32, IDXGIOutput*, HResult>)(handle->LpVtbl[10]))(handle, fullscreen, (IDXGIOutput*)pTarget.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, int* pFullscreen, IDXGIOutput** ppTarget) 
+		public static HResult GetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, Bool32* pFullscreen, IDXGIOutput** ppTarget) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, int*, IDXGIOutput**, int>)(handle->LpVtbl[11]))(handle, pFullscreen, ppTarget);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Bool32*, IDXGIOutput**, HResult>)(handle->LpVtbl[11]))(handle, pFullscreen, ppTarget);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, ref int pFullscreen, IDXGIOutput** ppTarget) 
+		public static HResult GetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, ref Bool32 pFullscreen, IDXGIOutput** ppTarget) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			fixed (int* ppFullscreen = &pFullscreen)
+			fixed (Bool32* ppFullscreen = &pFullscreen)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, int*, IDXGIOutput**, int>)(handle->LpVtbl[11]))(handle, (int*)ppFullscreen, ppTarget);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Bool32*, IDXGIOutput**, HResult>)(handle->LpVtbl[11]))(handle, (Bool32*)ppFullscreen, ppTarget);
 				return ret;
 			}
 		}
@@ -2962,12 +2962,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, int* pFullscreen, ref IDXGIOutput* ppTarget) 
+		public static HResult GetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, Bool32* pFullscreen, ref IDXGIOutput* ppTarget) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (IDXGIOutput** pppTarget = &ppTarget)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, int*, IDXGIOutput**, int>)(handle->LpVtbl[11]))(handle, pFullscreen, (IDXGIOutput**)pppTarget);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Bool32*, IDXGIOutput**, HResult>)(handle->LpVtbl[11]))(handle, pFullscreen, (IDXGIOutput**)pppTarget);
 				return ret;
 			}
 		}
@@ -2975,25 +2975,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, int* pFullscreen, out ComPtr<IDXGIOutput> ppTarget) 
+		public static HResult GetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, Bool32* pFullscreen, out ComPtr<IDXGIOutput> ppTarget) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			ppTarget = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, int*, IDXGIOutput**, int>)(handle->LpVtbl[11]))(handle, pFullscreen, (IDXGIOutput**)ppTarget.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Bool32*, IDXGIOutput**, HResult>)(handle->LpVtbl[11]))(handle, pFullscreen, (IDXGIOutput**)ppTarget.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, ref int pFullscreen, ref IDXGIOutput* ppTarget) 
+		public static HResult GetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, ref Bool32 pFullscreen, ref IDXGIOutput* ppTarget) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			fixed (int* ppFullscreen = &pFullscreen)
+			fixed (Bool32* ppFullscreen = &pFullscreen)
 			{
 				fixed (IDXGIOutput** pppTarget = &ppTarget)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, int*, IDXGIOutput**, int>)(handle->LpVtbl[11]))(handle, (int*)ppFullscreen, (IDXGIOutput**)pppTarget);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Bool32*, IDXGIOutput**, HResult>)(handle->LpVtbl[11]))(handle, (Bool32*)ppFullscreen, (IDXGIOutput**)pppTarget);
 					return ret;
 				}
 			}
@@ -3002,13 +3002,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, ref int pFullscreen, out ComPtr<IDXGIOutput> ppTarget) 
+		public static HResult GetFullscreenState(this ComPtr<IDXGISwapChain4> comObj, ref Bool32 pFullscreen, out ComPtr<IDXGIOutput> ppTarget) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			fixed (int* ppFullscreen = &pFullscreen)
+			fixed (Bool32* ppFullscreen = &pFullscreen)
 			{
 				ppTarget = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, int*, IDXGIOutput**, int>)(handle->LpVtbl[11]))(handle, (int*)ppFullscreen, (IDXGIOutput**)ppTarget.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Bool32*, IDXGIOutput**, HResult>)(handle->LpVtbl[11]))(handle, (Bool32*)ppFullscreen, (IDXGIOutput**)ppTarget.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3016,22 +3016,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDesc(this ComPtr<IDXGISwapChain4> comObj, SwapChainDesc* pDesc) 
+		public static HResult GetDesc(this ComPtr<IDXGISwapChain4> comObj, SwapChainDesc* pDesc) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, SwapChainDesc*, int>)(handle->LpVtbl[12]))(handle, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, SwapChainDesc*, HResult>)(handle->LpVtbl[12]))(handle, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDesc(this ComPtr<IDXGISwapChain4> comObj, ref SwapChainDesc pDesc) 
+		public static HResult GetDesc(this ComPtr<IDXGISwapChain4> comObj, ref SwapChainDesc pDesc) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (SwapChainDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, SwapChainDesc*, int>)(handle->LpVtbl[12]))(handle, (SwapChainDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, SwapChainDesc*, HResult>)(handle->LpVtbl[12]))(handle, (SwapChainDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -3039,32 +3039,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ResizeBuffers(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format newFormat, uint swapChainFlags) 
+		public static HResult ResizeBuffers(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format newFormat, uint swapChainFlags) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, int>)(handle->LpVtbl[13]))(handle, bufferCount, width, height, newFormat, swapChainFlags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, HResult>)(handle->LpVtbl[13]))(handle, bufferCount, width, height, newFormat, swapChainFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ResizeTarget(this ComPtr<IDXGISwapChain4> comObj, ModeDesc* pNewTargetParameters) 
+		public static HResult ResizeTarget(this ComPtr<IDXGISwapChain4> comObj, ModeDesc* pNewTargetParameters) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ModeDesc*, int>)(handle->LpVtbl[14]))(handle, pNewTargetParameters);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ModeDesc*, HResult>)(handle->LpVtbl[14]))(handle, pNewTargetParameters);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ResizeTarget(this ComPtr<IDXGISwapChain4> comObj, ref ModeDesc pNewTargetParameters) 
+		public static HResult ResizeTarget(this ComPtr<IDXGISwapChain4> comObj, ref ModeDesc pNewTargetParameters) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (ModeDesc* ppNewTargetParameters = &pNewTargetParameters)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ModeDesc*, int>)(handle->LpVtbl[14]))(handle, (ModeDesc*)ppNewTargetParameters);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ModeDesc*, HResult>)(handle->LpVtbl[14]))(handle, (ModeDesc*)ppNewTargetParameters);
 				return ret;
 			}
 		}
@@ -3072,22 +3072,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetContainingOutput(this ComPtr<IDXGISwapChain4> comObj, IDXGIOutput** ppOutput) 
+		public static HResult GetContainingOutput(this ComPtr<IDXGISwapChain4> comObj, IDXGIOutput** ppOutput) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, IDXGIOutput**, int>)(handle->LpVtbl[15]))(handle, ppOutput);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, IDXGIOutput**, HResult>)(handle->LpVtbl[15]))(handle, ppOutput);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetContainingOutput(this ComPtr<IDXGISwapChain4> comObj, ref IDXGIOutput* ppOutput) 
+		public static HResult GetContainingOutput(this ComPtr<IDXGISwapChain4> comObj, ref IDXGIOutput* ppOutput) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (IDXGIOutput** pppOutput = &ppOutput)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, IDXGIOutput**, int>)(handle->LpVtbl[15]))(handle, (IDXGIOutput**)pppOutput);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, IDXGIOutput**, HResult>)(handle->LpVtbl[15]))(handle, (IDXGIOutput**)pppOutput);
 				return ret;
 			}
 		}
@@ -3095,33 +3095,33 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetContainingOutput(this ComPtr<IDXGISwapChain4> comObj, out ComPtr<IDXGIOutput> ppOutput) 
+		public static HResult GetContainingOutput(this ComPtr<IDXGISwapChain4> comObj, out ComPtr<IDXGIOutput> ppOutput) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			ppOutput = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, IDXGIOutput**, int>)(handle->LpVtbl[15]))(handle, (IDXGIOutput**)ppOutput.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, IDXGIOutput**, HResult>)(handle->LpVtbl[15]))(handle, (IDXGIOutput**)ppOutput.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetFrameStatistics(this ComPtr<IDXGISwapChain4> comObj, FrameStatistics* pStats) 
+		public static HResult GetFrameStatistics(this ComPtr<IDXGISwapChain4> comObj, FrameStatistics* pStats) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, FrameStatistics*, int>)(handle->LpVtbl[16]))(handle, pStats);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, FrameStatistics*, HResult>)(handle->LpVtbl[16]))(handle, pStats);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetFrameStatistics(this ComPtr<IDXGISwapChain4> comObj, ref FrameStatistics pStats) 
+		public static HResult GetFrameStatistics(this ComPtr<IDXGISwapChain4> comObj, ref FrameStatistics pStats) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (FrameStatistics* ppStats = &pStats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, FrameStatistics*, int>)(handle->LpVtbl[16]))(handle, (FrameStatistics*)ppStats);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, FrameStatistics*, HResult>)(handle->LpVtbl[16]))(handle, (FrameStatistics*)ppStats);
 				return ret;
 			}
 		}
@@ -3129,22 +3129,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetLastPresentCount(this ComPtr<IDXGISwapChain4> comObj, uint* pLastPresentCount) 
+		public static HResult GetLastPresentCount(this ComPtr<IDXGISwapChain4> comObj, uint* pLastPresentCount) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, int>)(handle->LpVtbl[17]))(handle, pLastPresentCount);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, HResult>)(handle->LpVtbl[17]))(handle, pLastPresentCount);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetLastPresentCount(this ComPtr<IDXGISwapChain4> comObj, ref uint pLastPresentCount) 
+		public static HResult GetLastPresentCount(this ComPtr<IDXGISwapChain4> comObj, ref uint pLastPresentCount) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (uint* ppLastPresentCount = &pLastPresentCount)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, int>)(handle->LpVtbl[17]))(handle, (uint*)ppLastPresentCount);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, HResult>)(handle->LpVtbl[17]))(handle, (uint*)ppLastPresentCount);
 				return ret;
 			}
 		}
@@ -3152,22 +3152,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDesc1(this ComPtr<IDXGISwapChain4> comObj, SwapChainDesc1* pDesc) 
+		public static HResult GetDesc1(this ComPtr<IDXGISwapChain4> comObj, SwapChainDesc1* pDesc) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, SwapChainDesc1*, int>)(handle->LpVtbl[18]))(handle, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, SwapChainDesc1*, HResult>)(handle->LpVtbl[18]))(handle, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDesc1(this ComPtr<IDXGISwapChain4> comObj, ref SwapChainDesc1 pDesc) 
+		public static HResult GetDesc1(this ComPtr<IDXGISwapChain4> comObj, ref SwapChainDesc1 pDesc) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, SwapChainDesc1*, int>)(handle->LpVtbl[18]))(handle, (SwapChainDesc1*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, SwapChainDesc1*, HResult>)(handle->LpVtbl[18]))(handle, (SwapChainDesc1*)ppDesc);
 				return ret;
 			}
 		}
@@ -3175,22 +3175,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetFullscreenDesc(this ComPtr<IDXGISwapChain4> comObj, SwapChainFullscreenDesc* pDesc) 
+		public static HResult GetFullscreenDesc(this ComPtr<IDXGISwapChain4> comObj, SwapChainFullscreenDesc* pDesc) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, SwapChainFullscreenDesc*, int>)(handle->LpVtbl[19]))(handle, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, SwapChainFullscreenDesc*, HResult>)(handle->LpVtbl[19]))(handle, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetFullscreenDesc(this ComPtr<IDXGISwapChain4> comObj, ref SwapChainFullscreenDesc pDesc) 
+		public static HResult GetFullscreenDesc(this ComPtr<IDXGISwapChain4> comObj, ref SwapChainFullscreenDesc pDesc) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (SwapChainFullscreenDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, SwapChainFullscreenDesc*, int>)(handle->LpVtbl[19]))(handle, (SwapChainFullscreenDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, SwapChainFullscreenDesc*, HResult>)(handle->LpVtbl[19]))(handle, (SwapChainFullscreenDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -3198,22 +3198,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetHwnd(this ComPtr<IDXGISwapChain4> comObj, nint* pHwnd) 
+		public static HResult GetHwnd(this ComPtr<IDXGISwapChain4> comObj, nint* pHwnd) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, nint*, int>)(handle->LpVtbl[20]))(handle, pHwnd);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, nint*, HResult>)(handle->LpVtbl[20]))(handle, pHwnd);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetHwnd(this ComPtr<IDXGISwapChain4> comObj, ref nint pHwnd) 
+		public static HResult GetHwnd(this ComPtr<IDXGISwapChain4> comObj, ref nint pHwnd) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (nint* ppHwnd = &pHwnd)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, nint*, int>)(handle->LpVtbl[20]))(handle, (nint*)ppHwnd);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, nint*, HResult>)(handle->LpVtbl[20]))(handle, (nint*)ppHwnd);
 				return ret;
 			}
 		}
@@ -3221,22 +3221,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetCoreWindow(this ComPtr<IDXGISwapChain4> comObj, Guid* refiid, void** ppUnk) 
+		public static HResult GetCoreWindow(this ComPtr<IDXGISwapChain4> comObj, Guid* refiid, void** ppUnk) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(handle->LpVtbl[21]))(handle, refiid, ppUnk);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(handle->LpVtbl[21]))(handle, refiid, ppUnk);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetCoreWindow(this ComPtr<IDXGISwapChain4> comObj, ref Guid refiid, void** ppUnk) 
+		public static HResult GetCoreWindow(this ComPtr<IDXGISwapChain4> comObj, ref Guid refiid, void** ppUnk) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* prefiid = &refiid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(handle->LpVtbl[21]))(handle, (Guid*)prefiid, ppUnk);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(handle->LpVtbl[21]))(handle, (Guid*)prefiid, ppUnk);
 				return ret;
 			}
 		}
@@ -3244,24 +3244,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetCoreWindow<T>(this ComPtr<IDXGISwapChain4> comObj, out ComPtr<T> ppUnk) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetCoreWindow<T>(this ComPtr<IDXGISwapChain4> comObj, out ComPtr<T> ppUnk) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			ppUnk = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(handle->LpVtbl[21]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppUnk.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(handle->LpVtbl[21]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppUnk.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetCoreWindow<T>(this ComPtr<IDXGISwapChain4> comObj, ref Guid refiid, out ComPtr<T> ppUnk) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetCoreWindow<T>(this ComPtr<IDXGISwapChain4> comObj, ref Guid refiid, out ComPtr<T> ppUnk) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Guid* prefiid = &refiid)
 			{
 				ppUnk = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, int>)(handle->LpVtbl[21]))(handle, (Guid*)prefiid, (void**)ppUnk.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Guid*, void**, HResult>)(handle->LpVtbl[21]))(handle, (Guid*)prefiid, (void**)ppUnk.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3269,22 +3269,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Present1(this ComPtr<IDXGISwapChain4> comObj, uint syncInterval, uint presentFlags, PresentParameters* pPresentParameters) 
+		public static HResult Present1(this ComPtr<IDXGISwapChain4> comObj, uint syncInterval, uint presentFlags, PresentParameters* pPresentParameters) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, PresentParameters*, int>)(handle->LpVtbl[22]))(handle, syncInterval, presentFlags, pPresentParameters);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, PresentParameters*, HResult>)(handle->LpVtbl[22]))(handle, syncInterval, presentFlags, pPresentParameters);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Present1(this ComPtr<IDXGISwapChain4> comObj, uint syncInterval, uint presentFlags, ref PresentParameters pPresentParameters) 
+		public static HResult Present1(this ComPtr<IDXGISwapChain4> comObj, uint syncInterval, uint presentFlags, ref PresentParameters pPresentParameters) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (PresentParameters* ppPresentParameters = &pPresentParameters)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, PresentParameters*, int>)(handle->LpVtbl[22]))(handle, syncInterval, presentFlags, (PresentParameters*)ppPresentParameters);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, PresentParameters*, HResult>)(handle->LpVtbl[22]))(handle, syncInterval, presentFlags, (PresentParameters*)ppPresentParameters);
 				return ret;
 			}
 		}
@@ -3292,32 +3292,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int IsTemporaryMonoSupported(this ComPtr<IDXGISwapChain4> comObj) 
+		public static Bool32 IsTemporaryMonoSupported(this ComPtr<IDXGISwapChain4> comObj) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, int>)(handle->LpVtbl[23]))(handle);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Bool32>)(handle->LpVtbl[23]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetRestrictToOutput(this ComPtr<IDXGISwapChain4> comObj, IDXGIOutput** ppRestrictToOutput) 
+		public static HResult GetRestrictToOutput(this ComPtr<IDXGISwapChain4> comObj, IDXGIOutput** ppRestrictToOutput) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, IDXGIOutput**, int>)(handle->LpVtbl[24]))(handle, ppRestrictToOutput);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, IDXGIOutput**, HResult>)(handle->LpVtbl[24]))(handle, ppRestrictToOutput);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetRestrictToOutput(this ComPtr<IDXGISwapChain4> comObj, ref IDXGIOutput* ppRestrictToOutput) 
+		public static HResult GetRestrictToOutput(this ComPtr<IDXGISwapChain4> comObj, ref IDXGIOutput* ppRestrictToOutput) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (IDXGIOutput** pppRestrictToOutput = &ppRestrictToOutput)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, IDXGIOutput**, int>)(handle->LpVtbl[24]))(handle, (IDXGIOutput**)pppRestrictToOutput);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, IDXGIOutput**, HResult>)(handle->LpVtbl[24]))(handle, (IDXGIOutput**)pppRestrictToOutput);
 				return ret;
 			}
 		}
@@ -3325,33 +3325,33 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetRestrictToOutput(this ComPtr<IDXGISwapChain4> comObj, out ComPtr<IDXGIOutput> ppRestrictToOutput) 
+		public static HResult GetRestrictToOutput(this ComPtr<IDXGISwapChain4> comObj, out ComPtr<IDXGIOutput> ppRestrictToOutput) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			ppRestrictToOutput = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, IDXGIOutput**, int>)(handle->LpVtbl[24]))(handle, (IDXGIOutput**)ppRestrictToOutput.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, IDXGIOutput**, HResult>)(handle->LpVtbl[24]))(handle, (IDXGIOutput**)ppRestrictToOutput.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetBackgroundColor(this ComPtr<IDXGISwapChain4> comObj, Vector4* pColor) 
+		public static HResult SetBackgroundColor(this ComPtr<IDXGISwapChain4> comObj, Vector4* pColor) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Vector4*, int>)(handle->LpVtbl[25]))(handle, pColor);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Vector4*, HResult>)(handle->LpVtbl[25]))(handle, pColor);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetBackgroundColor(this ComPtr<IDXGISwapChain4> comObj, ref Vector4 pColor) 
+		public static HResult SetBackgroundColor(this ComPtr<IDXGISwapChain4> comObj, ref Vector4 pColor) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Vector4* ppColor = &pColor)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Vector4*, int>)(handle->LpVtbl[25]))(handle, (Vector4*)ppColor);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Vector4*, HResult>)(handle->LpVtbl[25]))(handle, (Vector4*)ppColor);
 				return ret;
 			}
 		}
@@ -3359,22 +3359,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBackgroundColor(this ComPtr<IDXGISwapChain4> comObj, Vector4* pColor) 
+		public static HResult GetBackgroundColor(this ComPtr<IDXGISwapChain4> comObj, Vector4* pColor) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Vector4*, int>)(handle->LpVtbl[26]))(handle, pColor);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Vector4*, HResult>)(handle->LpVtbl[26]))(handle, pColor);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBackgroundColor(this ComPtr<IDXGISwapChain4> comObj, ref Vector4 pColor) 
+		public static HResult GetBackgroundColor(this ComPtr<IDXGISwapChain4> comObj, ref Vector4 pColor) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Vector4* ppColor = &pColor)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Vector4*, int>)(handle->LpVtbl[26]))(handle, (Vector4*)ppColor);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Vector4*, HResult>)(handle->LpVtbl[26]))(handle, (Vector4*)ppColor);
 				return ret;
 			}
 		}
@@ -3382,32 +3382,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetRotation(this ComPtr<IDXGISwapChain4> comObj, ModeRotation rotation) 
+		public static HResult SetRotation(this ComPtr<IDXGISwapChain4> comObj, ModeRotation rotation) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ModeRotation, int>)(handle->LpVtbl[27]))(handle, rotation);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ModeRotation, HResult>)(handle->LpVtbl[27]))(handle, rotation);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetRotation(this ComPtr<IDXGISwapChain4> comObj, ModeRotation* pRotation) 
+		public static HResult GetRotation(this ComPtr<IDXGISwapChain4> comObj, ModeRotation* pRotation) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ModeRotation*, int>)(handle->LpVtbl[28]))(handle, pRotation);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ModeRotation*, HResult>)(handle->LpVtbl[28]))(handle, pRotation);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetRotation(this ComPtr<IDXGISwapChain4> comObj, ref ModeRotation pRotation) 
+		public static HResult GetRotation(this ComPtr<IDXGISwapChain4> comObj, ref ModeRotation pRotation) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (ModeRotation* ppRotation = &pRotation)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ModeRotation*, int>)(handle->LpVtbl[28]))(handle, (ModeRotation*)ppRotation);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ModeRotation*, HResult>)(handle->LpVtbl[28]))(handle, (ModeRotation*)ppRotation);
 				return ret;
 			}
 		}
@@ -3415,32 +3415,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetSourceSize(this ComPtr<IDXGISwapChain4> comObj, uint width, uint height) 
+		public static HResult SetSourceSize(this ComPtr<IDXGISwapChain4> comObj, uint width, uint height) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, int>)(handle->LpVtbl[29]))(handle, width, height);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, HResult>)(handle->LpVtbl[29]))(handle, width, height);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetSourceSize(this ComPtr<IDXGISwapChain4> comObj, uint* pWidth, uint* pHeight) 
+		public static HResult GetSourceSize(this ComPtr<IDXGISwapChain4> comObj, uint* pWidth, uint* pHeight) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, uint*, int>)(handle->LpVtbl[30]))(handle, pWidth, pHeight);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, uint*, HResult>)(handle->LpVtbl[30]))(handle, pWidth, pHeight);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetSourceSize(this ComPtr<IDXGISwapChain4> comObj, ref uint pWidth, uint* pHeight) 
+		public static HResult GetSourceSize(this ComPtr<IDXGISwapChain4> comObj, ref uint pWidth, uint* pHeight) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (uint* ppWidth = &pWidth)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, uint*, int>)(handle->LpVtbl[30]))(handle, (uint*)ppWidth, pHeight);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, uint*, HResult>)(handle->LpVtbl[30]))(handle, (uint*)ppWidth, pHeight);
 				return ret;
 			}
 		}
@@ -3448,12 +3448,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetSourceSize(this ComPtr<IDXGISwapChain4> comObj, uint* pWidth, ref uint pHeight) 
+		public static HResult GetSourceSize(this ComPtr<IDXGISwapChain4> comObj, uint* pWidth, ref uint pHeight) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (uint* ppHeight = &pHeight)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, uint*, int>)(handle->LpVtbl[30]))(handle, pWidth, (uint*)ppHeight);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, uint*, HResult>)(handle->LpVtbl[30]))(handle, pWidth, (uint*)ppHeight);
 				return ret;
 			}
 		}
@@ -3461,14 +3461,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetSourceSize(this ComPtr<IDXGISwapChain4> comObj, ref uint pWidth, ref uint pHeight) 
+		public static HResult GetSourceSize(this ComPtr<IDXGISwapChain4> comObj, ref uint pWidth, ref uint pHeight) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (uint* ppWidth = &pWidth)
 			{
 				fixed (uint* ppHeight = &pHeight)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, uint*, int>)(handle->LpVtbl[30]))(handle, (uint*)ppWidth, (uint*)ppHeight);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, uint*, HResult>)(handle->LpVtbl[30]))(handle, (uint*)ppWidth, (uint*)ppHeight);
 					return ret;
 				}
 			}
@@ -3477,32 +3477,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetMaximumFrameLatency(this ComPtr<IDXGISwapChain4> comObj, uint maxLatency) 
+		public static HResult SetMaximumFrameLatency(this ComPtr<IDXGISwapChain4> comObj, uint maxLatency) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, int>)(handle->LpVtbl[31]))(handle, maxLatency);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, HResult>)(handle->LpVtbl[31]))(handle, maxLatency);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMaximumFrameLatency(this ComPtr<IDXGISwapChain4> comObj, uint* pMaxLatency) 
+		public static HResult GetMaximumFrameLatency(this ComPtr<IDXGISwapChain4> comObj, uint* pMaxLatency) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, int>)(handle->LpVtbl[32]))(handle, pMaxLatency);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pMaxLatency);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMaximumFrameLatency(this ComPtr<IDXGISwapChain4> comObj, ref uint pMaxLatency) 
+		public static HResult GetMaximumFrameLatency(this ComPtr<IDXGISwapChain4> comObj, ref uint pMaxLatency) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (uint* ppMaxLatency = &pMaxLatency)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, int>)(handle->LpVtbl[32]))(handle, (uint*)ppMaxLatency);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (uint*)ppMaxLatency);
 				return ret;
 			}
 		}
@@ -3520,22 +3520,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetMatrixTransform(this ComPtr<IDXGISwapChain4> comObj, Matrix3X2F* pMatrix) 
+		public static HResult SetMatrixTransform(this ComPtr<IDXGISwapChain4> comObj, Matrix3X2F* pMatrix) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Matrix3X2F*, int>)(handle->LpVtbl[34]))(handle, pMatrix);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Matrix3X2F*, HResult>)(handle->LpVtbl[34]))(handle, pMatrix);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetMatrixTransform(this ComPtr<IDXGISwapChain4> comObj, ref Matrix3X2F pMatrix) 
+		public static HResult SetMatrixTransform(this ComPtr<IDXGISwapChain4> comObj, ref Matrix3X2F pMatrix) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Matrix3X2F* ppMatrix = &pMatrix)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Matrix3X2F*, int>)(handle->LpVtbl[34]))(handle, (Matrix3X2F*)ppMatrix);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Matrix3X2F*, HResult>)(handle->LpVtbl[34]))(handle, (Matrix3X2F*)ppMatrix);
 				return ret;
 			}
 		}
@@ -3543,22 +3543,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMatrixTransform(this ComPtr<IDXGISwapChain4> comObj, Matrix3X2F* pMatrix) 
+		public static HResult GetMatrixTransform(this ComPtr<IDXGISwapChain4> comObj, Matrix3X2F* pMatrix) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Matrix3X2F*, int>)(handle->LpVtbl[35]))(handle, pMatrix);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Matrix3X2F*, HResult>)(handle->LpVtbl[35]))(handle, pMatrix);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMatrixTransform(this ComPtr<IDXGISwapChain4> comObj, ref Matrix3X2F pMatrix) 
+		public static HResult GetMatrixTransform(this ComPtr<IDXGISwapChain4> comObj, ref Matrix3X2F pMatrix) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (Matrix3X2F* ppMatrix = &pMatrix)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Matrix3X2F*, int>)(handle->LpVtbl[35]))(handle, (Matrix3X2F*)ppMatrix);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, Matrix3X2F*, HResult>)(handle->LpVtbl[35]))(handle, (Matrix3X2F*)ppMatrix);
 				return ret;
 			}
 		}
@@ -3576,22 +3576,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckColorSpaceSupport(this ComPtr<IDXGISwapChain4> comObj, ColorSpaceType colorSpace, uint* pColorSpaceSupport) 
+		public static HResult CheckColorSpaceSupport(this ComPtr<IDXGISwapChain4> comObj, ColorSpaceType colorSpace, uint* pColorSpaceSupport) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ColorSpaceType, uint*, int>)(handle->LpVtbl[37]))(handle, colorSpace, pColorSpaceSupport);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ColorSpaceType, uint*, HResult>)(handle->LpVtbl[37]))(handle, colorSpace, pColorSpaceSupport);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckColorSpaceSupport(this ComPtr<IDXGISwapChain4> comObj, ColorSpaceType colorSpace, ref uint pColorSpaceSupport) 
+		public static HResult CheckColorSpaceSupport(this ComPtr<IDXGISwapChain4> comObj, ColorSpaceType colorSpace, ref uint pColorSpaceSupport) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (uint* ppColorSpaceSupport = &pColorSpaceSupport)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ColorSpaceType, uint*, int>)(handle->LpVtbl[37]))(handle, colorSpace, (uint*)ppColorSpaceSupport);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ColorSpaceType, uint*, HResult>)(handle->LpVtbl[37]))(handle, colorSpace, (uint*)ppColorSpaceSupport);
 				return ret;
 			}
 		}
@@ -3599,32 +3599,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetColorSpace1(this ComPtr<IDXGISwapChain4> comObj, ColorSpaceType colorSpace) 
+		public static HResult SetColorSpace1(this ComPtr<IDXGISwapChain4> comObj, ColorSpaceType colorSpace) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ColorSpaceType, int>)(handle->LpVtbl[38]))(handle, colorSpace);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, ColorSpaceType, HResult>)(handle->LpVtbl[38]))(handle, colorSpace);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ResizeBuffers1(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format format, uint swapChainFlags, uint* pCreationNodeMask, IUnknown** ppPresentQueue) 
+		public static HResult ResizeBuffers1(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format format, uint swapChainFlags, uint* pCreationNodeMask, IUnknown** ppPresentQueue) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, uint*, IUnknown**, int>)(handle->LpVtbl[39]))(handle, bufferCount, width, height, format, swapChainFlags, pCreationNodeMask, ppPresentQueue);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, uint*, IUnknown**, HResult>)(handle->LpVtbl[39]))(handle, bufferCount, width, height, format, swapChainFlags, pCreationNodeMask, ppPresentQueue);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ResizeBuffers1(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format format, uint swapChainFlags, ref uint pCreationNodeMask, IUnknown** ppPresentQueue) 
+		public static HResult ResizeBuffers1(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format format, uint swapChainFlags, ref uint pCreationNodeMask, IUnknown** ppPresentQueue) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (uint* ppCreationNodeMask = &pCreationNodeMask)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, uint*, IUnknown**, int>)(handle->LpVtbl[39]))(handle, bufferCount, width, height, format, swapChainFlags, (uint*)ppCreationNodeMask, ppPresentQueue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, uint*, IUnknown**, HResult>)(handle->LpVtbl[39]))(handle, bufferCount, width, height, format, swapChainFlags, (uint*)ppCreationNodeMask, ppPresentQueue);
 				return ret;
 			}
 		}
@@ -3632,12 +3632,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ResizeBuffers1(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format format, uint swapChainFlags, uint* pCreationNodeMask, ref IUnknown* ppPresentQueue) 
+		public static HResult ResizeBuffers1(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format format, uint swapChainFlags, uint* pCreationNodeMask, ref IUnknown* ppPresentQueue) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (IUnknown** pppPresentQueue = &ppPresentQueue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, uint*, IUnknown**, int>)(handle->LpVtbl[39]))(handle, bufferCount, width, height, format, swapChainFlags, pCreationNodeMask, (IUnknown**)pppPresentQueue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, uint*, IUnknown**, HResult>)(handle->LpVtbl[39]))(handle, bufferCount, width, height, format, swapChainFlags, pCreationNodeMask, (IUnknown**)pppPresentQueue);
 				return ret;
 			}
 		}
@@ -3645,24 +3645,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ResizeBuffers1(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format format, uint swapChainFlags, uint* pCreationNodeMask, ComPtr<IUnknown> ppPresentQueue) 
+		public static HResult ResizeBuffers1(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format format, uint swapChainFlags, uint* pCreationNodeMask, ComPtr<IUnknown> ppPresentQueue) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, uint*, IUnknown**, int>)(handle->LpVtbl[39]))(handle, bufferCount, width, height, format, swapChainFlags, pCreationNodeMask, (IUnknown**)ppPresentQueue.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, uint*, IUnknown**, HResult>)(handle->LpVtbl[39]))(handle, bufferCount, width, height, format, swapChainFlags, pCreationNodeMask, (IUnknown**)ppPresentQueue.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ResizeBuffers1(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format format, uint swapChainFlags, ref uint pCreationNodeMask, ref IUnknown* ppPresentQueue) 
+		public static HResult ResizeBuffers1(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format format, uint swapChainFlags, ref uint pCreationNodeMask, ref IUnknown* ppPresentQueue) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (uint* ppCreationNodeMask = &pCreationNodeMask)
 			{
 				fixed (IUnknown** pppPresentQueue = &ppPresentQueue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, uint*, IUnknown**, int>)(handle->LpVtbl[39]))(handle, bufferCount, width, height, format, swapChainFlags, (uint*)ppCreationNodeMask, (IUnknown**)pppPresentQueue);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, uint*, IUnknown**, HResult>)(handle->LpVtbl[39]))(handle, bufferCount, width, height, format, swapChainFlags, (uint*)ppCreationNodeMask, (IUnknown**)pppPresentQueue);
 					return ret;
 				}
 			}
@@ -3671,12 +3671,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ResizeBuffers1(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format format, uint swapChainFlags, ref uint pCreationNodeMask, ComPtr<IUnknown> ppPresentQueue) 
+		public static HResult ResizeBuffers1(this ComPtr<IDXGISwapChain4> comObj, uint bufferCount, uint width, uint height, Format format, uint swapChainFlags, ref uint pCreationNodeMask, ComPtr<IUnknown> ppPresentQueue) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
 			fixed (uint* ppCreationNodeMask = &pCreationNodeMask)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, uint*, IUnknown**, int>)(handle->LpVtbl[39]))(handle, bufferCount, width, height, format, swapChainFlags, (uint*)ppCreationNodeMask, (IUnknown**)ppPresentQueue.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, uint, uint, uint, Format, uint, uint*, IUnknown**, HResult>)(handle->LpVtbl[39]))(handle, bufferCount, width, height, format, swapChainFlags, (uint*)ppCreationNodeMask, (IUnknown**)ppPresentQueue.Handle);
 				return ret;
 			}
 		}
@@ -3684,42 +3684,42 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetHDRMetaData(this ComPtr<IDXGISwapChain4> comObj, HdrMetadataType type, uint size, void* pMetaData) 
+		public static HResult SetHDRMetaData(this ComPtr<IDXGISwapChain4> comObj, HdrMetadataType type, uint size, void* pMetaData) 
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, HdrMetadataType, uint, void*, int>)(handle->LpVtbl[40]))(handle, type, size, pMetaData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, HdrMetadataType, uint, void*, HResult>)(handle->LpVtbl[40]))(handle, type, size, pMetaData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetHDRMetaData<T>(this ComPtr<IDXGISwapChain4> comObj, HdrMetadataType type, uint size, ComPtr<T> pMetaData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult SetHDRMetaData<T>(this ComPtr<IDXGISwapChain4> comObj, HdrMetadataType type, uint size, ComPtr<T> pMetaData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, HdrMetadataType, uint, void*, int>)(handle->LpVtbl[40]))(handle, type, size, (void*)pMetaData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain4*, HdrMetadataType, uint, void*, HResult>)(handle->LpVtbl[40]))(handle, type, size, (void*)pMetaData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDXGIDevice4> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDXGIDevice4> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDXGIDevice4> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDXGIDevice4> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -3727,24 +3727,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDXGIDevice4> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDXGIDevice4> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDXGIDevice4> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDXGIDevice4> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3772,22 +3772,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<IDXGIDevice4> comObj, Guid* name, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<IDXGIDevice4> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint, void*, HResult>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<IDXGIDevice4> comObj, ref Guid name, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<IDXGIDevice4> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint, void*, HResult>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
 				return ret;
 			}
 		}
@@ -3795,22 +3795,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIDevice4> comObj, Guid* name, IUnknown* pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIDevice4> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, pUnknown);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIDevice4> comObj, ref Guid name, IUnknown* pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIDevice4> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
 				return ret;
 			}
 		}
@@ -3818,12 +3818,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIDevice4> comObj, Guid* name, ref IUnknown pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIDevice4> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
 				return ret;
 			}
 		}
@@ -3831,24 +3831,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIDevice4> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIDevice4> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIDevice4> comObj, ref Guid name, ref IUnknown pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIDevice4> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (IUnknown* ppUnknown = &pUnknown)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)ppUnknown);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)ppUnknown);
 					return ret;
 				}
 			}
@@ -3857,12 +3857,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIDevice4> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIDevice4> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)pUnknown.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)pUnknown.Handle);
 				return ret;
 			}
 		}
@@ -3870,22 +3870,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIDevice4> comObj, Guid* name, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIDevice4> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIDevice4> comObj, ref Guid name, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIDevice4> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -3893,12 +3893,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIDevice4> comObj, Guid* name, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIDevice4> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -3906,14 +3906,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIDevice4> comObj, ref Guid name, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIDevice4> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -3922,22 +3922,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIDevice4> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIDevice4> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIDevice4> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIDevice4> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -3945,12 +3945,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIDevice4> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIDevice4> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -3958,14 +3958,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIDevice4> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIDevice4> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -3974,22 +3974,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent(this ComPtr<IDXGIDevice4> comObj, Guid* riid, void** ppParent) 
+		public static HResult GetParent(this ComPtr<IDXGIDevice4> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, riid, ppParent);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent(this ComPtr<IDXGIDevice4> comObj, ref Guid riid, void** ppParent) 
+		public static HResult GetParent(this ComPtr<IDXGIDevice4> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, ppParent);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)priid, ppParent);
 				return ret;
 			}
 		}
@@ -3997,24 +3997,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent<T>(this ComPtr<IDXGIDevice4> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetParent<T>(this ComPtr<IDXGIDevice4> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			ppParent = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent<T>(this ComPtr<IDXGIDevice4> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetParent<T>(this ComPtr<IDXGIDevice4> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppParent = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, (void**)ppParent.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)priid, (void**)ppParent.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4022,22 +4022,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetAdapter(this ComPtr<IDXGIDevice4> comObj, IDXGIAdapter** pAdapter) 
+		public static HResult GetAdapter(this ComPtr<IDXGIDevice4> comObj, IDXGIAdapter** pAdapter) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IDXGIAdapter**, int>)(handle->LpVtbl[7]))(handle, pAdapter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IDXGIAdapter**, HResult>)(handle->LpVtbl[7]))(handle, pAdapter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetAdapter(this ComPtr<IDXGIDevice4> comObj, ref IDXGIAdapter* pAdapter) 
+		public static HResult GetAdapter(this ComPtr<IDXGIDevice4> comObj, ref IDXGIAdapter* pAdapter) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (IDXGIAdapter** ppAdapter = &pAdapter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IDXGIAdapter**, int>)(handle->LpVtbl[7]))(handle, (IDXGIAdapter**)ppAdapter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IDXGIAdapter**, HResult>)(handle->LpVtbl[7]))(handle, (IDXGIAdapter**)ppAdapter);
 				return ret;
 			}
 		}
@@ -4045,33 +4045,33 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetAdapter(this ComPtr<IDXGIDevice4> comObj, out ComPtr<IDXGIAdapter> pAdapter) 
+		public static HResult GetAdapter(this ComPtr<IDXGIDevice4> comObj, out ComPtr<IDXGIAdapter> pAdapter) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			pAdapter = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IDXGIAdapter**, int>)(handle->LpVtbl[7]))(handle, (IDXGIAdapter**)pAdapter.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IDXGIAdapter**, HResult>)(handle->LpVtbl[7]))(handle, (IDXGIAdapter**)pAdapter.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSurface(this ComPtr<IDXGIDevice4> comObj, SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, IDXGISurface** ppSurface) 
+		public static HResult CreateSurface(this ComPtr<IDXGIDevice4> comObj, SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, IDXGISurface** ppSurface) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(handle->LpVtbl[8]))(handle, pDesc, numSurfaces, usage, pSharedResource, ppSurface);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(handle->LpVtbl[8]))(handle, pDesc, numSurfaces, usage, pSharedResource, ppSurface);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSurface(this ComPtr<IDXGIDevice4> comObj, ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, IDXGISurface** ppSurface) 
+		public static HResult CreateSurface(this ComPtr<IDXGIDevice4> comObj, ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, IDXGISurface** ppSurface) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, ppSurface);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, ppSurface);
 				return ret;
 			}
 		}
@@ -4079,12 +4079,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSurface(this ComPtr<IDXGIDevice4> comObj, SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, IDXGISurface** ppSurface) 
+		public static HResult CreateSurface(this ComPtr<IDXGIDevice4> comObj, SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, IDXGISurface** ppSurface) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (SharedResource* ppSharedResource = &pSharedResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(handle->LpVtbl[8]))(handle, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, ppSurface);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(handle->LpVtbl[8]))(handle, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, ppSurface);
 				return ret;
 			}
 		}
@@ -4092,14 +4092,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSurface(this ComPtr<IDXGIDevice4> comObj, ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, IDXGISurface** ppSurface) 
+		public static HResult CreateSurface(this ComPtr<IDXGIDevice4> comObj, ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, IDXGISurface** ppSurface) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
 				fixed (SharedResource* ppSharedResource = &pSharedResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, ppSurface);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, ppSurface);
 					return ret;
 				}
 			}
@@ -4108,12 +4108,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSurface(this ComPtr<IDXGIDevice4> comObj, SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, ref IDXGISurface* ppSurface) 
+		public static HResult CreateSurface(this ComPtr<IDXGIDevice4> comObj, SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, ref IDXGISurface* ppSurface) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (IDXGISurface** pppSurface = &ppSurface)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(handle->LpVtbl[8]))(handle, pDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)pppSurface);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(handle->LpVtbl[8]))(handle, pDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)pppSurface);
 				return ret;
 			}
 		}
@@ -4121,25 +4121,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSurface(this ComPtr<IDXGIDevice4> comObj, SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
+		public static HResult CreateSurface(this ComPtr<IDXGIDevice4> comObj, SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			ppSurface = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(handle->LpVtbl[8]))(handle, pDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(handle->LpVtbl[8]))(handle, pDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSurface(this ComPtr<IDXGIDevice4> comObj, ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, ref IDXGISurface* ppSurface) 
+		public static HResult CreateSurface(this ComPtr<IDXGIDevice4> comObj, ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, ref IDXGISurface* ppSurface) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
 				fixed (IDXGISurface** pppSurface = &ppSurface)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)pppSurface);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)pppSurface);
 					return ret;
 				}
 			}
@@ -4148,13 +4148,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSurface(this ComPtr<IDXGIDevice4> comObj, ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
+		public static HResult CreateSurface(this ComPtr<IDXGIDevice4> comObj, ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
 				ppSurface = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4162,14 +4162,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSurface(this ComPtr<IDXGIDevice4> comObj, SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, ref IDXGISurface* ppSurface) 
+		public static HResult CreateSurface(this ComPtr<IDXGIDevice4> comObj, SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, ref IDXGISurface* ppSurface) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (SharedResource* ppSharedResource = &pSharedResource)
 			{
 				fixed (IDXGISurface** pppSurface = &ppSurface)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(handle->LpVtbl[8]))(handle, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)pppSurface);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(handle->LpVtbl[8]))(handle, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)pppSurface);
 					return ret;
 				}
 			}
@@ -4178,13 +4178,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSurface(this ComPtr<IDXGIDevice4> comObj, SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
+		public static HResult CreateSurface(this ComPtr<IDXGIDevice4> comObj, SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (SharedResource* ppSharedResource = &pSharedResource)
 			{
 				ppSurface = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(handle->LpVtbl[8]))(handle, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(handle->LpVtbl[8]))(handle, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4192,7 +4192,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSurface(this ComPtr<IDXGIDevice4> comObj, ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, ref IDXGISurface* ppSurface) 
+		public static HResult CreateSurface(this ComPtr<IDXGIDevice4> comObj, ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, ref IDXGISurface* ppSurface) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (SurfaceDesc* ppDesc = &pDesc)
@@ -4201,7 +4201,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGISurface** pppSurface = &ppSurface)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)pppSurface);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)pppSurface);
 						return ret;
 					}
 				}
@@ -4211,7 +4211,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSurface(this ComPtr<IDXGIDevice4> comObj, ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
+		public static HResult CreateSurface(this ComPtr<IDXGIDevice4> comObj, ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (SurfaceDesc* ppDesc = &pDesc)
@@ -4219,7 +4219,7 @@ namespace Hexa.NET.DXGI
 				fixed (SharedResource* ppSharedResource = &pSharedResource)
 				{
 					ppSurface = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, HResult>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4228,22 +4228,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryResourceResidency(this ComPtr<IDXGIDevice4> comObj, IUnknown** ppResources, Residency* pResidencyStatus, uint numResources) 
+		public static HResult QueryResourceResidency(this ComPtr<IDXGIDevice4> comObj, IUnknown** ppResources, Residency* pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IUnknown**, Residency*, uint, int>)(handle->LpVtbl[9]))(handle, ppResources, pResidencyStatus, numResources);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IUnknown**, Residency*, uint, HResult>)(handle->LpVtbl[9]))(handle, ppResources, pResidencyStatus, numResources);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryResourceResidency(this ComPtr<IDXGIDevice4> comObj, ref IUnknown* ppResources, Residency* pResidencyStatus, uint numResources) 
+		public static HResult QueryResourceResidency(this ComPtr<IDXGIDevice4> comObj, ref IUnknown* ppResources, Residency* pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (IUnknown** pppResources = &ppResources)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IUnknown**, Residency*, uint, int>)(handle->LpVtbl[9]))(handle, (IUnknown**)pppResources, pResidencyStatus, numResources);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IUnknown**, Residency*, uint, HResult>)(handle->LpVtbl[9]))(handle, (IUnknown**)pppResources, pResidencyStatus, numResources);
 				return ret;
 			}
 		}
@@ -4251,22 +4251,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryResourceResidency(this ComPtr<IDXGIDevice4> comObj, ComPtr<IUnknown> ppResources, Residency* pResidencyStatus, uint numResources) 
+		public static HResult QueryResourceResidency(this ComPtr<IDXGIDevice4> comObj, ComPtr<IUnknown> ppResources, Residency* pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IUnknown**, Residency*, uint, int>)(handle->LpVtbl[9]))(handle, (IUnknown**)ppResources.Handle, pResidencyStatus, numResources);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IUnknown**, Residency*, uint, HResult>)(handle->LpVtbl[9]))(handle, (IUnknown**)ppResources.Handle, pResidencyStatus, numResources);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryResourceResidency(this ComPtr<IDXGIDevice4> comObj, IUnknown** ppResources, ref Residency pResidencyStatus, uint numResources) 
+		public static HResult QueryResourceResidency(this ComPtr<IDXGIDevice4> comObj, IUnknown** ppResources, ref Residency pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Residency* ppResidencyStatus = &pResidencyStatus)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IUnknown**, Residency*, uint, int>)(handle->LpVtbl[9]))(handle, ppResources, (Residency*)ppResidencyStatus, numResources);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IUnknown**, Residency*, uint, HResult>)(handle->LpVtbl[9]))(handle, ppResources, (Residency*)ppResidencyStatus, numResources);
 				return ret;
 			}
 		}
@@ -4274,14 +4274,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryResourceResidency(this ComPtr<IDXGIDevice4> comObj, ref IUnknown* ppResources, ref Residency pResidencyStatus, uint numResources) 
+		public static HResult QueryResourceResidency(this ComPtr<IDXGIDevice4> comObj, ref IUnknown* ppResources, ref Residency pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (IUnknown** pppResources = &ppResources)
 			{
 				fixed (Residency* ppResidencyStatus = &pResidencyStatus)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IUnknown**, Residency*, uint, int>)(handle->LpVtbl[9]))(handle, (IUnknown**)pppResources, (Residency*)ppResidencyStatus, numResources);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IUnknown**, Residency*, uint, HResult>)(handle->LpVtbl[9]))(handle, (IUnknown**)pppResources, (Residency*)ppResidencyStatus, numResources);
 					return ret;
 				}
 			}
@@ -4290,12 +4290,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryResourceResidency(this ComPtr<IDXGIDevice4> comObj, ComPtr<IUnknown> ppResources, ref Residency pResidencyStatus, uint numResources) 
+		public static HResult QueryResourceResidency(this ComPtr<IDXGIDevice4> comObj, ComPtr<IUnknown> ppResources, ref Residency pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (Residency* ppResidencyStatus = &pResidencyStatus)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IUnknown**, Residency*, uint, int>)(handle->LpVtbl[9]))(handle, (IUnknown**)ppResources.Handle, (Residency*)ppResidencyStatus, numResources);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, IUnknown**, Residency*, uint, HResult>)(handle->LpVtbl[9]))(handle, (IUnknown**)ppResources.Handle, (Residency*)ppResidencyStatus, numResources);
 				return ret;
 			}
 		}
@@ -4303,32 +4303,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetGPUThreadPriority(this ComPtr<IDXGIDevice4> comObj, int priority) 
+		public static HResult SetGPUThreadPriority(this ComPtr<IDXGIDevice4> comObj, int priority) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, int, int>)(handle->LpVtbl[10]))(handle, priority);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, int, HResult>)(handle->LpVtbl[10]))(handle, priority);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetGPUThreadPriority(this ComPtr<IDXGIDevice4> comObj, int* pPriority) 
+		public static HResult GetGPUThreadPriority(this ComPtr<IDXGIDevice4> comObj, int* pPriority) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, int*, int>)(handle->LpVtbl[11]))(handle, pPriority);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, int*, HResult>)(handle->LpVtbl[11]))(handle, pPriority);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetGPUThreadPriority(this ComPtr<IDXGIDevice4> comObj, ref int pPriority) 
+		public static HResult GetGPUThreadPriority(this ComPtr<IDXGIDevice4> comObj, ref int pPriority) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (int* ppPriority = &pPriority)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, int*, int>)(handle->LpVtbl[11]))(handle, (int*)ppPriority);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, int*, HResult>)(handle->LpVtbl[11]))(handle, (int*)ppPriority);
 				return ret;
 			}
 		}
@@ -4336,32 +4336,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetMaximumFrameLatency(this ComPtr<IDXGIDevice4> comObj, uint maxLatency) 
+		public static HResult SetMaximumFrameLatency(this ComPtr<IDXGIDevice4> comObj, uint maxLatency) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, int>)(handle->LpVtbl[12]))(handle, maxLatency);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, HResult>)(handle->LpVtbl[12]))(handle, maxLatency);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMaximumFrameLatency(this ComPtr<IDXGIDevice4> comObj, uint* pMaxLatency) 
+		public static HResult GetMaximumFrameLatency(this ComPtr<IDXGIDevice4> comObj, uint* pMaxLatency) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint*, int>)(handle->LpVtbl[13]))(handle, pMaxLatency);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint*, HResult>)(handle->LpVtbl[13]))(handle, pMaxLatency);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMaximumFrameLatency(this ComPtr<IDXGIDevice4> comObj, ref uint pMaxLatency) 
+		public static HResult GetMaximumFrameLatency(this ComPtr<IDXGIDevice4> comObj, ref uint pMaxLatency) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (uint* ppMaxLatency = &pMaxLatency)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint*, int>)(handle->LpVtbl[13]))(handle, (uint*)ppMaxLatency);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint*, HResult>)(handle->LpVtbl[13]))(handle, (uint*)ppMaxLatency);
 				return ret;
 			}
 		}
@@ -4369,22 +4369,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OfferResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, IDXGIResource** ppResources, OfferResourcePriority priority) 
+		public static HResult OfferResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, IDXGIResource** ppResources, OfferResourcePriority priority) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, OfferResourcePriority, int>)(handle->LpVtbl[14]))(handle, numResources, ppResources, priority);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, OfferResourcePriority, HResult>)(handle->LpVtbl[14]))(handle, numResources, ppResources, priority);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OfferResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, ref IDXGIResource* ppResources, OfferResourcePriority priority) 
+		public static HResult OfferResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, ref IDXGIResource* ppResources, OfferResourcePriority priority) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (IDXGIResource** pppResources = &ppResources)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, OfferResourcePriority, int>)(handle->LpVtbl[14]))(handle, numResources, (IDXGIResource**)pppResources, priority);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, OfferResourcePriority, HResult>)(handle->LpVtbl[14]))(handle, numResources, (IDXGIResource**)pppResources, priority);
 				return ret;
 			}
 		}
@@ -4392,32 +4392,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OfferResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, ComPtr<IDXGIResource> ppResources, OfferResourcePriority priority) 
+		public static HResult OfferResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, ComPtr<IDXGIResource> ppResources, OfferResourcePriority priority) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, OfferResourcePriority, int>)(handle->LpVtbl[14]))(handle, numResources, (IDXGIResource**)ppResources.Handle, priority);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, OfferResourcePriority, HResult>)(handle->LpVtbl[14]))(handle, numResources, (IDXGIResource**)ppResources.Handle, priority);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReclaimResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, IDXGIResource** ppResources, int* pDiscarded) 
+		public static HResult ReclaimResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, IDXGIResource** ppResources, Bool32* pDiscarded) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, int*, int>)(handle->LpVtbl[15]))(handle, numResources, ppResources, pDiscarded);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, Bool32*, HResult>)(handle->LpVtbl[15]))(handle, numResources, ppResources, pDiscarded);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReclaimResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, ref IDXGIResource* ppResources, int* pDiscarded) 
+		public static HResult ReclaimResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, ref IDXGIResource* ppResources, Bool32* pDiscarded) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (IDXGIResource** pppResources = &ppResources)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, int*, int>)(handle->LpVtbl[15]))(handle, numResources, (IDXGIResource**)pppResources, pDiscarded);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, Bool32*, HResult>)(handle->LpVtbl[15]))(handle, numResources, (IDXGIResource**)pppResources, pDiscarded);
 				return ret;
 			}
 		}
@@ -4425,22 +4425,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReclaimResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, ComPtr<IDXGIResource> ppResources, int* pDiscarded) 
+		public static HResult ReclaimResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, ComPtr<IDXGIResource> ppResources, Bool32* pDiscarded) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, int*, int>)(handle->LpVtbl[15]))(handle, numResources, (IDXGIResource**)ppResources.Handle, pDiscarded);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, Bool32*, HResult>)(handle->LpVtbl[15]))(handle, numResources, (IDXGIResource**)ppResources.Handle, pDiscarded);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReclaimResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, IDXGIResource** ppResources, ref int pDiscarded) 
+		public static HResult ReclaimResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, IDXGIResource** ppResources, ref Bool32 pDiscarded) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			fixed (int* ppDiscarded = &pDiscarded)
+			fixed (Bool32* ppDiscarded = &pDiscarded)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, int*, int>)(handle->LpVtbl[15]))(handle, numResources, ppResources, (int*)ppDiscarded);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, Bool32*, HResult>)(handle->LpVtbl[15]))(handle, numResources, ppResources, (Bool32*)ppDiscarded);
 				return ret;
 			}
 		}
@@ -4448,14 +4448,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReclaimResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, ref IDXGIResource* ppResources, ref int pDiscarded) 
+		public static HResult ReclaimResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, ref IDXGIResource* ppResources, ref Bool32 pDiscarded) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (IDXGIResource** pppResources = &ppResources)
 			{
-				fixed (int* ppDiscarded = &pDiscarded)
+				fixed (Bool32* ppDiscarded = &pDiscarded)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, int*, int>)(handle->LpVtbl[15]))(handle, numResources, (IDXGIResource**)pppResources, (int*)ppDiscarded);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, Bool32*, HResult>)(handle->LpVtbl[15]))(handle, numResources, (IDXGIResource**)pppResources, (Bool32*)ppDiscarded);
 					return ret;
 				}
 			}
@@ -4464,12 +4464,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReclaimResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, ComPtr<IDXGIResource> ppResources, ref int pDiscarded) 
+		public static HResult ReclaimResources(this ComPtr<IDXGIDevice4> comObj, uint numResources, ComPtr<IDXGIResource> ppResources, ref Bool32 pDiscarded) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			fixed (int* ppDiscarded = &pDiscarded)
+			fixed (Bool32* ppDiscarded = &pDiscarded)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, int*, int>)(handle->LpVtbl[15]))(handle, numResources, (IDXGIResource**)ppResources.Handle, (int*)ppDiscarded);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, Bool32*, HResult>)(handle->LpVtbl[15]))(handle, numResources, (IDXGIResource**)ppResources.Handle, (Bool32*)ppDiscarded);
 				return ret;
 			}
 		}
@@ -4477,10 +4477,10 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnqueueSetEvent(this ComPtr<IDXGIDevice4> comObj, nint hEvent) 
+		public static HResult EnqueueSetEvent(this ComPtr<IDXGIDevice4> comObj, nint hEvent) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, nint, int>)(handle->LpVtbl[16]))(handle, hEvent);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, nint, HResult>)(handle->LpVtbl[16]))(handle, hEvent);
 			return ret;
 		}
 
@@ -4496,22 +4496,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OfferResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, IDXGIResource** ppResources, OfferResourcePriority priority, uint flags) 
+		public static HResult OfferResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, IDXGIResource** ppResources, OfferResourcePriority priority, uint flags) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, OfferResourcePriority, uint, int>)(handle->LpVtbl[18]))(handle, numResources, ppResources, priority, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, OfferResourcePriority, uint, HResult>)(handle->LpVtbl[18]))(handle, numResources, ppResources, priority, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OfferResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, ref IDXGIResource* ppResources, OfferResourcePriority priority, uint flags) 
+		public static HResult OfferResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, ref IDXGIResource* ppResources, OfferResourcePriority priority, uint flags) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (IDXGIResource** pppResources = &ppResources)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, OfferResourcePriority, uint, int>)(handle->LpVtbl[18]))(handle, numResources, (IDXGIResource**)pppResources, priority, flags);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, OfferResourcePriority, uint, HResult>)(handle->LpVtbl[18]))(handle, numResources, (IDXGIResource**)pppResources, priority, flags);
 				return ret;
 			}
 		}
@@ -4519,32 +4519,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OfferResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, ComPtr<IDXGIResource> ppResources, OfferResourcePriority priority, uint flags) 
+		public static HResult OfferResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, ComPtr<IDXGIResource> ppResources, OfferResourcePriority priority, uint flags) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, OfferResourcePriority, uint, int>)(handle->LpVtbl[18]))(handle, numResources, (IDXGIResource**)ppResources.Handle, priority, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, OfferResourcePriority, uint, HResult>)(handle->LpVtbl[18]))(handle, numResources, (IDXGIResource**)ppResources.Handle, priority, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReclaimResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, IDXGIResource** ppResources, ReclaimResourceResults* pResults) 
+		public static HResult ReclaimResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, IDXGIResource** ppResources, ReclaimResourceResults* pResults) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, ReclaimResourceResults*, int>)(handle->LpVtbl[19]))(handle, numResources, ppResources, pResults);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, ReclaimResourceResults*, HResult>)(handle->LpVtbl[19]))(handle, numResources, ppResources, pResults);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReclaimResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, ref IDXGIResource* ppResources, ReclaimResourceResults* pResults) 
+		public static HResult ReclaimResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, ref IDXGIResource* ppResources, ReclaimResourceResults* pResults) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (IDXGIResource** pppResources = &ppResources)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, ReclaimResourceResults*, int>)(handle->LpVtbl[19]))(handle, numResources, (IDXGIResource**)pppResources, pResults);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, ReclaimResourceResults*, HResult>)(handle->LpVtbl[19]))(handle, numResources, (IDXGIResource**)pppResources, pResults);
 				return ret;
 			}
 		}
@@ -4552,22 +4552,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReclaimResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, ComPtr<IDXGIResource> ppResources, ReclaimResourceResults* pResults) 
+		public static HResult ReclaimResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, ComPtr<IDXGIResource> ppResources, ReclaimResourceResults* pResults) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, ReclaimResourceResults*, int>)(handle->LpVtbl[19]))(handle, numResources, (IDXGIResource**)ppResources.Handle, pResults);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, ReclaimResourceResults*, HResult>)(handle->LpVtbl[19]))(handle, numResources, (IDXGIResource**)ppResources.Handle, pResults);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReclaimResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, IDXGIResource** ppResources, ref ReclaimResourceResults pResults) 
+		public static HResult ReclaimResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, IDXGIResource** ppResources, ref ReclaimResourceResults pResults) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (ReclaimResourceResults* ppResults = &pResults)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, ReclaimResourceResults*, int>)(handle->LpVtbl[19]))(handle, numResources, ppResources, (ReclaimResourceResults*)ppResults);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, ReclaimResourceResults*, HResult>)(handle->LpVtbl[19]))(handle, numResources, ppResources, (ReclaimResourceResults*)ppResults);
 				return ret;
 			}
 		}
@@ -4575,14 +4575,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReclaimResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, ref IDXGIResource* ppResources, ref ReclaimResourceResults pResults) 
+		public static HResult ReclaimResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, ref IDXGIResource* ppResources, ref ReclaimResourceResults pResults) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (IDXGIResource** pppResources = &ppResources)
 			{
 				fixed (ReclaimResourceResults* ppResults = &pResults)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, ReclaimResourceResults*, int>)(handle->LpVtbl[19]))(handle, numResources, (IDXGIResource**)pppResources, (ReclaimResourceResults*)ppResults);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, ReclaimResourceResults*, HResult>)(handle->LpVtbl[19]))(handle, numResources, (IDXGIResource**)pppResources, (ReclaimResourceResults*)ppResults);
 					return ret;
 				}
 			}
@@ -4591,12 +4591,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReclaimResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, ComPtr<IDXGIResource> ppResources, ref ReclaimResourceResults pResults) 
+		public static HResult ReclaimResources1(this ComPtr<IDXGIDevice4> comObj, uint numResources, ComPtr<IDXGIResource> ppResources, ref ReclaimResourceResults pResults) 
 		{
 			IDXGIDevice4* handle = comObj.Handle;
 			fixed (ReclaimResourceResults* ppResults = &pResults)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, ReclaimResourceResults*, int>)(handle->LpVtbl[19]))(handle, numResources, (IDXGIResource**)ppResources.Handle, (ReclaimResourceResults*)ppResults);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice4*, uint, IDXGIResource**, ReclaimResourceResults*, HResult>)(handle->LpVtbl[19]))(handle, numResources, (IDXGIResource**)ppResources.Handle, (ReclaimResourceResults*)ppResults);
 				return ret;
 			}
 		}
@@ -4604,22 +4604,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDXGIFactory5> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDXGIFactory5> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDXGIFactory5> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDXGIFactory5> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -4627,24 +4627,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDXGIFactory5> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDXGIFactory5> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDXGIFactory5> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDXGIFactory5> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4672,22 +4672,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<IDXGIFactory5> comObj, Guid* name, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<IDXGIFactory5> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint, void*, HResult>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateData(this ComPtr<IDXGIFactory5> comObj, ref Guid name, uint dataSize, void* pData) 
+		public static HResult SetPrivateData(this ComPtr<IDXGIFactory5> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint, void*, HResult>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
 				return ret;
 			}
 		}
@@ -4695,22 +4695,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory5> comObj, Guid* name, IUnknown* pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIFactory5> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, pUnknown);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory5> comObj, ref Guid name, IUnknown* pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIFactory5> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
 				return ret;
 			}
 		}
@@ -4718,12 +4718,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory5> comObj, Guid* name, ref IUnknown pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIFactory5> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
 				return ret;
 			}
 		}
@@ -4731,24 +4731,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory5> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIFactory5> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory5> comObj, ref Guid name, ref IUnknown pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIFactory5> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (IUnknown* ppUnknown = &pUnknown)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)ppUnknown);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)ppUnknown);
 					return ret;
 				}
 			}
@@ -4757,12 +4757,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory5> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
+		public static HResult SetPrivateDataInterface(this ComPtr<IDXGIFactory5> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)pUnknown.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, IUnknown*, HResult>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)pUnknown.Handle);
 				return ret;
 			}
 		}
@@ -4770,22 +4770,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIFactory5> comObj, Guid* name, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIFactory5> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIFactory5> comObj, ref Guid name, uint* pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIFactory5> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -4793,12 +4793,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIFactory5> comObj, Guid* name, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIFactory5> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -4806,14 +4806,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData(this ComPtr<IDXGIFactory5> comObj, ref Guid name, ref uint pDataSize, void* pData) 
+		public static HResult GetPrivateData(this ComPtr<IDXGIFactory5> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -4822,22 +4822,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIFactory5> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIFactory5> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactory5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIFactory5> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIFactory5> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -4845,12 +4845,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIFactory5> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIFactory5> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -4858,14 +4858,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetPrivateData<T>(this ComPtr<IDXGIFactory5> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetPrivateData<T>(this ComPtr<IDXGIFactory5> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -4874,22 +4874,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent(this ComPtr<IDXGIFactory5> comObj, Guid* riid, void** ppParent) 
+		public static HResult GetParent(this ComPtr<IDXGIFactory5> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, riid, ppParent);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent(this ComPtr<IDXGIFactory5> comObj, ref Guid riid, void** ppParent) 
+		public static HResult GetParent(this ComPtr<IDXGIFactory5> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, ppParent);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)priid, ppParent);
 				return ret;
 			}
 		}
@@ -4897,24 +4897,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent<T>(this ComPtr<IDXGIFactory5> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetParent<T>(this ComPtr<IDXGIFactory5> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			ppParent = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetParent<T>(this ComPtr<IDXGIFactory5> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetParent<T>(this ComPtr<IDXGIFactory5> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppParent = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, (void**)ppParent.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, (Guid*)priid, (void**)ppParent.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4922,22 +4922,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumAdapters(this ComPtr<IDXGIFactory5> comObj, uint adapter, IDXGIAdapter** ppAdapter) 
+		public static HResult EnumAdapters(this ComPtr<IDXGIFactory5> comObj, uint adapter, IDXGIAdapter** ppAdapter) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, uint, IDXGIAdapter**, int>)(handle->LpVtbl[7]))(handle, adapter, ppAdapter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, uint, IDXGIAdapter**, HResult>)(handle->LpVtbl[7]))(handle, adapter, ppAdapter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumAdapters(this ComPtr<IDXGIFactory5> comObj, uint adapter, ref IDXGIAdapter* ppAdapter) 
+		public static HResult EnumAdapters(this ComPtr<IDXGIFactory5> comObj, uint adapter, ref IDXGIAdapter* ppAdapter) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (IDXGIAdapter** pppAdapter = &ppAdapter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, uint, IDXGIAdapter**, int>)(handle->LpVtbl[7]))(handle, adapter, (IDXGIAdapter**)pppAdapter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, uint, IDXGIAdapter**, HResult>)(handle->LpVtbl[7]))(handle, adapter, (IDXGIAdapter**)pppAdapter);
 				return ret;
 			}
 		}
@@ -4945,43 +4945,43 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int EnumAdapters(this ComPtr<IDXGIFactory5> comObj, uint adapter, out ComPtr<IDXGIAdapter> ppAdapter) 
+		public static HResult EnumAdapters(this ComPtr<IDXGIFactory5> comObj, uint adapter, out ComPtr<IDXGIAdapter> ppAdapter) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			ppAdapter = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, uint, IDXGIAdapter**, int>)(handle->LpVtbl[7]))(handle, adapter, (IDXGIAdapter**)ppAdapter.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, uint, IDXGIAdapter**, HResult>)(handle->LpVtbl[7]))(handle, adapter, (IDXGIAdapter**)ppAdapter.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int MakeWindowAssociation(this ComPtr<IDXGIFactory5> comObj, nint windowHandle, uint flags) 
+		public static HResult MakeWindowAssociation(this ComPtr<IDXGIFactory5> comObj, nint windowHandle, uint flags) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, nint, uint, int>)(handle->LpVtbl[8]))(handle, windowHandle, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, nint, uint, HResult>)(handle->LpVtbl[8]))(handle, windowHandle, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetWindowAssociation(this ComPtr<IDXGIFactory5> comObj, nint* pWindowHandle) 
+		public static HResult GetWindowAssociation(this ComPtr<IDXGIFactory5> comObj, nint* pWindowHandle) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, nint*, int>)(handle->LpVtbl[9]))(handle, pWindowHandle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, nint*, HResult>)(handle->LpVtbl[9]))(handle, pWindowHandle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetWindowAssociation(this ComPtr<IDXGIFactory5> comObj, ref nint pWindowHandle) 
+		public static HResult GetWindowAssociation(this ComPtr<IDXGIFactory5> comObj, ref nint pWindowHandle) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (nint* ppWindowHandle = &pWindowHandle)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, nint*, int>)(handle->LpVtbl[9]))(handle, (nint*)ppWindowHandle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, nint*, HResult>)(handle->LpVtbl[9]))(handle, (nint*)ppWindowHandle);
 				return ret;
 			}
 		}
@@ -4989,22 +4989,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory5> comObj, IUnknown* pDevice, SwapChainDesc* pDesc, IDXGISwapChain** ppSwapChain) 
+		public static HResult CreateSwapChain(this ComPtr<IDXGIFactory5> comObj, IUnknown* pDevice, SwapChainDesc* pDesc, IDXGISwapChain** ppSwapChain) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, pDevice, pDesc, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, HResult>)(handle->LpVtbl[10]))(handle, pDevice, pDesc, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory5> comObj, ref IUnknown pDevice, SwapChainDesc* pDesc, IDXGISwapChain** ppSwapChain) 
+		public static HResult CreateSwapChain(this ComPtr<IDXGIFactory5> comObj, ref IUnknown pDevice, SwapChainDesc* pDesc, IDXGISwapChain** ppSwapChain) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)ppDevice, pDesc, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, HResult>)(handle->LpVtbl[10]))(handle, (IUnknown*)ppDevice, pDesc, ppSwapChain);
 				return ret;
 			}
 		}
@@ -5012,10 +5012,10 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory5> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc* pDesc, IDXGISwapChain** ppSwapChain) 
+		public static HResult CreateSwapChain(this ComPtr<IDXGIFactory5> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc* pDesc, IDXGISwapChain** ppSwapChain) 
 		{
 			IDXGIFactory5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)pDevice.Handle, pDesc, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory5*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, HResult>)(handle->LpVtbl[10]))(handle, (IUnknown*)pDevice.Handle, pDesc, ppSwapChain);
 			return ret;
 		}
 	}

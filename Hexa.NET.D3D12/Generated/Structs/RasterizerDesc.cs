@@ -37,7 +37,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int FrontCounterClockwise;
+		public Bool32 FrontCounterClockwise;
 
 		/// <summary>
 		/// To be documented.
@@ -57,17 +57,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DepthClipEnable;
+		public Bool32 DepthClipEnable;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int MultisampleEnable;
+		public Bool32 MultisampleEnable;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int AntialiasedLineEnable;
+		public Bool32 AntialiasedLineEnable;
 
 		/// <summary>
 		/// To be documented.
@@ -83,7 +83,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe RasterizerDesc(FillMode fillMode = default, CullMode cullMode = default, int frontCounterClockwise = default, int depthBias = default, float depthBiasClamp = default, float slopeScaledDepthBias = default, int depthClipEnable = default, int multisampleEnable = default, int antialiasedLineEnable = default, uint forcedSampleCount = default, ConservativeRasterizationMode conservativeRaster = default)
+		public unsafe RasterizerDesc(FillMode fillMode = default, CullMode cullMode = default, Bool32 frontCounterClockwise = default, int depthBias = default, float depthBiasClamp = default, float slopeScaledDepthBias = default, Bool32 depthClipEnable = default, Bool32 multisampleEnable = default, Bool32 antialiasedLineEnable = default, uint forcedSampleCount = default, ConservativeRasterizationMode conservativeRaster = default)
 		{
 			FillMode = fillMode;
 			CullMode = cullMode;

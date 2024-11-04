@@ -27,7 +27,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DeviceRemovedReason;
+		public HResult DeviceRemovedReason;
 
 		/// <summary>
 		/// To be documented.
@@ -48,7 +48,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe DeviceRemovedExtendedData3(int deviceRemovedReason = default, DredAutoBreadcrumbsOutput1 autoBreadcrumbsOutput = default, DredPageFaultOutput2 pageFaultOutput = default, DredDeviceState deviceState = default)
+		public unsafe DeviceRemovedExtendedData3(HResult deviceRemovedReason = default, DredAutoBreadcrumbsOutput1 autoBreadcrumbsOutput = default, DredPageFaultOutput2 pageFaultOutput = default, DredDeviceState deviceState = default)
 		{
 			DeviceRemovedReason = deviceRemovedReason;
 			AutoBreadcrumbsOutput = autoBreadcrumbsOutput;

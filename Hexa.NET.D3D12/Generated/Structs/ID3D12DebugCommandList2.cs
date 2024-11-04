@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12DebugCommandList2* ptr = (ID3D12DebugCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12DebugCommandList2* ptr = (ID3D12DebugCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandList2* ptr = (ID3D12DebugCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandList2* ptr = (ID3D12DebugCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -104,22 +104,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AssertResourceState(ID3D12Resource* pResource, uint subresource, uint state) 
+		public readonly unsafe Bool32 AssertResourceState(ID3D12Resource* pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList2* ptr = (ID3D12DebugCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, ID3D12Resource*, uint, uint, int>)(LpVtbl[3]))(ptr, pResource, subresource, state);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, ID3D12Resource*, uint, uint, Bool32>)(LpVtbl[3]))(ptr, pResource, subresource, state);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AssertResourceState(ref ID3D12Resource pResource, uint subresource, uint state) 
+		public readonly unsafe Bool32 AssertResourceState(ref ID3D12Resource pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList2* ptr = (ID3D12DebugCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, ID3D12Resource*, uint, uint, int>)(LpVtbl[3]))(ptr, (ID3D12Resource*)ppResource, subresource, state);
+				Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, ID3D12Resource*, uint, uint, Bool32>)(LpVtbl[3]))(ptr, (ID3D12Resource*)ppResource, subresource, state);
 				return ret;
 			}
 		}
@@ -127,20 +127,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AssertResourceState(ComPtr<ID3D12Resource> pResource, uint subresource, uint state) 
+		public readonly unsafe Bool32 AssertResourceState(ComPtr<ID3D12Resource> pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList2* ptr = (ID3D12DebugCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, ID3D12Resource*, uint, uint, int>)(LpVtbl[3]))(ptr, (ID3D12Resource*)pResource.Handle, subresource, state);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, ID3D12Resource*, uint, uint, Bool32>)(LpVtbl[3]))(ptr, (ID3D12Resource*)pResource.Handle, subresource, state);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetFeatureMask(DebugFeature mask) 
+		public readonly unsafe HResult SetFeatureMask(DebugFeature mask) 
 		{
 			ID3D12DebugCommandList2* ptr = (ID3D12DebugCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugFeature, int>)(LpVtbl[4]))(ptr, mask);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugFeature, HResult>)(LpVtbl[4]))(ptr, mask);
 			return ret;
 		}
 
@@ -157,30 +157,30 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetDebugParameter(DebugCommandListParameterType type, void* pData, uint dataSize) 
+		public readonly unsafe HResult SetDebugParameter(DebugCommandListParameterType type, void* pData, uint dataSize) 
 		{
 			ID3D12DebugCommandList2* ptr = (ID3D12DebugCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugCommandListParameterType, void*, uint, int>)(LpVtbl[6]))(ptr, type, pData, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugCommandListParameterType, void*, uint, HResult>)(LpVtbl[6]))(ptr, type, pData, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDebugParameter(DebugCommandListParameterType type, void* pData, uint dataSize) 
+		public readonly unsafe HResult GetDebugParameter(DebugCommandListParameterType type, void* pData, uint dataSize) 
 		{
 			ID3D12DebugCommandList2* ptr = (ID3D12DebugCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugCommandListParameterType, void*, uint, int>)(LpVtbl[7]))(ptr, type, pData, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugCommandListParameterType, void*, uint, HResult>)(LpVtbl[7]))(ptr, type, pData, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDebugParameter<T>(DebugCommandListParameterType type, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetDebugParameter<T>(DebugCommandListParameterType type, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandList2* ptr = (ID3D12DebugCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugCommandListParameterType, void*, uint, int>)(LpVtbl[7]))(ptr, type, (void*)pData.Handle, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugCommandListParameterType, void*, uint, HResult>)(LpVtbl[7]))(ptr, type, (void*)pData.Handle, dataSize);
 			return ret;
 		}
 

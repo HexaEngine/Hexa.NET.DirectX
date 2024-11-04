@@ -27,12 +27,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int CopyQueueTimestampQueriesSupported;
+		public Bool32 CopyQueueTimestampQueriesSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int CastingFullyTypedFormatSupported;
+		public Bool32 CastingFullyTypedFormatSupported;
 
 		/// <summary>
 		/// To be documented.
@@ -47,13 +47,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int BarycentricsSupported;
+		public Bool32 BarycentricsSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D12Options3(int copyQueueTimestampQueriesSupported = default, int castingFullyTypedFormatSupported = default, CommandListSupportFlags writeBufferImmediateSupportFlags = default, ViewInstancingTier viewInstancingTier = default, int barycentricsSupported = default)
+		public unsafe FeatureDataD3D12Options3(Bool32 copyQueueTimestampQueriesSupported = default, Bool32 castingFullyTypedFormatSupported = default, CommandListSupportFlags writeBufferImmediateSupportFlags = default, ViewInstancingTier viewInstancingTier = default, Bool32 barycentricsSupported = default)
 		{
 			CopyQueueTimestampQueriesSupported = copyQueueTimestampQueriesSupported;
 			CastingFullyTypedFormatSupported = castingFullyTypedFormatSupported;

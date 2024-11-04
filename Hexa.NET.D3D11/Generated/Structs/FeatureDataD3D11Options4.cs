@@ -28,13 +28,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ExtendedNV12SharedTextureSupported;
+		public Bool32 ExtendedNV12SharedTextureSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D11Options4(int extendedNv12SharedTextureSupported = default)
+		public unsafe FeatureDataD3D11Options4(Bool32 extendedNv12SharedTextureSupported = default)
 		{
 			ExtendedNV12SharedTextureSupported = extendedNv12SharedTextureSupported;
 		}

@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDesc(ParameterDesc* pDesc) 
+		public readonly unsafe HResult GetDesc(ParameterDesc* pDesc) 
 		{
 			ID3D11FunctionParameterReflection* ptr = (ID3D11FunctionParameterReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionParameterReflection*, ParameterDesc*, int>)(*LpVtbl))(ptr, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionParameterReflection*, ParameterDesc*, HResult>)(*LpVtbl))(ptr, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDesc(ref ParameterDesc pDesc) 
+		public readonly unsafe HResult GetDesc(ref ParameterDesc pDesc) 
 		{
 			ID3D11FunctionParameterReflection* ptr = (ID3D11FunctionParameterReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ParameterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionParameterReflection*, ParameterDesc*, int>)(*LpVtbl))(ptr, (ParameterDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionParameterReflection*, ParameterDesc*, HResult>)(*LpVtbl))(ptr, (ParameterDesc*)ppDesc);
 				return ret;
 			}
 		}

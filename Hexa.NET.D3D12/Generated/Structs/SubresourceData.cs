@@ -33,18 +33,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public long RowPitch;
+		public nint RowPitch;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public long SlicePitch;
+		public nint SlicePitch;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe SubresourceData(void* pData = default, long rowPitch = default, long slicePitch = default)
+		public unsafe SubresourceData(void* pData = default, nint rowPitch = default, nint slicePitch = default)
 		{
 			PData = pData;
 			RowPitch = rowPitch;

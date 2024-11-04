@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -104,12 +104,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* iid, ref void* ppv) 
+		public readonly unsafe HResult QueryInterface(Guid* iid, ref void* ppv) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppv = &ppv)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, int>)(LpVtbl[3]))(ptr, iid, (void**)pppv);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, iid, (void**)pppv);
 				return ret;
 			}
 		}
@@ -117,14 +117,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid iid, ref void* ppv) 
+		public readonly unsafe HResult QueryInterface(ref Guid iid, ref void* ppv) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Guid*)piid, (void**)pppv);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Guid*)piid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -133,22 +133,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateModuleInstance(ID3D11ModuleInstance** ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult CreateModuleInstance(ID3D11ModuleInstance** ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, ppModuleInstance, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, ppModuleInstance, ppErrorBuffer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateModuleInstance(ref ID3D11ModuleInstance* ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult CreateModuleInstance(ref ID3D11ModuleInstance* ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance**)pppModuleInstance, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance**)pppModuleInstance, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -156,12 +156,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateModuleInstance(ref ComPtr<ID3D11ModuleInstance> ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult CreateModuleInstance(ref ComPtr<ID3D11ModuleInstance> ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ModuleInstance>* pppModuleInstance = &ppModuleInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance**)pppModuleInstance, ppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance**)pppModuleInstance, ppErrorBuffer);
 				return ret;
 			}
 		}
@@ -169,12 +169,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateModuleInstance(ID3D11ModuleInstance** ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult CreateModuleInstance(ID3D11ModuleInstance** ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, ppModuleInstance, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, ppModuleInstance, (ID3D10Blob**)pppErrorBuffer);
 				return ret;
 			}
 		}
@@ -182,14 +182,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateModuleInstance(ref ID3D11ModuleInstance* ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult CreateModuleInstance(ref ID3D11ModuleInstance* ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance**)pppModuleInstance, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance**)pppModuleInstance, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -198,14 +198,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateModuleInstance(ref ComPtr<ID3D11ModuleInstance> ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult CreateModuleInstance(ref ComPtr<ID3D11ModuleInstance> ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ModuleInstance>* pppModuleInstance = &ppModuleInstance)
 			{
 				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance**)pppModuleInstance, (ID3D10Blob**)pppErrorBuffer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, HResult>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance**)pppModuleInstance, (ID3D10Blob**)pppErrorBuffer);
 					return ret;
 				}
 			}
@@ -214,22 +214,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetInputSignature(ParameterDesc* pInputParameters, uint cInputParameters, ID3D11LinkingNode** ppInputNode) 
+		public readonly unsafe HResult SetInputSignature(ParameterDesc* pInputParameters, uint cInputParameters, ID3D11LinkingNode** ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, pInputParameters, cInputParameters, ppInputNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(LpVtbl[5]))(ptr, pInputParameters, cInputParameters, ppInputNode);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetInputSignature(ref ParameterDesc pInputParameters, uint cInputParameters, ID3D11LinkingNode** ppInputNode) 
+		public readonly unsafe HResult SetInputSignature(ref ParameterDesc pInputParameters, uint cInputParameters, ID3D11LinkingNode** ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ParameterDesc* ppInputParameters = &pInputParameters)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, (ParameterDesc*)ppInputParameters, cInputParameters, ppInputNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(LpVtbl[5]))(ptr, (ParameterDesc*)ppInputParameters, cInputParameters, ppInputNode);
 				return ret;
 			}
 		}
@@ -237,12 +237,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetInputSignature(ParameterDesc* pInputParameters, uint cInputParameters, ref ID3D11LinkingNode* ppInputNode) 
+		public readonly unsafe HResult SetInputSignature(ParameterDesc* pInputParameters, uint cInputParameters, ref ID3D11LinkingNode* ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode** pppInputNode = &ppInputNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, pInputParameters, cInputParameters, (ID3D11LinkingNode**)pppInputNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(LpVtbl[5]))(ptr, pInputParameters, cInputParameters, (ID3D11LinkingNode**)pppInputNode);
 				return ret;
 			}
 		}
@@ -250,25 +250,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetInputSignature(ParameterDesc* pInputParameters, uint cInputParameters, out ComPtr<ID3D11LinkingNode> ppInputNode) 
+		public readonly unsafe HResult SetInputSignature(ParameterDesc* pInputParameters, uint cInputParameters, out ComPtr<ID3D11LinkingNode> ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppInputNode = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, pInputParameters, cInputParameters, (ID3D11LinkingNode**)ppInputNode.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(LpVtbl[5]))(ptr, pInputParameters, cInputParameters, (ID3D11LinkingNode**)ppInputNode.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetInputSignature(ref ParameterDesc pInputParameters, uint cInputParameters, ref ID3D11LinkingNode* ppInputNode) 
+		public readonly unsafe HResult SetInputSignature(ref ParameterDesc pInputParameters, uint cInputParameters, ref ID3D11LinkingNode* ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ParameterDesc* ppInputParameters = &pInputParameters)
 			{
 				fixed (ID3D11LinkingNode** pppInputNode = &ppInputNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, (ParameterDesc*)ppInputParameters, cInputParameters, (ID3D11LinkingNode**)pppInputNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(LpVtbl[5]))(ptr, (ParameterDesc*)ppInputParameters, cInputParameters, (ID3D11LinkingNode**)pppInputNode);
 					return ret;
 				}
 			}
@@ -277,13 +277,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetInputSignature(ref ParameterDesc pInputParameters, uint cInputParameters, out ComPtr<ID3D11LinkingNode> ppInputNode) 
+		public readonly unsafe HResult SetInputSignature(ref ParameterDesc pInputParameters, uint cInputParameters, out ComPtr<ID3D11LinkingNode> ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ParameterDesc* ppInputParameters = &pInputParameters)
 			{
 				ppInputNode = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, (ParameterDesc*)ppInputParameters, cInputParameters, (ID3D11LinkingNode**)ppInputNode.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(LpVtbl[5]))(ptr, (ParameterDesc*)ppInputParameters, cInputParameters, (ID3D11LinkingNode**)ppInputNode.GetAddressOf());
 				return ret;
 			}
 		}
@@ -291,22 +291,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetOutputSignature(ParameterDesc* pOutputParameters, uint cOutputParameters, ID3D11LinkingNode** ppOutputNode) 
+		public readonly unsafe HResult SetOutputSignature(ParameterDesc* pOutputParameters, uint cOutputParameters, ID3D11LinkingNode** ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, pOutputParameters, cOutputParameters, ppOutputNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(LpVtbl[6]))(ptr, pOutputParameters, cOutputParameters, ppOutputNode);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetOutputSignature(ref ParameterDesc pOutputParameters, uint cOutputParameters, ID3D11LinkingNode** ppOutputNode) 
+		public readonly unsafe HResult SetOutputSignature(ref ParameterDesc pOutputParameters, uint cOutputParameters, ID3D11LinkingNode** ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ParameterDesc* ppOutputParameters = &pOutputParameters)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, (ParameterDesc*)ppOutputParameters, cOutputParameters, ppOutputNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(LpVtbl[6]))(ptr, (ParameterDesc*)ppOutputParameters, cOutputParameters, ppOutputNode);
 				return ret;
 			}
 		}
@@ -314,12 +314,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetOutputSignature(ParameterDesc* pOutputParameters, uint cOutputParameters, ref ID3D11LinkingNode* ppOutputNode) 
+		public readonly unsafe HResult SetOutputSignature(ParameterDesc* pOutputParameters, uint cOutputParameters, ref ID3D11LinkingNode* ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode** pppOutputNode = &ppOutputNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, pOutputParameters, cOutputParameters, (ID3D11LinkingNode**)pppOutputNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(LpVtbl[6]))(ptr, pOutputParameters, cOutputParameters, (ID3D11LinkingNode**)pppOutputNode);
 				return ret;
 			}
 		}
@@ -327,25 +327,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetOutputSignature(ParameterDesc* pOutputParameters, uint cOutputParameters, out ComPtr<ID3D11LinkingNode> ppOutputNode) 
+		public readonly unsafe HResult SetOutputSignature(ParameterDesc* pOutputParameters, uint cOutputParameters, out ComPtr<ID3D11LinkingNode> ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppOutputNode = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, pOutputParameters, cOutputParameters, (ID3D11LinkingNode**)ppOutputNode.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(LpVtbl[6]))(ptr, pOutputParameters, cOutputParameters, (ID3D11LinkingNode**)ppOutputNode.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetOutputSignature(ref ParameterDesc pOutputParameters, uint cOutputParameters, ref ID3D11LinkingNode* ppOutputNode) 
+		public readonly unsafe HResult SetOutputSignature(ref ParameterDesc pOutputParameters, uint cOutputParameters, ref ID3D11LinkingNode* ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ParameterDesc* ppOutputParameters = &pOutputParameters)
 			{
 				fixed (ID3D11LinkingNode** pppOutputNode = &ppOutputNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, (ParameterDesc*)ppOutputParameters, cOutputParameters, (ID3D11LinkingNode**)pppOutputNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(LpVtbl[6]))(ptr, (ParameterDesc*)ppOutputParameters, cOutputParameters, (ID3D11LinkingNode**)pppOutputNode);
 					return ret;
 				}
 			}
@@ -354,13 +354,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetOutputSignature(ref ParameterDesc pOutputParameters, uint cOutputParameters, out ComPtr<ID3D11LinkingNode> ppOutputNode) 
+		public readonly unsafe HResult SetOutputSignature(ref ParameterDesc pOutputParameters, uint cOutputParameters, out ComPtr<ID3D11LinkingNode> ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ParameterDesc* ppOutputParameters = &pOutputParameters)
 			{
 				ppOutputNode = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, (ParameterDesc*)ppOutputParameters, cOutputParameters, (ID3D11LinkingNode**)ppOutputNode.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, HResult>)(LpVtbl[6]))(ptr, (ParameterDesc*)ppOutputParameters, cOutputParameters, (ID3D11LinkingNode**)ppOutputNode.GetAddressOf());
 				return ret;
 			}
 		}
@@ -368,22 +368,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, ppCallNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, ppCallNode);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, ppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, ppCallNode);
 				return ret;
 			}
 		}
@@ -391,7 +391,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -411,7 +411,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pModuleInstanceNamespace, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pStr0, pModuleWithFunctionPrototype, pFunctionName, ppCallNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pStr0, pModuleWithFunctionPrototype, pFunctionName, ppCallNode);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -422,12 +422,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, ppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, ppCallNode);
 				return ret;
 			}
 		}
@@ -435,24 +435,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ComPtr<ID3D11Module> pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ComPtr<ID3D11Module> pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)pModuleWithFunctionPrototype.Handle, pFunctionName, ppCallNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)pModuleWithFunctionPrototype.Handle, pFunctionName, ppCallNode);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
 			{
 				fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, ppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, ppCallNode);
 					return ret;
 				}
 			}
@@ -461,7 +461,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -483,7 +483,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, ppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, ppCallNode);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -495,12 +495,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppFunctionName = pFunctionName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
 				return ret;
 			}
 		}
@@ -508,7 +508,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -528,7 +528,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pFunctionName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pStr0, ppCallNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pStr0, ppCallNode);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -539,14 +539,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
 			{
 				fixed (byte* ppFunctionName = pFunctionName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
 					return ret;
 				}
 			}
@@ -555,7 +555,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -592,7 +592,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset1 = Utils.EncodeStringUTF8(pFunctionName, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pStr0, pModuleWithFunctionPrototype, pStr1, ppCallNode);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pStr0, pModuleWithFunctionPrototype, pStr1, ppCallNode);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -607,14 +607,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
 			{
 				fixed (byte* ppFunctionName = pFunctionName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
 					return ret;
 				}
 			}
@@ -623,7 +623,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
@@ -645,7 +645,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(pFunctionName, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr0, ppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr0, ppCallNode);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -657,7 +657,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -666,7 +666,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* ppFunctionName = pFunctionName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, ppCallNode);
 						return ret;
 					}
 				}
@@ -676,7 +676,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe HResult CallFunction(string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -715,7 +715,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset1 = Utils.EncodeStringUTF8(pFunctionName, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr1, ppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr1, ppCallNode);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -731,12 +731,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
 				return ret;
 			}
 		}
@@ -744,25 +744,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, out ComPtr<ID3D11LinkingNode> ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, out ComPtr<ID3D11LinkingNode> ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppCallNode = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)ppCallNode.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)ppCallNode.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
 			{
 				fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
 					return ret;
 				}
 			}
@@ -771,7 +771,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -793,7 +793,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pStr0, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pStr0, pModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -805,14 +805,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
 			{
 				fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
 					return ret;
 				}
 			}
@@ -821,18 +821,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ComPtr<ID3D11Module> pModuleWithFunctionPrototype, byte* pFunctionName, out ComPtr<ID3D11LinkingNode> ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ComPtr<ID3D11Module> pModuleWithFunctionPrototype, byte* pFunctionName, out ComPtr<ID3D11LinkingNode> ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppCallNode = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)pModuleWithFunctionPrototype.Handle, pFunctionName, (ID3D11LinkingNode**)ppCallNode.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)pModuleWithFunctionPrototype.Handle, pFunctionName, (ID3D11LinkingNode**)ppCallNode.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -841,7 +841,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
 						return ret;
 					}
 				}
@@ -851,7 +851,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -875,7 +875,7 @@ namespace Hexa.NET.D3D11
 			{
 				fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pFunctionName, (ID3D11LinkingNode**)pppCallNode);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -888,14 +888,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppFunctionName = pFunctionName)
 			{
 				fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
 					return ret;
 				}
 			}
@@ -904,7 +904,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -926,7 +926,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pStr0, (ID3D11LinkingNode**)pppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pStr0, (ID3D11LinkingNode**)pppCallNode);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -938,7 +938,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -947,7 +947,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, pModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
 						return ret;
 					}
 				}
@@ -957,7 +957,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -996,7 +996,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pStr0, pModuleWithFunctionPrototype, pStr1, (ID3D11LinkingNode**)pppCallNode);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pStr0, pModuleWithFunctionPrototype, pStr1, (ID3D11LinkingNode**)pppCallNode);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -1012,7 +1012,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
@@ -1021,7 +1021,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
 						return ret;
 					}
 				}
@@ -1031,7 +1031,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
@@ -1055,7 +1055,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr0, (ID3D11LinkingNode**)pppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr0, (ID3D11LinkingNode**)pppCallNode);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1068,7 +1068,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -1079,7 +1079,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, (byte*)ppModuleInstanceNamespace, (ID3D11Module*)ppModuleWithFunctionPrototype, (byte*)ppFunctionName, (ID3D11LinkingNode**)pppCallNode);
 							return ret;
 						}
 					}
@@ -1090,7 +1090,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe HResult CallFunction(string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1131,7 +1131,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr1, (ID3D11LinkingNode**)pppCallNode);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, HResult>)(LpVtbl[7]))(ptr, pStr0, (ID3D11Module*)ppModuleWithFunctionPrototype, pStr1, (ID3D11LinkingNode**)pppCallNode);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1148,22 +1148,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValue(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
+		public readonly unsafe HResult PassValue(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(LpVtbl[8]))(ptr, pSrcNode, srcParameterIndex, pDstNode, dstParameterIndex);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(LpVtbl[8]))(ptr, pSrcNode, srcParameterIndex, pDstNode, dstParameterIndex);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValue(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
+		public readonly unsafe HResult PassValue(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(LpVtbl[8]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pDstNode, dstParameterIndex);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(LpVtbl[8]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pDstNode, dstParameterIndex);
 				return ret;
 			}
 		}
@@ -1171,22 +1171,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValue(ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
+		public readonly unsafe HResult PassValue(ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(LpVtbl[8]))(ptr, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pDstNode, dstParameterIndex);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(LpVtbl[8]))(ptr, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pDstNode, dstParameterIndex);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValue(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ref ID3D11LinkingNode pDstNode, int dstParameterIndex) 
+		public readonly unsafe HResult PassValue(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ref ID3D11LinkingNode pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(LpVtbl[8]))(ptr, pSrcNode, srcParameterIndex, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(LpVtbl[8]))(ptr, pSrcNode, srcParameterIndex, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex);
 				return ret;
 			}
 		}
@@ -1194,24 +1194,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValue(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex) 
+		public readonly unsafe HResult PassValue(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(LpVtbl[8]))(ptr, pSrcNode, srcParameterIndex, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(LpVtbl[8]))(ptr, pSrcNode, srcParameterIndex, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValue(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ref ID3D11LinkingNode pDstNode, int dstParameterIndex) 
+		public readonly unsafe HResult PassValue(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ref ID3D11LinkingNode pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
 			{
 				fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(LpVtbl[8]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(LpVtbl[8]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex);
 					return ret;
 				}
 			}
@@ -1220,32 +1220,32 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValue(ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex) 
+		public readonly unsafe HResult PassValue(ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(LpVtbl[8]))(ptr, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, HResult>)(LpVtbl[8]))(ptr, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
 				return ret;
 			}
 		}
@@ -1253,22 +1253,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppSrcSwizzle = pSrcSwizzle)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
 				return ret;
 			}
 		}
@@ -1276,7 +1276,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1296,7 +1296,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pSrcSwizzle, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pDstSwizzle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pDstSwizzle);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -1307,14 +1307,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
 			{
 				fixed (byte* ppSrcSwizzle = pSrcSwizzle)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
 					return ret;
 				}
 			}
@@ -1323,7 +1323,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1345,7 +1345,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(pSrcSwizzle, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pDstSwizzle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pDstSwizzle);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1357,12 +1357,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
 				return ret;
 			}
 		}
@@ -1370,24 +1370,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex, pDstSwizzle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex, pDstSwizzle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
 			{
 				fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
 					return ret;
 				}
 			}
@@ -1396,24 +1396,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex, pDstSwizzle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex, pDstSwizzle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppSrcSwizzle = pSrcSwizzle)
 			{
 				fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
 					return ret;
 				}
 			}
@@ -1422,7 +1422,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1444,7 +1444,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1456,7 +1456,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1465,7 +1465,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
 						return ret;
 					}
 				}
@@ -1475,7 +1475,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1499,7 +1499,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pDstSwizzle);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1512,12 +1512,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppDstSwizzle = pDstSwizzle)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 				return ret;
 			}
 		}
@@ -1525,7 +1525,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1545,7 +1545,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDstSwizzle, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pStr0);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -1556,14 +1556,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
 			{
 				fixed (byte* ppDstSwizzle = pDstSwizzle)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 					return ret;
 				}
 			}
@@ -1572,7 +1572,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1594,7 +1594,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(pDstSwizzle, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pStr0);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pStr0);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1606,14 +1606,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppSrcSwizzle = pSrcSwizzle)
 			{
 				fixed (byte* ppDstSwizzle = pDstSwizzle)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 					return ret;
 				}
 			}
@@ -1622,7 +1622,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1659,7 +1659,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset1 = Utils.EncodeStringUTF8(pDstSwizzle, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pStr1);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pStr1);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -1674,7 +1674,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1683,7 +1683,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* ppDstSwizzle = pDstSwizzle)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, pDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 						return ret;
 					}
 				}
@@ -1693,7 +1693,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1732,7 +1732,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset1 = Utils.EncodeStringUTF8(pDstSwizzle, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pStr1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, pDstNode, dstParameterIndex, pStr1);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -1748,14 +1748,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
 			{
 				fixed (byte* ppDstSwizzle = pDstSwizzle)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 					return ret;
 				}
 			}
@@ -1764,7 +1764,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
@@ -1786,7 +1786,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(pDstSwizzle, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr0);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr0);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1798,7 +1798,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1807,7 +1807,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* ppDstSwizzle = pDstSwizzle)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 						return ret;
 					}
 				}
@@ -1817,7 +1817,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1841,7 +1841,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset0 = Utils.EncodeStringUTF8(pDstSwizzle, pStr0, pStrSize0);
 						pStr0[pStrOffset0] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr0);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr0);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1854,7 +1854,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppSrcSwizzle = pSrcSwizzle)
@@ -1863,7 +1863,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* ppDstSwizzle = pDstSwizzle)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 						return ret;
 					}
 				}
@@ -1873,7 +1873,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1912,7 +1912,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset1 = Utils.EncodeStringUTF8(pDstSwizzle, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr1);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr1);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -1928,7 +1928,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1939,7 +1939,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (byte* ppDstSwizzle = pDstSwizzle)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, (byte*)ppSrcSwizzle, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, (byte*)ppDstSwizzle);
 							return ret;
 						}
 					}
@@ -1950,7 +1950,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
+		public readonly unsafe HResult PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1991,7 +1991,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset1 = Utils.EncodeStringUTF8(pDstSwizzle, pStr1, pStrSize1);
 						pStr1[pStrOffset1] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr1);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, HResult>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)ppSrcNode, srcParameterIndex, pStr0, (ID3D11LinkingNode*)ppDstNode, dstParameterIndex, pStr1);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -2008,22 +2008,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetLastError(ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe HResult GetLastError(ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D10Blob**, int>)(LpVtbl[10]))(ptr, ppErrorBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D10Blob**, HResult>)(LpVtbl[10]))(ptr, ppErrorBuffer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetLastError(ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe HResult GetLastError(ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D10Blob**, int>)(LpVtbl[10]))(ptr, (ID3D10Blob**)pppErrorBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D10Blob**, HResult>)(LpVtbl[10]))(ptr, (ID3D10Blob**)pppErrorBuffer);
 				return ret;
 			}
 		}
@@ -2031,22 +2031,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GenerateHlsl(uint uFlags, ID3D10Blob** ppBuffer) 
+		public readonly unsafe HResult GenerateHlsl(uint uFlags, ID3D10Blob** ppBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, uint, ID3D10Blob**, int>)(LpVtbl[11]))(ptr, uFlags, ppBuffer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, uint, ID3D10Blob**, HResult>)(LpVtbl[11]))(ptr, uFlags, ppBuffer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GenerateHlsl(uint uFlags, ref ID3D10Blob* ppBuffer) 
+		public readonly unsafe HResult GenerateHlsl(uint uFlags, ref ID3D10Blob* ppBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppBuffer = &ppBuffer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, uint, ID3D10Blob**, int>)(LpVtbl[11]))(ptr, uFlags, (ID3D10Blob**)pppBuffer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, uint, ID3D10Blob**, HResult>)(LpVtbl[11]))(ptr, uFlags, (ID3D10Blob**)pppBuffer);
 				return ret;
 			}
 		}

@@ -4290,12 +4290,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int PSOutputsDepth;
+		public Bool32 PSOutputsDepth;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int PSOutputsMask;
+		public Bool32 PSOutputsMask;
 
 		/// <summary>
 		/// To be documented.
@@ -4305,7 +4305,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int GSInputsPrimitiveID;
+		public Bool32 GSInputsPrimitiveID;
 
 		/// <summary>
 		/// To be documented.
@@ -4383,7 +4383,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe TraceStats(ShaderTraceDesc traceDesc = default, byte numInvocationsInStamp = default, byte targetStampIndex = default, uint numTraceSteps = default, byte* inputMask = default, byte* outputMask = default, ushort numTemps = default, ushort maxIndexableTempIndex = default, ushort* indexableTempSize = default, ushort immediateConstantBufferSize = default, uint** pixelPosition = default, ulong* pixelCoverageMask = default, ulong* pixelDiscardedMask = default, ulong* pixelCoverageMaskAfterShader = default, ulong* pixelCoverageMaskAfterA2CSampleMask = default, ulong* pixelCoverageMaskAfterA2CSampleMaskDepth = default, ulong* pixelCoverageMaskAfterA2CSampleMaskDepthStencil = default, int psOutputsDepth = default, int psOutputsMask = default, TraceGsInputPrimitive gsInputPrimitive = default, int gsInputsPrimitiveId = default, byte* hsOutputPatchConstantMask = default, byte* dsInputPatchConstantMask = default)
+		public unsafe TraceStats(ShaderTraceDesc traceDesc = default, byte numInvocationsInStamp = default, byte targetStampIndex = default, uint numTraceSteps = default, byte* inputMask = default, byte* outputMask = default, ushort numTemps = default, ushort maxIndexableTempIndex = default, ushort* indexableTempSize = default, ushort immediateConstantBufferSize = default, uint** pixelPosition = default, ulong* pixelCoverageMask = default, ulong* pixelDiscardedMask = default, ulong* pixelCoverageMaskAfterShader = default, ulong* pixelCoverageMaskAfterA2CSampleMask = default, ulong* pixelCoverageMaskAfterA2CSampleMaskDepth = default, ulong* pixelCoverageMaskAfterA2CSampleMaskDepthStencil = default, Bool32 psOutputsDepth = default, Bool32 psOutputsMask = default, TraceGsInputPrimitive gsInputPrimitive = default, Bool32 gsInputsPrimitiveId = default, byte* hsOutputPatchConstantMask = default, byte* dsInputPatchConstantMask = default)
 		{
 			TraceDesc = traceDesc;
 			NumInvocationsInStamp = numInvocationsInStamp;
@@ -8689,7 +8689,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe TraceStats(ShaderTraceDesc traceDesc = default, byte numInvocationsInStamp = default, byte targetStampIndex = default, uint numTraceSteps = default, Span<byte> inputMask = default, Span<byte> outputMask = default, ushort numTemps = default, ushort maxIndexableTempIndex = default, Span<ushort> indexableTempSize = default, ushort immediateConstantBufferSize = default, Span<Pointer<uint>> pixelPosition = default, Span<ulong> pixelCoverageMask = default, Span<ulong> pixelDiscardedMask = default, Span<ulong> pixelCoverageMaskAfterShader = default, Span<ulong> pixelCoverageMaskAfterA2CSampleMask = default, Span<ulong> pixelCoverageMaskAfterA2CSampleMaskDepth = default, Span<ulong> pixelCoverageMaskAfterA2CSampleMaskDepthStencil = default, int psOutputsDepth = default, int psOutputsMask = default, TraceGsInputPrimitive gsInputPrimitive = default, int gsInputsPrimitiveId = default, Span<byte> hsOutputPatchConstantMask = default, Span<byte> dsInputPatchConstantMask = default)
+		public unsafe TraceStats(ShaderTraceDesc traceDesc = default, byte numInvocationsInStamp = default, byte targetStampIndex = default, uint numTraceSteps = default, Span<byte> inputMask = default, Span<byte> outputMask = default, ushort numTemps = default, ushort maxIndexableTempIndex = default, Span<ushort> indexableTempSize = default, ushort immediateConstantBufferSize = default, Span<Pointer<uint>> pixelPosition = default, Span<ulong> pixelCoverageMask = default, Span<ulong> pixelDiscardedMask = default, Span<ulong> pixelCoverageMaskAfterShader = default, Span<ulong> pixelCoverageMaskAfterA2CSampleMask = default, Span<ulong> pixelCoverageMaskAfterA2CSampleMaskDepth = default, Span<ulong> pixelCoverageMaskAfterA2CSampleMaskDepthStencil = default, Bool32 psOutputsDepth = default, Bool32 psOutputsMask = default, TraceGsInputPrimitive gsInputPrimitive = default, Bool32 gsInputsPrimitiveId = default, Span<byte> hsOutputPatchConstantMask = default, Span<byte> dsInputPatchConstantMask = default)
 		{
 			TraceDesc = traceDesc;
 			NumInvocationsInStamp = numInvocationsInStamp;

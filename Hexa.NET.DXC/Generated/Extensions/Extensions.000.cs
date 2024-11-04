@@ -20,22 +20,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcIncludeHandler> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcIncludeHandler> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDxcIncludeHandler* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcIncludeHandler> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcIncludeHandler> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDxcIncludeHandler* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -43,24 +43,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcIncludeHandler> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcIncludeHandler> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcIncludeHandler* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcIncludeHandler> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcIncludeHandler> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcIncludeHandler* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -88,22 +88,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int LoadSource(this ComPtr<IDxcIncludeHandler> comObj, char* pFilename, IDxcBlob** ppIncludeSource) 
+		public static HResult LoadSource(this ComPtr<IDxcIncludeHandler> comObj, char* pFilename, IDxcBlob** ppIncludeSource) 
 		{
 			IDxcIncludeHandler* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(handle->LpVtbl[3]))(handle, pFilename, ppIncludeSource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(handle->LpVtbl[3]))(handle, pFilename, ppIncludeSource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int LoadSource(this ComPtr<IDxcIncludeHandler> comObj, ReadOnlySpan<char> pFilename, IDxcBlob** ppIncludeSource) 
+		public static HResult LoadSource(this ComPtr<IDxcIncludeHandler> comObj, ReadOnlySpan<char> pFilename, IDxcBlob** ppIncludeSource) 
 		{
 			IDxcIncludeHandler* handle = comObj.Handle;
 			fixed (char* ppFilename = pFilename)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(handle->LpVtbl[3]))(handle, (char*)ppFilename, ppIncludeSource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(handle->LpVtbl[3]))(handle, (char*)ppFilename, ppIncludeSource);
 				return ret;
 			}
 		}
@@ -111,7 +111,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int LoadSource(this ComPtr<IDxcIncludeHandler> comObj, string pFilename, IDxcBlob** ppIncludeSource) 
+		public static HResult LoadSource(this ComPtr<IDxcIncludeHandler> comObj, string pFilename, IDxcBlob** ppIncludeSource) 
 		{
 			IDxcIncludeHandler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -131,7 +131,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pFilename, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(handle->LpVtbl[3]))(handle, pStr0, ppIncludeSource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(handle->LpVtbl[3]))(handle, pStr0, ppIncludeSource);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -142,12 +142,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int LoadSource(this ComPtr<IDxcIncludeHandler> comObj, char* pFilename, ref IDxcBlob* ppIncludeSource) 
+		public static HResult LoadSource(this ComPtr<IDxcIncludeHandler> comObj, char* pFilename, ref IDxcBlob* ppIncludeSource) 
 		{
 			IDxcIncludeHandler* handle = comObj.Handle;
 			fixed (IDxcBlob** pppIncludeSource = &ppIncludeSource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(handle->LpVtbl[3]))(handle, pFilename, (IDxcBlob**)pppIncludeSource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(handle->LpVtbl[3]))(handle, pFilename, (IDxcBlob**)pppIncludeSource);
 				return ret;
 			}
 		}
@@ -155,25 +155,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int LoadSource(this ComPtr<IDxcIncludeHandler> comObj, char* pFilename, out ComPtr<IDxcBlob> ppIncludeSource) 
+		public static HResult LoadSource(this ComPtr<IDxcIncludeHandler> comObj, char* pFilename, out ComPtr<IDxcBlob> ppIncludeSource) 
 		{
 			IDxcIncludeHandler* handle = comObj.Handle;
 			ppIncludeSource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(handle->LpVtbl[3]))(handle, pFilename, (IDxcBlob**)ppIncludeSource.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(handle->LpVtbl[3]))(handle, pFilename, (IDxcBlob**)ppIncludeSource.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int LoadSource(this ComPtr<IDxcIncludeHandler> comObj, ReadOnlySpan<char> pFilename, ref IDxcBlob* ppIncludeSource) 
+		public static HResult LoadSource(this ComPtr<IDxcIncludeHandler> comObj, ReadOnlySpan<char> pFilename, ref IDxcBlob* ppIncludeSource) 
 		{
 			IDxcIncludeHandler* handle = comObj.Handle;
 			fixed (char* ppFilename = pFilename)
 			{
 				fixed (IDxcBlob** pppIncludeSource = &ppIncludeSource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(handle->LpVtbl[3]))(handle, (char*)ppFilename, (IDxcBlob**)pppIncludeSource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(handle->LpVtbl[3]))(handle, (char*)ppFilename, (IDxcBlob**)pppIncludeSource);
 					return ret;
 				}
 			}
@@ -182,7 +182,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int LoadSource(this ComPtr<IDxcIncludeHandler> comObj, string pFilename, ref IDxcBlob* ppIncludeSource) 
+		public static HResult LoadSource(this ComPtr<IDxcIncludeHandler> comObj, string pFilename, ref IDxcBlob* ppIncludeSource) 
 		{
 			IDxcIncludeHandler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -204,7 +204,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcBlob** pppIncludeSource = &ppIncludeSource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(handle->LpVtbl[3]))(handle, pStr0, (IDxcBlob**)pppIncludeSource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(handle->LpVtbl[3]))(handle, pStr0, (IDxcBlob**)pppIncludeSource);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -216,22 +216,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcBlob> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcBlob> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDxcBlob* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlob*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlob*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcBlob> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcBlob> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDxcBlob* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlob*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlob*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -239,24 +239,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcBlob> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcBlob> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcBlob* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlob*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlob*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcBlob> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcBlob> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcBlob* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlob*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlob*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -304,22 +304,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcBlobEncoding> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcBlobEncoding> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDxcBlobEncoding* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcBlobEncoding> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcBlobEncoding> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDxcBlobEncoding* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -327,24 +327,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcBlobEncoding> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcBlobEncoding> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcBlobEncoding* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcBlobEncoding> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcBlobEncoding> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcBlobEncoding* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -392,22 +392,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncoding(this ComPtr<IDxcBlobEncoding> comObj, int* pKnown, uint* pCodePage) 
+		public static HResult GetEncoding(this ComPtr<IDxcBlobEncoding> comObj, Bool32* pKnown, uint* pCodePage) 
 		{
 			IDxcBlobEncoding* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, int*, uint*, int>)(handle->LpVtbl[5]))(handle, pKnown, pCodePage);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, Bool32*, uint*, HResult>)(handle->LpVtbl[5]))(handle, pKnown, pCodePage);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncoding(this ComPtr<IDxcBlobEncoding> comObj, ref int pKnown, uint* pCodePage) 
+		public static HResult GetEncoding(this ComPtr<IDxcBlobEncoding> comObj, ref Bool32 pKnown, uint* pCodePage) 
 		{
 			IDxcBlobEncoding* handle = comObj.Handle;
-			fixed (int* ppKnown = &pKnown)
+			fixed (Bool32* ppKnown = &pKnown)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, int*, uint*, int>)(handle->LpVtbl[5]))(handle, (int*)ppKnown, pCodePage);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, Bool32*, uint*, HResult>)(handle->LpVtbl[5]))(handle, (Bool32*)ppKnown, pCodePage);
 				return ret;
 			}
 		}
@@ -415,12 +415,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncoding(this ComPtr<IDxcBlobEncoding> comObj, int* pKnown, ref uint pCodePage) 
+		public static HResult GetEncoding(this ComPtr<IDxcBlobEncoding> comObj, Bool32* pKnown, ref uint pCodePage) 
 		{
 			IDxcBlobEncoding* handle = comObj.Handle;
 			fixed (uint* ppCodePage = &pCodePage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, int*, uint*, int>)(handle->LpVtbl[5]))(handle, pKnown, (uint*)ppCodePage);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, Bool32*, uint*, HResult>)(handle->LpVtbl[5]))(handle, pKnown, (uint*)ppCodePage);
 				return ret;
 			}
 		}
@@ -428,14 +428,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncoding(this ComPtr<IDxcBlobEncoding> comObj, ref int pKnown, ref uint pCodePage) 
+		public static HResult GetEncoding(this ComPtr<IDxcBlobEncoding> comObj, ref Bool32 pKnown, ref uint pCodePage) 
 		{
 			IDxcBlobEncoding* handle = comObj.Handle;
-			fixed (int* ppKnown = &pKnown)
+			fixed (Bool32* ppKnown = &pKnown)
 			{
 				fixed (uint* ppCodePage = &pCodePage)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, int*, uint*, int>)(handle->LpVtbl[5]))(handle, (int*)ppKnown, (uint*)ppCodePage);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobEncoding*, Bool32*, uint*, HResult>)(handle->LpVtbl[5]))(handle, (Bool32*)ppKnown, (uint*)ppCodePage);
 					return ret;
 				}
 			}
@@ -444,22 +444,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcBlobUtf16> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcBlobUtf16> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDxcBlobUtf16* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcBlobUtf16> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcBlobUtf16> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDxcBlobUtf16* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -467,24 +467,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcBlobUtf16> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcBlobUtf16> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcBlobUtf16* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcBlobUtf16> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcBlobUtf16> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcBlobUtf16* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -532,22 +532,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncoding(this ComPtr<IDxcBlobUtf16> comObj, int* pKnown, uint* pCodePage) 
+		public static HResult GetEncoding(this ComPtr<IDxcBlobUtf16> comObj, Bool32* pKnown, uint* pCodePage) 
 		{
 			IDxcBlobUtf16* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, int*, uint*, int>)(handle->LpVtbl[5]))(handle, pKnown, pCodePage);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, Bool32*, uint*, HResult>)(handle->LpVtbl[5]))(handle, pKnown, pCodePage);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncoding(this ComPtr<IDxcBlobUtf16> comObj, ref int pKnown, uint* pCodePage) 
+		public static HResult GetEncoding(this ComPtr<IDxcBlobUtf16> comObj, ref Bool32 pKnown, uint* pCodePage) 
 		{
 			IDxcBlobUtf16* handle = comObj.Handle;
-			fixed (int* ppKnown = &pKnown)
+			fixed (Bool32* ppKnown = &pKnown)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, int*, uint*, int>)(handle->LpVtbl[5]))(handle, (int*)ppKnown, pCodePage);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, Bool32*, uint*, HResult>)(handle->LpVtbl[5]))(handle, (Bool32*)ppKnown, pCodePage);
 				return ret;
 			}
 		}
@@ -555,12 +555,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncoding(this ComPtr<IDxcBlobUtf16> comObj, int* pKnown, ref uint pCodePage) 
+		public static HResult GetEncoding(this ComPtr<IDxcBlobUtf16> comObj, Bool32* pKnown, ref uint pCodePage) 
 		{
 			IDxcBlobUtf16* handle = comObj.Handle;
 			fixed (uint* ppCodePage = &pCodePage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, int*, uint*, int>)(handle->LpVtbl[5]))(handle, pKnown, (uint*)ppCodePage);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, Bool32*, uint*, HResult>)(handle->LpVtbl[5]))(handle, pKnown, (uint*)ppCodePage);
 				return ret;
 			}
 		}
@@ -568,14 +568,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncoding(this ComPtr<IDxcBlobUtf16> comObj, ref int pKnown, ref uint pCodePage) 
+		public static HResult GetEncoding(this ComPtr<IDxcBlobUtf16> comObj, ref Bool32 pKnown, ref uint pCodePage) 
 		{
 			IDxcBlobUtf16* handle = comObj.Handle;
-			fixed (int* ppKnown = &pKnown)
+			fixed (Bool32* ppKnown = &pKnown)
 			{
 				fixed (uint* ppCodePage = &pCodePage)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, int*, uint*, int>)(handle->LpVtbl[5]))(handle, (int*)ppKnown, (uint*)ppCodePage);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf16*, Bool32*, uint*, HResult>)(handle->LpVtbl[5]))(handle, (Bool32*)ppKnown, (uint*)ppCodePage);
 					return ret;
 				}
 			}
@@ -614,22 +614,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcBlobUtf8> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcBlobUtf8> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDxcBlobUtf8* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcBlobUtf8> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcBlobUtf8> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDxcBlobUtf8* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -637,24 +637,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcBlobUtf8> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcBlobUtf8> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcBlobUtf8* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcBlobUtf8> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcBlobUtf8> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcBlobUtf8* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -702,22 +702,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncoding(this ComPtr<IDxcBlobUtf8> comObj, int* pKnown, uint* pCodePage) 
+		public static HResult GetEncoding(this ComPtr<IDxcBlobUtf8> comObj, Bool32* pKnown, uint* pCodePage) 
 		{
 			IDxcBlobUtf8* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, int*, uint*, int>)(handle->LpVtbl[5]))(handle, pKnown, pCodePage);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Bool32*, uint*, HResult>)(handle->LpVtbl[5]))(handle, pKnown, pCodePage);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncoding(this ComPtr<IDxcBlobUtf8> comObj, ref int pKnown, uint* pCodePage) 
+		public static HResult GetEncoding(this ComPtr<IDxcBlobUtf8> comObj, ref Bool32 pKnown, uint* pCodePage) 
 		{
 			IDxcBlobUtf8* handle = comObj.Handle;
-			fixed (int* ppKnown = &pKnown)
+			fixed (Bool32* ppKnown = &pKnown)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, int*, uint*, int>)(handle->LpVtbl[5]))(handle, (int*)ppKnown, pCodePage);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Bool32*, uint*, HResult>)(handle->LpVtbl[5]))(handle, (Bool32*)ppKnown, pCodePage);
 				return ret;
 			}
 		}
@@ -725,12 +725,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncoding(this ComPtr<IDxcBlobUtf8> comObj, int* pKnown, ref uint pCodePage) 
+		public static HResult GetEncoding(this ComPtr<IDxcBlobUtf8> comObj, Bool32* pKnown, ref uint pCodePage) 
 		{
 			IDxcBlobUtf8* handle = comObj.Handle;
 			fixed (uint* ppCodePage = &pCodePage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, int*, uint*, int>)(handle->LpVtbl[5]))(handle, pKnown, (uint*)ppCodePage);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Bool32*, uint*, HResult>)(handle->LpVtbl[5]))(handle, pKnown, (uint*)ppCodePage);
 				return ret;
 			}
 		}
@@ -738,14 +738,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetEncoding(this ComPtr<IDxcBlobUtf8> comObj, ref int pKnown, ref uint pCodePage) 
+		public static HResult GetEncoding(this ComPtr<IDxcBlobUtf8> comObj, ref Bool32 pKnown, ref uint pCodePage) 
 		{
 			IDxcBlobUtf8* handle = comObj.Handle;
-			fixed (int* ppKnown = &pKnown)
+			fixed (Bool32* ppKnown = &pKnown)
 			{
 				fixed (uint* ppCodePage = &pCodePage)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, int*, uint*, int>)(handle->LpVtbl[5]))(handle, (int*)ppKnown, (uint*)ppCodePage);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Bool32*, uint*, HResult>)(handle->LpVtbl[5]))(handle, (Bool32*)ppKnown, (uint*)ppCodePage);
 					return ret;
 				}
 			}
@@ -784,22 +784,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcCompilerArgs> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcCompilerArgs> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDxcCompilerArgs* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcCompilerArgs> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcCompilerArgs> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDxcCompilerArgs* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -807,24 +807,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcCompilerArgs> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcCompilerArgs> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcCompilerArgs* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcCompilerArgs> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcCompilerArgs> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcCompilerArgs* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -872,22 +872,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Add additional arguments or defines here, if desired.<br/>
 		/// </summary>
-		public static int AddArguments(this ComPtr<IDxcCompilerArgs> comObj, char** pArguments, uint argCount) 
+		public static HResult AddArguments(this ComPtr<IDxcCompilerArgs> comObj, char** pArguments, uint argCount) 
 		{
 			IDxcCompilerArgs* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, char**, uint, int>)(handle->LpVtbl[5]))(handle, pArguments, argCount);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, char**, uint, HResult>)(handle->LpVtbl[5]))(handle, pArguments, argCount);
 			return ret;
 		}
 
 		/// <summary>
 		/// Add additional arguments or defines here, if desired.<br/>
 		/// </summary>
-		public static int AddArguments(this ComPtr<IDxcCompilerArgs> comObj, ref char* pArguments, uint argCount) 
+		public static HResult AddArguments(this ComPtr<IDxcCompilerArgs> comObj, ref char* pArguments, uint argCount) 
 		{
 			IDxcCompilerArgs* handle = comObj.Handle;
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, char**, uint, int>)(handle->LpVtbl[5]))(handle, (char**)ppArguments, argCount);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, char**, uint, HResult>)(handle->LpVtbl[5]))(handle, (char**)ppArguments, argCount);
 				return ret;
 			}
 		}
@@ -895,22 +895,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddArgumentsUTF8(this ComPtr<IDxcCompilerArgs> comObj, byte** pArguments, uint argCount) 
+		public static HResult AddArgumentsUTF8(this ComPtr<IDxcCompilerArgs> comObj, byte** pArguments, uint argCount) 
 		{
 			IDxcCompilerArgs* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, byte**, uint, int>)(handle->LpVtbl[6]))(handle, pArguments, argCount);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, byte**, uint, HResult>)(handle->LpVtbl[6]))(handle, pArguments, argCount);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddArgumentsUTF8(this ComPtr<IDxcCompilerArgs> comObj, ref byte* pArguments, uint argCount) 
+		public static HResult AddArgumentsUTF8(this ComPtr<IDxcCompilerArgs> comObj, ref byte* pArguments, uint argCount) 
 		{
 			IDxcCompilerArgs* handle = comObj.Handle;
 			fixed (byte** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, byte**, uint, int>)(handle->LpVtbl[6]))(handle, (byte**)ppArguments, argCount);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, byte**, uint, HResult>)(handle->LpVtbl[6]))(handle, (byte**)ppArguments, argCount);
 				return ret;
 			}
 		}
@@ -918,22 +918,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddDefines(this ComPtr<IDxcCompilerArgs> comObj, Define* pDefines, uint defineCount) 
+		public static HResult AddDefines(this ComPtr<IDxcCompilerArgs> comObj, Define* pDefines, uint defineCount) 
 		{
 			IDxcCompilerArgs* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Define*, uint, int>)(handle->LpVtbl[7]))(handle, pDefines, defineCount);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Define*, uint, HResult>)(handle->LpVtbl[7]))(handle, pDefines, defineCount);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddDefines(this ComPtr<IDxcCompilerArgs> comObj, ref Define pDefines, uint defineCount) 
+		public static HResult AddDefines(this ComPtr<IDxcCompilerArgs> comObj, ref Define pDefines, uint defineCount) 
 		{
 			IDxcCompilerArgs* handle = comObj.Handle;
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Define*, uint, int>)(handle->LpVtbl[7]))(handle, (Define*)ppDefines, defineCount);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Define*, uint, HResult>)(handle->LpVtbl[7]))(handle, (Define*)ppDefines, defineCount);
 				return ret;
 			}
 		}
@@ -941,22 +941,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcLibrary> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcLibrary> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcLibrary> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcLibrary> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -964,24 +964,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcLibrary> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcLibrary> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcLibrary> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcLibrary> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1009,22 +1009,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetMalloc(this ComPtr<IDxcLibrary> comObj, IMalloc* pMalloc) 
+		public static HResult SetMalloc(this ComPtr<IDxcLibrary> comObj, IMalloc* pMalloc) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, int>)(handle->LpVtbl[3]))(handle, pMalloc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, HResult>)(handle->LpVtbl[3]))(handle, pMalloc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetMalloc(this ComPtr<IDxcLibrary> comObj, ref IMalloc pMalloc) 
+		public static HResult SetMalloc(this ComPtr<IDxcLibrary> comObj, ref IMalloc pMalloc) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, int>)(handle->LpVtbl[3]))(handle, (IMalloc*)ppMalloc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, HResult>)(handle->LpVtbl[3]))(handle, (IMalloc*)ppMalloc);
 				return ret;
 			}
 		}
@@ -1032,32 +1032,32 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetMalloc(this ComPtr<IDxcLibrary> comObj, ComPtr<IMalloc> pMalloc) 
+		public static HResult SetMalloc(this ComPtr<IDxcLibrary> comObj, ComPtr<IMalloc> pMalloc) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, int>)(handle->LpVtbl[3]))(handle, (IMalloc*)pMalloc.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, HResult>)(handle->LpVtbl[3]))(handle, (IMalloc*)pMalloc.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, uint offset, uint length, IDxcBlob** ppResult) 
+		public static HResult CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, uint offset, uint length, IDxcBlob** ppResult) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(handle->LpVtbl[4]))(handle, pBlob, offset, length, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(handle->LpVtbl[4]))(handle, pBlob, offset, length, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, uint offset, uint length, IDxcBlob** ppResult) 
+		public static HResult CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, uint offset, uint length, IDxcBlob** ppResult) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(handle->LpVtbl[4]))(handle, (IDxcBlob*)ppBlob, offset, length, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(handle->LpVtbl[4]))(handle, (IDxcBlob*)ppBlob, offset, length, ppResult);
 				return ret;
 			}
 		}
@@ -1065,22 +1065,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, uint offset, uint length, IDxcBlob** ppResult) 
+		public static HResult CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, uint offset, uint length, IDxcBlob** ppResult) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(handle->LpVtbl[4]))(handle, (IDxcBlob*)pBlob.Handle, offset, length, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(handle->LpVtbl[4]))(handle, (IDxcBlob*)pBlob.Handle, offset, length, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
+		public static HResult CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlob** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(handle->LpVtbl[4]))(handle, pBlob, offset, length, (IDxcBlob**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(handle->LpVtbl[4]))(handle, pBlob, offset, length, (IDxcBlob**)pppResult);
 				return ret;
 			}
 		}
@@ -1088,25 +1088,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
+		public static HResult CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(handle->LpVtbl[4]))(handle, pBlob, offset, length, (IDxcBlob**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(handle->LpVtbl[4]))(handle, pBlob, offset, length, (IDxcBlob**)ppResult.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
+		public static HResult CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IDxcBlob** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(handle->LpVtbl[4]))(handle, (IDxcBlob*)ppBlob, offset, length, (IDxcBlob**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(handle->LpVtbl[4]))(handle, (IDxcBlob*)ppBlob, offset, length, (IDxcBlob**)pppResult);
 					return ret;
 				}
 			}
@@ -1115,33 +1115,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
+		public static HResult CreateBlobFromBlob(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(handle->LpVtbl[4]))(handle, (IDxcBlob*)pBlob.Handle, offset, length, (IDxcBlob**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(handle->LpVtbl[4]))(handle, (IDxcBlob*)pBlob.Handle, offset, length, (IDxcBlob**)ppResult.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, char* pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, char* pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, pFileName, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, pFileName, codePage, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, ReadOnlySpan<char> pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, ReadOnlySpan<char> pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (char* ppFileName = pFileName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, (char*)ppFileName, codePage, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, (char*)ppFileName, codePage, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -1149,7 +1149,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, string pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, string pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1169,7 +1169,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pFileName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, pStr0, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, pStr0, codePage, pBlobEncoding);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -1180,12 +1180,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, char* pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, char* pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (uint* pcodePage = &codePage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, pFileName, (uint*)pcodePage, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, pFileName, (uint*)pcodePage, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -1193,14 +1193,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, ReadOnlySpan<char> pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, ReadOnlySpan<char> pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (char* ppFileName = pFileName)
 			{
 				fixed (uint* pcodePage = &codePage)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, (char*)ppFileName, (uint*)pcodePage, pBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, (char*)ppFileName, (uint*)pcodePage, pBlobEncoding);
 					return ret;
 				}
 			}
@@ -1209,7 +1209,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, string pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, string pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1231,7 +1231,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (uint* pcodePage = &codePage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, pStr0, (uint*)pcodePage, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, pStr0, (uint*)pcodePage, pBlobEncoding);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1243,12 +1243,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, char* pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, char* pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, pFileName, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, pFileName, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -1256,25 +1256,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, char* pFileName, uint* codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, char* pFileName, uint* codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, pFileName, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, pFileName, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, ReadOnlySpan<char> pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, ReadOnlySpan<char> pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (char* ppFileName = pFileName)
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, (char*)ppFileName, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, (char*)ppFileName, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -1283,7 +1283,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, string pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, string pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1305,7 +1305,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, pStr0, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, pStr0, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1317,14 +1317,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, char* pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, char* pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (uint* pcodePage = &codePage)
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, pFileName, (uint*)pcodePage, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, pFileName, (uint*)pcodePage, (IDxcBlobEncoding**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -1333,13 +1333,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, char* pFileName, ref uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, char* pFileName, ref uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (uint* pcodePage = &codePage)
 			{
 				pBlobEncoding = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, pFileName, (uint*)pcodePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, pFileName, (uint*)pcodePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1347,7 +1347,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, ReadOnlySpan<char> pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, ReadOnlySpan<char> pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (char* ppFileName = pFileName)
@@ -1356,7 +1356,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, (char*)ppFileName, (uint*)pcodePage, (IDxcBlobEncoding**)ppBlobEncoding);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, (char*)ppFileName, (uint*)pcodePage, (IDxcBlobEncoding**)ppBlobEncoding);
 						return ret;
 					}
 				}
@@ -1366,7 +1366,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, string pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult CreateBlobFromFile(this ComPtr<IDxcLibrary> comObj, string pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1390,7 +1390,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, pStr0, (uint*)pcodePage, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, pStr0, (uint*)pcodePage, (IDxcBlobEncoding**)ppBlobEncoding);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1403,22 +1403,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobWithEncodingFromPinned(this ComPtr<IDxcLibrary> comObj, void* pText, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult CreateBlobWithEncodingFromPinned(this ComPtr<IDxcLibrary> comObj, void* pText, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(handle->LpVtbl[6]))(handle, pText, size, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[6]))(handle, pText, size, codePage, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobWithEncodingFromPinned(this ComPtr<IDxcLibrary> comObj, void* pText, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult CreateBlobWithEncodingFromPinned(this ComPtr<IDxcLibrary> comObj, void* pText, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(handle->LpVtbl[6]))(handle, pText, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[6]))(handle, pText, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -1426,33 +1426,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobWithEncodingFromPinned(this ComPtr<IDxcLibrary> comObj, void* pText, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public static HResult CreateBlobWithEncodingFromPinned(this ComPtr<IDxcLibrary> comObj, void* pText, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(handle->LpVtbl[6]))(handle, pText, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[6]))(handle, pText, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobWithEncodingOnHeapCopy(this ComPtr<IDxcLibrary> comObj, void* pText, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult CreateBlobWithEncodingOnHeapCopy(this ComPtr<IDxcLibrary> comObj, void* pText, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(handle->LpVtbl[7]))(handle, pText, size, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[7]))(handle, pText, size, codePage, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobWithEncodingOnHeapCopy(this ComPtr<IDxcLibrary> comObj, void* pText, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult CreateBlobWithEncodingOnHeapCopy(this ComPtr<IDxcLibrary> comObj, void* pText, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(handle->LpVtbl[7]))(handle, pText, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[7]))(handle, pText, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -1460,33 +1460,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobWithEncodingOnHeapCopy(this ComPtr<IDxcLibrary> comObj, void* pText, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public static HResult CreateBlobWithEncodingOnHeapCopy(this ComPtr<IDxcLibrary> comObj, void* pText, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(handle->LpVtbl[7]))(handle, pText, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[7]))(handle, pText, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, IMalloc* pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, IMalloc* pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(handle->LpVtbl[8]))(handle, pText, pIMalloc, size, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[8]))(handle, pText, pIMalloc, size, codePage, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, ref IMalloc pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, ref IMalloc pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IMalloc* ppIMalloc = &pIMalloc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(handle->LpVtbl[8]))(handle, pText, (IMalloc*)ppIMalloc, size, codePage, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[8]))(handle, pText, (IMalloc*)ppIMalloc, size, codePage, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -1494,22 +1494,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(handle->LpVtbl[8]))(handle, pText, (IMalloc*)pIMalloc.Handle, size, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[8]))(handle, pText, (IMalloc*)pIMalloc.Handle, size, codePage, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, IMalloc* pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, IMalloc* pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(handle->LpVtbl[8]))(handle, pText, pIMalloc, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[8]))(handle, pText, pIMalloc, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -1517,25 +1517,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, IMalloc* pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public static HResult CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, IMalloc* pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(handle->LpVtbl[8]))(handle, pText, pIMalloc, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[8]))(handle, pText, pIMalloc, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, ref IMalloc pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, ref IMalloc pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IMalloc* ppIMalloc = &pIMalloc)
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(handle->LpVtbl[8]))(handle, pText, (IMalloc*)ppIMalloc, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[8]))(handle, pText, (IMalloc*)ppIMalloc, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -1544,33 +1544,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public static HResult CreateBlobWithEncodingOnMalloc(this ComPtr<IDxcLibrary> comObj, void* pText, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(handle->LpVtbl[8]))(handle, pText, (IMalloc*)pIMalloc.Handle, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[8]))(handle, pText, (IMalloc*)pIMalloc.Handle, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateIncludeHandler(this ComPtr<IDxcLibrary> comObj, IDxcIncludeHandler** ppResult) 
+		public static HResult CreateIncludeHandler(this ComPtr<IDxcLibrary> comObj, IDxcIncludeHandler** ppResult) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcIncludeHandler**, int>)(handle->LpVtbl[9]))(handle, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcIncludeHandler**, HResult>)(handle->LpVtbl[9]))(handle, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateIncludeHandler(this ComPtr<IDxcLibrary> comObj, ref IDxcIncludeHandler* ppResult) 
+		public static HResult CreateIncludeHandler(this ComPtr<IDxcLibrary> comObj, ref IDxcIncludeHandler* ppResult) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcIncludeHandler** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcIncludeHandler**, int>)(handle->LpVtbl[9]))(handle, (IDxcIncludeHandler**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcIncludeHandler**, HResult>)(handle->LpVtbl[9]))(handle, (IDxcIncludeHandler**)pppResult);
 				return ret;
 			}
 		}
@@ -1578,33 +1578,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateIncludeHandler(this ComPtr<IDxcLibrary> comObj, out ComPtr<IDxcIncludeHandler> ppResult) 
+		public static HResult CreateIncludeHandler(this ComPtr<IDxcLibrary> comObj, out ComPtr<IDxcIncludeHandler> ppResult) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcIncludeHandler**, int>)(handle->LpVtbl[9]))(handle, (IDxcIncludeHandler**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcIncludeHandler**, HResult>)(handle->LpVtbl[9]))(handle, (IDxcIncludeHandler**)ppResult.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, IStream** ppStream) 
+		public static HResult CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, IStream** ppStream) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(handle->LpVtbl[10]))(handle, pBlob, ppStream);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(handle->LpVtbl[10]))(handle, pBlob, ppStream);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, IStream** ppStream) 
+		public static HResult CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, IStream** ppStream) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(handle->LpVtbl[10]))(handle, (IDxcBlob*)ppBlob, ppStream);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(handle->LpVtbl[10]))(handle, (IDxcBlob*)ppBlob, ppStream);
 				return ret;
 			}
 		}
@@ -1612,22 +1612,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, IStream** ppStream) 
+		public static HResult CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, IStream** ppStream) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(handle->LpVtbl[10]))(handle, (IDxcBlob*)pBlob.Handle, ppStream);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(handle->LpVtbl[10]))(handle, (IDxcBlob*)pBlob.Handle, ppStream);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, ref IStream* ppStream) 
+		public static HResult CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, ref IStream* ppStream) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IStream** pppStream = &ppStream)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(handle->LpVtbl[10]))(handle, pBlob, (IStream**)pppStream);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(handle->LpVtbl[10]))(handle, pBlob, (IStream**)pppStream);
 				return ret;
 			}
 		}
@@ -1635,25 +1635,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, out ComPtr<IStream> ppStream) 
+		public static HResult CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, out ComPtr<IStream> ppStream) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			ppStream = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(handle->LpVtbl[10]))(handle, pBlob, (IStream**)ppStream.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(handle->LpVtbl[10]))(handle, pBlob, (IStream**)ppStream.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, ref IStream* ppStream) 
+		public static HResult CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, ref IStream* ppStream) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IStream** pppStream = &ppStream)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(handle->LpVtbl[10]))(handle, (IDxcBlob*)ppBlob, (IStream**)pppStream);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(handle->LpVtbl[10]))(handle, (IDxcBlob*)ppBlob, (IStream**)pppStream);
 					return ret;
 				}
 			}
@@ -1662,33 +1662,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, out ComPtr<IStream> ppStream) 
+		public static HResult CreateStreamFromBlobReadOnly(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, out ComPtr<IStream> ppStream) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			ppStream = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(handle->LpVtbl[10]))(handle, (IDxcBlob*)pBlob.Handle, (IStream**)ppStream.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, HResult>)(handle->LpVtbl[10]))(handle, (IDxcBlob*)pBlob.Handle, (IStream**)ppStream.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[11]))(handle, pBlob, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[11]))(handle, pBlob, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[11]))(handle, (IDxcBlob*)ppBlob, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[11]))(handle, (IDxcBlob*)ppBlob, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -1696,22 +1696,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[11]))(handle, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[11]))(handle, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[11]))(handle, pBlob, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[11]))(handle, pBlob, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -1719,25 +1719,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public static HResult GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[11]))(handle, pBlob, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[11]))(handle, pBlob, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[11]))(handle, (IDxcBlob*)ppBlob, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[11]))(handle, (IDxcBlob*)ppBlob, (IDxcBlobEncoding**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -1746,33 +1746,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public static HResult GetBlobAsUtf8(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[11]))(handle, (IDxcBlob*)pBlob.Handle, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[11]))(handle, (IDxcBlob*)pBlob.Handle, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[12]))(handle, pBlob, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[12]))(handle, pBlob, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[12]))(handle, (IDxcBlob*)ppBlob, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[12]))(handle, (IDxcBlob*)ppBlob, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -1780,22 +1780,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, IDxcBlobEncoding** pBlobEncoding) 
+		public static HResult GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[12]))(handle, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[12]))(handle, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[12]))(handle, pBlob, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[12]))(handle, pBlob, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -1803,25 +1803,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public static HResult GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, IDxcBlob* pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[12]))(handle, pBlob, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[12]))(handle, pBlob, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
+		public static HResult GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, ref IDxcBlob pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[12]))(handle, (IDxcBlob*)ppBlob, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[12]))(handle, (IDxcBlob*)ppBlob, (IDxcBlobEncoding**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -1830,33 +1830,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public static HResult GetBlobAsUtf16(this ComPtr<IDxcLibrary> comObj, ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* handle = comObj.Handle;
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(handle->LpVtbl[12]))(handle, (IDxcBlob*)pBlob.Handle, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[12]))(handle, (IDxcBlob*)pBlob.Handle, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcOperationResult> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcOperationResult> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDxcOperationResult* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcOperationResult> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcOperationResult> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDxcOperationResult* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1864,24 +1864,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcOperationResult> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcOperationResult> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcOperationResult* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcOperationResult> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcOperationResult> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcOperationResult* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1909,22 +1909,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetStatus(this ComPtr<IDxcOperationResult> comObj, int* pStatus) 
+		public static HResult GetStatus(this ComPtr<IDxcOperationResult> comObj, HResult* pStatus) 
 		{
 			IDxcOperationResult* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, int*, int>)(handle->LpVtbl[3]))(handle, pStatus);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, HResult*, HResult>)(handle->LpVtbl[3]))(handle, pStatus);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetStatus(this ComPtr<IDxcOperationResult> comObj, ref int pStatus) 
+		public static HResult GetStatus(this ComPtr<IDxcOperationResult> comObj, ref HResult pStatus) 
 		{
 			IDxcOperationResult* handle = comObj.Handle;
-			fixed (int* ppStatus = &pStatus)
+			fixed (HResult* ppStatus = &pStatus)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, int*, int>)(handle->LpVtbl[3]))(handle, (int*)ppStatus);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, HResult*, HResult>)(handle->LpVtbl[3]))(handle, (HResult*)ppStatus);
 				return ret;
 			}
 		}
@@ -1937,10 +1937,10 @@ namespace Hexa.NET.DXC
 		/// DXC_OUT_HLSL - Compile() with -P<br/>
 		/// DXC_OUT_ROOT_SIGNATURE - Compile() with rootsig_* target<br/>
 		/// </summary>
-		public static int GetResult(this ComPtr<IDxcOperationResult> comObj, IDxcBlob** ppResult) 
+		public static HResult GetResult(this ComPtr<IDxcOperationResult> comObj, IDxcBlob** ppResult) 
 		{
 			IDxcOperationResult* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, IDxcBlob**, int>)(handle->LpVtbl[4]))(handle, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, IDxcBlob**, HResult>)(handle->LpVtbl[4]))(handle, ppResult);
 			return ret;
 		}
 
@@ -1952,12 +1952,12 @@ namespace Hexa.NET.DXC
 		/// DXC_OUT_HLSL - Compile() with -P<br/>
 		/// DXC_OUT_ROOT_SIGNATURE - Compile() with rootsig_* target<br/>
 		/// </summary>
-		public static int GetResult(this ComPtr<IDxcOperationResult> comObj, ref IDxcBlob* ppResult) 
+		public static HResult GetResult(this ComPtr<IDxcOperationResult> comObj, ref IDxcBlob* ppResult) 
 		{
 			IDxcOperationResult* handle = comObj.Handle;
 			fixed (IDxcBlob** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, IDxcBlob**, int>)(handle->LpVtbl[4]))(handle, (IDxcBlob**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, IDxcBlob**, HResult>)(handle->LpVtbl[4]))(handle, (IDxcBlob**)pppResult);
 				return ret;
 			}
 		}
@@ -1970,33 +1970,33 @@ namespace Hexa.NET.DXC
 		/// DXC_OUT_HLSL - Compile() with -P<br/>
 		/// DXC_OUT_ROOT_SIGNATURE - Compile() with rootsig_* target<br/>
 		/// </summary>
-		public static int GetResult(this ComPtr<IDxcOperationResult> comObj, out ComPtr<IDxcBlob> ppResult) 
+		public static HResult GetResult(this ComPtr<IDxcOperationResult> comObj, out ComPtr<IDxcBlob> ppResult) 
 		{
 			IDxcOperationResult* handle = comObj.Handle;
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, IDxcBlob**, int>)(handle->LpVtbl[4]))(handle, (IDxcBlob**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, IDxcBlob**, HResult>)(handle->LpVtbl[4]))(handle, (IDxcBlob**)ppResult.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// GetErrorBuffer Corresponds to DXC_OUT_ERRORS.<br/>
 		/// </summary>
-		public static int GetErrorBuffer(this ComPtr<IDxcOperationResult> comObj, IDxcBlobEncoding** ppErrors) 
+		public static HResult GetErrorBuffer(this ComPtr<IDxcOperationResult> comObj, IDxcBlobEncoding** ppErrors) 
 		{
 			IDxcOperationResult* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, ppErrors);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, ppErrors);
 			return ret;
 		}
 
 		/// <summary>
 		/// GetErrorBuffer Corresponds to DXC_OUT_ERRORS.<br/>
 		/// </summary>
-		public static int GetErrorBuffer(this ComPtr<IDxcOperationResult> comObj, ref IDxcBlobEncoding* ppErrors) 
+		public static HResult GetErrorBuffer(this ComPtr<IDxcOperationResult> comObj, ref IDxcBlobEncoding* ppErrors) 
 		{
 			IDxcOperationResult* handle = comObj.Handle;
 			fixed (IDxcBlobEncoding** pppErrors = &ppErrors)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, (IDxcBlobEncoding**)pppErrors);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, (IDxcBlobEncoding**)pppErrors);
 				return ret;
 			}
 		}
@@ -2004,33 +2004,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// GetErrorBuffer Corresponds to DXC_OUT_ERRORS.<br/>
 		/// </summary>
-		public static int GetErrorBuffer(this ComPtr<IDxcOperationResult> comObj, out ComPtr<IDxcBlobEncoding> ppErrors) 
+		public static HResult GetErrorBuffer(this ComPtr<IDxcOperationResult> comObj, out ComPtr<IDxcBlobEncoding> ppErrors) 
 		{
 			IDxcOperationResult* handle = comObj.Handle;
 			ppErrors = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, IDxcBlobEncoding**, int>)(handle->LpVtbl[5]))(handle, (IDxcBlobEncoding**)ppErrors.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcOperationResult*, IDxcBlobEncoding**, HResult>)(handle->LpVtbl[5]))(handle, (IDxcBlobEncoding**)ppErrors.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcCompiler> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcCompiler> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<IDxcCompiler> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<IDxcCompiler> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2038,24 +2038,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcCompiler> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcCompiler> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<IDxcCompiler> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<IDxcCompiler> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2083,22 +2083,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				return ret;
 			}
 		}
@@ -2106,22 +2106,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				return ret;
 			}
 		}
@@ -2129,7 +2129,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2149,7 +2149,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -2160,14 +2160,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
 			{
 				fixed (char* ppSourceName = pSourceName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -2176,7 +2176,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2198,7 +2198,7 @@ namespace Hexa.NET.DXC
 					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = '\0';
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2210,12 +2210,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				return ret;
 			}
 		}
@@ -2223,7 +2223,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2243,7 +2243,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -2254,14 +2254,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
 			{
 				fixed (char* ppEntryPoint = pEntryPoint)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -2270,7 +2270,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2292,7 +2292,7 @@ namespace Hexa.NET.DXC
 					int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = '\0';
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2304,14 +2304,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
 			{
 				fixed (char* ppEntryPoint = pEntryPoint)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -2320,7 +2320,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2357,7 +2357,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -2372,7 +2372,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2381,7 +2381,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char* ppEntryPoint = pEntryPoint)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -2391,7 +2391,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2430,7 +2430,7 @@ namespace Hexa.NET.DXC
 					int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = '\0';
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -2446,12 +2446,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppTargetProfile = pTargetProfile)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				return ret;
 			}
 		}
@@ -2459,7 +2459,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2479,7 +2479,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pTargetProfile, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -2490,14 +2490,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
 			{
 				fixed (char* ppTargetProfile = pTargetProfile)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -2506,7 +2506,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2528,7 +2528,7 @@ namespace Hexa.NET.DXC
 					int pStrOffset0 = Utils.EncodeStringUTF16(pTargetProfile, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = '\0';
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2540,14 +2540,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
 			{
 				fixed (char* ppTargetProfile = pTargetProfile)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -2556,7 +2556,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2593,7 +2593,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -2608,7 +2608,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2617,7 +2617,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char* ppTargetProfile = pTargetProfile)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -2627,7 +2627,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2666,7 +2666,7 @@ namespace Hexa.NET.DXC
 					int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = '\0';
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -2682,14 +2682,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
 			{
 				fixed (char* ppTargetProfile = pTargetProfile)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -2698,7 +2698,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2735,7 +2735,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -2750,7 +2750,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2759,7 +2759,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char* ppTargetProfile = pTargetProfile)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -2769,7 +2769,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2808,7 +2808,7 @@ namespace Hexa.NET.DXC
 					int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = '\0';
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -2824,7 +2824,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -2833,7 +2833,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char* ppTargetProfile = pTargetProfile)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -2843,7 +2843,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2897,7 +2897,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset2 = Utils.EncodeStringUTF16(pTargetProfile, pStr2, pStrSize2);
 				pStr2[pStrOffset2] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 			if (pStrSize2 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr2);
@@ -2916,7 +2916,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2927,7 +2927,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (char* ppTargetProfile = pTargetProfile)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 							return ret;
 						}
 					}
@@ -2938,7 +2938,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2994,7 +2994,7 @@ namespace Hexa.NET.DXC
 					int pStrOffset2 = Utils.EncodeStringUTF16(pTargetProfile, pStr2, pStrSize2);
 					pStr2[pStrOffset2] = '\0';
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize2 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr2);
@@ -3014,12 +3014,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				return ret;
 			}
 		}
@@ -3027,14 +3027,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -3043,12 +3043,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				return ret;
 			}
 		}
@@ -3056,14 +3056,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -3072,7 +3072,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3094,7 +3094,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3106,7 +3106,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3115,7 +3115,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -3125,7 +3125,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3149,7 +3149,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3162,14 +3162,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -3178,7 +3178,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3200,7 +3200,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3212,7 +3212,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3221,7 +3221,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -3231,7 +3231,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3255,7 +3255,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3268,7 +3268,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -3277,7 +3277,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -3287,7 +3287,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3326,7 +3326,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -3342,7 +3342,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3353,7 +3353,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (char** ppArguments = &pArguments)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 							return ret;
 						}
 					}
@@ -3364,7 +3364,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3405,7 +3405,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -3422,14 +3422,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppTargetProfile = pTargetProfile)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -3438,7 +3438,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3460,7 +3460,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3472,7 +3472,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3481,7 +3481,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -3491,7 +3491,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3515,7 +3515,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3528,7 +3528,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -3537,7 +3537,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -3547,7 +3547,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3586,7 +3586,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -3602,7 +3602,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3613,7 +3613,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (char** ppArguments = &pArguments)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 							return ret;
 						}
 					}
@@ -3624,7 +3624,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3665,7 +3665,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -3682,7 +3682,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -3691,7 +3691,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -3701,7 +3701,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3740,7 +3740,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -3756,7 +3756,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3767,7 +3767,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (char** ppArguments = &pArguments)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 							return ret;
 						}
 					}
@@ -3778,7 +3778,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3819,7 +3819,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -3836,7 +3836,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -3847,7 +3847,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (char** ppArguments = &pArguments)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 							return ret;
 						}
 					}
@@ -3858,7 +3858,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3914,7 +3914,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize2 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr2);
@@ -3934,7 +3934,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3947,7 +3947,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (char** ppArguments = &pArguments)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 								return ret;
 							}
 						}
@@ -3959,7 +3959,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4017,7 +4017,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize2 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr2);
@@ -4038,12 +4038,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 				return ret;
 			}
 		}
@@ -4051,14 +4051,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -4067,12 +4067,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 				return ret;
 			}
 		}
@@ -4080,14 +4080,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -4096,7 +4096,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4118,7 +4118,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -4130,7 +4130,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4139,7 +4139,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Define* ppDefines = &pDefines)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -4149,7 +4149,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4173,7 +4173,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -4186,14 +4186,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -4202,7 +4202,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4224,7 +4224,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -4236,7 +4236,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4245,7 +4245,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Define* ppDefines = &pDefines)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -4255,7 +4255,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4279,7 +4279,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -4292,7 +4292,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -4301,7 +4301,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Define* ppDefines = &pDefines)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -4311,7 +4311,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4350,7 +4350,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -4366,7 +4366,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4377,7 +4377,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (Define* ppDefines = &pDefines)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 							return ret;
 						}
 					}
@@ -4388,7 +4388,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4429,7 +4429,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -4446,14 +4446,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppTargetProfile = pTargetProfile)
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 					return ret;
 				}
 			}
@@ -4462,7 +4462,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4484,7 +4484,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -4496,7 +4496,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4505,7 +4505,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Define* ppDefines = &pDefines)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -4515,7 +4515,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4539,7 +4539,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -4552,7 +4552,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -4561,7 +4561,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Define* ppDefines = &pDefines)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -4571,7 +4571,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4610,7 +4610,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -4626,7 +4626,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4637,7 +4637,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (Define* ppDefines = &pDefines)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 							return ret;
 						}
 					}
@@ -4648,7 +4648,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4689,7 +4689,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -4706,7 +4706,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -4715,7 +4715,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Define* ppDefines = &pDefines)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 						return ret;
 					}
 				}
@@ -4725,7 +4725,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4764,7 +4764,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -4780,7 +4780,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4791,7 +4791,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (Define* ppDefines = &pDefines)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 							return ret;
 						}
 					}
@@ -4802,7 +4802,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4843,7 +4843,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -4860,7 +4860,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -4871,7 +4871,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (Define* ppDefines = &pDefines)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 							return ret;
 						}
 					}
@@ -4882,7 +4882,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4938,7 +4938,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pStr1, pStr2, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, pSource, pStr0, pStr1, pStr2, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 				if (pStrSize2 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr2);
@@ -4958,7 +4958,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4971,7 +4971,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (Define* ppDefines = &pDefines)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 								return ret;
 							}
 						}
@@ -4983,7 +4983,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model<br/>
 		/// </summary>
-		public static int Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
+		public static HResult Compile(this ComPtr<IDxcCompiler> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) 
 		{
 			IDxcCompiler* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -5041,7 +5041,7 @@ namespace Hexa.NET.DXC
 				}
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, int>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, HResult>)(handle->LpVtbl[3]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, pArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, ppResult);
 					if (pStrSize2 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr2);

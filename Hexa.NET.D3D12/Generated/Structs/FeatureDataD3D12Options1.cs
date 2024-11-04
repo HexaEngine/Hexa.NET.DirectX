@@ -27,7 +27,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int WaveOps;
+		public Bool32 WaveOps;
 
 		/// <summary>
 		/// To be documented.
@@ -47,18 +47,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ExpandedComputeResourceStates;
+		public Bool32 ExpandedComputeResourceStates;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Int64ShaderOps;
+		public Bool32 Int64ShaderOps;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D12Options1(int waveOps = default, uint waveLaneCountMin = default, uint waveLaneCountMax = default, uint totalLaneCount = default, int expandedComputeResourceStates = default, int int64ShaderOps = default)
+		public unsafe FeatureDataD3D12Options1(Bool32 waveOps = default, uint waveLaneCountMin = default, uint waveLaneCountMax = default, uint totalLaneCount = default, Bool32 expandedComputeResourceStates = default, Bool32 int64ShaderOps = default)
 		{
 			WaveOps = waveOps;
 			WaveLaneCountMin = waveLaneCountMin;

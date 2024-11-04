@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -135,22 +135,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -158,12 +158,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -171,14 +171,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -187,22 +187,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -210,12 +210,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -223,14 +223,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -239,22 +239,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(Guid* guid, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint, void*, int>)(LpVtbl[5]))(ptr, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint, void*, HResult>)(LpVtbl[5]))(ptr, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint, void*, int>)(LpVtbl[5]))(ptr, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, uint, void*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -262,22 +262,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -285,12 +285,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -298,24 +298,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -324,12 +324,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -337,22 +337,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetClassInstance(byte* pClassInstanceName, uint instanceIndex, ID3D11ClassInstance** ppInstance) 
+		public readonly unsafe HResult GetClassInstance(byte* pClassInstanceName, uint instanceIndex, ID3D11ClassInstance** ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(LpVtbl[7]))(ptr, pClassInstanceName, instanceIndex, ppInstance);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[7]))(ptr, pClassInstanceName, instanceIndex, ppInstance);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetClassInstance(ReadOnlySpan<byte> pClassInstanceName, uint instanceIndex, ID3D11ClassInstance** ppInstance) 
+		public readonly unsafe HResult GetClassInstance(ReadOnlySpan<byte> pClassInstanceName, uint instanceIndex, ID3D11ClassInstance** ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppClassInstanceName = pClassInstanceName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(LpVtbl[7]))(ptr, (byte*)ppClassInstanceName, instanceIndex, ppInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[7]))(ptr, (byte*)ppClassInstanceName, instanceIndex, ppInstance);
 				return ret;
 			}
 		}
@@ -360,7 +360,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetClassInstance(string pClassInstanceName, uint instanceIndex, ID3D11ClassInstance** ppInstance) 
+		public readonly unsafe HResult GetClassInstance(string pClassInstanceName, uint instanceIndex, ID3D11ClassInstance** ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -380,7 +380,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pClassInstanceName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(LpVtbl[7]))(ptr, pStr0, instanceIndex, ppInstance);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[7]))(ptr, pStr0, instanceIndex, ppInstance);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -391,12 +391,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetClassInstance(byte* pClassInstanceName, uint instanceIndex, ref ID3D11ClassInstance* ppInstance) 
+		public readonly unsafe HResult GetClassInstance(byte* pClassInstanceName, uint instanceIndex, ref ID3D11ClassInstance* ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppInstance = &ppInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(LpVtbl[7]))(ptr, pClassInstanceName, instanceIndex, (ID3D11ClassInstance**)pppInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[7]))(ptr, pClassInstanceName, instanceIndex, (ID3D11ClassInstance**)pppInstance);
 				return ret;
 			}
 		}
@@ -404,25 +404,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetClassInstance(byte* pClassInstanceName, uint instanceIndex, out ComPtr<ID3D11ClassInstance> ppInstance) 
+		public readonly unsafe HResult GetClassInstance(byte* pClassInstanceName, uint instanceIndex, out ComPtr<ID3D11ClassInstance> ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppInstance = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(LpVtbl[7]))(ptr, pClassInstanceName, instanceIndex, (ID3D11ClassInstance**)ppInstance.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[7]))(ptr, pClassInstanceName, instanceIndex, (ID3D11ClassInstance**)ppInstance.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetClassInstance(ReadOnlySpan<byte> pClassInstanceName, uint instanceIndex, ref ID3D11ClassInstance* ppInstance) 
+		public readonly unsafe HResult GetClassInstance(ReadOnlySpan<byte> pClassInstanceName, uint instanceIndex, ref ID3D11ClassInstance* ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppClassInstanceName = pClassInstanceName)
 			{
 				fixed (ID3D11ClassInstance** pppInstance = &ppInstance)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(LpVtbl[7]))(ptr, (byte*)ppClassInstanceName, instanceIndex, (ID3D11ClassInstance**)pppInstance);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[7]))(ptr, (byte*)ppClassInstanceName, instanceIndex, (ID3D11ClassInstance**)pppInstance);
 					return ret;
 				}
 			}
@@ -431,7 +431,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetClassInstance(string pClassInstanceName, uint instanceIndex, ref ID3D11ClassInstance* ppInstance) 
+		public readonly unsafe HResult GetClassInstance(string pClassInstanceName, uint instanceIndex, ref ID3D11ClassInstance* ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -453,7 +453,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11ClassInstance** pppInstance = &ppInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, int>)(LpVtbl[7]))(ptr, pStr0, instanceIndex, (ID3D11ClassInstance**)pppInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[7]))(ptr, pStr0, instanceIndex, (ID3D11ClassInstance**)pppInstance);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -465,22 +465,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateClassInstance(byte* pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ID3D11ClassInstance** ppInstance) 
+		public readonly unsafe HResult CreateClassInstance(byte* pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ID3D11ClassInstance** ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(LpVtbl[8]))(ptr, pClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, ppInstance);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[8]))(ptr, pClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, ppInstance);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateClassInstance(ReadOnlySpan<byte> pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ID3D11ClassInstance** ppInstance) 
+		public readonly unsafe HResult CreateClassInstance(ReadOnlySpan<byte> pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ID3D11ClassInstance** ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppClassTypeName = pClassTypeName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(LpVtbl[8]))(ptr, (byte*)ppClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, ppInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[8]))(ptr, (byte*)ppClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, ppInstance);
 				return ret;
 			}
 		}
@@ -488,7 +488,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateClassInstance(string pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ID3D11ClassInstance** ppInstance) 
+		public readonly unsafe HResult CreateClassInstance(string pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ID3D11ClassInstance** ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -508,7 +508,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pClassTypeName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(LpVtbl[8]))(ptr, pStr0, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, ppInstance);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[8]))(ptr, pStr0, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, ppInstance);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -519,12 +519,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateClassInstance(byte* pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ref ID3D11ClassInstance* ppInstance) 
+		public readonly unsafe HResult CreateClassInstance(byte* pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ref ID3D11ClassInstance* ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppInstance = &ppInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(LpVtbl[8]))(ptr, pClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)pppInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[8]))(ptr, pClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)pppInstance);
 				return ret;
 			}
 		}
@@ -532,25 +532,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateClassInstance(byte* pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, out ComPtr<ID3D11ClassInstance> ppInstance) 
+		public readonly unsafe HResult CreateClassInstance(byte* pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, out ComPtr<ID3D11ClassInstance> ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppInstance = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(LpVtbl[8]))(ptr, pClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)ppInstance.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[8]))(ptr, pClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)ppInstance.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateClassInstance(ReadOnlySpan<byte> pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ref ID3D11ClassInstance* ppInstance) 
+		public readonly unsafe HResult CreateClassInstance(ReadOnlySpan<byte> pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ref ID3D11ClassInstance* ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppClassTypeName = pClassTypeName)
 			{
 				fixed (ID3D11ClassInstance** pppInstance = &ppInstance)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(LpVtbl[8]))(ptr, (byte*)ppClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)pppInstance);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[8]))(ptr, (byte*)ppClassTypeName, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)pppInstance);
 					return ret;
 				}
 			}
@@ -559,7 +559,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateClassInstance(string pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ref ID3D11ClassInstance* ppInstance) 
+		public readonly unsafe HResult CreateClassInstance(string pClassTypeName, uint constantBufferOffset, uint constantVectorOffset, uint textureOffset, uint samplerOffset, ref ID3D11ClassInstance* ppInstance) 
 		{
 			ID3D11ClassLinkage* ptr = (ID3D11ClassLinkage*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -581,7 +581,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11ClassInstance** pppInstance = &ppInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, int>)(LpVtbl[8]))(ptr, pStr0, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)pppInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ClassLinkage*, byte*, uint, uint, uint, uint, ID3D11ClassInstance**, HResult>)(LpVtbl[8]))(ptr, pStr0, constantBufferOffset, constantVectorOffset, textureOffset, samplerOffset, (ID3D11ClassInstance**)pppInstance);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);

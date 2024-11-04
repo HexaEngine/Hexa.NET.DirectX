@@ -27,12 +27,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int AdditionalShadingRatesSupported;
+		public Bool32 AdditionalShadingRatesSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int PerPrimitiveShadingRateSupportedWithViewportIndexing;
+		public Bool32 PerPrimitiveShadingRateSupportedWithViewportIndexing;
 
 		/// <summary>
 		/// To be documented.
@@ -47,13 +47,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int BackgroundProcessingSupported;
+		public Bool32 BackgroundProcessingSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D12Options6(int additionalShadingRatesSupported = default, int perPrimitiveShadingRateSupportedWithViewportIndexing = default, VariableShadingRateTier variableShadingRateTier = default, uint shadingRateImageTileSize = default, int backgroundProcessingSupported = default)
+		public unsafe FeatureDataD3D12Options6(Bool32 additionalShadingRatesSupported = default, Bool32 perPrimitiveShadingRateSupportedWithViewportIndexing = default, VariableShadingRateTier variableShadingRateTier = default, uint shadingRateImageTileSize = default, Bool32 backgroundProcessingSupported = default)
 		{
 			AdditionalShadingRatesSupported = additionalShadingRatesSupported;
 			PerPrimitiveShadingRateSupportedWithViewportIndexing = perPrimitiveShadingRateSupportedWithViewportIndexing;

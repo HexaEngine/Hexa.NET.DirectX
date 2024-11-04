@@ -47,7 +47,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Protected;
+		public Bool32 Protected;
 
 		/// <summary>
 		/// To be documented.
@@ -63,7 +63,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataVideoProcessorSize1(uint nodeMask = default, VideoProcessOutputStreamDesc* pOutputStreamDesc = default, uint numInputStreamDescs = default, VideoProcessInputStreamDesc* pInputStreamDescs = default, int @protected = default, ulong memoryPoolL0Size = default, ulong memoryPoolL1Size = default)
+		public unsafe FeatureDataVideoProcessorSize1(uint nodeMask = default, VideoProcessOutputStreamDesc* pOutputStreamDesc = default, uint numInputStreamDescs = default, VideoProcessInputStreamDesc* pInputStreamDescs = default, Bool32 @protected = default, ulong memoryPoolL0Size = default, ulong memoryPoolL1Size = default)
 		{
 			NodeMask = nodeMask;
 			POutputStreamDesc = pOutputStreamDesc;

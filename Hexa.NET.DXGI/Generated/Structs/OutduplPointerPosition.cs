@@ -31,13 +31,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Visible;
+		public Bool32 Visible;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe OutduplPointerPosition(Point32 position = default, int visible = default)
+		public unsafe OutduplPointerPosition(Point32 position = default, Bool32 visible = default)
 		{
 			Position = position;
 			Visible = visible;

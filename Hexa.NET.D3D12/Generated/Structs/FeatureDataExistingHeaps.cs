@@ -27,13 +27,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Supported;
+		public Bool32 Supported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataExistingHeaps(int supported = default)
+		public unsafe FeatureDataExistingHeaps(Bool32 supported = default)
 		{
 			Supported = supported;
 		}

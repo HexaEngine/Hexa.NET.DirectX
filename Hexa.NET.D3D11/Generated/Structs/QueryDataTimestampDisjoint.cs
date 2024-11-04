@@ -33,13 +33,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Disjoint;
+		public Bool32 Disjoint;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe QueryDataTimestampDisjoint(ulong frequency = default, int disjoint = default)
+		public unsafe QueryDataTimestampDisjoint(ulong frequency = default, Bool32 disjoint = default)
 		{
 			Frequency = frequency;
 			Disjoint = disjoint;

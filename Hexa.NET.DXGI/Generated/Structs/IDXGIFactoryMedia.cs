@@ -35,22 +35,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -58,24 +58,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -103,22 +103,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, pRestrictToOutput, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, pRestrictToOutput, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, pRestrictToOutput, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, pRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -126,22 +126,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, pRestrictToOutput, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, pRestrictToOutput, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -149,14 +149,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (SwapChainDesc1* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -165,12 +165,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -178,12 +178,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -191,24 +191,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -217,24 +217,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -243,12 +243,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 				return ret;
 			}
 		}
@@ -256,7 +256,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -265,7 +265,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 						return ret;
 					}
 				}
@@ -275,12 +275,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 				return ret;
 			}
 		}
@@ -288,12 +288,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 				return ret;
 			}
 		}
@@ -301,25 +301,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -328,25 +328,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -355,13 +355,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -369,7 +369,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -378,7 +378,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -388,13 +388,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -402,14 +402,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 			{
 				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -418,18 +418,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -438,7 +438,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -448,18 +448,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
@@ -468,7 +468,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -478,13 +478,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, pDevice, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -492,7 +492,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -503,7 +503,7 @@ namespace Hexa.NET.DXGI
 					{
 						fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)ppDevice, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 							return ret;
 						}
 					}
@@ -514,13 +514,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public readonly unsafe HResult CreateSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, HResult>)(LpVtbl[3]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -528,22 +528,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -551,22 +551,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -574,14 +574,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -590,12 +590,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -603,12 +603,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIResource* ppYuvDecodeBuffers = &pYuvDecodeBuffers)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -616,24 +616,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGIResource* ppYuvDecodeBuffers = &pYuvDecodeBuffers)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -642,24 +642,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
 				fixed (IDXGIResource* ppYuvDecodeBuffers = &pYuvDecodeBuffers)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -668,12 +668,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -681,7 +681,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -690,7 +690,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGIResource* ppYuvDecodeBuffers = &pYuvDecodeBuffers)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, ppSwapChain);
 						return ret;
 					}
 				}
@@ -700,12 +700,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -713,12 +713,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -726,24 +726,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -752,24 +752,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -778,12 +778,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 				return ret;
 			}
 		}
@@ -791,7 +791,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -800,7 +800,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 						return ret;
 					}
 				}
@@ -810,12 +810,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 				return ret;
 			}
 		}
@@ -823,14 +823,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIResource* ppYuvDecodeBuffers = &pYuvDecodeBuffers)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -839,17 +839,17 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -858,7 +858,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 						return ret;
 					}
 				}
@@ -868,17 +868,17 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
@@ -887,7 +887,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 						return ret;
 					}
 				}
@@ -897,12 +897,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 				return ret;
 			}
 		}
@@ -910,7 +910,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -921,7 +921,7 @@ namespace Hexa.NET.DXGI
 					{
 						fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 							return ret;
 						}
 					}
@@ -932,12 +932,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGIDecodeSwapChain** ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 				return ret;
 			}
 		}
@@ -945,12 +945,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 				return ret;
 			}
 		}
@@ -958,25 +958,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -985,25 +985,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
 				fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -1012,13 +1012,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1026,7 +1026,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -1035,7 +1035,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -1045,13 +1045,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1059,14 +1059,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIResource* ppYuvDecodeBuffers = &pYuvDecodeBuffers)
 			{
 				fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -1075,18 +1075,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -1095,7 +1095,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -1105,18 +1105,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
@@ -1125,7 +1125,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -1135,13 +1135,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1149,7 +1149,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -1160,7 +1160,7 @@ namespace Hexa.NET.DXGI
 					{
 						fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, pRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 							return ret;
 						}
 					}
@@ -1171,13 +1171,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, pRestrictToOutput, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1185,14 +1185,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 			{
 				fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -1201,18 +1201,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -1221,7 +1221,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -1231,18 +1231,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
@@ -1251,7 +1251,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -1261,13 +1261,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1275,7 +1275,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -1286,7 +1286,7 @@ namespace Hexa.NET.DXGI
 					{
 						fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 							return ret;
 						}
 					}
@@ -1297,13 +1297,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, IDXGIResource* pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, pYuvDecodeBuffers, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1311,7 +1311,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIResource* ppYuvDecodeBuffers = &pYuvDecodeBuffers)
@@ -1320,7 +1320,7 @@ namespace Hexa.NET.DXGI
 				{
 					fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -1330,18 +1330,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -1352,7 +1352,7 @@ namespace Hexa.NET.DXGI
 					{
 						fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, pDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 							return ret;
 						}
 					}
@@ -1363,18 +1363,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, DecodeSwapChainDesc* pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, pDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
@@ -1385,7 +1385,7 @@ namespace Hexa.NET.DXGI
 					{
 						fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 							return ret;
 						}
 					}
@@ -1396,13 +1396,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(IUnknown* pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, pDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1410,7 +1410,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ref IUnknown pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ref IDXGIResource pYuvDecodeBuffers, ref IDXGIOutput pRestrictToOutput, ref IDXGIDecodeSwapChain* ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -1423,7 +1423,7 @@ namespace Hexa.NET.DXGI
 						{
 							fixed (IDXGIDecodeSwapChain** pppSwapChain = &ppSwapChain)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)ppDevice, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)ppYuvDecodeBuffers, (IDXGIOutput*)ppRestrictToOutput, (IDXGIDecodeSwapChain**)pppSwapChain);
 								return ret;
 							}
 						}
@@ -1435,13 +1435,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
+		public readonly unsafe HResult CreateDecodeSwapChainForCompositionSurfaceHandle(ComPtr<IUnknown> pDevice, nint hSurface, ref DecodeSwapChainDesc pDesc, ComPtr<IDXGIResource> pYuvDecodeBuffers, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGIDecodeSwapChain> ppSwapChain) 
 		{
 			IDXGIFactoryMedia* ptr = (IDXGIFactoryMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (DecodeSwapChainDesc* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, int>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIFactoryMedia*, IUnknown*, nint, DecodeSwapChainDesc*, IDXGIResource*, IDXGIOutput*, IDXGIDecodeSwapChain**, HResult>)(LpVtbl[4]))(ptr, (IUnknown*)pDevice.Handle, hSurface, (DecodeSwapChainDesc*)ppDesc, (IDXGIResource*)pYuvDecodeBuffers.Handle, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGIDecodeSwapChain**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}

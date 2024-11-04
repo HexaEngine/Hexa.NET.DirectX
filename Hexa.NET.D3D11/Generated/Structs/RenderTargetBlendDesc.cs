@@ -27,7 +27,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int BlendEnable;
+		public Bool32 BlendEnable;
 
 		/// <summary>
 		/// To be documented.
@@ -68,7 +68,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe RenderTargetBlendDesc(int blendEnable = default, Blend srcBlend = default, Blend destBlend = default, BlendOp blendOp = default, Blend srcBlendAlpha = default, Blend destBlendAlpha = default, BlendOp blendOpAlpha = default, byte renderTargetWriteMask = default)
+		public unsafe RenderTargetBlendDesc(Bool32 blendEnable = default, Blend srcBlend = default, Blend destBlend = default, BlendOp blendOp = default, Blend srcBlendAlpha = default, Blend destBlendAlpha = default, BlendOp blendOpAlpha = default, byte renderTargetWriteMask = default)
 		{
 			BlendEnable = blendEnable;
 			SrcBlend = srcBlend;

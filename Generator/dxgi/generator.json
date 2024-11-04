@@ -24,6 +24,7 @@
     "SECURITY_ATTRIBUTES": "SecurityAttributes",
     "DXGI_RGBA": "Vector4",
     "DXGI_DEBUG_ID": "Guid",
-    "DXGI_INFO_QUEUE_MESSAGE_ID": "int"
+    "DXGI_INFO_QUEUE_MESSAGE_ID": "int",
+    "BOOL": "Bool32"
   }
 }

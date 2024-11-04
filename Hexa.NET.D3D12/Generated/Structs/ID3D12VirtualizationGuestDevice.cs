@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -104,22 +104,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ShareWithHost(ID3D12DeviceChild* pObject, nint* pHandle) 
+		public readonly unsafe HResult ShareWithHost(ID3D12DeviceChild* pObject, nint* pHandle) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, int>)(LpVtbl[3]))(ptr, pObject, pHandle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, HResult>)(LpVtbl[3]))(ptr, pObject, pHandle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ShareWithHost(ref ID3D12DeviceChild pObject, nint* pHandle) 
+		public readonly unsafe HResult ShareWithHost(ref ID3D12DeviceChild pObject, nint* pHandle) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12DeviceChild* ppObject = &pObject)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, int>)(LpVtbl[3]))(ptr, (ID3D12DeviceChild*)ppObject, pHandle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, HResult>)(LpVtbl[3]))(ptr, (ID3D12DeviceChild*)ppObject, pHandle);
 				return ret;
 			}
 		}
@@ -127,22 +127,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ShareWithHost(ComPtr<ID3D12DeviceChild> pObject, nint* pHandle) 
+		public readonly unsafe HResult ShareWithHost(ComPtr<ID3D12DeviceChild> pObject, nint* pHandle) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, int>)(LpVtbl[3]))(ptr, (ID3D12DeviceChild*)pObject.Handle, pHandle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, HResult>)(LpVtbl[3]))(ptr, (ID3D12DeviceChild*)pObject.Handle, pHandle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ShareWithHost(ID3D12DeviceChild* pObject, ref nint pHandle) 
+		public readonly unsafe HResult ShareWithHost(ID3D12DeviceChild* pObject, ref nint pHandle) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nint* ppHandle = &pHandle)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, int>)(LpVtbl[3]))(ptr, pObject, (nint*)ppHandle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, HResult>)(LpVtbl[3]))(ptr, pObject, (nint*)ppHandle);
 				return ret;
 			}
 		}
@@ -150,14 +150,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ShareWithHost(ref ID3D12DeviceChild pObject, ref nint pHandle) 
+		public readonly unsafe HResult ShareWithHost(ref ID3D12DeviceChild pObject, ref nint pHandle) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12DeviceChild* ppObject = &pObject)
 			{
 				fixed (nint* ppHandle = &pHandle)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, int>)(LpVtbl[3]))(ptr, (ID3D12DeviceChild*)ppObject, (nint*)ppHandle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, HResult>)(LpVtbl[3]))(ptr, (ID3D12DeviceChild*)ppObject, (nint*)ppHandle);
 					return ret;
 				}
 			}
@@ -166,12 +166,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ShareWithHost(ComPtr<ID3D12DeviceChild> pObject, ref nint pHandle) 
+		public readonly unsafe HResult ShareWithHost(ComPtr<ID3D12DeviceChild> pObject, ref nint pHandle) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nint* ppHandle = &pHandle)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, int>)(LpVtbl[3]))(ptr, (ID3D12DeviceChild*)pObject.Handle, (nint*)ppHandle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, HResult>)(LpVtbl[3]))(ptr, (ID3D12DeviceChild*)pObject.Handle, (nint*)ppHandle);
 				return ret;
 			}
 		}
@@ -179,22 +179,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateFenceFd(ID3D12Fence* pFence, ulong fenceValue, int* pFenceFd) 
+		public readonly unsafe HResult CreateFenceFd(ID3D12Fence* pFence, ulong fenceValue, int* pFenceFd) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, int>)(LpVtbl[4]))(ptr, pFence, fenceValue, pFenceFd);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, HResult>)(LpVtbl[4]))(ptr, pFence, fenceValue, pFenceFd);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateFenceFd(ref ID3D12Fence pFence, ulong fenceValue, int* pFenceFd) 
+		public readonly unsafe HResult CreateFenceFd(ref ID3D12Fence pFence, ulong fenceValue, int* pFenceFd) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Fence* ppFence = &pFence)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, int>)(LpVtbl[4]))(ptr, (ID3D12Fence*)ppFence, fenceValue, pFenceFd);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, HResult>)(LpVtbl[4]))(ptr, (ID3D12Fence*)ppFence, fenceValue, pFenceFd);
 				return ret;
 			}
 		}
@@ -202,22 +202,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateFenceFd(ComPtr<ID3D12Fence> pFence, ulong fenceValue, int* pFenceFd) 
+		public readonly unsafe HResult CreateFenceFd(ComPtr<ID3D12Fence> pFence, ulong fenceValue, int* pFenceFd) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, int>)(LpVtbl[4]))(ptr, (ID3D12Fence*)pFence.Handle, fenceValue, pFenceFd);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, HResult>)(LpVtbl[4]))(ptr, (ID3D12Fence*)pFence.Handle, fenceValue, pFenceFd);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateFenceFd(ID3D12Fence* pFence, ulong fenceValue, ref int pFenceFd) 
+		public readonly unsafe HResult CreateFenceFd(ID3D12Fence* pFence, ulong fenceValue, ref int pFenceFd) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppFenceFd = &pFenceFd)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, int>)(LpVtbl[4]))(ptr, pFence, fenceValue, (int*)ppFenceFd);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, HResult>)(LpVtbl[4]))(ptr, pFence, fenceValue, (int*)ppFenceFd);
 				return ret;
 			}
 		}
@@ -225,14 +225,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateFenceFd(ref ID3D12Fence pFence, ulong fenceValue, ref int pFenceFd) 
+		public readonly unsafe HResult CreateFenceFd(ref ID3D12Fence pFence, ulong fenceValue, ref int pFenceFd) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Fence* ppFence = &pFence)
 			{
 				fixed (int* ppFenceFd = &pFenceFd)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, int>)(LpVtbl[4]))(ptr, (ID3D12Fence*)ppFence, fenceValue, (int*)ppFenceFd);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, HResult>)(LpVtbl[4]))(ptr, (ID3D12Fence*)ppFence, fenceValue, (int*)ppFenceFd);
 					return ret;
 				}
 			}
@@ -241,12 +241,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateFenceFd(ComPtr<ID3D12Fence> pFence, ulong fenceValue, ref int pFenceFd) 
+		public readonly unsafe HResult CreateFenceFd(ComPtr<ID3D12Fence> pFence, ulong fenceValue, ref int pFenceFd) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppFenceFd = &pFenceFd)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, int>)(LpVtbl[4]))(ptr, (ID3D12Fence*)pFence.Handle, fenceValue, (int*)ppFenceFd);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, HResult>)(LpVtbl[4]))(ptr, (ID3D12Fence*)pFence.Handle, fenceValue, (int*)ppFenceFd);
 				return ret;
 			}
 		}

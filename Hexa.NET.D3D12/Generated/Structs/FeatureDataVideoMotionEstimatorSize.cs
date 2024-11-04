@@ -52,7 +52,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Protected;
+		public Bool32 Protected;
 
 		/// <summary>
 		/// To be documented.
@@ -78,7 +78,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataVideoMotionEstimatorSize(uint nodeIndex = default, Format inputFormat = default, VideoMotionEstimatorSearchBlockSize blockSize = default, VideoMotionEstimatorVectorPrecision precision = default, VideoSizeRange sizeRange = default, int @protected = default, ulong motionVectorHeapMemoryPoolL0Size = default, ulong motionVectorHeapMemoryPoolL1Size = default, ulong motionEstimatorMemoryPoolL0Size = default, ulong motionEstimatorMemoryPoolL1Size = default)
+		public unsafe FeatureDataVideoMotionEstimatorSize(uint nodeIndex = default, Format inputFormat = default, VideoMotionEstimatorSearchBlockSize blockSize = default, VideoMotionEstimatorVectorPrecision precision = default, VideoSizeRange sizeRange = default, Bool32 @protected = default, ulong motionVectorHeapMemoryPoolL0Size = default, ulong motionVectorHeapMemoryPoolL1Size = default, ulong motionEstimatorMemoryPoolL0Size = default, ulong motionEstimatorMemoryPoolL1Size = default)
 		{
 			NodeIndex = nodeIndex;
 			InputFormat = inputFormat;

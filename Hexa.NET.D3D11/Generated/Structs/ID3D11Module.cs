@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -104,12 +104,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* iid, ref void* ppv) 
+		public readonly unsafe HResult QueryInterface(Guid* iid, ref void* ppv) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppv = &ppv)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, int>)(LpVtbl[3]))(ptr, iid, (void**)pppv);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, iid, (void**)pppv);
 				return ret;
 			}
 		}
@@ -117,14 +117,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid iid, ref void* ppv) 
+		public readonly unsafe HResult QueryInterface(ref Guid iid, ref void* ppv) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Guid*)piid, (void**)pppv);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Guid*)piid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -133,22 +133,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateInstance(byte* pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
+		public readonly unsafe HResult CreateInstance(byte* pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(LpVtbl[4]))(ptr, pNamespace, ppModuleInstance);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(LpVtbl[4]))(ptr, pNamespace, ppModuleInstance);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateInstance(ReadOnlySpan<byte> pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
+		public readonly unsafe HResult CreateInstance(ReadOnlySpan<byte> pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppNamespace = pNamespace)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(LpVtbl[4]))(ptr, (byte*)ppNamespace, ppModuleInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(LpVtbl[4]))(ptr, (byte*)ppNamespace, ppModuleInstance);
 				return ret;
 			}
 		}
@@ -156,7 +156,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateInstance(string pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
+		public readonly unsafe HResult CreateInstance(string pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -176,7 +176,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pNamespace, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(LpVtbl[4]))(ptr, pStr0, ppModuleInstance);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(LpVtbl[4]))(ptr, pStr0, ppModuleInstance);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -187,12 +187,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateInstance(byte* pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
+		public readonly unsafe HResult CreateInstance(byte* pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(LpVtbl[4]))(ptr, pNamespace, (ID3D11ModuleInstance**)pppModuleInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(LpVtbl[4]))(ptr, pNamespace, (ID3D11ModuleInstance**)pppModuleInstance);
 				return ret;
 			}
 		}
@@ -200,25 +200,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateInstance(byte* pNamespace, out ComPtr<ID3D11ModuleInstance> ppModuleInstance) 
+		public readonly unsafe HResult CreateInstance(byte* pNamespace, out ComPtr<ID3D11ModuleInstance> ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppModuleInstance = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(LpVtbl[4]))(ptr, pNamespace, (ID3D11ModuleInstance**)ppModuleInstance.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(LpVtbl[4]))(ptr, pNamespace, (ID3D11ModuleInstance**)ppModuleInstance.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateInstance(ReadOnlySpan<byte> pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
+		public readonly unsafe HResult CreateInstance(ReadOnlySpan<byte> pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppNamespace = pNamespace)
 			{
 				fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(LpVtbl[4]))(ptr, (byte*)ppNamespace, (ID3D11ModuleInstance**)pppModuleInstance);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(LpVtbl[4]))(ptr, (byte*)ppNamespace, (ID3D11ModuleInstance**)pppModuleInstance);
 					return ret;
 				}
 			}
@@ -227,7 +227,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateInstance(string pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
+		public readonly unsafe HResult CreateInstance(string pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -249,7 +249,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(LpVtbl[4]))(ptr, pStr0, (ID3D11ModuleInstance**)pppModuleInstance);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, HResult>)(LpVtbl[4]))(ptr, pStr0, (ID3D11ModuleInstance**)pppModuleInstance);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);

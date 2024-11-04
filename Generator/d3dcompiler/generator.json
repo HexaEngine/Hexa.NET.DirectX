@@ -15,6 +15,7 @@
     "SIZE_T": "nuint",
     "LUID": "Luid",
     "IID": "Guid",
-    "ID3DBlob": "ID3D10Blob"
+    "ID3DBlob": "ID3D10Blob",
+    "BOOL": "Bool32"
   }
 }

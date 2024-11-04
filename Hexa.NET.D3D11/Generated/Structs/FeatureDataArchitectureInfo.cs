@@ -27,13 +27,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int TileBasedDeferredRenderer;
+		public Bool32 TileBasedDeferredRenderer;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataArchitectureInfo(int tileBasedDeferredRenderer = default)
+		public unsafe FeatureDataArchitectureInfo(Bool32 tileBasedDeferredRenderer = default)
 		{
 			TileBasedDeferredRenderer = tileBasedDeferredRenderer;
 		}

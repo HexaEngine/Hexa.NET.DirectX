@@ -31,22 +31,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -54,24 +54,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -99,22 +99,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadSource(char* pFilename, IDxcBlob** ppIncludeSource) 
+		public readonly unsafe HResult LoadSource(char* pFilename, IDxcBlob** ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(LpVtbl[3]))(ptr, pFilename, ppIncludeSource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, pFilename, ppIncludeSource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadSource(ReadOnlySpan<char> pFilename, IDxcBlob** ppIncludeSource) 
+		public readonly unsafe HResult LoadSource(ReadOnlySpan<char> pFilename, IDxcBlob** ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFilename = pFilename)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(LpVtbl[3]))(ptr, (char*)ppFilename, ppIncludeSource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, (char*)ppFilename, ppIncludeSource);
 				return ret;
 			}
 		}
@@ -122,7 +122,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadSource(string pFilename, IDxcBlob** ppIncludeSource) 
+		public readonly unsafe HResult LoadSource(string pFilename, IDxcBlob** ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -142,7 +142,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pFilename, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(LpVtbl[3]))(ptr, pStr0, ppIncludeSource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, pStr0, ppIncludeSource);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -153,12 +153,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadSource(char* pFilename, ref IDxcBlob* ppIncludeSource) 
+		public readonly unsafe HResult LoadSource(char* pFilename, ref IDxcBlob* ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** pppIncludeSource = &ppIncludeSource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(LpVtbl[3]))(ptr, pFilename, (IDxcBlob**)pppIncludeSource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, pFilename, (IDxcBlob**)pppIncludeSource);
 				return ret;
 			}
 		}
@@ -166,25 +166,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadSource(char* pFilename, out ComPtr<IDxcBlob> ppIncludeSource) 
+		public readonly unsafe HResult LoadSource(char* pFilename, out ComPtr<IDxcBlob> ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppIncludeSource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(LpVtbl[3]))(ptr, pFilename, (IDxcBlob**)ppIncludeSource.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, pFilename, (IDxcBlob**)ppIncludeSource.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadSource(ReadOnlySpan<char> pFilename, ref IDxcBlob* ppIncludeSource) 
+		public readonly unsafe HResult LoadSource(ReadOnlySpan<char> pFilename, ref IDxcBlob* ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFilename = pFilename)
 			{
 				fixed (IDxcBlob** pppIncludeSource = &ppIncludeSource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(LpVtbl[3]))(ptr, (char*)ppFilename, (IDxcBlob**)pppIncludeSource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, (char*)ppFilename, (IDxcBlob**)pppIncludeSource);
 					return ret;
 				}
 			}
@@ -193,7 +193,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadSource(string pFilename, ref IDxcBlob* ppIncludeSource) 
+		public readonly unsafe HResult LoadSource(string pFilename, ref IDxcBlob* ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -215,7 +215,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcBlob** pppIncludeSource = &ppIncludeSource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(LpVtbl[3]))(ptr, pStr0, (IDxcBlob**)pppIncludeSource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, pStr0, (IDxcBlob**)pppIncludeSource);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);

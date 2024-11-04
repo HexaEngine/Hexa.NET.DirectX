@@ -31,22 +31,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -54,24 +54,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -99,22 +99,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		public readonly unsafe int RegisterLibrary(char* pLibName, IDxcBlob* pLib) 
+		public readonly unsafe HResult RegisterLibrary(char* pLibName, IDxcBlob* pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, int>)(LpVtbl[3]))(ptr, pLibName, pLib);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, HResult>)(LpVtbl[3]))(ptr, pLibName, pLib);
 			return ret;
 		}
 
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		public readonly unsafe int RegisterLibrary(ReadOnlySpan<char> pLibName, IDxcBlob* pLib) 
+		public readonly unsafe HResult RegisterLibrary(ReadOnlySpan<char> pLibName, IDxcBlob* pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppLibName = pLibName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, int>)(LpVtbl[3]))(ptr, (char*)ppLibName, pLib);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, HResult>)(LpVtbl[3]))(ptr, (char*)ppLibName, pLib);
 				return ret;
 			}
 		}
@@ -122,7 +122,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		public readonly unsafe int RegisterLibrary(string pLibName, IDxcBlob* pLib) 
+		public readonly unsafe HResult RegisterLibrary(string pLibName, IDxcBlob* pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -142,7 +142,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pLibName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, int>)(LpVtbl[3]))(ptr, pStr0, pLib);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, HResult>)(LpVtbl[3]))(ptr, pStr0, pLib);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -153,12 +153,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		public readonly unsafe int RegisterLibrary(char* pLibName, ref IDxcBlob pLib) 
+		public readonly unsafe HResult RegisterLibrary(char* pLibName, ref IDxcBlob pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppLib = &pLib)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, int>)(LpVtbl[3]))(ptr, pLibName, (IDxcBlob*)ppLib);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, HResult>)(LpVtbl[3]))(ptr, pLibName, (IDxcBlob*)ppLib);
 				return ret;
 			}
 		}
@@ -166,24 +166,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		public readonly unsafe int RegisterLibrary(char* pLibName, ComPtr<IDxcBlob> pLib) 
+		public readonly unsafe HResult RegisterLibrary(char* pLibName, ComPtr<IDxcBlob> pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, int>)(LpVtbl[3]))(ptr, pLibName, (IDxcBlob*)pLib.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, HResult>)(LpVtbl[3]))(ptr, pLibName, (IDxcBlob*)pLib.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		public readonly unsafe int RegisterLibrary(ReadOnlySpan<char> pLibName, ref IDxcBlob pLib) 
+		public readonly unsafe HResult RegisterLibrary(ReadOnlySpan<char> pLibName, ref IDxcBlob pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppLibName = pLibName)
 			{
 				fixed (IDxcBlob* ppLib = &pLib)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, int>)(LpVtbl[3]))(ptr, (char*)ppLibName, (IDxcBlob*)ppLib);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, HResult>)(LpVtbl[3]))(ptr, (char*)ppLibName, (IDxcBlob*)ppLib);
 					return ret;
 				}
 			}
@@ -192,7 +192,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		public readonly unsafe int RegisterLibrary(string pLibName, ref IDxcBlob pLib) 
+		public readonly unsafe HResult RegisterLibrary(string pLibName, ref IDxcBlob pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -214,7 +214,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcBlob* ppLib = &pLib)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, int>)(LpVtbl[3]))(ptr, pStr0, (IDxcBlob*)ppLib);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, HResult>)(LpVtbl[3]))(ptr, pStr0, (IDxcBlob*)ppLib);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -227,10 +227,10 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, pLibNames, libCount, pArguments, argCount, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, pLibNames, libCount, pArguments, argCount, ppResult);
 			return ret;
 		}
 
@@ -238,12 +238,12 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, pLibNames, libCount, pArguments, argCount, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, pLibNames, libCount, pArguments, argCount, ppResult);
 				return ret;
 			}
 		}
@@ -252,7 +252,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -272,7 +272,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pEntryName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, pLibNames, libCount, pArguments, argCount, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, pLibNames, libCount, pArguments, argCount, ppResult);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -284,12 +284,12 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, pLibNames, libCount, pArguments, argCount, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, pLibNames, libCount, pArguments, argCount, ppResult);
 				return ret;
 			}
 		}
@@ -298,7 +298,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, string pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -318,7 +318,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pTargetProfile, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pStr0, pLibNames, libCount, pArguments, argCount, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pStr0, pLibNames, libCount, pArguments, argCount, ppResult);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -330,14 +330,14 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
 			{
 				fixed (char* ppTargetProfile = pTargetProfile)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, pLibNames, libCount, pArguments, argCount, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, pLibNames, libCount, pArguments, argCount, ppResult);
 					return ret;
 				}
 			}
@@ -347,7 +347,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, string pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, string pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -384,7 +384,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pStr1, pLibNames, libCount, pArguments, argCount, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pStr1, pLibNames, libCount, pArguments, argCount, ppResult);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -400,12 +400,12 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppLibNames = &pLibNames)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
 				return ret;
 			}
 		}
@@ -414,14 +414,14 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
 			{
 				fixed (char** ppLibNames = &pLibNames)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
 					return ret;
 				}
 			}
@@ -431,7 +431,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -453,7 +453,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppLibNames = &pLibNames)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -466,14 +466,14 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
 			{
 				fixed (char** ppLibNames = &pLibNames)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
 					return ret;
 				}
 			}
@@ -483,7 +483,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -505,7 +505,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppLibNames = &pLibNames)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pStr0, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pStr0, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -518,7 +518,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -527,7 +527,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppLibNames = &pLibNames)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
 						return ret;
 					}
 				}
@@ -538,7 +538,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -577,7 +577,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppLibNames = &pLibNames)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pStr1, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pStr1, (char**)ppLibNames, libCount, pArguments, argCount, ppResult);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -594,12 +594,12 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 				return ret;
 			}
 		}
@@ -608,14 +608,14 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 					return ret;
 				}
 			}
@@ -625,7 +625,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -647,7 +647,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -660,14 +660,14 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 					return ret;
 				}
 			}
@@ -677,7 +677,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, string pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -699,7 +699,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pStr0, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pStr0, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -712,7 +712,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -721,7 +721,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 						return ret;
 					}
 				}
@@ -732,7 +732,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, string pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, string pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -771,7 +771,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pStr1, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pStr1, pLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -788,14 +788,14 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppLibNames = &pLibNames)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 					return ret;
 				}
 			}
@@ -805,7 +805,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -814,7 +814,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 						return ret;
 					}
 				}
@@ -825,7 +825,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -849,7 +849,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -863,7 +863,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -872,7 +872,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 						return ret;
 					}
 				}
@@ -883,7 +883,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -907,7 +907,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pStr0, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pStr0, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -921,7 +921,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -932,7 +932,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (char** ppArguments = &pArguments)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 							return ret;
 						}
 					}
@@ -944,7 +944,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -985,7 +985,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pStr1, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pStr1, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, ppResult);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1003,12 +1003,12 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcOperationResult** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 				return ret;
 			}
 		}
@@ -1017,11 +1017,11 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)ppResult.GetAddressOf());
 			return ret;
 		}
 
@@ -1029,14 +1029,14 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
 			{
 				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 					return ret;
 				}
 			}
@@ -1046,7 +1046,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1068,7 +1068,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcOperationResult** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1081,14 +1081,14 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
 			{
 				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 					return ret;
 				}
 			}
@@ -1098,7 +1098,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, string pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1120,7 +1120,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcOperationResult** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pStr0, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pStr0, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1133,7 +1133,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1142,7 +1142,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 						return ret;
 					}
 				}
@@ -1153,7 +1153,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, string pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, string pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1192,7 +1192,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcOperationResult** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pStr1, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pStr1, pLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -1209,14 +1209,14 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppLibNames = &pLibNames)
 			{
 				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 					return ret;
 				}
 			}
@@ -1226,13 +1226,13 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppLibNames = &pLibNames)
 			{
 				ppResult = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)ppResult.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)ppResult.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1241,7 +1241,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1250,7 +1250,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 						return ret;
 					}
 				}
@@ -1261,7 +1261,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1285,7 +1285,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1299,7 +1299,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -1308,7 +1308,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 						return ret;
 					}
 				}
@@ -1319,7 +1319,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1343,7 +1343,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pStr0, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pStr0, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1357,7 +1357,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1368,7 +1368,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 							return ret;
 						}
 					}
@@ -1380,7 +1380,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1421,7 +1421,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pStr1, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pStr1, (char**)ppLibNames, libCount, pArguments, argCount, (IDxcOperationResult**)pppResult);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1439,14 +1439,14 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 					return ret;
 				}
 			}
@@ -1456,13 +1456,13 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				ppResult = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)ppResult.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)ppResult.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1471,7 +1471,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1480,7 +1480,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 						return ret;
 					}
 				}
@@ -1491,7 +1491,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1515,7 +1515,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1529,7 +1529,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -1538,7 +1538,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 						return ret;
 					}
 				}
@@ -1549,7 +1549,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, string pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1573,7 +1573,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pStr0, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pStr0, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1587,7 +1587,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1598,7 +1598,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 							return ret;
 						}
 					}
@@ -1610,7 +1610,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, string pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, string pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1651,7 +1651,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pStr1, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pStr1, pLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -1669,7 +1669,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppLibNames = &pLibNames)
@@ -1678,7 +1678,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 						return ret;
 					}
 				}
@@ -1689,7 +1689,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppLibNames = &pLibNames)
@@ -1697,7 +1697,7 @@ namespace Hexa.NET.DXC
 				fixed (char** ppArguments = &pArguments)
 				{
 					ppResult = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)ppResult.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)ppResult.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1707,7 +1707,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1718,7 +1718,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 							return ret;
 						}
 					}
@@ -1730,7 +1730,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1756,7 +1756,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1771,7 +1771,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -1782,7 +1782,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 							return ret;
 						}
 					}
@@ -1794,7 +1794,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(char* pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1820,7 +1820,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pStr0, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pEntryName, pStr0, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1835,7 +1835,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1848,7 +1848,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcOperationResult** pppResult = &ppResult)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, (char*)ppEntryName, (char*)ppTargetProfile, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 								return ret;
 							}
 						}
@@ -1861,7 +1861,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		public readonly unsafe int Link(string pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult Link(string pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1904,7 +1904,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pStr0, pStr1, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, HResult>)(LpVtbl[4]))(ptr, pStr0, pStr1, (char**)ppLibNames, libCount, (char**)ppArguments, argCount, (IDxcOperationResult**)pppResult);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);

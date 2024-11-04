@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -104,12 +104,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* iid, ref void* ppv) 
+		public readonly unsafe HResult QueryInterface(Guid* iid, ref void* ppv) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppv = &ppv)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, Guid*, void**, int>)(LpVtbl[3]))(ptr, iid, (void**)pppv);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, iid, (void**)pppv);
 				return ret;
 			}
 		}
@@ -117,14 +117,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid iid, ref void* ppv) 
+		public readonly unsafe HResult QueryInterface(ref Guid iid, ref void* ppv) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Guid*)piid, (void**)pppv);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (Guid*)piid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -133,22 +133,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDesc(ShaderDesc* pDesc) 
+		public readonly unsafe HResult GetDesc(ShaderDesc* pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, ShaderDesc*, int>)(LpVtbl[4]))(ptr, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, ShaderDesc*, HResult>)(LpVtbl[4]))(ptr, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDesc(ref ShaderDesc pDesc) 
+		public readonly unsafe HResult GetDesc(ref ShaderDesc pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ShaderDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, ShaderDesc*, int>)(LpVtbl[4]))(ptr, (ShaderDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, ShaderDesc*, HResult>)(LpVtbl[4]))(ptr, (ShaderDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -220,22 +220,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDesc(uint resourceIndex, ShaderInputBindDesc* pDesc) 
+		public readonly unsafe HResult GetResourceBindingDesc(uint resourceIndex, ShaderInputBindDesc* pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, ShaderInputBindDesc*, int>)(LpVtbl[7]))(ptr, resourceIndex, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, ShaderInputBindDesc*, HResult>)(LpVtbl[7]))(ptr, resourceIndex, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDesc(uint resourceIndex, ref ShaderInputBindDesc pDesc) 
+		public readonly unsafe HResult GetResourceBindingDesc(uint resourceIndex, ref ShaderInputBindDesc pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ShaderInputBindDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, ShaderInputBindDesc*, int>)(LpVtbl[7]))(ptr, resourceIndex, (ShaderInputBindDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, ShaderInputBindDesc*, HResult>)(LpVtbl[7]))(ptr, resourceIndex, (ShaderInputBindDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -243,22 +243,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetInputParameterDesc(uint parameterIndex, SignatureParameterDesc* pDesc) 
+		public readonly unsafe HResult GetInputParameterDesc(uint parameterIndex, SignatureParameterDesc* pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, SignatureParameterDesc*, int>)(LpVtbl[8]))(ptr, parameterIndex, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, SignatureParameterDesc*, HResult>)(LpVtbl[8]))(ptr, parameterIndex, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetInputParameterDesc(uint parameterIndex, ref SignatureParameterDesc pDesc) 
+		public readonly unsafe HResult GetInputParameterDesc(uint parameterIndex, ref SignatureParameterDesc pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SignatureParameterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, SignatureParameterDesc*, int>)(LpVtbl[8]))(ptr, parameterIndex, (SignatureParameterDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, SignatureParameterDesc*, HResult>)(LpVtbl[8]))(ptr, parameterIndex, (SignatureParameterDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -266,22 +266,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutputParameterDesc(uint parameterIndex, SignatureParameterDesc* pDesc) 
+		public readonly unsafe HResult GetOutputParameterDesc(uint parameterIndex, SignatureParameterDesc* pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, SignatureParameterDesc*, int>)(LpVtbl[9]))(ptr, parameterIndex, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, SignatureParameterDesc*, HResult>)(LpVtbl[9]))(ptr, parameterIndex, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutputParameterDesc(uint parameterIndex, ref SignatureParameterDesc pDesc) 
+		public readonly unsafe HResult GetOutputParameterDesc(uint parameterIndex, ref SignatureParameterDesc pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SignatureParameterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, SignatureParameterDesc*, int>)(LpVtbl[9]))(ptr, parameterIndex, (SignatureParameterDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, SignatureParameterDesc*, HResult>)(LpVtbl[9]))(ptr, parameterIndex, (SignatureParameterDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -289,22 +289,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPatchConstantParameterDesc(uint parameterIndex, SignatureParameterDesc* pDesc) 
+		public readonly unsafe HResult GetPatchConstantParameterDesc(uint parameterIndex, SignatureParameterDesc* pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, SignatureParameterDesc*, int>)(LpVtbl[10]))(ptr, parameterIndex, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, SignatureParameterDesc*, HResult>)(LpVtbl[10]))(ptr, parameterIndex, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPatchConstantParameterDesc(uint parameterIndex, ref SignatureParameterDesc pDesc) 
+		public readonly unsafe HResult GetPatchConstantParameterDesc(uint parameterIndex, ref SignatureParameterDesc pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SignatureParameterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, SignatureParameterDesc*, int>)(LpVtbl[10]))(ptr, parameterIndex, (SignatureParameterDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, uint, SignatureParameterDesc*, HResult>)(LpVtbl[10]))(ptr, parameterIndex, (SignatureParameterDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -366,22 +366,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDescByName(byte* name, ShaderInputBindDesc* pDesc) 
+		public readonly unsafe HResult GetResourceBindingDescByName(byte* name, ShaderInputBindDesc* pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, byte*, ShaderInputBindDesc*, int>)(LpVtbl[12]))(ptr, name, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, byte*, ShaderInputBindDesc*, HResult>)(LpVtbl[12]))(ptr, name, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDescByName(ReadOnlySpan<byte> name, ShaderInputBindDesc* pDesc) 
+		public readonly unsafe HResult GetResourceBindingDescByName(ReadOnlySpan<byte> name, ShaderInputBindDesc* pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* pname = name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, byte*, ShaderInputBindDesc*, int>)(LpVtbl[12]))(ptr, (byte*)pname, pDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, byte*, ShaderInputBindDesc*, HResult>)(LpVtbl[12]))(ptr, (byte*)pname, pDesc);
 				return ret;
 			}
 		}
@@ -389,7 +389,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDescByName(string name, ShaderInputBindDesc* pDesc) 
+		public readonly unsafe HResult GetResourceBindingDescByName(string name, ShaderInputBindDesc* pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -409,7 +409,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF8(name, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, byte*, ShaderInputBindDesc*, int>)(LpVtbl[12]))(ptr, pStr0, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, byte*, ShaderInputBindDesc*, HResult>)(LpVtbl[12]))(ptr, pStr0, pDesc);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -420,12 +420,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDescByName(byte* name, ref ShaderInputBindDesc pDesc) 
+		public readonly unsafe HResult GetResourceBindingDescByName(byte* name, ref ShaderInputBindDesc pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ShaderInputBindDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, byte*, ShaderInputBindDesc*, int>)(LpVtbl[12]))(ptr, name, (ShaderInputBindDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, byte*, ShaderInputBindDesc*, HResult>)(LpVtbl[12]))(ptr, name, (ShaderInputBindDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -433,14 +433,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDescByName(ReadOnlySpan<byte> name, ref ShaderInputBindDesc pDesc) 
+		public readonly unsafe HResult GetResourceBindingDescByName(ReadOnlySpan<byte> name, ref ShaderInputBindDesc pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* pname = name)
 			{
 				fixed (ShaderInputBindDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, byte*, ShaderInputBindDesc*, int>)(LpVtbl[12]))(ptr, (byte*)pname, (ShaderInputBindDesc*)ppDesc);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, byte*, ShaderInputBindDesc*, HResult>)(LpVtbl[12]))(ptr, (byte*)pname, (ShaderInputBindDesc*)ppDesc);
 					return ret;
 				}
 			}
@@ -449,7 +449,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDescByName(string name, ref ShaderInputBindDesc pDesc) 
+		public readonly unsafe HResult GetResourceBindingDescByName(string name, ref ShaderInputBindDesc pDesc) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -471,7 +471,7 @@ namespace Hexa.NET.D3D12
 			}
 			fixed (ShaderInputBindDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, byte*, ShaderInputBindDesc*, int>)(LpVtbl[12]))(ptr, pStr0, (ShaderInputBindDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, byte*, ShaderInputBindDesc*, HResult>)(LpVtbl[12]))(ptr, pStr0, (ShaderInputBindDesc*)ppDesc);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -533,10 +533,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int IsSampleFrequencyShader() 
+		public readonly unsafe Bool32 IsSampleFrequencyShader() 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, int>)(LpVtbl[18]))(ptr);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, Bool32>)(LpVtbl[18]))(ptr);
 			return ret;
 		}
 
@@ -553,22 +553,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMinFeatureLevel(FeatureLevel* pLevel) 
+		public readonly unsafe HResult GetMinFeatureLevel(FeatureLevel* pLevel) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, FeatureLevel*, int>)(LpVtbl[20]))(ptr, pLevel);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, FeatureLevel*, HResult>)(LpVtbl[20]))(ptr, pLevel);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMinFeatureLevel(ref FeatureLevel pLevel) 
+		public readonly unsafe HResult GetMinFeatureLevel(ref FeatureLevel pLevel) 
 		{
 			ID3D12ShaderReflection* ptr = (ID3D12ShaderReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (FeatureLevel* ppLevel = &pLevel)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, FeatureLevel*, int>)(LpVtbl[20]))(ptr, (FeatureLevel*)ppLevel);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflection*, FeatureLevel*, HResult>)(LpVtbl[20]))(ptr, (FeatureLevel*)ppLevel);
 				return ret;
 			}
 		}

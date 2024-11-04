@@ -31,22 +31,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -54,24 +54,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -109,22 +109,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, Guid* iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, ppOutputType, ppOutputName);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, ppOutputType, ppOutputName);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, ref Guid iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, ppOutputType, ppOutputName);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, ppOutputType, ppOutputName);
 				return ret;
 			}
 		}
@@ -132,12 +132,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput<T>(uint uIndex, ref ComPtr<T> ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetOutput<T>(uint uIndex, ref ComPtr<T> ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvObject = &ppvObject)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvObject, ppOutputType, ppOutputName);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvObject, ppOutputType, ppOutputName);
 				return ret;
 			}
 		}
@@ -145,14 +145,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput<T>(uint uIndex, ref Guid iid, ref ComPtr<T> ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetOutput<T>(uint uIndex, ref Guid iid, ref ComPtr<T> ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
 			{
 				fixed (ComPtr<T>* pppvObject = &ppvObject)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, (void**)pppvObject, ppOutputType, ppOutputName);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, (void**)pppvObject, ppOutputType, ppOutputName);
 					return ret;
 				}
 			}
@@ -161,12 +161,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, ref IDxcBlobUtf16* ppOutputType, IDxcBlobUtf16** ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, Guid* iid, void** ppvObject, ref IDxcBlobUtf16* ppOutputType, IDxcBlobUtf16** ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobUtf16** pppOutputType = &ppOutputType)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, (IDxcBlobUtf16**)pppOutputType, ppOutputName);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, (IDxcBlobUtf16**)pppOutputType, ppOutputName);
 				return ret;
 			}
 		}
@@ -174,12 +174,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, IDxcBlobUtf16** ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, Guid* iid, void** ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, IDxcBlobUtf16** ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlobUtf16>* pppOutputType = &ppOutputType)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, (IDxcBlobUtf16**)pppOutputType, ppOutputName);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, (IDxcBlobUtf16**)pppOutputType, ppOutputName);
 				return ret;
 			}
 		}
@@ -187,14 +187,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, ref IDxcBlobUtf16* ppOutputType, IDxcBlobUtf16** ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, ref Guid iid, void** ppvObject, ref IDxcBlobUtf16* ppOutputType, IDxcBlobUtf16** ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
 			{
 				fixed (IDxcBlobUtf16** pppOutputType = &ppOutputType)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, (IDxcBlobUtf16**)pppOutputType, ppOutputName);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, (IDxcBlobUtf16**)pppOutputType, ppOutputName);
 					return ret;
 				}
 			}
@@ -203,14 +203,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, IDxcBlobUtf16** ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, ref Guid iid, void** ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, IDxcBlobUtf16** ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
 			{
 				fixed (ComPtr<IDxcBlobUtf16>* pppOutputType = &ppOutputType)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, (IDxcBlobUtf16**)pppOutputType, ppOutputName);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, (IDxcBlobUtf16**)pppOutputType, ppOutputName);
 					return ret;
 				}
 			}
@@ -219,14 +219,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput<T>(uint uIndex, ref ComPtr<T> ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetOutput<T>(uint uIndex, ref ComPtr<T> ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvObject = &ppvObject)
 			{
 				fixed (ComPtr<IDxcBlobUtf16>* pppOutputType = &ppOutputType)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvObject, (IDxcBlobUtf16**)pppOutputType, ppOutputName);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvObject, (IDxcBlobUtf16**)pppOutputType, ppOutputName);
 					return ret;
 				}
 			}
@@ -235,7 +235,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput<T>(uint uIndex, ref Guid iid, ref ComPtr<T> ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetOutput<T>(uint uIndex, ref Guid iid, ref ComPtr<T> ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -244,7 +244,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (ComPtr<IDxcBlobUtf16>* pppOutputType = &ppOutputType)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, (void**)pppvObject, (IDxcBlobUtf16**)pppOutputType, ppOutputName);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, (void**)pppvObject, (IDxcBlobUtf16**)pppOutputType, ppOutputName);
 						return ret;
 					}
 				}
@@ -254,12 +254,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, ref IDxcBlobUtf16* ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, Guid* iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, ref IDxcBlobUtf16* ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobUtf16** pppOutputName = &ppOutputName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, ppOutputType, (IDxcBlobUtf16**)pppOutputName);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, ppOutputType, (IDxcBlobUtf16**)pppOutputName);
 				return ret;
 			}
 		}
@@ -267,25 +267,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, Guid* iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppOutputName = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, ppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, ppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, ref IDxcBlobUtf16* ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, ref Guid iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, ref IDxcBlobUtf16* ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
 			{
 				fixed (IDxcBlobUtf16** pppOutputName = &ppOutputName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, ppOutputType, (IDxcBlobUtf16**)pppOutputName);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, ppOutputType, (IDxcBlobUtf16**)pppOutputName);
 					return ret;
 				}
 			}
@@ -294,13 +294,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, ref Guid iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
 			{
 				ppOutputName = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, ppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, ppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
 				return ret;
 			}
 		}
@@ -308,13 +308,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput<T>(uint uIndex, ref ComPtr<T> ppvObject, IDxcBlobUtf16** ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetOutput<T>(uint uIndex, ref ComPtr<T> ppvObject, IDxcBlobUtf16** ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvObject = &ppvObject)
 			{
 				ppOutputName = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvObject, ppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvObject, ppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
 				return ret;
 			}
 		}
@@ -322,7 +322,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput<T>(uint uIndex, ref Guid iid, ref ComPtr<T> ppvObject, IDxcBlobUtf16** ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetOutput<T>(uint uIndex, ref Guid iid, ref ComPtr<T> ppvObject, IDxcBlobUtf16** ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -330,7 +330,7 @@ namespace Hexa.NET.DXC
 				fixed (ComPtr<T>* pppvObject = &ppvObject)
 				{
 					ppOutputName = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, (void**)pppvObject, ppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, (void**)pppvObject, ppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
 					return ret;
 				}
 			}
@@ -339,14 +339,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, ref IDxcBlobUtf16* ppOutputType, ref IDxcBlobUtf16* ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, Guid* iid, void** ppvObject, ref IDxcBlobUtf16* ppOutputType, ref IDxcBlobUtf16* ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobUtf16** pppOutputType = &ppOutputType)
 			{
 				fixed (IDxcBlobUtf16** pppOutputName = &ppOutputName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, (IDxcBlobUtf16**)pppOutputType, (IDxcBlobUtf16**)pppOutputName);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, (IDxcBlobUtf16**)pppOutputType, (IDxcBlobUtf16**)pppOutputName);
 					return ret;
 				}
 			}
@@ -355,13 +355,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, Guid* iid, void** ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlobUtf16>* pppOutputType = &ppOutputType)
 			{
 				ppOutputName = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, (IDxcBlobUtf16**)pppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, (IDxcBlobUtf16**)pppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
 				return ret;
 			}
 		}
@@ -369,7 +369,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, ref IDxcBlobUtf16* ppOutputType, ref IDxcBlobUtf16* ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, ref Guid iid, void** ppvObject, ref IDxcBlobUtf16* ppOutputType, ref IDxcBlobUtf16* ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -378,7 +378,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlobUtf16** pppOutputName = &ppOutputName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, (IDxcBlobUtf16**)pppOutputType, (IDxcBlobUtf16**)pppOutputName);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, (IDxcBlobUtf16**)pppOutputType, (IDxcBlobUtf16**)pppOutputName);
 						return ret;
 					}
 				}
@@ -388,7 +388,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) 
+		public readonly unsafe HResult GetOutput(uint uIndex, ref Guid iid, void** ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -396,7 +396,7 @@ namespace Hexa.NET.DXC
 				fixed (ComPtr<IDxcBlobUtf16>* pppOutputType = &ppOutputType)
 				{
 					ppOutputName = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, (IDxcBlobUtf16**)pppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, ppvObject, (IDxcBlobUtf16**)pppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
 					return ret;
 				}
 			}
@@ -405,7 +405,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput<T>(uint uIndex, ref ComPtr<T> ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetOutput<T>(uint uIndex, ref ComPtr<T> ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvObject = &ppvObject)
@@ -413,7 +413,7 @@ namespace Hexa.NET.DXC
 				fixed (ComPtr<IDxcBlobUtf16>* pppOutputType = &ppOutputType)
 				{
 					ppOutputName = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvObject, (IDxcBlobUtf16**)pppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvObject, (IDxcBlobUtf16**)pppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
 					return ret;
 				}
 			}
@@ -422,7 +422,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetOutput<T>(uint uIndex, ref Guid iid, ref ComPtr<T> ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetOutput<T>(uint uIndex, ref Guid iid, ref ComPtr<T> ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -432,7 +432,7 @@ namespace Hexa.NET.DXC
 					fixed (ComPtr<IDxcBlobUtf16>* pppOutputType = &ppOutputType)
 					{
 						ppOutputName = default;
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, (void**)pppvObject, (IDxcBlobUtf16**)pppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, HResult>)(LpVtbl[4]))(ptr, uIndex, (Guid*)piid, (void**)pppvObject, (IDxcBlobUtf16**)pppOutputType, (IDxcBlobUtf16**)ppOutputName.GetAddressOf());
 						return ret;
 					}
 				}

@@ -23,32 +23,32 @@ namespace Hexa.NET.D3D11
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateDeviceNative(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		internal static HResult CreateDeviceNative(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<IDXGIAdapter*, DriverType, nint, uint, FeatureLevel*, uint, uint, ID3D11Device**, FeatureLevel*, ID3D11DeviceContext**, int>)funcTable[0])(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
+			return ((delegate* unmanaged[Cdecl]<IDXGIAdapter*, DriverType, nint, uint, FeatureLevel*, uint, uint, ID3D11Device**, FeatureLevel*, ID3D11DeviceContext**, HResult>)funcTable[0])(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, DriverType, nint, uint, nint, uint, uint, nint, nint, nint, int>)funcTable[0])((nint)pAdapter, driverType, software, flags, (nint)pFeatureLevels, featureLevels, sdkVersion, (nint)ppDevice, (nint)pFeatureLevel, (nint)ppImmediateContext);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, DriverType, nint, uint, nint, uint, uint, nint, nint, nint, HResult>)funcTable[0])((nint)pAdapter, driverType, software, flags, (nint)pFeatureLevels, featureLevels, sdkVersion, (nint)ppDevice, (nint)pFeatureLevel, (nint)ppImmediateContext);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
+			HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -56,20 +56,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
+			HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -77,13 +77,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -92,11 +92,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -104,11 +104,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
-				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -116,11 +116,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
-				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -128,13 +128,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -143,11 +143,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
-				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -155,13 +155,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -170,13 +170,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -185,7 +185,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -193,7 +193,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -203,13 +203,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -218,11 +218,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
-				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -230,13 +230,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -245,11 +245,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
-				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -257,13 +257,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -272,7 +272,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -280,7 +280,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -290,13 +290,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -305,13 +305,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -320,13 +320,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -335,7 +335,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -343,7 +343,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -353,13 +353,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -368,7 +368,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -376,7 +376,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -386,7 +386,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -394,7 +394,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -404,7 +404,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -414,7 +414,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -425,7 +425,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -433,7 +433,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -443,11 +443,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 			{
-				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+				HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 				return ret;
 			}
 		}
@@ -455,23 +455,23 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			ppImmediateContext = default;
-			int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+			HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -480,23 +480,23 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			ppImmediateContext = default;
-			int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+			HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -505,12 +505,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -518,7 +518,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -526,7 +526,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -536,12 +536,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -549,13 +549,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -564,12 +564,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -577,7 +577,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -585,7 +585,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -595,12 +595,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -608,7 +608,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -616,7 +616,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -626,14 +626,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -642,7 +642,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -652,7 +652,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -663,14 +663,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -679,13 +679,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -694,12 +694,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -707,7 +707,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -715,7 +715,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -725,12 +725,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -738,7 +738,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -746,7 +746,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -756,14 +756,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -772,7 +772,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -782,7 +782,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -793,14 +793,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -809,7 +809,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
@@ -817,7 +817,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -827,14 +827,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -843,7 +843,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -853,7 +853,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -864,14 +864,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -880,7 +880,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -890,7 +890,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -901,7 +901,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -910,7 +910,7 @@ namespace Hexa.NET.D3D11
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -920,7 +920,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -932,7 +932,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								HResult ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -944,7 +944,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -953,7 +953,7 @@ namespace Hexa.NET.D3D11
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -964,32 +964,32 @@ namespace Hexa.NET.D3D11
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateDeviceAndSwapChainNative(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		internal static HResult CreateDeviceAndSwapChainNative(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<IDXGIAdapter*, DriverType, nint, uint, FeatureLevel*, uint, uint, SwapChainDesc*, IDXGISwapChain**, ID3D11Device**, FeatureLevel*, ID3D11DeviceContext**, int>)funcTable[1])(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+			return ((delegate* unmanaged[Cdecl]<IDXGIAdapter*, DriverType, nint, uint, FeatureLevel*, uint, uint, SwapChainDesc*, IDXGISwapChain**, ID3D11Device**, FeatureLevel*, ID3D11DeviceContext**, HResult>)funcTable[1])(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, DriverType, nint, uint, nint, uint, uint, nint, nint, nint, nint, nint, int>)funcTable[1])((nint)pAdapter, driverType, software, flags, (nint)pFeatureLevels, featureLevels, sdkVersion, (nint)pSwapChainDesc, (nint)ppSwapChain, (nint)ppDevice, (nint)pFeatureLevel, (nint)ppImmediateContext);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, DriverType, nint, uint, nint, uint, uint, nint, nint, nint, nint, nint, HResult>)funcTable[1])((nint)pAdapter, driverType, software, flags, (nint)pFeatureLevels, featureLevels, sdkVersion, (nint)pSwapChainDesc, (nint)ppSwapChain, (nint)ppDevice, (nint)pFeatureLevel, (nint)ppImmediateContext);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+			HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -997,20 +997,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+			HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1018,13 +1018,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1033,11 +1033,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1045,11 +1045,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1057,13 +1057,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1072,11 +1072,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1084,13 +1084,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1099,7 +1099,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1107,7 +1107,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1117,13 +1117,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1132,11 +1132,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 			{
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1144,11 +1144,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1156,13 +1156,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1171,11 +1171,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1183,13 +1183,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1198,13 +1198,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1213,7 +1213,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1221,7 +1221,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1231,13 +1231,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1246,13 +1246,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1261,13 +1261,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1276,7 +1276,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1284,7 +1284,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1294,13 +1294,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1309,7 +1309,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -1317,7 +1317,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1327,7 +1327,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -1335,7 +1335,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1345,7 +1345,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1355,7 +1355,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -1366,7 +1366,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -1374,7 +1374,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1384,11 +1384,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1396,11 +1396,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1408,13 +1408,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1423,11 +1423,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1435,13 +1435,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1450,13 +1450,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1465,7 +1465,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1473,7 +1473,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1483,13 +1483,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1498,13 +1498,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1513,13 +1513,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1528,7 +1528,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1536,7 +1536,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1546,13 +1546,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1561,7 +1561,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -1569,7 +1569,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1579,7 +1579,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -1587,7 +1587,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1597,7 +1597,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1607,7 +1607,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11Device** pppDevice = &ppDevice)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -1618,7 +1618,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -1626,7 +1626,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1636,13 +1636,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1651,13 +1651,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1666,7 +1666,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1674,7 +1674,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1684,13 +1684,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1699,7 +1699,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -1707,7 +1707,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1717,7 +1717,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -1725,7 +1725,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1735,7 +1735,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1745,7 +1745,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11Device** pppDevice = &ppDevice)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -1756,7 +1756,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -1764,7 +1764,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1774,7 +1774,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -1782,7 +1782,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1792,7 +1792,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -1800,7 +1800,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1810,7 +1810,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1820,7 +1820,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11Device** pppDevice = &ppDevice)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -1831,7 +1831,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -1839,7 +1839,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1849,7 +1849,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -1859,7 +1859,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11Device** pppDevice = &ppDevice)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -1870,7 +1870,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -1880,7 +1880,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -1891,7 +1891,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1903,7 +1903,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11Device** pppDevice = &ppDevice)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -1915,7 +1915,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -1925,7 +1925,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -1936,11 +1936,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1948,13 +1948,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1963,11 +1963,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1975,13 +1975,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1990,7 +1990,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1998,7 +1998,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2008,13 +2008,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2023,13 +2023,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2038,7 +2038,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -2046,7 +2046,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2056,13 +2056,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2071,7 +2071,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2079,7 +2079,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2089,7 +2089,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -2099,7 +2099,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2110,7 +2110,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2118,7 +2118,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2128,13 +2128,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2143,13 +2143,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2158,7 +2158,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -2166,7 +2166,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2176,13 +2176,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2191,7 +2191,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2199,7 +2199,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2209,7 +2209,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2217,7 +2217,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2227,7 +2227,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -2237,7 +2237,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2248,7 +2248,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2256,7 +2256,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2266,7 +2266,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -2274,7 +2274,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2284,7 +2284,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -2292,7 +2292,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2302,7 +2302,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -2312,7 +2312,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2323,7 +2323,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -2331,7 +2331,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2341,7 +2341,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2351,7 +2351,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2362,7 +2362,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2372,7 +2372,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2383,7 +2383,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -2395,7 +2395,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -2407,7 +2407,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2417,7 +2417,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2428,13 +2428,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2443,13 +2443,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2458,7 +2458,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -2466,7 +2466,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2476,13 +2476,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2491,7 +2491,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2499,7 +2499,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2509,7 +2509,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2517,7 +2517,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2527,7 +2527,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -2537,7 +2537,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2548,7 +2548,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2556,7 +2556,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2566,7 +2566,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -2574,7 +2574,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2584,7 +2584,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -2592,7 +2592,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2602,7 +2602,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -2612,7 +2612,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2623,7 +2623,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -2631,7 +2631,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2641,7 +2641,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2651,7 +2651,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2662,7 +2662,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2672,7 +2672,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2683,7 +2683,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -2695,7 +2695,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -2707,7 +2707,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2717,7 +2717,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2728,7 +2728,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 			{
@@ -2736,7 +2736,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2746,7 +2746,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
@@ -2754,7 +2754,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2764,7 +2764,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -2774,7 +2774,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2785,7 +2785,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
@@ -2793,7 +2793,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2803,7 +2803,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2813,7 +2813,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2824,7 +2824,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2834,7 +2834,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2845,7 +2845,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -2857,7 +2857,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -2869,7 +2869,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2879,7 +2879,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2890,7 +2890,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -2900,7 +2900,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2911,7 +2911,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -2921,7 +2921,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2932,7 +2932,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -2944,7 +2944,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -2956,7 +2956,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -2966,7 +2966,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2977,7 +2977,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -2989,7 +2989,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -3001,7 +3001,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -3013,7 +3013,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -3025,7 +3025,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3039,7 +3039,7 @@ namespace Hexa.NET.D3D11
 							{
 								fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 								{
-									int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+									HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 									return ret;
 								}
 							}
@@ -3052,7 +3052,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -3064,7 +3064,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -3076,11 +3076,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 			{
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+				HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 				return ret;
 			}
 		}
@@ -3088,23 +3088,23 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			ppImmediateContext = default;
-			int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+			HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -3113,23 +3113,23 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			ppImmediateContext = default;
-			int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+			HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -3138,12 +3138,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3151,7 +3151,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3159,7 +3159,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3169,12 +3169,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3182,13 +3182,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -3197,12 +3197,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3210,7 +3210,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3218,7 +3218,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3228,12 +3228,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3241,7 +3241,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -3249,7 +3249,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3259,14 +3259,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3275,7 +3275,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3285,7 +3285,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -3296,14 +3296,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3312,13 +3312,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -3327,12 +3327,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3340,7 +3340,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3348,7 +3348,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3358,12 +3358,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3371,7 +3371,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -3379,7 +3379,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3389,14 +3389,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3405,7 +3405,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3415,7 +3415,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -3426,14 +3426,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3442,7 +3442,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -3450,7 +3450,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3460,14 +3460,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3476,7 +3476,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3486,7 +3486,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -3497,14 +3497,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3513,7 +3513,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -3523,7 +3523,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -3534,7 +3534,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -3543,7 +3543,7 @@ namespace Hexa.NET.D3D11
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -3553,7 +3553,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3565,7 +3565,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -3577,7 +3577,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -3586,7 +3586,7 @@ namespace Hexa.NET.D3D11
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -3596,13 +3596,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -3611,12 +3611,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3624,7 +3624,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3632,7 +3632,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3642,12 +3642,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3655,7 +3655,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -3663,7 +3663,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3673,14 +3673,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3689,7 +3689,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3699,7 +3699,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -3710,14 +3710,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3726,7 +3726,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -3734,7 +3734,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3744,14 +3744,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3760,7 +3760,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3770,7 +3770,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -3781,14 +3781,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3797,7 +3797,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -3807,7 +3807,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -3818,7 +3818,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -3827,7 +3827,7 @@ namespace Hexa.NET.D3D11
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -3837,7 +3837,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3849,7 +3849,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -3861,7 +3861,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -3870,7 +3870,7 @@ namespace Hexa.NET.D3D11
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -3880,7 +3880,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 			{
@@ -3888,7 +3888,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3898,14 +3898,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3914,7 +3914,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3924,7 +3924,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -3935,14 +3935,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3951,7 +3951,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -3961,7 +3961,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -3972,7 +3972,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -3981,7 +3981,7 @@ namespace Hexa.NET.D3D11
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -3991,7 +3991,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4003,7 +4003,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4015,7 +4015,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4024,7 +4024,7 @@ namespace Hexa.NET.D3D11
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4034,7 +4034,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -4044,7 +4044,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4055,7 +4055,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -4064,7 +4064,7 @@ namespace Hexa.NET.D3D11
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4074,7 +4074,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4086,7 +4086,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4098,7 +4098,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -4107,7 +4107,7 @@ namespace Hexa.NET.D3D11
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4117,7 +4117,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4129,7 +4129,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4141,7 +4141,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4152,7 +4152,7 @@ namespace Hexa.NET.D3D11
 						fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 						{
 							ppImmediateContext = default;
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 							return ret;
 						}
 					}
@@ -4163,7 +4163,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4177,7 +4177,7 @@ namespace Hexa.NET.D3D11
 							{
 								fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 								{
-									int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+									HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 									return ret;
 								}
 							}
@@ -4190,7 +4190,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4201,7 +4201,7 @@ namespace Hexa.NET.D3D11
 						fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 						{
 							ppImmediateContext = default;
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 							return ret;
 						}
 					}
@@ -4212,13 +4212,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -4227,12 +4227,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4240,7 +4240,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4248,7 +4248,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -4258,12 +4258,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4271,7 +4271,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4279,7 +4279,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -4289,14 +4289,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4305,7 +4305,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4315,7 +4315,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4326,14 +4326,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4342,7 +4342,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -4350,7 +4350,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -4360,14 +4360,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4376,7 +4376,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4386,7 +4386,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4397,14 +4397,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4413,7 +4413,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4423,7 +4423,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4434,7 +4434,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4443,7 +4443,7 @@ namespace Hexa.NET.D3D11
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4453,7 +4453,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4465,7 +4465,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4477,7 +4477,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4486,7 +4486,7 @@ namespace Hexa.NET.D3D11
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4496,7 +4496,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 			{
@@ -4504,7 +4504,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -4514,14 +4514,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4530,7 +4530,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4540,7 +4540,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4551,14 +4551,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4567,7 +4567,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4577,7 +4577,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4588,7 +4588,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4597,7 +4597,7 @@ namespace Hexa.NET.D3D11
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4607,7 +4607,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4619,7 +4619,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4631,7 +4631,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4640,7 +4640,7 @@ namespace Hexa.NET.D3D11
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4650,7 +4650,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -4660,7 +4660,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4671,7 +4671,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -4680,7 +4680,7 @@ namespace Hexa.NET.D3D11
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4690,7 +4690,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4702,7 +4702,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4714,7 +4714,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -4723,7 +4723,7 @@ namespace Hexa.NET.D3D11
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4733,7 +4733,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4745,7 +4745,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4757,7 +4757,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4768,7 +4768,7 @@ namespace Hexa.NET.D3D11
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
 							ppImmediateContext = default;
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 							return ret;
 						}
 					}
@@ -4779,7 +4779,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4793,7 +4793,7 @@ namespace Hexa.NET.D3D11
 							{
 								fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 								{
-									int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+									HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 									return ret;
 								}
 							}
@@ -4806,7 +4806,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4817,7 +4817,7 @@ namespace Hexa.NET.D3D11
 						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
 							ppImmediateContext = default;
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 							return ret;
 						}
 					}
@@ -4828,7 +4828,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
@@ -4836,7 +4836,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -4846,14 +4846,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4862,7 +4862,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4872,7 +4872,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4883,14 +4883,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4899,7 +4899,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4909,7 +4909,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4920,7 +4920,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4929,7 +4929,7 @@ namespace Hexa.NET.D3D11
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4939,7 +4939,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4951,7 +4951,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4963,7 +4963,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
@@ -4972,7 +4972,7 @@ namespace Hexa.NET.D3D11
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4982,7 +4982,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -4992,7 +4992,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -5003,7 +5003,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static HResult CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
@@ -5012,7 +5012,7 @@ namespace Hexa.NET.D3D11
 					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						HResult ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}

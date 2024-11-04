@@ -32,23 +32,23 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int VideoDecodeSupport;
+		public Bool32 VideoDecodeSupport;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int VideoProcessSupport;
+		public Bool32 VideoProcessSupport;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int VideoEncodeSupport;
+		public Bool32 VideoEncodeSupport;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataVideoFeatureAreaSupport(uint nodeIndex = default, int videoDecodeSupport = default, int videoProcessSupport = default, int videoEncodeSupport = default)
+		public unsafe FeatureDataVideoFeatureAreaSupport(uint nodeIndex = default, Bool32 videoDecodeSupport = default, Bool32 videoProcessSupport = default, Bool32 videoEncodeSupport = default)
 		{
 			NodeIndex = nodeIndex;
 			VideoDecodeSupport = videoDecodeSupport;

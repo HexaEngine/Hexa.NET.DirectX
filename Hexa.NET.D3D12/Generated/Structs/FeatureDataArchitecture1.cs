@@ -32,28 +32,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int TileBasedRenderer;
+		public Bool32 TileBasedRenderer;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int UMA;
+		public Bool32 UMA;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int CacheCoherentUMA;
+		public Bool32 CacheCoherentUMA;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int IsolatedMMU;
+		public Bool32 IsolatedMMU;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataArchitecture1(uint nodeIndex = default, int tileBasedRenderer = default, int umA = default, int cacheCoherentUma = default, int isolatedMmu = default)
+		public unsafe FeatureDataArchitecture1(uint nodeIndex = default, Bool32 tileBasedRenderer = default, Bool32 umA = default, Bool32 cacheCoherentUma = default, Bool32 isolatedMmu = default)
 		{
 			NodeIndex = nodeIndex;
 			TileBasedRenderer = tileBasedRenderer;

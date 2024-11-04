@@ -35,22 +35,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -58,24 +58,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -103,10 +103,10 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetMessageCountLimit(Guid producer, ulong messageCountLimit) 
+		public readonly unsafe HResult SetMessageCountLimit(Guid producer, ulong messageCountLimit) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, int>)(LpVtbl[3]))(ptr, producer, messageCountLimit);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, HResult>)(LpVtbl[3]))(ptr, producer, messageCountLimit);
 			return ret;
 		}
 
@@ -122,22 +122,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMessageA(Guid producer, ulong messageIndex, InfoQueueMessage* pMessage, nuint* pMessageByteLength) 
+		public readonly unsafe HResult GetMessageA(Guid producer, ulong messageIndex, InfoQueueMessage* pMessage, nuint* pMessageByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, int>)(LpVtbl[5]))(ptr, producer, messageIndex, pMessage, pMessageByteLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, HResult>)(LpVtbl[5]))(ptr, producer, messageIndex, pMessage, pMessageByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMessageA(Guid producer, ulong messageIndex, ref InfoQueueMessage pMessage, nuint* pMessageByteLength) 
+		public readonly unsafe HResult GetMessageA(Guid producer, ulong messageIndex, ref InfoQueueMessage pMessage, nuint* pMessageByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueMessage* ppMessage = &pMessage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, int>)(LpVtbl[5]))(ptr, producer, messageIndex, (InfoQueueMessage*)ppMessage, pMessageByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, HResult>)(LpVtbl[5]))(ptr, producer, messageIndex, (InfoQueueMessage*)ppMessage, pMessageByteLength);
 				return ret;
 			}
 		}
@@ -145,12 +145,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMessageA(Guid producer, ulong messageIndex, InfoQueueMessage* pMessage, ref nuint pMessageByteLength) 
+		public readonly unsafe HResult GetMessageA(Guid producer, ulong messageIndex, InfoQueueMessage* pMessage, ref nuint pMessageByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, int>)(LpVtbl[5]))(ptr, producer, messageIndex, pMessage, (nuint*)ppMessageByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, HResult>)(LpVtbl[5]))(ptr, producer, messageIndex, pMessage, (nuint*)ppMessageByteLength);
 				return ret;
 			}
 		}
@@ -158,14 +158,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMessageA(Guid producer, ulong messageIndex, ref InfoQueueMessage pMessage, ref nuint pMessageByteLength) 
+		public readonly unsafe HResult GetMessageA(Guid producer, ulong messageIndex, ref InfoQueueMessage pMessage, ref nuint pMessageByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueMessage* ppMessage = &pMessage)
 			{
 				fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, int>)(LpVtbl[5]))(ptr, producer, messageIndex, (InfoQueueMessage*)ppMessage, (nuint*)ppMessageByteLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, HResult>)(LpVtbl[5]))(ptr, producer, messageIndex, (InfoQueueMessage*)ppMessage, (nuint*)ppMessageByteLength);
 					return ret;
 				}
 			}
@@ -234,22 +234,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddStorageFilterEntries(Guid producer, InfoQueueFilter* pFilter) 
+		public readonly unsafe HResult AddStorageFilterEntries(Guid producer, InfoQueueFilter* pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[12]))(ptr, producer, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, HResult>)(LpVtbl[12]))(ptr, producer, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddStorageFilterEntries(Guid producer, ref InfoQueueFilter pFilter) 
+		public readonly unsafe HResult AddStorageFilterEntries(Guid producer, ref InfoQueueFilter pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[12]))(ptr, producer, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, HResult>)(LpVtbl[12]))(ptr, producer, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -257,22 +257,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetStorageFilter(Guid producer, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
+		public readonly unsafe HResult GetStorageFilter(Guid producer, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, producer, pFilter, pFilterByteLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[13]))(ptr, producer, pFilter, pFilterByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetStorageFilter(Guid producer, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
+		public readonly unsafe HResult GetStorageFilter(Guid producer, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, producer, (InfoQueueFilter*)ppFilter, pFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[13]))(ptr, producer, (InfoQueueFilter*)ppFilter, pFilterByteLength);
 				return ret;
 			}
 		}
@@ -280,12 +280,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetStorageFilter(Guid producer, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
+		public readonly unsafe HResult GetStorageFilter(Guid producer, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, producer, pFilter, (nuint*)ppFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[13]))(ptr, producer, pFilter, (nuint*)ppFilterByteLength);
 				return ret;
 			}
 		}
@@ -293,14 +293,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetStorageFilter(Guid producer, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
+		public readonly unsafe HResult GetStorageFilter(Guid producer, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
 				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, producer, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[13]))(ptr, producer, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
 					return ret;
 				}
 			}
@@ -318,52 +318,52 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushEmptyStorageFilter(Guid producer) 
+		public readonly unsafe HResult PushEmptyStorageFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[15]))(ptr, producer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, HResult>)(LpVtbl[15]))(ptr, producer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushDenyAllStorageFilter(Guid producer) 
+		public readonly unsafe HResult PushDenyAllStorageFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[16]))(ptr, producer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, HResult>)(LpVtbl[16]))(ptr, producer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushCopyOfStorageFilter(Guid producer) 
+		public readonly unsafe HResult PushCopyOfStorageFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[17]))(ptr, producer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, HResult>)(LpVtbl[17]))(ptr, producer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushStorageFilter(Guid producer, InfoQueueFilter* pFilter) 
+		public readonly unsafe HResult PushStorageFilter(Guid producer, InfoQueueFilter* pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[18]))(ptr, producer, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, HResult>)(LpVtbl[18]))(ptr, producer, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushStorageFilter(Guid producer, ref InfoQueueFilter pFilter) 
+		public readonly unsafe HResult PushStorageFilter(Guid producer, ref InfoQueueFilter pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[18]))(ptr, producer, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, HResult>)(LpVtbl[18]))(ptr, producer, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -390,22 +390,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddRetrievalFilterEntries(Guid producer, InfoQueueFilter* pFilter) 
+		public readonly unsafe HResult AddRetrievalFilterEntries(Guid producer, InfoQueueFilter* pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[21]))(ptr, producer, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, HResult>)(LpVtbl[21]))(ptr, producer, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddRetrievalFilterEntries(Guid producer, ref InfoQueueFilter pFilter) 
+		public readonly unsafe HResult AddRetrievalFilterEntries(Guid producer, ref InfoQueueFilter pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[21]))(ptr, producer, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, HResult>)(LpVtbl[21]))(ptr, producer, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -413,22 +413,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetRetrievalFilter(Guid producer, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
+		public readonly unsafe HResult GetRetrievalFilter(Guid producer, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[22]))(ptr, producer, pFilter, pFilterByteLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[22]))(ptr, producer, pFilter, pFilterByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetRetrievalFilter(Guid producer, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
+		public readonly unsafe HResult GetRetrievalFilter(Guid producer, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[22]))(ptr, producer, (InfoQueueFilter*)ppFilter, pFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[22]))(ptr, producer, (InfoQueueFilter*)ppFilter, pFilterByteLength);
 				return ret;
 			}
 		}
@@ -436,12 +436,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetRetrievalFilter(Guid producer, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
+		public readonly unsafe HResult GetRetrievalFilter(Guid producer, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[22]))(ptr, producer, pFilter, (nuint*)ppFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[22]))(ptr, producer, pFilter, (nuint*)ppFilterByteLength);
 				return ret;
 			}
 		}
@@ -449,14 +449,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetRetrievalFilter(Guid producer, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
+		public readonly unsafe HResult GetRetrievalFilter(Guid producer, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
 				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[22]))(ptr, producer, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[22]))(ptr, producer, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
 					return ret;
 				}
 			}
@@ -474,52 +474,52 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushEmptyRetrievalFilter(Guid producer) 
+		public readonly unsafe HResult PushEmptyRetrievalFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[24]))(ptr, producer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, HResult>)(LpVtbl[24]))(ptr, producer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushDenyAllRetrievalFilter(Guid producer) 
+		public readonly unsafe HResult PushDenyAllRetrievalFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[25]))(ptr, producer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, HResult>)(LpVtbl[25]))(ptr, producer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushCopyOfRetrievalFilter(Guid producer) 
+		public readonly unsafe HResult PushCopyOfRetrievalFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[26]))(ptr, producer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, HResult>)(LpVtbl[26]))(ptr, producer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushRetrievalFilter(Guid producer, InfoQueueFilter* pFilter) 
+		public readonly unsafe HResult PushRetrievalFilter(Guid producer, InfoQueueFilter* pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[27]))(ptr, producer, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, HResult>)(LpVtbl[27]))(ptr, producer, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushRetrievalFilter(Guid producer, ref InfoQueueFilter pFilter) 
+		public readonly unsafe HResult PushRetrievalFilter(Guid producer, ref InfoQueueFilter pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[27]))(ptr, producer, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, HResult>)(LpVtbl[27]))(ptr, producer, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -546,22 +546,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddMessage(Guid producer, InfoQueueMessageCategory category, InfoQueueMessageSeverity severity, int id, byte* pDescription) 
+		public readonly unsafe HResult AddMessage(Guid producer, InfoQueueMessageCategory category, InfoQueueMessageSeverity severity, int id, byte* pDescription) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, InfoQueueMessageSeverity, int, byte*, int>)(LpVtbl[30]))(ptr, producer, category, severity, id, pDescription);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, InfoQueueMessageSeverity, int, byte*, HResult>)(LpVtbl[30]))(ptr, producer, category, severity, id, pDescription);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddMessage(Guid producer, InfoQueueMessageCategory category, InfoQueueMessageSeverity severity, int id, ReadOnlySpan<byte> pDescription) 
+		public readonly unsafe HResult AddMessage(Guid producer, InfoQueueMessageCategory category, InfoQueueMessageSeverity severity, int id, ReadOnlySpan<byte> pDescription) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppDescription = pDescription)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, InfoQueueMessageSeverity, int, byte*, int>)(LpVtbl[30]))(ptr, producer, category, severity, id, (byte*)ppDescription);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, InfoQueueMessageSeverity, int, byte*, HResult>)(LpVtbl[30]))(ptr, producer, category, severity, id, (byte*)ppDescription);
 				return ret;
 			}
 		}
@@ -569,7 +569,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddMessage(Guid producer, InfoQueueMessageCategory category, InfoQueueMessageSeverity severity, int id, string pDescription) 
+		public readonly unsafe HResult AddMessage(Guid producer, InfoQueueMessageCategory category, InfoQueueMessageSeverity severity, int id, string pDescription) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -589,7 +589,7 @@ namespace Hexa.NET.DXGI
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, InfoQueueMessageSeverity, int, byte*, int>)(LpVtbl[30]))(ptr, producer, category, severity, id, pStr0);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, InfoQueueMessageSeverity, int, byte*, HResult>)(LpVtbl[30]))(ptr, producer, category, severity, id, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -600,22 +600,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddApplicationMessage(InfoQueueMessageSeverity severity, byte* pDescription) 
+		public readonly unsafe HResult AddApplicationMessage(InfoQueueMessageSeverity severity, byte* pDescription) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, InfoQueueMessageSeverity, byte*, int>)(LpVtbl[31]))(ptr, severity, pDescription);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, InfoQueueMessageSeverity, byte*, HResult>)(LpVtbl[31]))(ptr, severity, pDescription);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddApplicationMessage(InfoQueueMessageSeverity severity, ReadOnlySpan<byte> pDescription) 
+		public readonly unsafe HResult AddApplicationMessage(InfoQueueMessageSeverity severity, ReadOnlySpan<byte> pDescription) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppDescription = pDescription)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, InfoQueueMessageSeverity, byte*, int>)(LpVtbl[31]))(ptr, severity, (byte*)ppDescription);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, InfoQueueMessageSeverity, byte*, HResult>)(LpVtbl[31]))(ptr, severity, (byte*)ppDescription);
 				return ret;
 			}
 		}
@@ -623,7 +623,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddApplicationMessage(InfoQueueMessageSeverity severity, string pDescription) 
+		public readonly unsafe HResult AddApplicationMessage(InfoQueueMessageSeverity severity, string pDescription) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -643,7 +643,7 @@ namespace Hexa.NET.DXGI
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, InfoQueueMessageSeverity, byte*, int>)(LpVtbl[31]))(ptr, severity, pStr0);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, InfoQueueMessageSeverity, byte*, HResult>)(LpVtbl[31]))(ptr, severity, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -654,79 +654,79 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetBreakOnCategory(Guid producer, InfoQueueMessageCategory category, int bEnable) 
+		public readonly unsafe HResult SetBreakOnCategory(Guid producer, InfoQueueMessageCategory category, Bool32 bEnable) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, int, int>)(LpVtbl[32]))(ptr, producer, category, bEnable);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, Bool32, HResult>)(LpVtbl[32]))(ptr, producer, category, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetBreakOnSeverity(Guid producer, InfoQueueMessageSeverity severity, int bEnable) 
+		public readonly unsafe HResult SetBreakOnSeverity(Guid producer, InfoQueueMessageSeverity severity, Bool32 bEnable) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageSeverity, int, int>)(LpVtbl[33]))(ptr, producer, severity, bEnable);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageSeverity, Bool32, HResult>)(LpVtbl[33]))(ptr, producer, severity, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetBreakOnID(Guid producer, int id, int bEnable) 
+		public readonly unsafe HResult SetBreakOnID(Guid producer, int id, Bool32 bEnable) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int, int, int>)(LpVtbl[34]))(ptr, producer, id, bEnable);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int, Bool32, HResult>)(LpVtbl[34]))(ptr, producer, id, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBreakOnCategory(Guid producer, InfoQueueMessageCategory category) 
+		public readonly unsafe Bool32 GetBreakOnCategory(Guid producer, InfoQueueMessageCategory category) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, int>)(LpVtbl[35]))(ptr, producer, category);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, Bool32>)(LpVtbl[35]))(ptr, producer, category);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBreakOnSeverity(Guid producer, InfoQueueMessageSeverity severity) 
+		public readonly unsafe Bool32 GetBreakOnSeverity(Guid producer, InfoQueueMessageSeverity severity) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageSeverity, int>)(LpVtbl[36]))(ptr, producer, severity);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageSeverity, Bool32>)(LpVtbl[36]))(ptr, producer, severity);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBreakOnID(Guid producer, int id) 
+		public readonly unsafe Bool32 GetBreakOnID(Guid producer, int id) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int, int>)(LpVtbl[37]))(ptr, producer, id);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int, Bool32>)(LpVtbl[37]))(ptr, producer, id);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void SetMuteDebugOutput(Guid producer, int bMute) 
+		public readonly unsafe void SetMuteDebugOutput(Guid producer, Bool32 bMute) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int, void>)(LpVtbl[38]))(ptr, producer, bMute);
+			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, Bool32, void>)(LpVtbl[38]))(ptr, producer, bMute);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMuteDebugOutput(Guid producer) 
+		public readonly unsafe Bool32 GetMuteDebugOutput(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[39]))(ptr, producer);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, Bool32>)(LpVtbl[39]))(ptr, producer);
 			return ret;
 		}
 

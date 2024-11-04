@@ -23,7 +23,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -37,7 +37,7 @@ namespace Hexa.NET.D3DCompiler
 							{
 								fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 								{
-									int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+									HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 									return ret;
 								}
 							}
@@ -50,7 +50,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(char* pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -94,7 +94,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr0, pStr1, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr1);
@@ -113,7 +113,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(ReadOnlySpan<char> pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ReadOnlySpan<byte> pEntrypoint, ReadOnlySpan<byte> pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (char* ppFileName = pFileName)
 			{
@@ -129,7 +129,7 @@ namespace Hexa.NET.D3DCompiler
 								{
 									fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 									{
-										int ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+										HResult ret = CompileFromFileNative((char*)ppFileName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (byte*)ppEntrypoint, (byte*)ppTarget, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 										return ret;
 									}
 								}
@@ -143,7 +143,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult CompileFromFile(string pFileName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, string pEntrypoint, string pTarget, uint flags1, uint flags2, ref ID3D10Blob* ppCode, ref ID3D10Blob* ppErrorMsgs)
 		{
 			char* pStr0 = null;
 			int pStrSize0 = 0;
@@ -204,7 +204,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = CompileFromFileNative(pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, pStr1, pStr2, flags1, flags2, (ID3D10Blob**)pppCode, (ID3D10Blob**)pppErrorMsgs);
 							if (pStrSize2 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr2);
@@ -233,12 +233,12 @@ namespace Hexa.NET.D3DCompiler
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int PreprocessNative(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		internal static HResult PreprocessNative(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, byte*, ShaderMacro*, ID3DInclude*, ID3D10Blob**, ID3D10Blob**, int>)funcTable[5])(pSrcData, srcDataSize, pSourceName, pDefines, pInclude, ppCodeText, ppErrorMsgs);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, byte*, ShaderMacro*, ID3DInclude*, ID3D10Blob**, ID3D10Blob**, HResult>)funcTable[5])(pSrcData, srcDataSize, pSourceName, pDefines, pInclude, ppCodeText, ppErrorMsgs);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, nint, nint, nint, nint, nint, int>)funcTable[5])((nint)pSrcData, srcDataSize, (nint)pSourceName, (nint)pDefines, (nint)pInclude, (nint)ppCodeText, (nint)ppErrorMsgs);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, nint, nint, nint, nint, nint, HResult>)funcTable[5])((nint)pSrcData, srcDataSize, (nint)pSourceName, (nint)pDefines, (nint)pInclude, (nint)ppCodeText, (nint)ppErrorMsgs);
 			#endif
 		}
 
@@ -250,9 +250,9 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
-			int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, pInclude, ppCodeText, ppErrorMsgs);
+			HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, pInclude, ppCodeText, ppErrorMsgs);
 			return ret;
 		}
 
@@ -264,11 +264,11 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
-				int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, pInclude, ppCodeText, ppErrorMsgs);
+				HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, pInclude, ppCodeText, ppErrorMsgs);
 				return ret;
 			}
 		}
@@ -281,7 +281,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -300,7 +300,7 @@ namespace Hexa.NET.D3DCompiler
 				int pStrOffset0 = Utils.EncodeStringUTF8(pSourceName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, pInclude, ppCodeText, ppErrorMsgs);
+			HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, pInclude, ppCodeText, ppErrorMsgs);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -316,11 +316,11 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
-				int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, pInclude, ppCodeText, ppErrorMsgs);
+				HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, pInclude, ppCodeText, ppErrorMsgs);
 				return ret;
 			}
 		}
@@ -333,13 +333,13 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
 				fixed (ShaderMacro* ppDefines = &pDefines)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, pInclude, ppCodeText, ppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, pInclude, ppCodeText, ppErrorMsgs);
 					return ret;
 				}
 			}
@@ -353,7 +353,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -374,7 +374,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
-				int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, pInclude, ppCodeText, ppErrorMsgs);
+				HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, pInclude, ppCodeText, ppErrorMsgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -391,11 +391,11 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
-				int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)ppInclude, ppCodeText, ppErrorMsgs);
+				HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)ppInclude, ppCodeText, ppErrorMsgs);
 				return ret;
 			}
 		}
@@ -408,9 +408,9 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ComPtr<ID3DInclude> pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ComPtr<ID3DInclude> pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
-			int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)pInclude.Handle, ppCodeText, ppErrorMsgs);
+			HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)pInclude.Handle, ppCodeText, ppErrorMsgs);
 			return ret;
 		}
 
@@ -422,13 +422,13 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
 				fixed (ID3DInclude* ppInclude = &pInclude)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, (ID3DInclude*)ppInclude, ppCodeText, ppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, (ID3DInclude*)ppInclude, ppCodeText, ppErrorMsgs);
 					return ret;
 				}
 			}
@@ -442,7 +442,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -463,7 +463,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
-				int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, (ID3DInclude*)ppInclude, ppCodeText, ppErrorMsgs);
+				HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, (ID3DInclude*)ppInclude, ppCodeText, ppErrorMsgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -480,13 +480,13 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
 				fixed (ID3DInclude* ppInclude = &pInclude)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, ppCodeText, ppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, ppCodeText, ppErrorMsgs);
 					return ret;
 				}
 			}
@@ -500,11 +500,11 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ComPtr<ID3DInclude> pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ComPtr<ID3DInclude> pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
-				int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)pInclude.Handle, ppCodeText, ppErrorMsgs);
+				HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)pInclude.Handle, ppCodeText, ppErrorMsgs);
 				return ret;
 			}
 		}
@@ -517,7 +517,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
@@ -525,7 +525,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3DInclude* ppInclude = &pInclude)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, ppCodeText, ppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, ppCodeText, ppErrorMsgs);
 						return ret;
 					}
 				}
@@ -540,7 +540,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -563,7 +563,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3DInclude* ppInclude = &pInclude)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, ppCodeText, ppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, ppCodeText, ppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -581,11 +581,11 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 			{
-				int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, pInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+				HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, pInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 				return ret;
 			}
 		}
@@ -598,13 +598,13 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
 				fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, pInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, pInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 					return ret;
 				}
 			}
@@ -618,7 +618,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -639,7 +639,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 			{
-				int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, pInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+				HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, pInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -656,13 +656,13 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
 				fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, pInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, pInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 					return ret;
 				}
 			}
@@ -676,7 +676,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
@@ -684,7 +684,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, pInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, pInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 						return ret;
 					}
 				}
@@ -699,7 +699,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -722,7 +722,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, pInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, pInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -740,13 +740,13 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
 				fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 					return ret;
 				}
 			}
@@ -760,11 +760,11 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ComPtr<ID3DInclude> pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ComPtr<ID3DInclude> pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 			{
-				int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)pInclude.Handle, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+				HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)pInclude.Handle, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 				return ret;
 			}
 		}
@@ -777,7 +777,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
@@ -785,7 +785,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 						return ret;
 					}
 				}
@@ -800,7 +800,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -823,7 +823,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -841,7 +841,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -849,7 +849,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 						return ret;
 					}
 				}
@@ -864,13 +864,13 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ComPtr<ID3DInclude> pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ComPtr<ID3DInclude> pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
 				fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)pInclude.Handle, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)pInclude.Handle, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 					return ret;
 				}
 			}
@@ -884,7 +884,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
@@ -894,7 +894,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 						{
-							int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+							HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 							return ret;
 						}
 					}
@@ -910,7 +910,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ID3D10Blob** ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -935,7 +935,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, ppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -954,11 +954,11 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 			{
-				int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, pInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+				HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, pInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 				return ret;
 			}
 		}
@@ -971,13 +971,13 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, pInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, pInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -991,7 +991,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1012,7 +1012,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 			{
-				int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, pInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+				HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, pInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1029,13 +1029,13 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, pInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, pInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -1049,7 +1049,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
@@ -1057,7 +1057,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, pInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, pInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1072,7 +1072,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1095,7 +1095,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, pInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, pInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1113,13 +1113,13 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)ppInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)ppInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -1133,11 +1133,11 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ComPtr<ID3DInclude> pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ComPtr<ID3DInclude> pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 			{
-				int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)pInclude.Handle, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+				HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)pInclude.Handle, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 				return ret;
 			}
 		}
@@ -1150,7 +1150,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
@@ -1158,7 +1158,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, (ID3DInclude*)ppInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, (ID3DInclude*)ppInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1173,7 +1173,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1196,7 +1196,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, (ID3DInclude*)ppInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, (ID3DInclude*)ppInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1214,7 +1214,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -1222,7 +1222,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1237,13 +1237,13 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ComPtr<ID3DInclude> pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ComPtr<ID3DInclude> pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)pInclude.Handle, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)pInclude.Handle, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -1257,7 +1257,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
@@ -1267,7 +1267,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -1283,7 +1283,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ID3D10Blob** ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1308,7 +1308,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, ppCodeText, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1327,13 +1327,13 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, pInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, pInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -1347,7 +1347,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
@@ -1355,7 +1355,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, pInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, pInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1370,7 +1370,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1393,7 +1393,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, pInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, pInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1411,7 +1411,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -1419,7 +1419,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, pInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, pInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1434,7 +1434,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
@@ -1444,7 +1444,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, pInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, pInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -1460,7 +1460,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ID3DInclude* pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1485,7 +1485,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, pInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, pInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1504,7 +1504,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3DInclude* ppInclude = &pInclude)
 			{
@@ -1512,7 +1512,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1527,13 +1527,13 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ComPtr<ID3DInclude> pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ShaderMacro* pDefines, ComPtr<ID3DInclude> pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ID3D10Blob** pppCodeText = &ppCodeText)
 			{
 				fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 				{
-					int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)pInclude.Handle, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+					HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, pDefines, (ID3DInclude*)pInclude.Handle, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 					return ret;
 				}
 			}
@@ -1547,7 +1547,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
@@ -1557,7 +1557,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, pDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -1573,7 +1573,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ShaderMacro* pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1598,7 +1598,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, pDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1617,7 +1617,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -1627,7 +1627,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 							return ret;
 						}
 					}
@@ -1643,7 +1643,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ComPtr<ID3DInclude> pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, byte* pSourceName, ref ShaderMacro pDefines, ComPtr<ID3DInclude> pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (ShaderMacro* ppDefines = &pDefines)
 			{
@@ -1651,7 +1651,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 					{
-						int ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)pInclude.Handle, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+						HResult ret = PreprocessNative(pSrcData, srcDataSize, pSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)pInclude.Handle, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 						return ret;
 					}
 				}
@@ -1666,7 +1666,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, ReadOnlySpan<byte> pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			fixed (byte* ppSourceName = pSourceName)
 			{
@@ -1678,7 +1678,7 @@ namespace Hexa.NET.D3DCompiler
 						{
 							fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 							{
-								int ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+								HResult ret = PreprocessNative(pSrcData, srcDataSize, (byte*)ppSourceName, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 								return ret;
 							}
 						}
@@ -1695,7 +1695,7 @@ namespace Hexa.NET.D3DCompiler
 		/// the resulting text.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
+		public static HResult Preprocess(void* pSrcData, nuint srcDataSize, string pSourceName, ref ShaderMacro pDefines, ref ID3DInclude pInclude, ref ID3D10Blob* ppCodeText, ref ID3D10Blob* ppErrorMsgs)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -1722,7 +1722,7 @@ namespace Hexa.NET.D3DCompiler
 					{
 						fixed (ID3D10Blob** pppErrorMsgs = &ppErrorMsgs)
 						{
-							int ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
+							HResult ret = PreprocessNative(pSrcData, srcDataSize, pStr0, (ShaderMacro*)ppDefines, (ID3DInclude*)ppInclude, (ID3D10Blob**)pppCodeText, (ID3D10Blob**)pppErrorMsgs);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -1743,12 +1743,12 @@ namespace Hexa.NET.D3DCompiler
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetDebugInfoNative(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppDebugInfo)
+		internal static HResult GetDebugInfoNative(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppDebugInfo)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, ID3D10Blob**, int>)funcTable[6])(pSrcData, srcDataSize, ppDebugInfo);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, ID3D10Blob**, HResult>)funcTable[6])(pSrcData, srcDataSize, ppDebugInfo);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, nint, int>)funcTable[6])((nint)pSrcData, srcDataSize, (nint)ppDebugInfo);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, nint, HResult>)funcTable[6])((nint)pSrcData, srcDataSize, (nint)ppDebugInfo);
 			#endif
 		}
 
@@ -1760,9 +1760,9 @@ namespace Hexa.NET.D3DCompiler
 		/// embedded in the body of the shader.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int GetDebugInfo(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppDebugInfo)
+		public static HResult GetDebugInfo(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppDebugInfo)
 		{
-			int ret = GetDebugInfoNative(pSrcData, srcDataSize, ppDebugInfo);
+			HResult ret = GetDebugInfoNative(pSrcData, srcDataSize, ppDebugInfo);
 			return ret;
 		}
 
@@ -1774,11 +1774,11 @@ namespace Hexa.NET.D3DCompiler
 		/// embedded in the body of the shader.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int GetDebugInfo(void* pSrcData, nuint srcDataSize, ref ID3D10Blob* ppDebugInfo)
+		public static HResult GetDebugInfo(void* pSrcData, nuint srcDataSize, ref ID3D10Blob* ppDebugInfo)
 		{
 			fixed (ID3D10Blob** pppDebugInfo = &ppDebugInfo)
 			{
-				int ret = GetDebugInfoNative(pSrcData, srcDataSize, (ID3D10Blob**)pppDebugInfo);
+				HResult ret = GetDebugInfoNative(pSrcData, srcDataSize, (ID3D10Blob**)pppDebugInfo);
 				return ret;
 			}
 		}
@@ -1792,12 +1792,12 @@ namespace Hexa.NET.D3DCompiler
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int ReflectNative(void* pSrcData, nuint srcDataSize, Guid* pInterface, void** ppReflector)
+		internal static HResult ReflectNative(void* pSrcData, nuint srcDataSize, Guid* pInterface, void** ppReflector)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, Guid*, void**, int>)funcTable[7])(pSrcData, srcDataSize, pInterface, ppReflector);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, Guid*, void**, HResult>)funcTable[7])(pSrcData, srcDataSize, pInterface, ppReflector);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, nint, nint, int>)funcTable[7])((nint)pSrcData, srcDataSize, (nint)pInterface, (nint)ppReflector);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, nint, nint, HResult>)funcTable[7])((nint)pSrcData, srcDataSize, (nint)pInterface, (nint)ppReflector);
 			#endif
 		}
 
@@ -1809,9 +1809,9 @@ namespace Hexa.NET.D3DCompiler
 		/// reflection APIs.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Reflect(void* pSrcData, nuint srcDataSize, Guid* pInterface, void** ppReflector)
+		public static HResult Reflect(void* pSrcData, nuint srcDataSize, Guid* pInterface, void** ppReflector)
 		{
-			int ret = ReflectNative(pSrcData, srcDataSize, pInterface, ppReflector);
+			HResult ret = ReflectNative(pSrcData, srcDataSize, pInterface, ppReflector);
 			return ret;
 		}
 
@@ -1823,11 +1823,11 @@ namespace Hexa.NET.D3DCompiler
 		/// reflection APIs.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Reflect(void* pSrcData, nuint srcDataSize, ref Guid pInterface, void** ppReflector)
+		public static HResult Reflect(void* pSrcData, nuint srcDataSize, ref Guid pInterface, void** ppReflector)
 		{
 			fixed (Guid* ppInterface = &pInterface)
 			{
-				int ret = ReflectNative(pSrcData, srcDataSize, (Guid*)ppInterface, ppReflector);
+				HResult ret = ReflectNative(pSrcData, srcDataSize, (Guid*)ppInterface, ppReflector);
 				return ret;
 			}
 		}
@@ -1840,10 +1840,10 @@ namespace Hexa.NET.D3DCompiler
 		/// reflection APIs.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Reflect<T>(void* pSrcData, nuint srcDataSize, out ComPtr<T> ppReflector) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult Reflect<T>(void* pSrcData, nuint srcDataSize, out ComPtr<T> ppReflector) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppReflector = default;
-			int ret = ReflectNative(pSrcData, srcDataSize, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppReflector.GetAddressOf());
+			HResult ret = ReflectNative(pSrcData, srcDataSize, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppReflector.GetAddressOf());
 			return ret;
 		}
 
@@ -1855,12 +1855,12 @@ namespace Hexa.NET.D3DCompiler
 		/// reflection APIs.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Reflect<T>(void* pSrcData, nuint srcDataSize, ref Guid pInterface, out ComPtr<T> ppReflector) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult Reflect<T>(void* pSrcData, nuint srcDataSize, ref Guid pInterface, out ComPtr<T> ppReflector) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* ppInterface = &pInterface)
 			{
 				ppReflector = default;
-				int ret = ReflectNative(pSrcData, srcDataSize, (Guid*)ppInterface, (void**)ppReflector.GetAddressOf());
+				HResult ret = ReflectNative(pSrcData, srcDataSize, (Guid*)ppInterface, (void**)ppReflector.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1874,12 +1874,12 @@ namespace Hexa.NET.D3DCompiler
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int ReflectLibraryNative(void* pSrcData, nuint srcDataSize, Guid* riid, void** ppReflector)
+		internal static HResult ReflectLibraryNative(void* pSrcData, nuint srcDataSize, Guid* riid, void** ppReflector)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, Guid*, void**, int>)funcTable[8])(pSrcData, srcDataSize, riid, ppReflector);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, Guid*, void**, HResult>)funcTable[8])(pSrcData, srcDataSize, riid, ppReflector);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, nint, nint, int>)funcTable[8])((nint)pSrcData, srcDataSize, (nint)riid, (nint)ppReflector);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, nint, nint, HResult>)funcTable[8])((nint)pSrcData, srcDataSize, (nint)riid, (nint)ppReflector);
 			#endif
 		}
 
@@ -1891,9 +1891,9 @@ namespace Hexa.NET.D3DCompiler
 		/// reflection APIs.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int ReflectLibrary(void* pSrcData, nuint srcDataSize, Guid* riid, void** ppReflector)
+		public static HResult ReflectLibrary(void* pSrcData, nuint srcDataSize, Guid* riid, void** ppReflector)
 		{
-			int ret = ReflectLibraryNative(pSrcData, srcDataSize, riid, ppReflector);
+			HResult ret = ReflectLibraryNative(pSrcData, srcDataSize, riid, ppReflector);
 			return ret;
 		}
 
@@ -1905,11 +1905,11 @@ namespace Hexa.NET.D3DCompiler
 		/// reflection APIs.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int ReflectLibrary(void* pSrcData, nuint srcDataSize, ref Guid riid, void** ppReflector)
+		public static HResult ReflectLibrary(void* pSrcData, nuint srcDataSize, ref Guid riid, void** ppReflector)
 		{
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ReflectLibraryNative(pSrcData, srcDataSize, (Guid*)priid, ppReflector);
+				HResult ret = ReflectLibraryNative(pSrcData, srcDataSize, (Guid*)priid, ppReflector);
 				return ret;
 			}
 		}
@@ -1922,11 +1922,11 @@ namespace Hexa.NET.D3DCompiler
 		/// reflection APIs.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int ReflectLibrary(void* pSrcData, nuint srcDataSize, Guid* riid, ref void* ppReflector)
+		public static HResult ReflectLibrary(void* pSrcData, nuint srcDataSize, Guid* riid, ref void* ppReflector)
 		{
 			fixed (void** pppReflector = &ppReflector)
 			{
-				int ret = ReflectLibraryNative(pSrcData, srcDataSize, riid, (void**)pppReflector);
+				HResult ret = ReflectLibraryNative(pSrcData, srcDataSize, riid, (void**)pppReflector);
 				return ret;
 			}
 		}
@@ -1939,13 +1939,13 @@ namespace Hexa.NET.D3DCompiler
 		/// reflection APIs.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int ReflectLibrary(void* pSrcData, nuint srcDataSize, ref Guid riid, ref void* ppReflector)
+		public static HResult ReflectLibrary(void* pSrcData, nuint srcDataSize, ref Guid riid, ref void* ppReflector)
 		{
 			fixed (Guid* priid = &riid)
 			{
 				fixed (void** pppReflector = &ppReflector)
 				{
-					int ret = ReflectLibraryNative(pSrcData, srcDataSize, (Guid*)priid, (void**)pppReflector);
+					HResult ret = ReflectLibraryNative(pSrcData, srcDataSize, (Guid*)priid, (void**)pppReflector);
 					return ret;
 				}
 			}
@@ -1955,32 +1955,32 @@ namespace Hexa.NET.D3DCompiler
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int DisassembleNative(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, ID3D10Blob** ppDisassembly)
+		internal static HResult DisassembleNative(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, ID3D10Blob** ppDisassembly)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, uint, byte*, ID3D10Blob**, int>)funcTable[9])(pSrcData, srcDataSize, flags, szComments, ppDisassembly);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, uint, byte*, ID3D10Blob**, HResult>)funcTable[9])(pSrcData, srcDataSize, flags, szComments, ppDisassembly);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, uint, nint, nint, int>)funcTable[9])((nint)pSrcData, srcDataSize, flags, (nint)szComments, (nint)ppDisassembly);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, uint, nint, nint, HResult>)funcTable[9])((nint)pSrcData, srcDataSize, flags, (nint)szComments, (nint)ppDisassembly);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Disassemble(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, ID3D10Blob** ppDisassembly)
+		public static HResult Disassemble(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, ID3D10Blob** ppDisassembly)
 		{
-			int ret = DisassembleNative(pSrcData, srcDataSize, flags, szComments, ppDisassembly);
+			HResult ret = DisassembleNative(pSrcData, srcDataSize, flags, szComments, ppDisassembly);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Disassemble(void* pSrcData, nuint srcDataSize, uint flags, ReadOnlySpan<byte> szComments, ID3D10Blob** ppDisassembly)
+		public static HResult Disassemble(void* pSrcData, nuint srcDataSize, uint flags, ReadOnlySpan<byte> szComments, ID3D10Blob** ppDisassembly)
 		{
 			fixed (byte* pszComments = szComments)
 			{
-				int ret = DisassembleNative(pSrcData, srcDataSize, flags, (byte*)pszComments, ppDisassembly);
+				HResult ret = DisassembleNative(pSrcData, srcDataSize, flags, (byte*)pszComments, ppDisassembly);
 				return ret;
 			}
 		}
@@ -1988,7 +1988,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Disassemble(void* pSrcData, nuint srcDataSize, uint flags, string szComments, ID3D10Blob** ppDisassembly)
+		public static HResult Disassemble(void* pSrcData, nuint srcDataSize, uint flags, string szComments, ID3D10Blob** ppDisassembly)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2007,7 +2007,7 @@ namespace Hexa.NET.D3DCompiler
 				int pStrOffset0 = Utils.EncodeStringUTF8(szComments, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = DisassembleNative(pSrcData, srcDataSize, flags, pStr0, ppDisassembly);
+			HResult ret = DisassembleNative(pSrcData, srcDataSize, flags, pStr0, ppDisassembly);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -2018,11 +2018,11 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Disassemble(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, ref ID3D10Blob* ppDisassembly)
+		public static HResult Disassemble(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, ref ID3D10Blob* ppDisassembly)
 		{
 			fixed (ID3D10Blob** pppDisassembly = &ppDisassembly)
 			{
-				int ret = DisassembleNative(pSrcData, srcDataSize, flags, szComments, (ID3D10Blob**)pppDisassembly);
+				HResult ret = DisassembleNative(pSrcData, srcDataSize, flags, szComments, (ID3D10Blob**)pppDisassembly);
 				return ret;
 			}
 		}
@@ -2030,13 +2030,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Disassemble(void* pSrcData, nuint srcDataSize, uint flags, ReadOnlySpan<byte> szComments, ref ID3D10Blob* ppDisassembly)
+		public static HResult Disassemble(void* pSrcData, nuint srcDataSize, uint flags, ReadOnlySpan<byte> szComments, ref ID3D10Blob* ppDisassembly)
 		{
 			fixed (byte* pszComments = szComments)
 			{
 				fixed (ID3D10Blob** pppDisassembly = &ppDisassembly)
 				{
-					int ret = DisassembleNative(pSrcData, srcDataSize, flags, (byte*)pszComments, (ID3D10Blob**)pppDisassembly);
+					HResult ret = DisassembleNative(pSrcData, srcDataSize, flags, (byte*)pszComments, (ID3D10Blob**)pppDisassembly);
 					return ret;
 				}
 			}
@@ -2045,7 +2045,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int Disassemble(void* pSrcData, nuint srcDataSize, uint flags, string szComments, ref ID3D10Blob* ppDisassembly)
+		public static HResult Disassemble(void* pSrcData, nuint srcDataSize, uint flags, string szComments, ref ID3D10Blob* ppDisassembly)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2066,7 +2066,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3D10Blob** pppDisassembly = &ppDisassembly)
 			{
-				int ret = DisassembleNative(pSrcData, srcDataSize, flags, pStr0, (ID3D10Blob**)pppDisassembly);
+				HResult ret = DisassembleNative(pSrcData, srcDataSize, flags, pStr0, (ID3D10Blob**)pppDisassembly);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2079,32 +2079,32 @@ namespace Hexa.NET.D3DCompiler
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int DisassembleRegionNative(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ID3D10Blob** ppDisassembly)
+		internal static HResult DisassembleRegionNative(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ID3D10Blob** ppDisassembly)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, uint, byte*, nuint, nuint, nuint*, ID3D10Blob**, int>)funcTable[10])(pSrcData, srcDataSize, flags, szComments, startByteOffset, numInsts, pFinishByteOffset, ppDisassembly);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, uint, byte*, nuint, nuint, nuint*, ID3D10Blob**, HResult>)funcTable[10])(pSrcData, srcDataSize, flags, szComments, startByteOffset, numInsts, pFinishByteOffset, ppDisassembly);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, uint, nint, nuint, nuint, nint, nint, int>)funcTable[10])((nint)pSrcData, srcDataSize, flags, (nint)szComments, startByteOffset, numInsts, (nint)pFinishByteOffset, (nint)ppDisassembly);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, uint, nint, nuint, nuint, nint, nint, HResult>)funcTable[10])((nint)pSrcData, srcDataSize, flags, (nint)szComments, startByteOffset, numInsts, (nint)pFinishByteOffset, (nint)ppDisassembly);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ID3D10Blob** ppDisassembly)
+		public static HResult DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ID3D10Blob** ppDisassembly)
 		{
-			int ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, szComments, startByteOffset, numInsts, pFinishByteOffset, ppDisassembly);
+			HResult ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, szComments, startByteOffset, numInsts, pFinishByteOffset, ppDisassembly);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, ReadOnlySpan<byte> szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ID3D10Blob** ppDisassembly)
+		public static HResult DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, ReadOnlySpan<byte> szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ID3D10Blob** ppDisassembly)
 		{
 			fixed (byte* pszComments = szComments)
 			{
-				int ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, (byte*)pszComments, startByteOffset, numInsts, pFinishByteOffset, ppDisassembly);
+				HResult ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, (byte*)pszComments, startByteOffset, numInsts, pFinishByteOffset, ppDisassembly);
 				return ret;
 			}
 		}
@@ -2112,7 +2112,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, string szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ID3D10Blob** ppDisassembly)
+		public static HResult DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, string szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ID3D10Blob** ppDisassembly)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2131,7 +2131,7 @@ namespace Hexa.NET.D3DCompiler
 				int pStrOffset0 = Utils.EncodeStringUTF8(szComments, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, pStr0, startByteOffset, numInsts, pFinishByteOffset, ppDisassembly);
+			HResult ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, pStr0, startByteOffset, numInsts, pFinishByteOffset, ppDisassembly);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -2142,11 +2142,11 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, nuint startByteOffset, nuint numInsts, ref nuint pFinishByteOffset, ID3D10Blob** ppDisassembly)
+		public static HResult DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, nuint startByteOffset, nuint numInsts, ref nuint pFinishByteOffset, ID3D10Blob** ppDisassembly)
 		{
 			fixed (nuint* ppFinishByteOffset = &pFinishByteOffset)
 			{
-				int ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, szComments, startByteOffset, numInsts, (nuint*)ppFinishByteOffset, ppDisassembly);
+				HResult ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, szComments, startByteOffset, numInsts, (nuint*)ppFinishByteOffset, ppDisassembly);
 				return ret;
 			}
 		}
@@ -2154,13 +2154,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, ReadOnlySpan<byte> szComments, nuint startByteOffset, nuint numInsts, ref nuint pFinishByteOffset, ID3D10Blob** ppDisassembly)
+		public static HResult DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, ReadOnlySpan<byte> szComments, nuint startByteOffset, nuint numInsts, ref nuint pFinishByteOffset, ID3D10Blob** ppDisassembly)
 		{
 			fixed (byte* pszComments = szComments)
 			{
 				fixed (nuint* ppFinishByteOffset = &pFinishByteOffset)
 				{
-					int ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, (byte*)pszComments, startByteOffset, numInsts, (nuint*)ppFinishByteOffset, ppDisassembly);
+					HResult ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, (byte*)pszComments, startByteOffset, numInsts, (nuint*)ppFinishByteOffset, ppDisassembly);
 					return ret;
 				}
 			}
@@ -2169,7 +2169,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, string szComments, nuint startByteOffset, nuint numInsts, ref nuint pFinishByteOffset, ID3D10Blob** ppDisassembly)
+		public static HResult DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, string szComments, nuint startByteOffset, nuint numInsts, ref nuint pFinishByteOffset, ID3D10Blob** ppDisassembly)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2190,7 +2190,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (nuint* ppFinishByteOffset = &pFinishByteOffset)
 			{
-				int ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, pStr0, startByteOffset, numInsts, (nuint*)ppFinishByteOffset, ppDisassembly);
+				HResult ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, pStr0, startByteOffset, numInsts, (nuint*)ppFinishByteOffset, ppDisassembly);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2202,11 +2202,11 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ref ID3D10Blob* ppDisassembly)
+		public static HResult DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ref ID3D10Blob* ppDisassembly)
 		{
 			fixed (ID3D10Blob** pppDisassembly = &ppDisassembly)
 			{
-				int ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, szComments, startByteOffset, numInsts, pFinishByteOffset, (ID3D10Blob**)pppDisassembly);
+				HResult ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, szComments, startByteOffset, numInsts, pFinishByteOffset, (ID3D10Blob**)pppDisassembly);
 				return ret;
 			}
 		}
@@ -2214,13 +2214,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, ReadOnlySpan<byte> szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ref ID3D10Blob* ppDisassembly)
+		public static HResult DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, ReadOnlySpan<byte> szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ref ID3D10Blob* ppDisassembly)
 		{
 			fixed (byte* pszComments = szComments)
 			{
 				fixed (ID3D10Blob** pppDisassembly = &ppDisassembly)
 				{
-					int ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, (byte*)pszComments, startByteOffset, numInsts, pFinishByteOffset, (ID3D10Blob**)pppDisassembly);
+					HResult ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, (byte*)pszComments, startByteOffset, numInsts, pFinishByteOffset, (ID3D10Blob**)pppDisassembly);
 					return ret;
 				}
 			}
@@ -2229,7 +2229,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, string szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ref ID3D10Blob* ppDisassembly)
+		public static HResult DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, string szComments, nuint startByteOffset, nuint numInsts, nuint* pFinishByteOffset, ref ID3D10Blob* ppDisassembly)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2250,7 +2250,7 @@ namespace Hexa.NET.D3DCompiler
 			}
 			fixed (ID3D10Blob** pppDisassembly = &ppDisassembly)
 			{
-				int ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, pStr0, startByteOffset, numInsts, pFinishByteOffset, (ID3D10Blob**)pppDisassembly);
+				HResult ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, pStr0, startByteOffset, numInsts, pFinishByteOffset, (ID3D10Blob**)pppDisassembly);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2262,13 +2262,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, nuint startByteOffset, nuint numInsts, ref nuint pFinishByteOffset, ref ID3D10Blob* ppDisassembly)
+		public static HResult DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, byte* szComments, nuint startByteOffset, nuint numInsts, ref nuint pFinishByteOffset, ref ID3D10Blob* ppDisassembly)
 		{
 			fixed (nuint* ppFinishByteOffset = &pFinishByteOffset)
 			{
 				fixed (ID3D10Blob** pppDisassembly = &ppDisassembly)
 				{
-					int ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, szComments, startByteOffset, numInsts, (nuint*)ppFinishByteOffset, (ID3D10Blob**)pppDisassembly);
+					HResult ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, szComments, startByteOffset, numInsts, (nuint*)ppFinishByteOffset, (ID3D10Blob**)pppDisassembly);
 					return ret;
 				}
 			}
@@ -2277,7 +2277,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, ReadOnlySpan<byte> szComments, nuint startByteOffset, nuint numInsts, ref nuint pFinishByteOffset, ref ID3D10Blob* ppDisassembly)
+		public static HResult DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, ReadOnlySpan<byte> szComments, nuint startByteOffset, nuint numInsts, ref nuint pFinishByteOffset, ref ID3D10Blob* ppDisassembly)
 		{
 			fixed (byte* pszComments = szComments)
 			{
@@ -2285,7 +2285,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (ID3D10Blob** pppDisassembly = &ppDisassembly)
 					{
-						int ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, (byte*)pszComments, startByteOffset, numInsts, (nuint*)ppFinishByteOffset, (ID3D10Blob**)pppDisassembly);
+						HResult ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, (byte*)pszComments, startByteOffset, numInsts, (nuint*)ppFinishByteOffset, (ID3D10Blob**)pppDisassembly);
 						return ret;
 					}
 				}
@@ -2295,7 +2295,7 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, string szComments, nuint startByteOffset, nuint numInsts, ref nuint pFinishByteOffset, ref ID3D10Blob* ppDisassembly)
+		public static HResult DisassembleRegion(void* pSrcData, nuint srcDataSize, uint flags, string szComments, nuint startByteOffset, nuint numInsts, ref nuint pFinishByteOffset, ref ID3D10Blob* ppDisassembly)
 		{
 			byte* pStr0 = null;
 			int pStrSize0 = 0;
@@ -2318,7 +2318,7 @@ namespace Hexa.NET.D3DCompiler
 			{
 				fixed (ID3D10Blob** pppDisassembly = &ppDisassembly)
 				{
-					int ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, pStr0, startByteOffset, numInsts, (nuint*)ppFinishByteOffset, (ID3D10Blob**)pppDisassembly);
+					HResult ret = DisassembleRegionNative(pSrcData, srcDataSize, flags, pStr0, startByteOffset, numInsts, (nuint*)ppFinishByteOffset, (ID3D10Blob**)pppDisassembly);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2334,12 +2334,12 @@ namespace Hexa.NET.D3DCompiler
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateLinkerNative(ID3D11Linker** ppLinker)
+		internal static HResult CreateLinkerNative(ID3D11Linker** ppLinker)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ID3D11Linker**, int>)funcTable[11])(ppLinker);
+			return ((delegate* unmanaged[Cdecl]<ID3D11Linker**, HResult>)funcTable[11])(ppLinker);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, int>)funcTable[11])((nint)ppLinker);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, HResult>)funcTable[11])((nint)ppLinker);
 			#endif
 		}
 
@@ -2348,9 +2348,9 @@ namespace Hexa.NET.D3DCompiler
 		/// Shader linking and Function Linking Graph (FLG) APIs<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int CreateLinker(ID3D11Linker** ppLinker)
+		public static HResult CreateLinker(ID3D11Linker** ppLinker)
 		{
-			int ret = CreateLinkerNative(ppLinker);
+			HResult ret = CreateLinkerNative(ppLinker);
 			return ret;
 		}
 
@@ -2359,11 +2359,11 @@ namespace Hexa.NET.D3DCompiler
 		/// Shader linking and Function Linking Graph (FLG) APIs<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int CreateLinker(ref ID3D11Linker* ppLinker)
+		public static HResult CreateLinker(ref ID3D11Linker* ppLinker)
 		{
 			fixed (ID3D11Linker** pppLinker = &ppLinker)
 			{
-				int ret = CreateLinkerNative((ID3D11Linker**)pppLinker);
+				HResult ret = CreateLinkerNative((ID3D11Linker**)pppLinker);
 				return ret;
 			}
 		}
@@ -2373,10 +2373,10 @@ namespace Hexa.NET.D3DCompiler
 		/// Shader linking and Function Linking Graph (FLG) APIs<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int CreateLinker(out ComPtr<ID3D11Linker> ppLinker)
+		public static HResult CreateLinker(out ComPtr<ID3D11Linker> ppLinker)
 		{
 			ppLinker = default;
-			int ret = CreateLinkerNative((ID3D11Linker**)ppLinker.GetAddressOf());
+			HResult ret = CreateLinkerNative((ID3D11Linker**)ppLinker.GetAddressOf());
 			return ret;
 		}
 
@@ -2384,32 +2384,32 @@ namespace Hexa.NET.D3DCompiler
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int LoadModuleNative(void* pSrcData, nuint cbSrcDataSize, ID3D11Module** ppModule)
+		internal static HResult LoadModuleNative(void* pSrcData, nuint cbSrcDataSize, ID3D11Module** ppModule)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, ID3D11Module**, int>)funcTable[12])(pSrcData, cbSrcDataSize, ppModule);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, ID3D11Module**, HResult>)funcTable[12])(pSrcData, cbSrcDataSize, ppModule);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, nint, int>)funcTable[12])((nint)pSrcData, cbSrcDataSize, (nint)ppModule);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, nint, HResult>)funcTable[12])((nint)pSrcData, cbSrcDataSize, (nint)ppModule);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int LoadModule(void* pSrcData, nuint cbSrcDataSize, ID3D11Module** ppModule)
+		public static HResult LoadModule(void* pSrcData, nuint cbSrcDataSize, ID3D11Module** ppModule)
 		{
-			int ret = LoadModuleNative(pSrcData, cbSrcDataSize, ppModule);
+			HResult ret = LoadModuleNative(pSrcData, cbSrcDataSize, ppModule);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int LoadModule(void* pSrcData, nuint cbSrcDataSize, ref ID3D11Module* ppModule)
+		public static HResult LoadModule(void* pSrcData, nuint cbSrcDataSize, ref ID3D11Module* ppModule)
 		{
 			fixed (ID3D11Module** pppModule = &ppModule)
 			{
-				int ret = LoadModuleNative(pSrcData, cbSrcDataSize, (ID3D11Module**)pppModule);
+				HResult ret = LoadModuleNative(pSrcData, cbSrcDataSize, (ID3D11Module**)pppModule);
 				return ret;
 			}
 		}
@@ -2417,10 +2417,10 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int LoadModule(void* pSrcData, nuint cbSrcDataSize, out ComPtr<ID3D11Module> ppModule)
+		public static HResult LoadModule(void* pSrcData, nuint cbSrcDataSize, out ComPtr<ID3D11Module> ppModule)
 		{
 			ppModule = default;
-			int ret = LoadModuleNative(pSrcData, cbSrcDataSize, (ID3D11Module**)ppModule.GetAddressOf());
+			HResult ret = LoadModuleNative(pSrcData, cbSrcDataSize, (ID3D11Module**)ppModule.GetAddressOf());
 			return ret;
 		}
 
@@ -2428,32 +2428,32 @@ namespace Hexa.NET.D3DCompiler
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateFunctionLinkingGraphNative(uint uFlags, ID3D11FunctionLinkingGraph** ppFunctionLinkingGraph)
+		internal static HResult CreateFunctionLinkingGraphNative(uint uFlags, ID3D11FunctionLinkingGraph** ppFunctionLinkingGraph)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, ID3D11FunctionLinkingGraph**, int>)funcTable[13])(uFlags, ppFunctionLinkingGraph);
+			return ((delegate* unmanaged[Cdecl]<uint, ID3D11FunctionLinkingGraph**, HResult>)funcTable[13])(uFlags, ppFunctionLinkingGraph);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<uint, nint, int>)funcTable[13])(uFlags, (nint)ppFunctionLinkingGraph);
+			return (HResult)((delegate* unmanaged[Cdecl]<uint, nint, HResult>)funcTable[13])(uFlags, (nint)ppFunctionLinkingGraph);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateFunctionLinkingGraph(uint uFlags, ID3D11FunctionLinkingGraph** ppFunctionLinkingGraph)
+		public static HResult CreateFunctionLinkingGraph(uint uFlags, ID3D11FunctionLinkingGraph** ppFunctionLinkingGraph)
 		{
-			int ret = CreateFunctionLinkingGraphNative(uFlags, ppFunctionLinkingGraph);
+			HResult ret = CreateFunctionLinkingGraphNative(uFlags, ppFunctionLinkingGraph);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateFunctionLinkingGraph(uint uFlags, ref ID3D11FunctionLinkingGraph* ppFunctionLinkingGraph)
+		public static HResult CreateFunctionLinkingGraph(uint uFlags, ref ID3D11FunctionLinkingGraph* ppFunctionLinkingGraph)
 		{
 			fixed (ID3D11FunctionLinkingGraph** pppFunctionLinkingGraph = &ppFunctionLinkingGraph)
 			{
-				int ret = CreateFunctionLinkingGraphNative(uFlags, (ID3D11FunctionLinkingGraph**)pppFunctionLinkingGraph);
+				HResult ret = CreateFunctionLinkingGraphNative(uFlags, (ID3D11FunctionLinkingGraph**)pppFunctionLinkingGraph);
 				return ret;
 			}
 		}
@@ -2461,10 +2461,10 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateFunctionLinkingGraph(uint uFlags, out ComPtr<ID3D11FunctionLinkingGraph> ppFunctionLinkingGraph)
+		public static HResult CreateFunctionLinkingGraph(uint uFlags, out ComPtr<ID3D11FunctionLinkingGraph> ppFunctionLinkingGraph)
 		{
 			ppFunctionLinkingGraph = default;
-			int ret = CreateFunctionLinkingGraphNative(uFlags, (ID3D11FunctionLinkingGraph**)ppFunctionLinkingGraph.GetAddressOf());
+			HResult ret = CreateFunctionLinkingGraphNative(uFlags, (ID3D11FunctionLinkingGraph**)ppFunctionLinkingGraph.GetAddressOf());
 			return ret;
 		}
 
@@ -2472,32 +2472,32 @@ namespace Hexa.NET.D3DCompiler
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetTraceInstructionOffsetsNative(void* pSrcData, nuint srcDataSize, uint flags, nuint startInstIndex, nuint numInsts, nuint* pOffsets, nuint* pTotalInsts)
+		internal static HResult GetTraceInstructionOffsetsNative(void* pSrcData, nuint srcDataSize, uint flags, nuint startInstIndex, nuint numInsts, nuint* pOffsets, nuint* pTotalInsts)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, uint, nuint, nuint, nuint*, nuint*, int>)funcTable[14])(pSrcData, srcDataSize, flags, startInstIndex, numInsts, pOffsets, pTotalInsts);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, uint, nuint, nuint, nuint*, nuint*, HResult>)funcTable[14])(pSrcData, srcDataSize, flags, startInstIndex, numInsts, pOffsets, pTotalInsts);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, uint, nuint, nuint, nint, nint, int>)funcTable[14])((nint)pSrcData, srcDataSize, flags, startInstIndex, numInsts, (nint)pOffsets, (nint)pTotalInsts);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, uint, nuint, nuint, nint, nint, HResult>)funcTable[14])((nint)pSrcData, srcDataSize, flags, startInstIndex, numInsts, (nint)pOffsets, (nint)pTotalInsts);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetTraceInstructionOffsets(void* pSrcData, nuint srcDataSize, uint flags, nuint startInstIndex, nuint numInsts, nuint* pOffsets, nuint* pTotalInsts)
+		public static HResult GetTraceInstructionOffsets(void* pSrcData, nuint srcDataSize, uint flags, nuint startInstIndex, nuint numInsts, nuint* pOffsets, nuint* pTotalInsts)
 		{
-			int ret = GetTraceInstructionOffsetsNative(pSrcData, srcDataSize, flags, startInstIndex, numInsts, pOffsets, pTotalInsts);
+			HResult ret = GetTraceInstructionOffsetsNative(pSrcData, srcDataSize, flags, startInstIndex, numInsts, pOffsets, pTotalInsts);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetTraceInstructionOffsets(void* pSrcData, nuint srcDataSize, uint flags, nuint startInstIndex, nuint numInsts, ref nuint pOffsets, nuint* pTotalInsts)
+		public static HResult GetTraceInstructionOffsets(void* pSrcData, nuint srcDataSize, uint flags, nuint startInstIndex, nuint numInsts, ref nuint pOffsets, nuint* pTotalInsts)
 		{
 			fixed (nuint* ppOffsets = &pOffsets)
 			{
-				int ret = GetTraceInstructionOffsetsNative(pSrcData, srcDataSize, flags, startInstIndex, numInsts, (nuint*)ppOffsets, pTotalInsts);
+				HResult ret = GetTraceInstructionOffsetsNative(pSrcData, srcDataSize, flags, startInstIndex, numInsts, (nuint*)ppOffsets, pTotalInsts);
 				return ret;
 			}
 		}
@@ -2505,11 +2505,11 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetTraceInstructionOffsets(void* pSrcData, nuint srcDataSize, uint flags, nuint startInstIndex, nuint numInsts, nuint* pOffsets, ref nuint pTotalInsts)
+		public static HResult GetTraceInstructionOffsets(void* pSrcData, nuint srcDataSize, uint flags, nuint startInstIndex, nuint numInsts, nuint* pOffsets, ref nuint pTotalInsts)
 		{
 			fixed (nuint* ppTotalInsts = &pTotalInsts)
 			{
-				int ret = GetTraceInstructionOffsetsNative(pSrcData, srcDataSize, flags, startInstIndex, numInsts, pOffsets, (nuint*)ppTotalInsts);
+				HResult ret = GetTraceInstructionOffsetsNative(pSrcData, srcDataSize, flags, startInstIndex, numInsts, pOffsets, (nuint*)ppTotalInsts);
 				return ret;
 			}
 		}
@@ -2517,13 +2517,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetTraceInstructionOffsets(void* pSrcData, nuint srcDataSize, uint flags, nuint startInstIndex, nuint numInsts, ref nuint pOffsets, ref nuint pTotalInsts)
+		public static HResult GetTraceInstructionOffsets(void* pSrcData, nuint srcDataSize, uint flags, nuint startInstIndex, nuint numInsts, ref nuint pOffsets, ref nuint pTotalInsts)
 		{
 			fixed (nuint* ppOffsets = &pOffsets)
 			{
 				fixed (nuint* ppTotalInsts = &pTotalInsts)
 				{
-					int ret = GetTraceInstructionOffsetsNative(pSrcData, srcDataSize, flags, startInstIndex, numInsts, (nuint*)ppOffsets, (nuint*)ppTotalInsts);
+					HResult ret = GetTraceInstructionOffsetsNative(pSrcData, srcDataSize, flags, startInstIndex, numInsts, (nuint*)ppOffsets, (nuint*)ppTotalInsts);
 					return ret;
 				}
 			}
@@ -2537,12 +2537,12 @@ namespace Hexa.NET.D3DCompiler
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetInputSignatureBlobNative(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppSignatureBlob)
+		internal static HResult GetInputSignatureBlobNative(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppSignatureBlob)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, ID3D10Blob**, int>)funcTable[15])(pSrcData, srcDataSize, ppSignatureBlob);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, ID3D10Blob**, HResult>)funcTable[15])(pSrcData, srcDataSize, ppSignatureBlob);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, nint, int>)funcTable[15])((nint)pSrcData, srcDataSize, (nint)ppSignatureBlob);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, nint, HResult>)funcTable[15])((nint)pSrcData, srcDataSize, (nint)ppSignatureBlob);
 			#endif
 		}
 
@@ -2553,9 +2553,9 @@ namespace Hexa.NET.D3DCompiler
 		/// Retrieve the input signature from a compilation result.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int GetInputSignatureBlob(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppSignatureBlob)
+		public static HResult GetInputSignatureBlob(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppSignatureBlob)
 		{
-			int ret = GetInputSignatureBlobNative(pSrcData, srcDataSize, ppSignatureBlob);
+			HResult ret = GetInputSignatureBlobNative(pSrcData, srcDataSize, ppSignatureBlob);
 			return ret;
 		}
 
@@ -2566,11 +2566,11 @@ namespace Hexa.NET.D3DCompiler
 		/// Retrieve the input signature from a compilation result.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int GetInputSignatureBlob(void* pSrcData, nuint srcDataSize, ref ID3D10Blob* ppSignatureBlob)
+		public static HResult GetInputSignatureBlob(void* pSrcData, nuint srcDataSize, ref ID3D10Blob* ppSignatureBlob)
 		{
 			fixed (ID3D10Blob** pppSignatureBlob = &ppSignatureBlob)
 			{
-				int ret = GetInputSignatureBlobNative(pSrcData, srcDataSize, (ID3D10Blob**)pppSignatureBlob);
+				HResult ret = GetInputSignatureBlobNative(pSrcData, srcDataSize, (ID3D10Blob**)pppSignatureBlob);
 				return ret;
 			}
 		}
@@ -2583,12 +2583,12 @@ namespace Hexa.NET.D3DCompiler
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetOutputSignatureBlobNative(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppSignatureBlob)
+		internal static HResult GetOutputSignatureBlobNative(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppSignatureBlob)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, ID3D10Blob**, int>)funcTable[16])(pSrcData, srcDataSize, ppSignatureBlob);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, ID3D10Blob**, HResult>)funcTable[16])(pSrcData, srcDataSize, ppSignatureBlob);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, nint, int>)funcTable[16])((nint)pSrcData, srcDataSize, (nint)ppSignatureBlob);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, nint, HResult>)funcTable[16])((nint)pSrcData, srcDataSize, (nint)ppSignatureBlob);
 			#endif
 		}
 
@@ -2599,9 +2599,9 @@ namespace Hexa.NET.D3DCompiler
 		/// Retrieve the output signature from a compilation result.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int GetOutputSignatureBlob(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppSignatureBlob)
+		public static HResult GetOutputSignatureBlob(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppSignatureBlob)
 		{
-			int ret = GetOutputSignatureBlobNative(pSrcData, srcDataSize, ppSignatureBlob);
+			HResult ret = GetOutputSignatureBlobNative(pSrcData, srcDataSize, ppSignatureBlob);
 			return ret;
 		}
 
@@ -2612,11 +2612,11 @@ namespace Hexa.NET.D3DCompiler
 		/// Retrieve the output signature from a compilation result.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int GetOutputSignatureBlob(void* pSrcData, nuint srcDataSize, ref ID3D10Blob* ppSignatureBlob)
+		public static HResult GetOutputSignatureBlob(void* pSrcData, nuint srcDataSize, ref ID3D10Blob* ppSignatureBlob)
 		{
 			fixed (ID3D10Blob** pppSignatureBlob = &ppSignatureBlob)
 			{
-				int ret = GetOutputSignatureBlobNative(pSrcData, srcDataSize, (ID3D10Blob**)pppSignatureBlob);
+				HResult ret = GetOutputSignatureBlobNative(pSrcData, srcDataSize, (ID3D10Blob**)pppSignatureBlob);
 				return ret;
 			}
 		}
@@ -2629,12 +2629,12 @@ namespace Hexa.NET.D3DCompiler
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetInputAndOutputSignatureBlobNative(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppSignatureBlob)
+		internal static HResult GetInputAndOutputSignatureBlobNative(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppSignatureBlob)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, ID3D10Blob**, int>)funcTable[17])(pSrcData, srcDataSize, ppSignatureBlob);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, ID3D10Blob**, HResult>)funcTable[17])(pSrcData, srcDataSize, ppSignatureBlob);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, nint, int>)funcTable[17])((nint)pSrcData, srcDataSize, (nint)ppSignatureBlob);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, nint, HResult>)funcTable[17])((nint)pSrcData, srcDataSize, (nint)ppSignatureBlob);
 			#endif
 		}
 
@@ -2645,9 +2645,9 @@ namespace Hexa.NET.D3DCompiler
 		/// Retrieve the input and output signatures from a compilation result.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int GetInputAndOutputSignatureBlob(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppSignatureBlob)
+		public static HResult GetInputAndOutputSignatureBlob(void* pSrcData, nuint srcDataSize, ID3D10Blob** ppSignatureBlob)
 		{
-			int ret = GetInputAndOutputSignatureBlobNative(pSrcData, srcDataSize, ppSignatureBlob);
+			HResult ret = GetInputAndOutputSignatureBlobNative(pSrcData, srcDataSize, ppSignatureBlob);
 			return ret;
 		}
 
@@ -2658,11 +2658,11 @@ namespace Hexa.NET.D3DCompiler
 		/// Retrieve the input and output signatures from a compilation result.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int GetInputAndOutputSignatureBlob(void* pSrcData, nuint srcDataSize, ref ID3D10Blob* ppSignatureBlob)
+		public static HResult GetInputAndOutputSignatureBlob(void* pSrcData, nuint srcDataSize, ref ID3D10Blob* ppSignatureBlob)
 		{
 			fixed (ID3D10Blob** pppSignatureBlob = &ppSignatureBlob)
 			{
-				int ret = GetInputAndOutputSignatureBlobNative(pSrcData, srcDataSize, (ID3D10Blob**)pppSignatureBlob);
+				HResult ret = GetInputAndOutputSignatureBlobNative(pSrcData, srcDataSize, (ID3D10Blob**)pppSignatureBlob);
 				return ret;
 			}
 		}
@@ -2671,32 +2671,32 @@ namespace Hexa.NET.D3DCompiler
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int StripShaderNative(void* pShaderBytecode, nuint bytecodeLength, uint uStripFlags, ID3D10Blob** ppStrippedBlob)
+		internal static HResult StripShaderNative(void* pShaderBytecode, nuint bytecodeLength, uint uStripFlags, ID3D10Blob** ppStrippedBlob)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, uint, ID3D10Blob**, int>)funcTable[18])(pShaderBytecode, bytecodeLength, uStripFlags, ppStrippedBlob);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, uint, ID3D10Blob**, HResult>)funcTable[18])(pShaderBytecode, bytecodeLength, uStripFlags, ppStrippedBlob);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, uint, nint, int>)funcTable[18])((nint)pShaderBytecode, bytecodeLength, uStripFlags, (nint)ppStrippedBlob);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, uint, nint, HResult>)funcTable[18])((nint)pShaderBytecode, bytecodeLength, uStripFlags, (nint)ppStrippedBlob);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int StripShader(void* pShaderBytecode, nuint bytecodeLength, uint uStripFlags, ID3D10Blob** ppStrippedBlob)
+		public static HResult StripShader(void* pShaderBytecode, nuint bytecodeLength, uint uStripFlags, ID3D10Blob** ppStrippedBlob)
 		{
-			int ret = StripShaderNative(pShaderBytecode, bytecodeLength, uStripFlags, ppStrippedBlob);
+			HResult ret = StripShaderNative(pShaderBytecode, bytecodeLength, uStripFlags, ppStrippedBlob);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int StripShader(void* pShaderBytecode, nuint bytecodeLength, uint uStripFlags, ref ID3D10Blob* ppStrippedBlob)
+		public static HResult StripShader(void* pShaderBytecode, nuint bytecodeLength, uint uStripFlags, ref ID3D10Blob* ppStrippedBlob)
 		{
 			fixed (ID3D10Blob** pppStrippedBlob = &ppStrippedBlob)
 			{
-				int ret = StripShaderNative(pShaderBytecode, bytecodeLength, uStripFlags, (ID3D10Blob**)pppStrippedBlob);
+				HResult ret = StripShaderNative(pShaderBytecode, bytecodeLength, uStripFlags, (ID3D10Blob**)pppStrippedBlob);
 				return ret;
 			}
 		}
@@ -2705,32 +2705,32 @@ namespace Hexa.NET.D3DCompiler
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetBlobPartNative(void* pSrcData, nuint srcDataSize, BlobPart part, uint flags, ID3D10Blob** ppPart)
+		internal static HResult GetBlobPartNative(void* pSrcData, nuint srcDataSize, BlobPart part, uint flags, ID3D10Blob** ppPart)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, BlobPart, uint, ID3D10Blob**, int>)funcTable[19])(pSrcData, srcDataSize, part, flags, ppPart);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, BlobPart, uint, ID3D10Blob**, HResult>)funcTable[19])(pSrcData, srcDataSize, part, flags, ppPart);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, BlobPart, uint, nint, int>)funcTable[19])((nint)pSrcData, srcDataSize, part, flags, (nint)ppPart);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, BlobPart, uint, nint, HResult>)funcTable[19])((nint)pSrcData, srcDataSize, part, flags, (nint)ppPart);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobPart(void* pSrcData, nuint srcDataSize, BlobPart part, uint flags, ID3D10Blob** ppPart)
+		public static HResult GetBlobPart(void* pSrcData, nuint srcDataSize, BlobPart part, uint flags, ID3D10Blob** ppPart)
 		{
-			int ret = GetBlobPartNative(pSrcData, srcDataSize, part, flags, ppPart);
+			HResult ret = GetBlobPartNative(pSrcData, srcDataSize, part, flags, ppPart);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBlobPart(void* pSrcData, nuint srcDataSize, BlobPart part, uint flags, ref ID3D10Blob* ppPart)
+		public static HResult GetBlobPart(void* pSrcData, nuint srcDataSize, BlobPart part, uint flags, ref ID3D10Blob* ppPart)
 		{
 			fixed (ID3D10Blob** pppPart = &ppPart)
 			{
-				int ret = GetBlobPartNative(pSrcData, srcDataSize, part, flags, (ID3D10Blob**)pppPart);
+				HResult ret = GetBlobPartNative(pSrcData, srcDataSize, part, flags, (ID3D10Blob**)pppPart);
 				return ret;
 			}
 		}
@@ -2743,12 +2743,12 @@ namespace Hexa.NET.D3DCompiler
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int SetBlobPartNative(void* pSrcData, nuint srcDataSize, BlobPart part, uint flags, void* pPart, nuint partSize, ID3D10Blob** ppNewShader)
+		internal static HResult SetBlobPartNative(void* pSrcData, nuint srcDataSize, BlobPart part, uint flags, void* pPart, nuint partSize, ID3D10Blob** ppNewShader)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, BlobPart, uint, void*, nuint, ID3D10Blob**, int>)funcTable[20])(pSrcData, srcDataSize, part, flags, pPart, partSize, ppNewShader);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, BlobPart, uint, void*, nuint, ID3D10Blob**, HResult>)funcTable[20])(pSrcData, srcDataSize, part, flags, pPart, partSize, ppNewShader);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, BlobPart, uint, nint, nuint, nint, int>)funcTable[20])((nint)pSrcData, srcDataSize, part, flags, (nint)pPart, partSize, (nint)ppNewShader);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, BlobPart, uint, nint, nuint, nint, HResult>)funcTable[20])((nint)pSrcData, srcDataSize, part, flags, (nint)pPart, partSize, (nint)ppNewShader);
 			#endif
 		}
 
@@ -2759,9 +2759,9 @@ namespace Hexa.NET.D3DCompiler
 		/// Update information in a compilation result.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int SetBlobPart(void* pSrcData, nuint srcDataSize, BlobPart part, uint flags, void* pPart, nuint partSize, ID3D10Blob** ppNewShader)
+		public static HResult SetBlobPart(void* pSrcData, nuint srcDataSize, BlobPart part, uint flags, void* pPart, nuint partSize, ID3D10Blob** ppNewShader)
 		{
-			int ret = SetBlobPartNative(pSrcData, srcDataSize, part, flags, pPart, partSize, ppNewShader);
+			HResult ret = SetBlobPartNative(pSrcData, srcDataSize, part, flags, pPart, partSize, ppNewShader);
 			return ret;
 		}
 
@@ -2772,11 +2772,11 @@ namespace Hexa.NET.D3DCompiler
 		/// Update information in a compilation result.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int SetBlobPart(void* pSrcData, nuint srcDataSize, BlobPart part, uint flags, void* pPart, nuint partSize, ref ID3D10Blob* ppNewShader)
+		public static HResult SetBlobPart(void* pSrcData, nuint srcDataSize, BlobPart part, uint flags, void* pPart, nuint partSize, ref ID3D10Blob* ppNewShader)
 		{
 			fixed (ID3D10Blob** pppNewShader = &ppNewShader)
 			{
-				int ret = SetBlobPartNative(pSrcData, srcDataSize, part, flags, pPart, partSize, (ID3D10Blob**)pppNewShader);
+				HResult ret = SetBlobPartNative(pSrcData, srcDataSize, part, flags, pPart, partSize, (ID3D10Blob**)pppNewShader);
 				return ret;
 			}
 		}
@@ -2789,12 +2789,12 @@ namespace Hexa.NET.D3DCompiler
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateBlobNative(nuint size, ID3D10Blob** ppBlob)
+		internal static HResult CreateBlobNative(nuint size, ID3D10Blob** ppBlob)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<nuint, ID3D10Blob**, int>)funcTable[21])(size, ppBlob);
+			return ((delegate* unmanaged[Cdecl]<nuint, ID3D10Blob**, HResult>)funcTable[21])(size, ppBlob);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nuint, nint, int>)funcTable[21])(size, (nint)ppBlob);
+			return (HResult)((delegate* unmanaged[Cdecl]<nuint, nint, HResult>)funcTable[21])(size, (nint)ppBlob);
 			#endif
 		}
 
@@ -2805,9 +2805,9 @@ namespace Hexa.NET.D3DCompiler
 		/// Create an ID3DBlob instance.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int CreateBlob(nuint size, ID3D10Blob** ppBlob)
+		public static HResult CreateBlob(nuint size, ID3D10Blob** ppBlob)
 		{
-			int ret = CreateBlobNative(size, ppBlob);
+			HResult ret = CreateBlobNative(size, ppBlob);
 			return ret;
 		}
 
@@ -2818,11 +2818,11 @@ namespace Hexa.NET.D3DCompiler
 		/// Create an ID3DBlob instance.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int CreateBlob(nuint size, ref ID3D10Blob* ppBlob)
+		public static HResult CreateBlob(nuint size, ref ID3D10Blob* ppBlob)
 		{
 			fixed (ID3D10Blob** pppBlob = &ppBlob)
 			{
-				int ret = CreateBlobNative(size, (ID3D10Blob**)pppBlob);
+				HResult ret = CreateBlobNative(size, (ID3D10Blob**)pppBlob);
 				return ret;
 			}
 		}
@@ -2831,32 +2831,32 @@ namespace Hexa.NET.D3DCompiler
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CompressShadersNative(uint uNumShaders, ShaderData* pShaderData, uint uFlags, ID3D10Blob** ppCompressedData)
+		internal static HResult CompressShadersNative(uint uNumShaders, ShaderData* pShaderData, uint uFlags, ID3D10Blob** ppCompressedData)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<uint, ShaderData*, uint, ID3D10Blob**, int>)funcTable[22])(uNumShaders, pShaderData, uFlags, ppCompressedData);
+			return ((delegate* unmanaged[Cdecl]<uint, ShaderData*, uint, ID3D10Blob**, HResult>)funcTable[22])(uNumShaders, pShaderData, uFlags, ppCompressedData);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<uint, nint, uint, nint, int>)funcTable[22])(uNumShaders, (nint)pShaderData, uFlags, (nint)ppCompressedData);
+			return (HResult)((delegate* unmanaged[Cdecl]<uint, nint, uint, nint, HResult>)funcTable[22])(uNumShaders, (nint)pShaderData, uFlags, (nint)ppCompressedData);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompressShaders(uint uNumShaders, ShaderData* pShaderData, uint uFlags, ID3D10Blob** ppCompressedData)
+		public static HResult CompressShaders(uint uNumShaders, ShaderData* pShaderData, uint uFlags, ID3D10Blob** ppCompressedData)
 		{
-			int ret = CompressShadersNative(uNumShaders, pShaderData, uFlags, ppCompressedData);
+			HResult ret = CompressShadersNative(uNumShaders, pShaderData, uFlags, ppCompressedData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompressShaders(uint uNumShaders, ref ShaderData pShaderData, uint uFlags, ID3D10Blob** ppCompressedData)
+		public static HResult CompressShaders(uint uNumShaders, ref ShaderData pShaderData, uint uFlags, ID3D10Blob** ppCompressedData)
 		{
 			fixed (ShaderData* ppShaderData = &pShaderData)
 			{
-				int ret = CompressShadersNative(uNumShaders, (ShaderData*)ppShaderData, uFlags, ppCompressedData);
+				HResult ret = CompressShadersNative(uNumShaders, (ShaderData*)ppShaderData, uFlags, ppCompressedData);
 				return ret;
 			}
 		}
@@ -2864,11 +2864,11 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompressShaders(uint uNumShaders, ShaderData* pShaderData, uint uFlags, ref ID3D10Blob* ppCompressedData)
+		public static HResult CompressShaders(uint uNumShaders, ShaderData* pShaderData, uint uFlags, ref ID3D10Blob* ppCompressedData)
 		{
 			fixed (ID3D10Blob** pppCompressedData = &ppCompressedData)
 			{
-				int ret = CompressShadersNative(uNumShaders, pShaderData, uFlags, (ID3D10Blob**)pppCompressedData);
+				HResult ret = CompressShadersNative(uNumShaders, pShaderData, uFlags, (ID3D10Blob**)pppCompressedData);
 				return ret;
 			}
 		}
@@ -2876,13 +2876,13 @@ namespace Hexa.NET.D3DCompiler
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CompressShaders(uint uNumShaders, ref ShaderData pShaderData, uint uFlags, ref ID3D10Blob* ppCompressedData)
+		public static HResult CompressShaders(uint uNumShaders, ref ShaderData pShaderData, uint uFlags, ref ID3D10Blob* ppCompressedData)
 		{
 			fixed (ShaderData* ppShaderData = &pShaderData)
 			{
 				fixed (ID3D10Blob** pppCompressedData = &ppCompressedData)
 				{
-					int ret = CompressShadersNative(uNumShaders, (ShaderData*)ppShaderData, uFlags, (ID3D10Blob**)pppCompressedData);
+					HResult ret = CompressShadersNative(uNumShaders, (ShaderData*)ppShaderData, uFlags, (ID3D10Blob**)pppCompressedData);
 					return ret;
 				}
 			}
@@ -2896,12 +2896,12 @@ namespace Hexa.NET.D3DCompiler
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int DecompressShadersNative(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, uint* pIndices, uint uFlags, ID3D10Blob** ppShaders, uint* pTotalShaders)
+		internal static HResult DecompressShadersNative(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, uint* pIndices, uint uFlags, ID3D10Blob** ppShaders, uint* pTotalShaders)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<void*, nuint, uint, uint, uint*, uint, ID3D10Blob**, uint*, int>)funcTable[23])(pSrcData, srcDataSize, uNumShaders, uStartIndex, pIndices, uFlags, ppShaders, pTotalShaders);
+			return ((delegate* unmanaged[Cdecl]<void*, nuint, uint, uint, uint*, uint, ID3D10Blob**, uint*, HResult>)funcTable[23])(pSrcData, srcDataSize, uNumShaders, uStartIndex, pIndices, uFlags, ppShaders, pTotalShaders);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nuint, uint, uint, nint, uint, nint, nint, int>)funcTable[23])((nint)pSrcData, srcDataSize, uNumShaders, uStartIndex, (nint)pIndices, uFlags, (nint)ppShaders, (nint)pTotalShaders);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nuint, uint, uint, nint, uint, nint, nint, HResult>)funcTable[23])((nint)pSrcData, srcDataSize, uNumShaders, uStartIndex, (nint)pIndices, uFlags, (nint)ppShaders, (nint)pTotalShaders);
 			#endif
 		}
 
@@ -2912,9 +2912,9 @@ namespace Hexa.NET.D3DCompiler
 		/// Decompresses one or more shaders from a compressed set.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, uint* pIndices, uint uFlags, ID3D10Blob** ppShaders, uint* pTotalShaders)
+		public static HResult DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, uint* pIndices, uint uFlags, ID3D10Blob** ppShaders, uint* pTotalShaders)
 		{
-			int ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, pIndices, uFlags, ppShaders, pTotalShaders);
+			HResult ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, pIndices, uFlags, ppShaders, pTotalShaders);
 			return ret;
 		}
 
@@ -2925,11 +2925,11 @@ namespace Hexa.NET.D3DCompiler
 		/// Decompresses one or more shaders from a compressed set.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, ref uint pIndices, uint uFlags, ID3D10Blob** ppShaders, uint* pTotalShaders)
+		public static HResult DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, ref uint pIndices, uint uFlags, ID3D10Blob** ppShaders, uint* pTotalShaders)
 		{
 			fixed (uint* ppIndices = &pIndices)
 			{
-				int ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, (uint*)ppIndices, uFlags, ppShaders, pTotalShaders);
+				HResult ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, (uint*)ppIndices, uFlags, ppShaders, pTotalShaders);
 				return ret;
 			}
 		}
@@ -2941,11 +2941,11 @@ namespace Hexa.NET.D3DCompiler
 		/// Decompresses one or more shaders from a compressed set.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, uint* pIndices, uint uFlags, ref ID3D10Blob* ppShaders, uint* pTotalShaders)
+		public static HResult DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, uint* pIndices, uint uFlags, ref ID3D10Blob* ppShaders, uint* pTotalShaders)
 		{
 			fixed (ID3D10Blob** pppShaders = &ppShaders)
 			{
-				int ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, pIndices, uFlags, (ID3D10Blob**)pppShaders, pTotalShaders);
+				HResult ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, pIndices, uFlags, (ID3D10Blob**)pppShaders, pTotalShaders);
 				return ret;
 			}
 		}
@@ -2957,13 +2957,13 @@ namespace Hexa.NET.D3DCompiler
 		/// Decompresses one or more shaders from a compressed set.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, ref uint pIndices, uint uFlags, ref ID3D10Blob* ppShaders, uint* pTotalShaders)
+		public static HResult DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, ref uint pIndices, uint uFlags, ref ID3D10Blob* ppShaders, uint* pTotalShaders)
 		{
 			fixed (uint* ppIndices = &pIndices)
 			{
 				fixed (ID3D10Blob** pppShaders = &ppShaders)
 				{
-					int ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, (uint*)ppIndices, uFlags, (ID3D10Blob**)pppShaders, pTotalShaders);
+					HResult ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, (uint*)ppIndices, uFlags, (ID3D10Blob**)pppShaders, pTotalShaders);
 					return ret;
 				}
 			}
@@ -2976,11 +2976,11 @@ namespace Hexa.NET.D3DCompiler
 		/// Decompresses one or more shaders from a compressed set.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, uint* pIndices, uint uFlags, ID3D10Blob** ppShaders, ref uint pTotalShaders)
+		public static HResult DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, uint* pIndices, uint uFlags, ID3D10Blob** ppShaders, ref uint pTotalShaders)
 		{
 			fixed (uint* ppTotalShaders = &pTotalShaders)
 			{
-				int ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, pIndices, uFlags, ppShaders, (uint*)ppTotalShaders);
+				HResult ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, pIndices, uFlags, ppShaders, (uint*)ppTotalShaders);
 				return ret;
 			}
 		}
@@ -2992,13 +2992,13 @@ namespace Hexa.NET.D3DCompiler
 		/// Decompresses one or more shaders from a compressed set.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, ref uint pIndices, uint uFlags, ID3D10Blob** ppShaders, ref uint pTotalShaders)
+		public static HResult DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, ref uint pIndices, uint uFlags, ID3D10Blob** ppShaders, ref uint pTotalShaders)
 		{
 			fixed (uint* ppIndices = &pIndices)
 			{
 				fixed (uint* ppTotalShaders = &pTotalShaders)
 				{
-					int ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, (uint*)ppIndices, uFlags, ppShaders, (uint*)ppTotalShaders);
+					HResult ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, (uint*)ppIndices, uFlags, ppShaders, (uint*)ppTotalShaders);
 					return ret;
 				}
 			}
@@ -3011,13 +3011,13 @@ namespace Hexa.NET.D3DCompiler
 		/// Decompresses one or more shaders from a compressed set.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, uint* pIndices, uint uFlags, ref ID3D10Blob* ppShaders, ref uint pTotalShaders)
+		public static HResult DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, uint* pIndices, uint uFlags, ref ID3D10Blob* ppShaders, ref uint pTotalShaders)
 		{
 			fixed (ID3D10Blob** pppShaders = &ppShaders)
 			{
 				fixed (uint* ppTotalShaders = &pTotalShaders)
 				{
-					int ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, pIndices, uFlags, (ID3D10Blob**)pppShaders, (uint*)ppTotalShaders);
+					HResult ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, pIndices, uFlags, (ID3D10Blob**)pppShaders, (uint*)ppTotalShaders);
 					return ret;
 				}
 			}
@@ -3030,7 +3030,7 @@ namespace Hexa.NET.D3DCompiler
 		/// Decompresses one or more shaders from a compressed set.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, ref uint pIndices, uint uFlags, ref ID3D10Blob* ppShaders, ref uint pTotalShaders)
+		public static HResult DecompressShaders(void* pSrcData, nuint srcDataSize, uint uNumShaders, uint uStartIndex, ref uint pIndices, uint uFlags, ref ID3D10Blob* ppShaders, ref uint pTotalShaders)
 		{
 			fixed (uint* ppIndices = &pIndices)
 			{
@@ -3038,7 +3038,7 @@ namespace Hexa.NET.D3DCompiler
 				{
 					fixed (uint* ppTotalShaders = &pTotalShaders)
 					{
-						int ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, (uint*)ppIndices, uFlags, (ID3D10Blob**)pppShaders, (uint*)ppTotalShaders);
+						HResult ret = DecompressShadersNative(pSrcData, srcDataSize, uNumShaders, uStartIndex, (uint*)ppIndices, uFlags, (ID3D10Blob**)pppShaders, (uint*)ppTotalShaders);
 						return ret;
 					}
 				}
@@ -3054,12 +3054,12 @@ namespace Hexa.NET.D3DCompiler
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int Disassemble10EffectNative(ID3D10Effect* pEffect, uint flags, ID3D10Blob** ppDisassembly)
+		internal static HResult Disassemble10EffectNative(ID3D10Effect* pEffect, uint flags, ID3D10Blob** ppDisassembly)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<ID3D10Effect*, uint, ID3D10Blob**, int>)funcTable[24])(pEffect, flags, ppDisassembly);
+			return ((delegate* unmanaged[Cdecl]<ID3D10Effect*, uint, ID3D10Blob**, HResult>)funcTable[24])(pEffect, flags, ppDisassembly);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, uint, nint, int>)funcTable[24])((nint)pEffect, flags, (nint)ppDisassembly);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, uint, nint, HResult>)funcTable[24])((nint)pEffect, flags, (nint)ppDisassembly);
 			#endif
 		}
 
@@ -3071,9 +3071,9 @@ namespace Hexa.NET.D3DCompiler
 		/// buffer containing text assembly.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Disassemble10Effect(ID3D10Effect* pEffect, uint flags, ID3D10Blob** ppDisassembly)
+		public static HResult Disassemble10Effect(ID3D10Effect* pEffect, uint flags, ID3D10Blob** ppDisassembly)
 		{
-			int ret = Disassemble10EffectNative(pEffect, flags, ppDisassembly);
+			HResult ret = Disassemble10EffectNative(pEffect, flags, ppDisassembly);
 			return ret;
 		}
 
@@ -3085,11 +3085,11 @@ namespace Hexa.NET.D3DCompiler
 		/// buffer containing text assembly.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Disassemble10Effect(ref ID3D10Effect pEffect, uint flags, ID3D10Blob** ppDisassembly)
+		public static HResult Disassemble10Effect(ref ID3D10Effect pEffect, uint flags, ID3D10Blob** ppDisassembly)
 		{
 			fixed (ID3D10Effect* ppEffect = &pEffect)
 			{
-				int ret = Disassemble10EffectNative((ID3D10Effect*)ppEffect, flags, ppDisassembly);
+				HResult ret = Disassemble10EffectNative((ID3D10Effect*)ppEffect, flags, ppDisassembly);
 				return ret;
 			}
 		}
@@ -3102,11 +3102,11 @@ namespace Hexa.NET.D3DCompiler
 		/// buffer containing text assembly.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Disassemble10Effect(ID3D10Effect* pEffect, uint flags, ref ID3D10Blob* ppDisassembly)
+		public static HResult Disassemble10Effect(ID3D10Effect* pEffect, uint flags, ref ID3D10Blob* ppDisassembly)
 		{
 			fixed (ID3D10Blob** pppDisassembly = &ppDisassembly)
 			{
-				int ret = Disassemble10EffectNative(pEffect, flags, (ID3D10Blob**)pppDisassembly);
+				HResult ret = Disassemble10EffectNative(pEffect, flags, (ID3D10Blob**)pppDisassembly);
 				return ret;
 			}
 		}
@@ -3119,13 +3119,13 @@ namespace Hexa.NET.D3DCompiler
 		/// buffer containing text assembly.<br/>
 		/// ----------------------------------------------------------------------------<br/>
 		/// </summary>
-		public static int Disassemble10Effect(ref ID3D10Effect pEffect, uint flags, ref ID3D10Blob* ppDisassembly)
+		public static HResult Disassemble10Effect(ref ID3D10Effect pEffect, uint flags, ref ID3D10Blob* ppDisassembly)
 		{
 			fixed (ID3D10Effect* ppEffect = &pEffect)
 			{
 				fixed (ID3D10Blob** pppDisassembly = &ppDisassembly)
 				{
-					int ret = Disassemble10EffectNative((ID3D10Effect*)ppEffect, flags, (ID3D10Blob**)pppDisassembly);
+					HResult ret = Disassemble10EffectNative((ID3D10Effect*)ppEffect, flags, (ID3D10Blob**)pppDisassembly);
 					return ret;
 				}
 			}

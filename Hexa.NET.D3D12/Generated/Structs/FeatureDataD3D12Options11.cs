@@ -27,13 +27,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int AtomicInt64OnDescriptorHeapResourceSupported;
+		public Bool32 AtomicInt64OnDescriptorHeapResourceSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D12Options11(int atomicInt64OnDescriptorHeapResourceSupported = default)
+		public unsafe FeatureDataD3D12Options11(Bool32 atomicInt64OnDescriptorHeapResourceSupported = default)
 		{
 			AtomicInt64OnDescriptorHeapResourceSupported = atomicInt64OnDescriptorHeapResourceSupported;
 		}

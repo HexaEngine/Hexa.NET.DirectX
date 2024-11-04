@@ -26,7 +26,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ScaleAndOffsetSupported;
+		public Bool32 ScaleAndOffsetSupported;
 
 		/// <summary>
 		/// To be documented.
@@ -1076,7 +1076,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe GammaControlCapabilities(int scaleAndOffsetSupported = default, float maxConvertedValue = default, float minConvertedValue = default, uint numGammaControlPoints = default, float* controlPointPositions = default)
+		public unsafe GammaControlCapabilities(Bool32 scaleAndOffsetSupported = default, float maxConvertedValue = default, float minConvertedValue = default, uint numGammaControlPoints = default, float* controlPointPositions = default)
 		{
 			ScaleAndOffsetSupported = scaleAndOffsetSupported;
 			MaxConvertedValue = maxConvertedValue;
@@ -2115,7 +2115,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe GammaControlCapabilities(int scaleAndOffsetSupported = default, float maxConvertedValue = default, float minConvertedValue = default, uint numGammaControlPoints = default, Span<float> controlPointPositions = default)
+		public unsafe GammaControlCapabilities(Bool32 scaleAndOffsetSupported = default, float maxConvertedValue = default, float minConvertedValue = default, uint numGammaControlPoints = default, Span<float> controlPointPositions = default)
 		{
 			ScaleAndOffsetSupported = scaleAndOffsetSupported;
 			MaxConvertedValue = maxConvertedValue;

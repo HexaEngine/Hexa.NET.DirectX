@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -104,22 +104,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -127,12 +127,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -140,14 +140,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ResourceDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -156,12 +156,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -169,14 +169,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -185,14 +185,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -201,7 +201,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -210,7 +210,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -220,12 +220,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -233,14 +233,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -249,14 +249,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -265,7 +265,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -274,7 +274,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -284,14 +284,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -300,7 +300,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -309,7 +309,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -319,7 +319,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -328,7 +328,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -338,7 +338,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -349,7 +349,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -360,12 +360,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -373,24 +373,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -399,12 +399,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -412,14 +412,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -428,12 +428,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -441,7 +441,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -450,7 +450,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -460,14 +460,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ResourceDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -476,14 +476,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -492,12 +492,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -505,7 +505,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -514,7 +514,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -524,14 +524,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -540,7 +540,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -549,7 +549,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -559,14 +559,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -575,7 +575,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -586,7 +586,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -597,7 +597,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -606,7 +606,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -616,14 +616,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
 				fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -632,12 +632,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -645,7 +645,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -654,7 +654,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -664,14 +664,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -680,7 +680,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -689,7 +689,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -699,14 +699,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -715,7 +715,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -726,7 +726,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -737,7 +737,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -746,7 +746,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -756,7 +756,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -765,7 +765,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -775,14 +775,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -791,7 +791,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -802,7 +802,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -813,7 +813,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -822,7 +822,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -832,7 +832,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -843,7 +843,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -854,7 +854,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -863,7 +863,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -873,7 +873,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -886,7 +886,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 								return ret;
 							}
 						}
@@ -898,7 +898,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -909,7 +909,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -920,12 +920,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -933,24 +933,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -959,12 +959,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 				return ret;
 			}
 		}
@@ -972,14 +972,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -988,12 +988,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 				return ret;
 			}
 		}
@@ -1001,7 +1001,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1010,7 +1010,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1020,14 +1020,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ResourceDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1036,14 +1036,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1052,12 +1052,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 				return ret;
 			}
 		}
@@ -1065,7 +1065,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1074,7 +1074,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1084,14 +1084,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1100,7 +1100,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -1109,7 +1109,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1119,14 +1119,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1135,7 +1135,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1146,7 +1146,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -1157,7 +1157,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1166,7 +1166,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1176,14 +1176,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
 				fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1192,12 +1192,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 				return ret;
 			}
 		}
@@ -1205,7 +1205,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1214,7 +1214,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1224,14 +1224,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1240,7 +1240,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -1249,7 +1249,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1259,14 +1259,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1275,7 +1275,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1286,7 +1286,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -1297,7 +1297,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1306,7 +1306,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1316,7 +1316,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -1325,7 +1325,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1335,14 +1335,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1351,7 +1351,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1362,7 +1362,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -1373,7 +1373,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1382,7 +1382,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1392,7 +1392,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -1403,7 +1403,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -1414,7 +1414,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -1423,7 +1423,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1433,7 +1433,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1446,7 +1446,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 								return ret;
 							}
 						}
@@ -1458,7 +1458,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1469,7 +1469,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 							return ret;
 						}
 					}
@@ -1480,14 +1480,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 			{
 				fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1496,17 +1496,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1515,7 +1515,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1525,12 +1525,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 				return ret;
 			}
 		}
@@ -1538,7 +1538,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -1547,7 +1547,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1557,12 +1557,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 				return ret;
 			}
 		}
@@ -1570,7 +1570,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1581,7 +1581,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -1592,14 +1592,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ResourceDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1608,7 +1608,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -1617,7 +1617,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1627,12 +1627,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 				return ret;
 			}
 		}
@@ -1640,7 +1640,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1651,7 +1651,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -1662,14 +1662,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1678,7 +1678,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -1689,7 +1689,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -1700,14 +1700,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1716,7 +1716,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1729,7 +1729,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 								return ret;
 							}
 						}
@@ -1741,7 +1741,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1750,7 +1750,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1760,7 +1760,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
@@ -1769,7 +1769,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1779,12 +1779,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 				return ret;
 			}
 		}
@@ -1792,7 +1792,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1803,7 +1803,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -1814,14 +1814,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1830,7 +1830,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -1841,7 +1841,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -1852,14 +1852,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1868,7 +1868,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1881,7 +1881,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 								return ret;
 							}
 						}
@@ -1893,7 +1893,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1902,7 +1902,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1912,7 +1912,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -1923,7 +1923,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -1934,14 +1934,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 					return ret;
 				}
 			}
@@ -1950,7 +1950,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1963,7 +1963,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 								return ret;
 							}
 						}
@@ -1975,7 +1975,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -1984,7 +1984,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 						return ret;
 					}
 				}
@@ -1994,7 +1994,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -2007,7 +2007,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 								return ret;
 							}
 						}
@@ -2019,7 +2019,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -2028,7 +2028,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 						return ret;
 					}
 				}
@@ -2038,7 +2038,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2053,7 +2053,7 @@ namespace Hexa.NET.D3D12
 							{
 								fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, riid, ppResource);
 									return ret;
 								}
 							}
@@ -2066,7 +2066,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2077,7 +2077,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, riid, ppResource);
 							return ret;
 						}
 					}
@@ -2088,12 +2088,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 				return ret;
 			}
 		}
@@ -2101,14 +2101,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -2117,14 +2117,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -2133,7 +2133,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2142,7 +2142,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2152,14 +2152,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -2168,7 +2168,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2177,7 +2177,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2187,7 +2187,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -2196,7 +2196,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2206,7 +2206,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2217,7 +2217,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2228,14 +2228,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -2244,7 +2244,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2253,7 +2253,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2263,7 +2263,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -2272,7 +2272,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2282,7 +2282,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2293,7 +2293,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2304,7 +2304,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -2313,7 +2313,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2323,7 +2323,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2334,7 +2334,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2345,7 +2345,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -2356,7 +2356,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2367,7 +2367,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2380,7 +2380,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -2392,14 +2392,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -2408,12 +2408,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 				return ret;
 			}
 		}
@@ -2421,7 +2421,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2430,7 +2430,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2440,14 +2440,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -2456,7 +2456,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -2465,7 +2465,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2475,14 +2475,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -2491,7 +2491,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2502,7 +2502,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2513,7 +2513,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2522,7 +2522,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2532,7 +2532,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -2541,7 +2541,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2551,14 +2551,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -2567,7 +2567,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2578,7 +2578,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2589,7 +2589,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2598,7 +2598,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2608,7 +2608,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -2619,7 +2619,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2630,7 +2630,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -2639,7 +2639,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2649,7 +2649,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2662,7 +2662,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -2674,7 +2674,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2685,7 +2685,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2696,7 +2696,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
@@ -2705,7 +2705,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2715,14 +2715,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -2731,7 +2731,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2742,7 +2742,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2753,7 +2753,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2762,7 +2762,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2772,7 +2772,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -2783,7 +2783,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2794,7 +2794,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -2803,7 +2803,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2813,7 +2813,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2826,7 +2826,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -2838,7 +2838,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2849,7 +2849,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2860,7 +2860,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -2871,7 +2871,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2882,7 +2882,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -2891,7 +2891,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -2901,7 +2901,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2914,7 +2914,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -2926,7 +2926,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -2937,7 +2937,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2948,7 +2948,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -2961,7 +2961,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -2973,7 +2973,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -2984,7 +2984,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -2995,7 +2995,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3010,7 +3010,7 @@ namespace Hexa.NET.D3D12
 							{
 								fixed (Guid* priid = &riid)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, (Guid*)priid, ppResource);
 									return ret;
 								}
 							}
@@ -3023,7 +3023,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3036,7 +3036,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -3048,14 +3048,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12SwapChainAssistant* ppOwningSwapchain = &pOwningSwapchain)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -3064,12 +3064,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 				return ret;
 			}
 		}
@@ -3077,7 +3077,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3086,7 +3086,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3096,14 +3096,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -3112,7 +3112,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -3121,7 +3121,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3131,14 +3131,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -3147,7 +3147,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3158,7 +3158,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -3169,7 +3169,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3178,7 +3178,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3188,7 +3188,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -3197,7 +3197,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3207,14 +3207,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -3223,7 +3223,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3234,7 +3234,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -3245,7 +3245,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3254,7 +3254,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3264,7 +3264,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -3275,7 +3275,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -3286,7 +3286,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -3295,7 +3295,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3305,7 +3305,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3318,7 +3318,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -3330,7 +3330,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3341,7 +3341,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -3352,7 +3352,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
@@ -3361,7 +3361,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3371,14 +3371,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -3387,7 +3387,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3398,7 +3398,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -3409,7 +3409,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3418,7 +3418,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3428,7 +3428,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -3439,7 +3439,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -3450,7 +3450,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -3459,7 +3459,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3469,7 +3469,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3482,7 +3482,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -3494,7 +3494,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3505,7 +3505,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -3516,7 +3516,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -3527,7 +3527,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -3538,7 +3538,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -3547,7 +3547,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3557,7 +3557,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3570,7 +3570,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -3582,7 +3582,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3593,7 +3593,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -3604,7 +3604,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -3617,7 +3617,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -3629,7 +3629,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -3640,7 +3640,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -3651,7 +3651,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3666,7 +3666,7 @@ namespace Hexa.NET.D3D12
 							{
 								fixed (Guid* priid = &riid)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 									return ret;
 								}
 							}
@@ -3679,7 +3679,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3692,7 +3692,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -3704,7 +3704,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
@@ -3713,7 +3713,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3723,12 +3723,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 				return ret;
 			}
 		}
@@ -3736,7 +3736,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3747,7 +3747,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -3758,14 +3758,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -3774,7 +3774,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -3785,7 +3785,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -3796,14 +3796,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -3812,7 +3812,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3825,7 +3825,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -3837,7 +3837,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3846,7 +3846,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3856,7 +3856,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -3867,7 +3867,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -3878,14 +3878,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -3894,7 +3894,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3907,7 +3907,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -3919,7 +3919,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3928,7 +3928,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3938,7 +3938,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -3951,7 +3951,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -3963,7 +3963,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -3972,7 +3972,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -3982,7 +3982,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -3997,7 +3997,7 @@ namespace Hexa.NET.D3D12
 							{
 								fixed (Guid* priid = &riid)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 									return ret;
 								}
 							}
@@ -4010,7 +4010,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4021,7 +4021,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -4032,7 +4032,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
@@ -4043,7 +4043,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -4054,14 +4054,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 					return ret;
 				}
 			}
@@ -4070,7 +4070,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4083,7 +4083,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -4095,7 +4095,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4104,7 +4104,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -4114,7 +4114,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -4127,7 +4127,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -4139,7 +4139,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -4148,7 +4148,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -4158,7 +4158,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4173,7 +4173,7 @@ namespace Hexa.NET.D3D12
 							{
 								fixed (Guid* priid = &riid)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 									return ret;
 								}
 							}
@@ -4186,7 +4186,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4197,7 +4197,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -4208,7 +4208,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -4221,7 +4221,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -4233,7 +4233,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -4242,7 +4242,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 						return ret;
 					}
 				}
@@ -4252,7 +4252,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4267,7 +4267,7 @@ namespace Hexa.NET.D3D12
 							{
 								fixed (Guid* priid = &riid)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 									return ret;
 								}
 							}
@@ -4280,7 +4280,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4291,7 +4291,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -4302,7 +4302,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -4317,7 +4317,7 @@ namespace Hexa.NET.D3D12
 							{
 								fixed (Guid* priid = &riid)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 									return ret;
 								}
 							}
@@ -4330,7 +4330,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -4341,7 +4341,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 							return ret;
 						}
 					}
@@ -4352,7 +4352,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ref ID3D12SwapChainAssistant pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4369,7 +4369,7 @@ namespace Hexa.NET.D3D12
 								{
 									fixed (Guid* priid = &riid)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
+										HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, (ID3D12SwapChainAssistant*)ppOwningSwapchain, (Guid*)priid, ppResource);
 										return ret;
 									}
 								}
@@ -4383,7 +4383,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
+		public readonly unsafe HResult CreateSharedResource(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4396,7 +4396,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (Guid* priid = &riid)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, ppResource);
 								return ret;
 							}
 						}
@@ -4408,24 +4408,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4433,13 +4433,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4447,7 +4447,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4455,7 +4455,7 @@ namespace Hexa.NET.D3D12
 				fixed (ResourceDesc* ppDesc = &pDesc)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4464,13 +4464,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4478,7 +4478,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4486,7 +4486,7 @@ namespace Hexa.NET.D3D12
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4495,7 +4495,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -4503,7 +4503,7 @@ namespace Hexa.NET.D3D12
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4512,7 +4512,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4522,7 +4522,7 @@ namespace Hexa.NET.D3D12
 					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4532,13 +4532,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4546,7 +4546,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4554,7 +4554,7 @@ namespace Hexa.NET.D3D12
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4563,7 +4563,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -4571,7 +4571,7 @@ namespace Hexa.NET.D3D12
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4580,7 +4580,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4590,7 +4590,7 @@ namespace Hexa.NET.D3D12
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4600,7 +4600,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -4608,7 +4608,7 @@ namespace Hexa.NET.D3D12
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4617,7 +4617,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4627,7 +4627,7 @@ namespace Hexa.NET.D3D12
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4637,7 +4637,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -4647,7 +4647,7 @@ namespace Hexa.NET.D3D12
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4657,7 +4657,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4669,7 +4669,7 @@ namespace Hexa.NET.D3D12
 						fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -4680,24 +4680,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4705,13 +4705,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4719,7 +4719,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4727,7 +4727,7 @@ namespace Hexa.NET.D3D12
 				fixed (ResourceDesc* ppDesc = &pDesc)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4736,13 +4736,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4750,7 +4750,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4758,7 +4758,7 @@ namespace Hexa.NET.D3D12
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4767,7 +4767,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -4775,7 +4775,7 @@ namespace Hexa.NET.D3D12
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4784,7 +4784,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4794,7 +4794,7 @@ namespace Hexa.NET.D3D12
 					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4804,13 +4804,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4818,7 +4818,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4826,7 +4826,7 @@ namespace Hexa.NET.D3D12
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4835,7 +4835,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -4843,7 +4843,7 @@ namespace Hexa.NET.D3D12
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4852,7 +4852,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4862,7 +4862,7 @@ namespace Hexa.NET.D3D12
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4872,7 +4872,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -4880,7 +4880,7 @@ namespace Hexa.NET.D3D12
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4889,7 +4889,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4899,7 +4899,7 @@ namespace Hexa.NET.D3D12
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4909,7 +4909,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -4919,7 +4919,7 @@ namespace Hexa.NET.D3D12
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4929,7 +4929,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4941,7 +4941,7 @@ namespace Hexa.NET.D3D12
 						fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -4952,24 +4952,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4977,13 +4977,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4991,7 +4991,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4999,7 +4999,7 @@ namespace Hexa.NET.D3D12
 				fixed (ResourceDesc* ppDesc = &pDesc)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5008,13 +5008,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -5022,7 +5022,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5030,7 +5030,7 @@ namespace Hexa.NET.D3D12
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5039,7 +5039,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -5047,7 +5047,7 @@ namespace Hexa.NET.D3D12
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5056,7 +5056,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5066,7 +5066,7 @@ namespace Hexa.NET.D3D12
 					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5076,13 +5076,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -5090,7 +5090,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5098,7 +5098,7 @@ namespace Hexa.NET.D3D12
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5107,7 +5107,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -5115,7 +5115,7 @@ namespace Hexa.NET.D3D12
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5124,7 +5124,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5134,7 +5134,7 @@ namespace Hexa.NET.D3D12
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5144,7 +5144,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -5152,7 +5152,7 @@ namespace Hexa.NET.D3D12
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5161,7 +5161,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5171,7 +5171,7 @@ namespace Hexa.NET.D3D12
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5181,7 +5181,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -5191,7 +5191,7 @@ namespace Hexa.NET.D3D12
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5201,7 +5201,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5213,7 +5213,7 @@ namespace Hexa.NET.D3D12
 						fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -5224,24 +5224,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -5249,13 +5249,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -5263,7 +5263,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5271,7 +5271,7 @@ namespace Hexa.NET.D3D12
 				fixed (ResourceDesc* ppDesc = &pDesc)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5280,13 +5280,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -5294,7 +5294,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5302,7 +5302,7 @@ namespace Hexa.NET.D3D12
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5311,7 +5311,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -5319,7 +5319,7 @@ namespace Hexa.NET.D3D12
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5328,7 +5328,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5338,7 +5338,7 @@ namespace Hexa.NET.D3D12
 					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5348,13 +5348,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -5362,7 +5362,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5370,7 +5370,7 @@ namespace Hexa.NET.D3D12
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5379,7 +5379,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -5387,7 +5387,7 @@ namespace Hexa.NET.D3D12
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5396,7 +5396,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5406,7 +5406,7 @@ namespace Hexa.NET.D3D12
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5416,7 +5416,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -5424,7 +5424,7 @@ namespace Hexa.NET.D3D12
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5433,7 +5433,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5443,7 +5443,7 @@ namespace Hexa.NET.D3D12
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5453,7 +5453,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -5463,7 +5463,7 @@ namespace Hexa.NET.D3D12
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5473,7 +5473,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5485,7 +5485,7 @@ namespace Hexa.NET.D3D12
 						fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -5496,13 +5496,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -5510,7 +5510,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5518,7 +5518,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5527,7 +5527,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -5535,7 +5535,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5544,7 +5544,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5554,7 +5554,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5564,7 +5564,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -5572,7 +5572,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5581,7 +5581,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5591,7 +5591,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5601,7 +5601,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -5611,7 +5611,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5621,7 +5621,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5633,7 +5633,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -5644,7 +5644,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
@@ -5652,7 +5652,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5661,7 +5661,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5671,7 +5671,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5681,7 +5681,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -5691,7 +5691,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5701,7 +5701,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5713,7 +5713,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -5724,7 +5724,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -5734,7 +5734,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5744,7 +5744,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5756,7 +5756,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -5767,7 +5767,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -5779,7 +5779,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -5790,7 +5790,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5804,7 +5804,7 @@ namespace Hexa.NET.D3D12
 							fixed (Guid* priid = &riid)
 							{
 								ppResource = default;
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 								return ret;
 							}
 						}
@@ -5816,13 +5816,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -5830,7 +5830,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5838,7 +5838,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5847,7 +5847,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -5855,7 +5855,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5864,7 +5864,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5874,7 +5874,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5884,7 +5884,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -5892,7 +5892,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5901,7 +5901,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5911,7 +5911,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5921,7 +5921,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -5931,7 +5931,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -5941,7 +5941,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5953,7 +5953,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -5964,7 +5964,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
@@ -5972,7 +5972,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5981,7 +5981,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -5991,7 +5991,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6001,7 +6001,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -6011,7 +6011,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6021,7 +6021,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6033,7 +6033,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -6044,7 +6044,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -6054,7 +6054,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6064,7 +6064,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6076,7 +6076,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -6087,7 +6087,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -6099,7 +6099,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -6110,7 +6110,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6124,7 +6124,7 @@ namespace Hexa.NET.D3D12
 							fixed (Guid* priid = &riid)
 							{
 								ppResource = default;
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 								return ret;
 							}
 						}
@@ -6136,13 +6136,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -6150,7 +6150,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6158,7 +6158,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -6167,7 +6167,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -6175,7 +6175,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -6184,7 +6184,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6194,7 +6194,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6204,7 +6204,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -6212,7 +6212,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -6221,7 +6221,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6231,7 +6231,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6241,7 +6241,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -6251,7 +6251,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6261,7 +6261,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6273,7 +6273,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -6284,7 +6284,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
@@ -6292,7 +6292,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -6301,7 +6301,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6311,7 +6311,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6321,7 +6321,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -6331,7 +6331,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6341,7 +6341,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6353,7 +6353,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -6364,7 +6364,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -6374,7 +6374,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6384,7 +6384,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6396,7 +6396,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -6407,7 +6407,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -6419,7 +6419,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -6430,7 +6430,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6444,7 +6444,7 @@ namespace Hexa.NET.D3D12
 							fixed (Guid* priid = &riid)
 							{
 								ppResource = default;
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 								return ret;
 							}
 						}
@@ -6456,13 +6456,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -6470,7 +6470,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6478,7 +6478,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -6487,7 +6487,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -6495,7 +6495,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -6504,7 +6504,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6514,7 +6514,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6524,7 +6524,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -6532,7 +6532,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -6541,7 +6541,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6551,7 +6551,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6561,7 +6561,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -6571,7 +6571,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6581,7 +6581,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6593,7 +6593,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -6604,7 +6604,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
@@ -6612,7 +6612,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -6621,7 +6621,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6631,7 +6631,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6641,7 +6641,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -6651,7 +6651,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6661,7 +6661,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6673,7 +6673,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -6684,7 +6684,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
@@ -6694,7 +6694,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priid = &riid)
 					{
 						ppResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -6704,7 +6704,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6716,7 +6716,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -6727,7 +6727,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -6739,7 +6739,7 @@ namespace Hexa.NET.D3D12
 						fixed (Guid* priid = &riid)
 						{
 							ppResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -6750,7 +6750,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedResource<T>(ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ComPtr<ID3D12SwapChainAssistant> pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -6764,7 +6764,7 @@ namespace Hexa.NET.D3D12
 							fixed (Guid* priid = &riid)
 							{
 								ppResource = default;
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[3]))(ptr, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, (ID3D12SwapChainAssistant*)pOwningSwapchain.Handle, (Guid*)priid, (void**)ppResource.GetAddressOf());
 								return ret;
 							}
 						}
@@ -6776,22 +6776,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHeap(HeapDesc* pHeapDesc, CompatibilitySharedFlags compatibilityFlags, Guid* riid, void** ppHeap) 
+		public readonly unsafe HResult CreateSharedHeap(HeapDesc* pHeapDesc, CompatibilitySharedFlags compatibilityFlags, Guid* riid, void** ppHeap) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, int>)(LpVtbl[4]))(ptr, pHeapDesc, compatibilityFlags, riid, ppHeap);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, pHeapDesc, compatibilityFlags, riid, ppHeap);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHeap(ref HeapDesc pHeapDesc, CompatibilitySharedFlags compatibilityFlags, Guid* riid, void** ppHeap) 
+		public readonly unsafe HResult CreateSharedHeap(ref HeapDesc pHeapDesc, CompatibilitySharedFlags compatibilityFlags, Guid* riid, void** ppHeap) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapDesc* ppHeapDesc = &pHeapDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, int>)(LpVtbl[4]))(ptr, (HeapDesc*)ppHeapDesc, compatibilityFlags, riid, ppHeap);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, (HeapDesc*)ppHeapDesc, compatibilityFlags, riid, ppHeap);
 				return ret;
 			}
 		}
@@ -6799,12 +6799,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHeap(HeapDesc* pHeapDesc, CompatibilitySharedFlags compatibilityFlags, ref Guid riid, void** ppHeap) 
+		public readonly unsafe HResult CreateSharedHeap(HeapDesc* pHeapDesc, CompatibilitySharedFlags compatibilityFlags, ref Guid riid, void** ppHeap) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, int>)(LpVtbl[4]))(ptr, pHeapDesc, compatibilityFlags, (Guid*)priid, ppHeap);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, pHeapDesc, compatibilityFlags, (Guid*)priid, ppHeap);
 				return ret;
 			}
 		}
@@ -6812,14 +6812,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHeap(ref HeapDesc pHeapDesc, CompatibilitySharedFlags compatibilityFlags, ref Guid riid, void** ppHeap) 
+		public readonly unsafe HResult CreateSharedHeap(ref HeapDesc pHeapDesc, CompatibilitySharedFlags compatibilityFlags, ref Guid riid, void** ppHeap) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapDesc* ppHeapDesc = &pHeapDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, int>)(LpVtbl[4]))(ptr, (HeapDesc*)ppHeapDesc, compatibilityFlags, (Guid*)priid, ppHeap);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, (HeapDesc*)ppHeapDesc, compatibilityFlags, (Guid*)priid, ppHeap);
 					return ret;
 				}
 			}
@@ -6828,24 +6828,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHeap<T>(HeapDesc* pHeapDesc, CompatibilitySharedFlags compatibilityFlags, out ComPtr<T> ppHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedHeap<T>(HeapDesc* pHeapDesc, CompatibilitySharedFlags compatibilityFlags, out ComPtr<T> ppHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppHeap = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, int>)(LpVtbl[4]))(ptr, pHeapDesc, compatibilityFlags, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppHeap.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, pHeapDesc, compatibilityFlags, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppHeap.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHeap<T>(ref HeapDesc pHeapDesc, CompatibilitySharedFlags compatibilityFlags, out ComPtr<T> ppHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedHeap<T>(ref HeapDesc pHeapDesc, CompatibilitySharedFlags compatibilityFlags, out ComPtr<T> ppHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapDesc* ppHeapDesc = &pHeapDesc)
 			{
 				ppHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, int>)(LpVtbl[4]))(ptr, (HeapDesc*)ppHeapDesc, compatibilityFlags, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppHeap.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, (HeapDesc*)ppHeapDesc, compatibilityFlags, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -6853,13 +6853,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHeap<T>(HeapDesc* pHeapDesc, CompatibilitySharedFlags compatibilityFlags, ref Guid riid, out ComPtr<T> ppHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedHeap<T>(HeapDesc* pHeapDesc, CompatibilitySharedFlags compatibilityFlags, ref Guid riid, out ComPtr<T> ppHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, int>)(LpVtbl[4]))(ptr, pHeapDesc, compatibilityFlags, (Guid*)priid, (void**)ppHeap.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, pHeapDesc, compatibilityFlags, (Guid*)priid, (void**)ppHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -6867,7 +6867,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHeap<T>(ref HeapDesc pHeapDesc, CompatibilitySharedFlags compatibilityFlags, ref Guid riid, out ComPtr<T> ppHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateSharedHeap<T>(ref HeapDesc pHeapDesc, CompatibilitySharedFlags compatibilityFlags, ref Guid riid, out ComPtr<T> ppHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (HeapDesc* ppHeapDesc = &pHeapDesc)
@@ -6875,7 +6875,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppHeap = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, int>)(LpVtbl[4]))(ptr, (HeapDesc*)ppHeapDesc, compatibilityFlags, (Guid*)priid, (void**)ppHeap.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapDesc*, CompatibilitySharedFlags, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, (HeapDesc*)ppHeapDesc, compatibilityFlags, (Guid*)priid, (void**)ppHeap.GetAddressOf());
 					return ret;
 				}
 			}
@@ -6884,22 +6884,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ReflectSharedProperties(ID3D12Object* pHeapOrResource, ReflectSharedProperty reflectType, void* pData, uint dataSize) 
+		public readonly unsafe HResult ReflectSharedProperties(ID3D12Object* pHeapOrResource, ReflectSharedProperty reflectType, void* pData, uint dataSize) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, ID3D12Object*, ReflectSharedProperty, void*, uint, int>)(LpVtbl[5]))(ptr, pHeapOrResource, reflectType, pData, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, ID3D12Object*, ReflectSharedProperty, void*, uint, HResult>)(LpVtbl[5]))(ptr, pHeapOrResource, reflectType, pData, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ReflectSharedProperties(ref ID3D12Object pHeapOrResource, ReflectSharedProperty reflectType, void* pData, uint dataSize) 
+		public readonly unsafe HResult ReflectSharedProperties(ref ID3D12Object pHeapOrResource, ReflectSharedProperty reflectType, void* pData, uint dataSize) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Object* ppHeapOrResource = &pHeapOrResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, ID3D12Object*, ReflectSharedProperty, void*, uint, int>)(LpVtbl[5]))(ptr, (ID3D12Object*)ppHeapOrResource, reflectType, pData, dataSize);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, ID3D12Object*, ReflectSharedProperty, void*, uint, HResult>)(LpVtbl[5]))(ptr, (ID3D12Object*)ppHeapOrResource, reflectType, pData, dataSize);
 				return ret;
 			}
 		}
@@ -6907,30 +6907,30 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ReflectSharedProperties(ComPtr<ID3D12Object> pHeapOrResource, ReflectSharedProperty reflectType, void* pData, uint dataSize) 
+		public readonly unsafe HResult ReflectSharedProperties(ComPtr<ID3D12Object> pHeapOrResource, ReflectSharedProperty reflectType, void* pData, uint dataSize) 
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, ID3D12Object*, ReflectSharedProperty, void*, uint, int>)(LpVtbl[5]))(ptr, (ID3D12Object*)pHeapOrResource.Handle, reflectType, pData, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, ID3D12Object*, ReflectSharedProperty, void*, uint, HResult>)(LpVtbl[5]))(ptr, (ID3D12Object*)pHeapOrResource.Handle, reflectType, pData, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ReflectSharedProperties<T>(ID3D12Object* pHeapOrResource, ReflectSharedProperty reflectType, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult ReflectSharedProperties<T>(ID3D12Object* pHeapOrResource, ReflectSharedProperty reflectType, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, ID3D12Object*, ReflectSharedProperty, void*, uint, int>)(LpVtbl[5]))(ptr, pHeapOrResource, reflectType, (void*)pData.Handle, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, ID3D12Object*, ReflectSharedProperty, void*, uint, HResult>)(LpVtbl[5]))(ptr, pHeapOrResource, reflectType, (void*)pData.Handle, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ReflectSharedProperties<T>(ComPtr<ID3D12Object> pHeapOrResource, ReflectSharedProperty reflectType, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult ReflectSharedProperties<T>(ComPtr<ID3D12Object> pHeapOrResource, ReflectSharedProperty reflectType, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* ptr = (ID3D12CompatibilityDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, ID3D12Object*, ReflectSharedProperty, void*, uint, int>)(LpVtbl[5]))(ptr, (ID3D12Object*)pHeapOrResource.Handle, reflectType, (void*)pData.Handle, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, ID3D12Object*, ReflectSharedProperty, void*, uint, HResult>)(LpVtbl[5]))(ptr, (ID3D12Object*)pHeapOrResource.Handle, reflectType, (void*)pData.Handle, dataSize);
 			return ret;
 		}
 

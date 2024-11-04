@@ -41,12 +41,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int RectsCoalesced;
+		public Bool32 RectsCoalesced;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ProtectedContentMaskedOut;
+		public Bool32 ProtectedContentMaskedOut;
 
 		/// <summary>
 		/// To be documented.
@@ -67,7 +67,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe OutduplFrameInfo(long lastPresentTime = default, long lastMouseUpdateTime = default, uint accumulatedFrames = default, int rectsCoalesced = default, int protectedContentMaskedOut = default, OutduplPointerPosition pointerPosition = default, uint totalMetadataBufferSize = default, uint pointerShapeBufferSize = default)
+		public unsafe OutduplFrameInfo(long lastPresentTime = default, long lastMouseUpdateTime = default, uint accumulatedFrames = default, Bool32 rectsCoalesced = default, Bool32 protectedContentMaskedOut = default, OutduplPointerPosition pointerPosition = default, uint totalMetadataBufferSize = default, uint pointerShapeBufferSize = default)
 		{
 			LastPresentTime = lastPresentTime;
 			LastMouseUpdateTime = lastMouseUpdateTime;

@@ -27,13 +27,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int IOCoherent;
+		public Bool32 IOCoherent;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataVideoArchitecture(int ioCoherent = default)
+		public unsafe FeatureDataVideoArchitecture(Bool32 ioCoherent = default)
 		{
 			IOCoherent = ioCoherent;
 		}

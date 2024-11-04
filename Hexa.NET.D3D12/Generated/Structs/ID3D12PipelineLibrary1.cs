@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -104,22 +104,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -127,12 +127,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -140,14 +140,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -156,22 +156,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -179,12 +179,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -192,14 +192,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, HResult>)(LpVtbl[3]))(ptr, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -208,22 +208,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(Guid* guid, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint, void*, int>)(LpVtbl[4]))(ptr, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint, void*, HResult>)(LpVtbl[4]))(ptr, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -231,22 +231,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, HResult>)(LpVtbl[5]))(ptr, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -254,12 +254,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, HResult>)(LpVtbl[5]))(ptr, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -267,24 +267,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, HResult>)(LpVtbl[5]))(ptr, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -293,12 +293,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -306,22 +306,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetName(char* name) 
+		public readonly unsafe HResult SetName(char* name) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, int>)(LpVtbl[6]))(ptr, name);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, HResult>)(LpVtbl[6]))(ptr, name);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetName(ReadOnlySpan<char> name) 
+		public readonly unsafe HResult SetName(ReadOnlySpan<char> name) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* pname = name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, int>)(LpVtbl[6]))(ptr, (char*)pname);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, HResult>)(LpVtbl[6]))(ptr, (char*)pname);
 				return ret;
 			}
 		}
@@ -329,7 +329,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetName(string name) 
+		public readonly unsafe HResult SetName(string name) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -349,7 +349,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, int>)(LpVtbl[6]))(ptr, pStr0);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, HResult>)(LpVtbl[6]))(ptr, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -360,22 +360,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDevice(Guid* riid, void** ppvDevice) 
+		public readonly unsafe HResult GetDevice(Guid* riid, void** ppvDevice) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(LpVtbl[7]))(ptr, riid, ppvDevice);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, HResult>)(LpVtbl[7]))(ptr, riid, ppvDevice);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDevice(ref Guid riid, void** ppvDevice) 
+		public readonly unsafe HResult GetDevice(ref Guid riid, void** ppvDevice) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (Guid*)priid, ppvDevice);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, HResult>)(LpVtbl[7]))(ptr, (Guid*)priid, ppvDevice);
 				return ret;
 			}
 		}
@@ -383,24 +383,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDevice<T>(out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetDevice<T>(out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvDevice = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDevice.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, HResult>)(LpVtbl[7]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDevice.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDevice<T>(ref Guid riid, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetDevice<T>(ref Guid riid, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvDevice = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (Guid*)priid, (void**)ppvDevice.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, HResult>)(LpVtbl[7]))(ptr, (Guid*)priid, (void**)ppvDevice.GetAddressOf());
 				return ret;
 			}
 		}
@@ -408,22 +408,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int StorePipeline(char* pName, ID3D12PipelineState* pPipeline) 
+		public readonly unsafe HResult StorePipeline(char* pName, ID3D12PipelineState* pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(LpVtbl[8]))(ptr, pName, pPipeline);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, HResult>)(LpVtbl[8]))(ptr, pName, pPipeline);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int StorePipeline(ReadOnlySpan<char> pName, ID3D12PipelineState* pPipeline) 
+		public readonly unsafe HResult StorePipeline(ReadOnlySpan<char> pName, ID3D12PipelineState* pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(LpVtbl[8]))(ptr, (char*)ppName, pPipeline);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, HResult>)(LpVtbl[8]))(ptr, (char*)ppName, pPipeline);
 				return ret;
 			}
 		}
@@ -431,7 +431,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int StorePipeline(string pName, ID3D12PipelineState* pPipeline) 
+		public readonly unsafe HResult StorePipeline(string pName, ID3D12PipelineState* pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -451,7 +451,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(LpVtbl[8]))(ptr, pStr0, pPipeline);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, HResult>)(LpVtbl[8]))(ptr, pStr0, pPipeline);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -462,12 +462,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int StorePipeline(char* pName, ref ID3D12PipelineState pPipeline) 
+		public readonly unsafe HResult StorePipeline(char* pName, ref ID3D12PipelineState pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12PipelineState* ppPipeline = &pPipeline)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(LpVtbl[8]))(ptr, pName, (ID3D12PipelineState*)ppPipeline);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, HResult>)(LpVtbl[8]))(ptr, pName, (ID3D12PipelineState*)ppPipeline);
 				return ret;
 			}
 		}
@@ -475,24 +475,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int StorePipeline(char* pName, ComPtr<ID3D12PipelineState> pPipeline) 
+		public readonly unsafe HResult StorePipeline(char* pName, ComPtr<ID3D12PipelineState> pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(LpVtbl[8]))(ptr, pName, (ID3D12PipelineState*)pPipeline.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, HResult>)(LpVtbl[8]))(ptr, pName, (ID3D12PipelineState*)pPipeline.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int StorePipeline(ReadOnlySpan<char> pName, ref ID3D12PipelineState pPipeline) 
+		public readonly unsafe HResult StorePipeline(ReadOnlySpan<char> pName, ref ID3D12PipelineState pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
 				fixed (ID3D12PipelineState* ppPipeline = &pPipeline)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(LpVtbl[8]))(ptr, (char*)ppName, (ID3D12PipelineState*)ppPipeline);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, HResult>)(LpVtbl[8]))(ptr, (char*)ppName, (ID3D12PipelineState*)ppPipeline);
 					return ret;
 				}
 			}
@@ -501,7 +501,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int StorePipeline(string pName, ref ID3D12PipelineState pPipeline) 
+		public readonly unsafe HResult StorePipeline(string pName, ref ID3D12PipelineState pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -523,7 +523,7 @@ namespace Hexa.NET.D3D12
 			}
 			fixed (ID3D12PipelineState* ppPipeline = &pPipeline)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(LpVtbl[8]))(ptr, pStr0, (ID3D12PipelineState*)ppPipeline);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, HResult>)(LpVtbl[8]))(ptr, pStr0, (ID3D12PipelineState*)ppPipeline);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -535,22 +535,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline(char* pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadGraphicsPipeline(char* pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, pDesc, riid, ppPipelineState);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, pName, pDesc, riid, ppPipelineState);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline(ReadOnlySpan<char> pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadGraphicsPipeline(ReadOnlySpan<char> pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (char*)ppName, pDesc, riid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, (char*)ppName, pDesc, riid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -558,7 +558,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline(string pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadGraphicsPipeline(string pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -578,7 +578,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pStr0, pDesc, riid, ppPipelineState);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, pStr0, pDesc, riid, ppPipelineState);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -589,12 +589,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline(char* pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadGraphicsPipeline(char* pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, pName, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -602,14 +602,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline(ReadOnlySpan<char> pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadGraphicsPipeline(ReadOnlySpan<char> pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
 				fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (char*)ppName, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, (char*)ppName, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -618,7 +618,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline(string pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadGraphicsPipeline(string pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -640,7 +640,7 @@ namespace Hexa.NET.D3D12
 			}
 			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pStr0, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, pStr0, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -652,12 +652,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline(char* pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadGraphicsPipeline(char* pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, pDesc, (Guid*)priid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, pName, pDesc, (Guid*)priid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -665,14 +665,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline(ReadOnlySpan<char> pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadGraphicsPipeline(ReadOnlySpan<char> pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -681,7 +681,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline(string pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadGraphicsPipeline(string pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -703,7 +703,7 @@ namespace Hexa.NET.D3D12
 			}
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pStr0, pDesc, (Guid*)priid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, pStr0, pDesc, (Guid*)priid, ppPipelineState);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -715,14 +715,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline(char* pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadGraphicsPipeline(char* pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -731,7 +731,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline(ReadOnlySpan<char> pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadGraphicsPipeline(ReadOnlySpan<char> pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
@@ -740,7 +740,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (char*)ppName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, (char*)ppName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 						return ret;
 					}
 				}
@@ -750,7 +750,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline(string pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadGraphicsPipeline(string pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -774,7 +774,7 @@ namespace Hexa.NET.D3D12
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pStr0, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, pStr0, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -787,24 +787,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline<T>(char* pName, GraphicsPipelineStateDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult LoadGraphicsPipeline<T>(char* pName, GraphicsPipelineStateDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppPipelineState = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline<T>(char* pName, ref GraphicsPipelineStateDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult LoadGraphicsPipeline<T>(char* pName, ref GraphicsPipelineStateDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
 			{
 				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -812,13 +812,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline<T>(char* pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult LoadGraphicsPipeline<T>(char* pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -826,7 +826,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadGraphicsPipeline<T>(char* pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult LoadGraphicsPipeline<T>(char* pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
@@ -834,7 +834,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppPipelineState = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[9]))(ptr, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
 					return ret;
 				}
 			}
@@ -843,22 +843,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline(char* pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadComputePipeline(char* pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, pDesc, riid, ppPipelineState);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, pName, pDesc, riid, ppPipelineState);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline(ReadOnlySpan<char> pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadComputePipeline(ReadOnlySpan<char> pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (char*)ppName, pDesc, riid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, (char*)ppName, pDesc, riid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -866,7 +866,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline(string pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadComputePipeline(string pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -886,7 +886,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pStr0, pDesc, riid, ppPipelineState);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, pStr0, pDesc, riid, ppPipelineState);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -897,12 +897,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline(char* pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadComputePipeline(char* pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, pName, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -910,14 +910,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline(ReadOnlySpan<char> pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadComputePipeline(ReadOnlySpan<char> pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
 				fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (char*)ppName, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, (char*)ppName, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -926,7 +926,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline(string pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadComputePipeline(string pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -948,7 +948,7 @@ namespace Hexa.NET.D3D12
 			}
 			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pStr0, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, pStr0, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -960,12 +960,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline(char* pName, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadComputePipeline(char* pName, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, pDesc, (Guid*)priid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, pName, pDesc, (Guid*)priid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -973,14 +973,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline(ReadOnlySpan<char> pName, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadComputePipeline(ReadOnlySpan<char> pName, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -989,7 +989,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline(string pName, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadComputePipeline(string pName, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1011,7 +1011,7 @@ namespace Hexa.NET.D3D12
 			}
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pStr0, pDesc, (Guid*)priid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, pStr0, pDesc, (Guid*)priid, ppPipelineState);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1023,14 +1023,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline(char* pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadComputePipeline(char* pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, pName, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -1039,7 +1039,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline(ReadOnlySpan<char> pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadComputePipeline(ReadOnlySpan<char> pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
@@ -1048,7 +1048,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (char*)ppName, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, (char*)ppName, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 						return ret;
 					}
 				}
@@ -1058,7 +1058,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline(string pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadComputePipeline(string pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1082,7 +1082,7 @@ namespace Hexa.NET.D3D12
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pStr0, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, pStr0, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1095,24 +1095,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline<T>(char* pName, ComputePipelineStateDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult LoadComputePipeline<T>(char* pName, ComputePipelineStateDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppPipelineState = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline<T>(char* pName, ref ComputePipelineStateDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult LoadComputePipeline<T>(char* pName, ref ComputePipelineStateDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
 			{
 				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, (ComputePipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, pName, (ComputePipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1120,13 +1120,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline<T>(char* pName, ComputePipelineStateDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult LoadComputePipeline<T>(char* pName, ComputePipelineStateDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1134,7 +1134,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadComputePipeline<T>(char* pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult LoadComputePipeline<T>(char* pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
@@ -1142,7 +1142,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppPipelineState = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(LpVtbl[10]))(ptr, pName, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1161,42 +1161,42 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Serialize(void* pData, nuint dataSizeInBytes) 
+		public readonly unsafe HResult Serialize(void* pData, nuint dataSizeInBytes) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, void*, nuint, int>)(LpVtbl[12]))(ptr, pData, dataSizeInBytes);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, void*, nuint, HResult>)(LpVtbl[12]))(ptr, pData, dataSizeInBytes);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Serialize<T>(ComPtr<T> pData, nuint dataSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult Serialize<T>(ComPtr<T> pData, nuint dataSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, void*, nuint, int>)(LpVtbl[12]))(ptr, (void*)pData.Handle, dataSizeInBytes);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, void*, nuint, HResult>)(LpVtbl[12]))(ptr, (void*)pData.Handle, dataSizeInBytes);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline(char* pName, PipelineStateStreamDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadPipeline(char* pName, PipelineStateStreamDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, pDesc, riid, ppPipelineState);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pName, pDesc, riid, ppPipelineState);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline(ReadOnlySpan<char> pName, PipelineStateStreamDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadPipeline(ReadOnlySpan<char> pName, PipelineStateStreamDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (char*)ppName, pDesc, riid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, (char*)ppName, pDesc, riid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -1204,7 +1204,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline(string pName, PipelineStateStreamDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadPipeline(string pName, PipelineStateStreamDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1224,7 +1224,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pStr0, pDesc, riid, ppPipelineState);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pStr0, pDesc, riid, ppPipelineState);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -1235,12 +1235,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline(char* pName, ref PipelineStateStreamDesc pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadPipeline(char* pName, ref PipelineStateStreamDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, (PipelineStateStreamDesc*)ppDesc, riid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pName, (PipelineStateStreamDesc*)ppDesc, riid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -1248,14 +1248,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline(ReadOnlySpan<char> pName, ref PipelineStateStreamDesc pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadPipeline(ReadOnlySpan<char> pName, ref PipelineStateStreamDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
 				fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (char*)ppName, (PipelineStateStreamDesc*)ppDesc, riid, ppPipelineState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, (char*)ppName, (PipelineStateStreamDesc*)ppDesc, riid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -1264,7 +1264,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline(string pName, ref PipelineStateStreamDesc pDesc, Guid* riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadPipeline(string pName, ref PipelineStateStreamDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1286,7 +1286,7 @@ namespace Hexa.NET.D3D12
 			}
 			fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pStr0, (PipelineStateStreamDesc*)ppDesc, riid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pStr0, (PipelineStateStreamDesc*)ppDesc, riid, ppPipelineState);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1298,12 +1298,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline(char* pName, PipelineStateStreamDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadPipeline(char* pName, PipelineStateStreamDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, pDesc, (Guid*)priid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pName, pDesc, (Guid*)priid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -1311,14 +1311,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline(ReadOnlySpan<char> pName, PipelineStateStreamDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadPipeline(ReadOnlySpan<char> pName, PipelineStateStreamDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -1327,7 +1327,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline(string pName, PipelineStateStreamDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadPipeline(string pName, PipelineStateStreamDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1349,7 +1349,7 @@ namespace Hexa.NET.D3D12
 			}
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pStr0, pDesc, (Guid*)priid, ppPipelineState);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pStr0, pDesc, (Guid*)priid, ppPipelineState);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1361,14 +1361,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline(char* pName, ref PipelineStateStreamDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadPipeline(char* pName, ref PipelineStateStreamDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, (PipelineStateStreamDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pName, (PipelineStateStreamDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -1377,7 +1377,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline(ReadOnlySpan<char> pName, ref PipelineStateStreamDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadPipeline(ReadOnlySpan<char> pName, ref PipelineStateStreamDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
@@ -1386,7 +1386,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (char*)ppName, (PipelineStateStreamDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, (char*)ppName, (PipelineStateStreamDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 						return ret;
 					}
 				}
@@ -1396,7 +1396,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline(string pName, ref PipelineStateStreamDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		public readonly unsafe HResult LoadPipeline(string pName, ref PipelineStateStreamDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1420,7 +1420,7 @@ namespace Hexa.NET.D3D12
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pStr0, (PipelineStateStreamDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pStr0, (PipelineStateStreamDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1433,24 +1433,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline<T>(char* pName, PipelineStateStreamDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult LoadPipeline<T>(char* pName, PipelineStateStreamDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppPipelineState = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline<T>(char* pName, ref PipelineStateStreamDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult LoadPipeline<T>(char* pName, ref PipelineStateStreamDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
 			{
 				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, (PipelineStateStreamDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pName, (PipelineStateStreamDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1458,13 +1458,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline<T>(char* pName, PipelineStateStreamDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult LoadPipeline<T>(char* pName, PipelineStateStreamDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1472,7 +1472,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int LoadPipeline<T>(char* pName, ref PipelineStateStreamDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult LoadPipeline<T>(char* pName, ref PipelineStateStreamDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
@@ -1480,7 +1480,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priid = &riid)
 				{
 					ppPipelineState = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, (PipelineStateStreamDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pName, (PipelineStateStreamDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
 					return ret;
 				}
 			}

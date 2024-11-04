@@ -27,13 +27,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ComputeShadersPlusRawAndStructuredBuffersViaShader4X;
+		public Bool32 ComputeShadersPlusRawAndStructuredBuffersViaShader4X;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D10XHardwareOptions(int computeshadersPlusRawandstructuredbuffersViaShader4X = default)
+		public unsafe FeatureDataD3D10XHardwareOptions(Bool32 computeshadersPlusRawandstructuredbuffersViaShader4X = default)
 		{
 			ComputeShadersPlusRawAndStructuredBuffersViaShader4X = computeshadersPlusRawandstructuredbuffersViaShader4X;
 		}

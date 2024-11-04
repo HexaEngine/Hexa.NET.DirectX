@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -114,22 +114,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetSwapChainObject(Guid* riid, void** ppv) 
+		public readonly unsafe HResult GetSwapChainObject(Guid* riid, void** ppv) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[4]))(ptr, riid, ppv);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, riid, ppv);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetSwapChainObject(ref Guid riid, void** ppv) 
+		public readonly unsafe HResult GetSwapChainObject(ref Guid riid, void** ppv) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (Guid*)priid, ppv);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, (Guid*)priid, ppv);
 				return ret;
 			}
 		}
@@ -137,24 +137,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetSwapChainObject<T>(out ComPtr<T> ppv) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetSwapChainObject<T>(out ComPtr<T> ppv) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppv = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppv.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppv.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetSwapChainObject<T>(ref Guid riid, out ComPtr<T> ppv) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetSwapChainObject<T>(ref Guid riid, out ComPtr<T> ppv) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppv = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (Guid*)priid, (void**)ppv.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(LpVtbl[4]))(ptr, (Guid*)priid, (void**)ppv.GetAddressOf());
 				return ret;
 			}
 		}
@@ -162,22 +162,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue(Guid* riidResource, void** ppvResource, Guid* riidQueue, void** ppvQueue) 
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue(Guid* riidResource, void** ppvResource, Guid* riidQueue, void** ppvQueue) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, riidResource, ppvResource, riidQueue, ppvQueue);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, riidResource, ppvResource, riidQueue, ppvQueue);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue(ref Guid riidResource, void** ppvResource, Guid* riidQueue, void** ppvQueue) 
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue(ref Guid riidResource, void** ppvResource, Guid* riidQueue, void** ppvQueue) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, (Guid*)priidResource, ppvResource, riidQueue, ppvQueue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, (Guid*)priidResource, ppvResource, riidQueue, ppvQueue);
 				return ret;
 			}
 		}
@@ -185,12 +185,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(ref ComPtr<T> ppvResource, Guid* riidQueue, void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue<T>(ref ComPtr<T> ppvResource, Guid* riidQueue, void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvResource = &ppvResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvResource, riidQueue, ppvQueue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvResource, riidQueue, ppvQueue);
 				return ret;
 			}
 		}
@@ -198,14 +198,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(ref Guid riidResource, ref ComPtr<T> ppvResource, Guid* riidQueue, void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue<T>(ref Guid riidResource, ref ComPtr<T> ppvResource, Guid* riidQueue, void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
 			{
 				fixed (ComPtr<T>* pppvResource = &ppvResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, (Guid*)priidResource, (void**)pppvResource, riidQueue, ppvQueue);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, (Guid*)priidResource, (void**)pppvResource, riidQueue, ppvQueue);
 					return ret;
 				}
 			}
@@ -214,12 +214,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue(Guid* riidResource, void** ppvResource, ref Guid riidQueue, void** ppvQueue) 
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue(Guid* riidResource, void** ppvResource, ref Guid riidQueue, void** ppvQueue) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidQueue = &riidQueue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, riidResource, ppvResource, (Guid*)priidQueue, ppvQueue);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, riidResource, ppvResource, (Guid*)priidQueue, ppvQueue);
 				return ret;
 			}
 		}
@@ -227,14 +227,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue(ref Guid riidResource, void** ppvResource, ref Guid riidQueue, void** ppvQueue) 
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue(ref Guid riidResource, void** ppvResource, ref Guid riidQueue, void** ppvQueue) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
 			{
 				fixed (Guid* priidQueue = &riidQueue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, (Guid*)priidResource, ppvResource, (Guid*)priidQueue, ppvQueue);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, (Guid*)priidResource, ppvResource, (Guid*)priidQueue, ppvQueue);
 					return ret;
 				}
 			}
@@ -243,14 +243,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(ref ComPtr<T> ppvResource, ref Guid riidQueue, void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue<T>(ref ComPtr<T> ppvResource, ref Guid riidQueue, void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvResource = &ppvResource)
 			{
 				fixed (Guid* priidQueue = &riidQueue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvResource, (Guid*)priidQueue, ppvQueue);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvResource, (Guid*)priidQueue, ppvQueue);
 					return ret;
 				}
 			}
@@ -259,7 +259,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(ref Guid riidResource, ref ComPtr<T> ppvResource, ref Guid riidQueue, void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue<T>(ref Guid riidResource, ref ComPtr<T> ppvResource, ref Guid riidQueue, void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
@@ -268,7 +268,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (Guid* priidQueue = &riidQueue)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, (Guid*)priidResource, (void**)pppvResource, (Guid*)priidQueue, ppvQueue);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, (Guid*)priidResource, (void**)pppvResource, (Guid*)priidQueue, ppvQueue);
 						return ret;
 					}
 				}
@@ -278,24 +278,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(Guid* riidResource, void** ppvResource, out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue<T>(Guid* riidResource, void** ppvResource, out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvQueue = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, riidResource, ppvResource, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvQueue.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, riidResource, ppvResource, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvQueue.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(ref Guid riidResource, void** ppvResource, out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue<T>(ref Guid riidResource, void** ppvResource, out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
 			{
 				ppvQueue = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, (Guid*)priidResource, ppvResource, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvQueue.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, (Guid*)priidResource, ppvResource, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvQueue.GetAddressOf());
 				return ret;
 			}
 		}
@@ -303,13 +303,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T, T1>(ref ComPtr<T> ppvResource, out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue<T, T1>(ref ComPtr<T> ppvResource, out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvResource = &ppvResource)
 			{
 				ppvQueue = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvResource, (Guid*)(ComUtils.GuidPtrOf<T1>()), (void**)ppvQueue.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvResource, (Guid*)(ComUtils.GuidPtrOf<T1>()), (void**)ppvQueue.GetAddressOf());
 				return ret;
 			}
 		}
@@ -317,7 +317,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T, T1>(ref Guid riidResource, ref ComPtr<T> ppvResource, out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue<T, T1>(ref Guid riidResource, ref ComPtr<T> ppvResource, out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
@@ -325,7 +325,7 @@ namespace Hexa.NET.D3D12
 				fixed (ComPtr<T>* pppvResource = &ppvResource)
 				{
 					ppvQueue = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, (Guid*)priidResource, (void**)pppvResource, (Guid*)(ComUtils.GuidPtrOf<T1>()), (void**)ppvQueue.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, (Guid*)priidResource, (void**)pppvResource, (Guid*)(ComUtils.GuidPtrOf<T1>()), (void**)ppvQueue.GetAddressOf());
 					return ret;
 				}
 			}
@@ -334,13 +334,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(Guid* riidResource, void** ppvResource, ref Guid riidQueue, out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue<T>(Guid* riidResource, void** ppvResource, ref Guid riidQueue, out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidQueue = &riidQueue)
 			{
 				ppvQueue = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, riidResource, ppvResource, (Guid*)priidQueue, (void**)ppvQueue.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, riidResource, ppvResource, (Guid*)priidQueue, (void**)ppvQueue.GetAddressOf());
 				return ret;
 			}
 		}
@@ -348,7 +348,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(ref Guid riidResource, void** ppvResource, ref Guid riidQueue, out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue<T>(ref Guid riidResource, void** ppvResource, ref Guid riidQueue, out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
@@ -356,7 +356,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priidQueue = &riidQueue)
 				{
 					ppvQueue = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, (Guid*)priidResource, ppvResource, (Guid*)priidQueue, (void**)ppvQueue.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, (Guid*)priidResource, ppvResource, (Guid*)priidQueue, (void**)ppvQueue.GetAddressOf());
 					return ret;
 				}
 			}
@@ -365,7 +365,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T, T1>(ref ComPtr<T> ppvResource, ref Guid riidQueue, out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue<T, T1>(ref ComPtr<T> ppvResource, ref Guid riidQueue, out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvResource = &ppvResource)
@@ -373,7 +373,7 @@ namespace Hexa.NET.D3D12
 				fixed (Guid* priidQueue = &riidQueue)
 				{
 					ppvQueue = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvResource, (Guid*)priidQueue, (void**)ppvQueue.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pppvResource, (Guid*)priidQueue, (void**)ppvQueue.GetAddressOf());
 					return ret;
 				}
 			}
@@ -382,7 +382,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T, T1>(ref Guid riidResource, ref ComPtr<T> ppvResource, ref Guid riidQueue, out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
+		public readonly unsafe HResult GetCurrentResourceAndCommandQueue<T, T1>(ref Guid riidResource, ref ComPtr<T> ppvResource, ref Guid riidQueue, out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
@@ -392,7 +392,7 @@ namespace Hexa.NET.D3D12
 					fixed (Guid* priidQueue = &riidQueue)
 					{
 						ppvQueue = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, (Guid*)priidResource, (void**)pppvResource, (Guid*)priidQueue, (void**)ppvQueue.GetAddressOf());
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, HResult>)(LpVtbl[5]))(ptr, (Guid*)priidResource, (void**)pppvResource, (Guid*)priidQueue, (void**)ppvQueue.GetAddressOf());
 						return ret;
 					}
 				}
@@ -402,10 +402,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int InsertImplicitSync() 
+		public readonly unsafe HResult InsertImplicitSync() 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, int>)(LpVtbl[6]))(ptr);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, HResult>)(LpVtbl[6]))(ptr);
 			return ret;
 		}
 

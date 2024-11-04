@@ -57,13 +57,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int PreserveResolveSource;
+		public Bool32 PreserveResolveSource;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe RenderPassEndingAccessResolveParameters(ID3D12Resource* pSrcResource = default, ID3D12Resource* pDstResource = default, uint subresourceCount = default, RenderPassEndingAccessResolveSubresourceParameters* pSubresourceParameters = default, Format format = default, ResolveMode resolveMode = default, int preserveResolveSource = default)
+		public unsafe RenderPassEndingAccessResolveParameters(ID3D12Resource* pSrcResource = default, ID3D12Resource* pDstResource = default, uint subresourceCount = default, RenderPassEndingAccessResolveSubresourceParameters* pSubresourceParameters = default, Format format = default, ResolveMode resolveMode = default, Bool32 preserveResolveSource = default)
 		{
 			PSrcResource = pSrcResource;
 			PDstResource = pDstResource;

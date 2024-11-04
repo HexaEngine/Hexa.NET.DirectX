@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -104,10 +104,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetMessageCountLimit(ulong messageCountLimit) 
+		public readonly unsafe HResult SetMessageCountLimit(ulong messageCountLimit) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, int>)(LpVtbl[3]))(ptr, messageCountLimit);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, HResult>)(LpVtbl[3]))(ptr, messageCountLimit);
 			return ret;
 		}
 
@@ -123,22 +123,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMessageA(ulong messageIndex, Message* pMessage, nuint* pMessageByteLength) 
+		public readonly unsafe HResult GetMessageA(ulong messageIndex, Message* pMessage, nuint* pMessageByteLength) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, int>)(LpVtbl[5]))(ptr, messageIndex, pMessage, pMessageByteLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, HResult>)(LpVtbl[5]))(ptr, messageIndex, pMessage, pMessageByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMessageA(ulong messageIndex, ref Message pMessage, nuint* pMessageByteLength) 
+		public readonly unsafe HResult GetMessageA(ulong messageIndex, ref Message pMessage, nuint* pMessageByteLength) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Message* ppMessage = &pMessage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, int>)(LpVtbl[5]))(ptr, messageIndex, (Message*)ppMessage, pMessageByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, HResult>)(LpVtbl[5]))(ptr, messageIndex, (Message*)ppMessage, pMessageByteLength);
 				return ret;
 			}
 		}
@@ -146,12 +146,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMessageA(ulong messageIndex, Message* pMessage, ref nuint pMessageByteLength) 
+		public readonly unsafe HResult GetMessageA(ulong messageIndex, Message* pMessage, ref nuint pMessageByteLength) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, int>)(LpVtbl[5]))(ptr, messageIndex, pMessage, (nuint*)ppMessageByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, HResult>)(LpVtbl[5]))(ptr, messageIndex, pMessage, (nuint*)ppMessageByteLength);
 				return ret;
 			}
 		}
@@ -159,14 +159,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMessageA(ulong messageIndex, ref Message pMessage, ref nuint pMessageByteLength) 
+		public readonly unsafe HResult GetMessageA(ulong messageIndex, ref Message pMessage, ref nuint pMessageByteLength) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Message* ppMessage = &pMessage)
 			{
 				fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, int>)(LpVtbl[5]))(ptr, messageIndex, (Message*)ppMessage, (nuint*)ppMessageByteLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, HResult>)(LpVtbl[5]))(ptr, messageIndex, (Message*)ppMessage, (nuint*)ppMessageByteLength);
 					return ret;
 				}
 			}
@@ -235,22 +235,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddStorageFilterEntries(InfoQueueFilter* pFilter) 
+		public readonly unsafe HResult AddStorageFilterEntries(InfoQueueFilter* pFilter) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[12]))(ptr, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(LpVtbl[12]))(ptr, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddStorageFilterEntries(ref InfoQueueFilter pFilter) 
+		public readonly unsafe HResult AddStorageFilterEntries(ref InfoQueueFilter pFilter) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[12]))(ptr, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(LpVtbl[12]))(ptr, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -258,22 +258,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetStorageFilter(InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
+		public readonly unsafe HResult GetStorageFilter(InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, pFilter, pFilterByteLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[13]))(ptr, pFilter, pFilterByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetStorageFilter(ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
+		public readonly unsafe HResult GetStorageFilter(ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, (InfoQueueFilter*)ppFilter, pFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[13]))(ptr, (InfoQueueFilter*)ppFilter, pFilterByteLength);
 				return ret;
 			}
 		}
@@ -281,12 +281,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetStorageFilter(InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
+		public readonly unsafe HResult GetStorageFilter(InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, pFilter, (nuint*)ppFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[13]))(ptr, pFilter, (nuint*)ppFilterByteLength);
 				return ret;
 			}
 		}
@@ -294,14 +294,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetStorageFilter(ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
+		public readonly unsafe HResult GetStorageFilter(ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
 				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[13]))(ptr, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
 					return ret;
 				}
 			}
@@ -319,42 +319,42 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushEmptyStorageFilter() 
+		public readonly unsafe HResult PushEmptyStorageFilter() 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, int>)(LpVtbl[15]))(ptr);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, HResult>)(LpVtbl[15]))(ptr);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushCopyOfStorageFilter() 
+		public readonly unsafe HResult PushCopyOfStorageFilter() 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, int>)(LpVtbl[16]))(ptr);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, HResult>)(LpVtbl[16]))(ptr);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushStorageFilter(InfoQueueFilter* pFilter) 
+		public readonly unsafe HResult PushStorageFilter(InfoQueueFilter* pFilter) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[17]))(ptr, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(LpVtbl[17]))(ptr, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushStorageFilter(ref InfoQueueFilter pFilter) 
+		public readonly unsafe HResult PushStorageFilter(ref InfoQueueFilter pFilter) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[17]))(ptr, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(LpVtbl[17]))(ptr, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -381,22 +381,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddRetrievalFilterEntries(InfoQueueFilter* pFilter) 
+		public readonly unsafe HResult AddRetrievalFilterEntries(InfoQueueFilter* pFilter) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[20]))(ptr, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(LpVtbl[20]))(ptr, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddRetrievalFilterEntries(ref InfoQueueFilter pFilter) 
+		public readonly unsafe HResult AddRetrievalFilterEntries(ref InfoQueueFilter pFilter) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[20]))(ptr, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(LpVtbl[20]))(ptr, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -404,22 +404,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetRetrievalFilter(InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
+		public readonly unsafe HResult GetRetrievalFilter(InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[21]))(ptr, pFilter, pFilterByteLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[21]))(ptr, pFilter, pFilterByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetRetrievalFilter(ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
+		public readonly unsafe HResult GetRetrievalFilter(ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[21]))(ptr, (InfoQueueFilter*)ppFilter, pFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[21]))(ptr, (InfoQueueFilter*)ppFilter, pFilterByteLength);
 				return ret;
 			}
 		}
@@ -427,12 +427,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetRetrievalFilter(InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
+		public readonly unsafe HResult GetRetrievalFilter(InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[21]))(ptr, pFilter, (nuint*)ppFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[21]))(ptr, pFilter, (nuint*)ppFilterByteLength);
 				return ret;
 			}
 		}
@@ -440,14 +440,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetRetrievalFilter(ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
+		public readonly unsafe HResult GetRetrievalFilter(ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
 				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[21]))(ptr, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(LpVtbl[21]))(ptr, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
 					return ret;
 				}
 			}
@@ -465,42 +465,42 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushEmptyRetrievalFilter() 
+		public readonly unsafe HResult PushEmptyRetrievalFilter() 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, int>)(LpVtbl[23]))(ptr);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, HResult>)(LpVtbl[23]))(ptr);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushCopyOfRetrievalFilter() 
+		public readonly unsafe HResult PushCopyOfRetrievalFilter() 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, int>)(LpVtbl[24]))(ptr);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, HResult>)(LpVtbl[24]))(ptr);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushRetrievalFilter(InfoQueueFilter* pFilter) 
+		public readonly unsafe HResult PushRetrievalFilter(InfoQueueFilter* pFilter) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[25]))(ptr, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(LpVtbl[25]))(ptr, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int PushRetrievalFilter(ref InfoQueueFilter pFilter) 
+		public readonly unsafe HResult PushRetrievalFilter(ref InfoQueueFilter pFilter) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[25]))(ptr, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(LpVtbl[25]))(ptr, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -527,22 +527,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddMessage(MessageCategory category, MessageSeverity severity, MessageId id, byte* pDescription) 
+		public readonly unsafe HResult AddMessage(MessageCategory category, MessageSeverity severity, MessageId id, byte* pDescription) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, int>)(LpVtbl[28]))(ptr, category, severity, id, pDescription);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, HResult>)(LpVtbl[28]))(ptr, category, severity, id, pDescription);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddMessage(MessageCategory category, MessageSeverity severity, MessageId id, ReadOnlySpan<byte> pDescription) 
+		public readonly unsafe HResult AddMessage(MessageCategory category, MessageSeverity severity, MessageId id, ReadOnlySpan<byte> pDescription) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppDescription = pDescription)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, int>)(LpVtbl[28]))(ptr, category, severity, id, (byte*)ppDescription);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, HResult>)(LpVtbl[28]))(ptr, category, severity, id, (byte*)ppDescription);
 				return ret;
 			}
 		}
@@ -550,7 +550,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddMessage(MessageCategory category, MessageSeverity severity, MessageId id, string pDescription) 
+		public readonly unsafe HResult AddMessage(MessageCategory category, MessageSeverity severity, MessageId id, string pDescription) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -570,7 +570,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, int>)(LpVtbl[28]))(ptr, category, severity, id, pStr0);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, HResult>)(LpVtbl[28]))(ptr, category, severity, id, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -581,22 +581,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddApplicationMessage(MessageSeverity severity, byte* pDescription) 
+		public readonly unsafe HResult AddApplicationMessage(MessageSeverity severity, byte* pDescription) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, byte*, int>)(LpVtbl[29]))(ptr, severity, pDescription);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, byte*, HResult>)(LpVtbl[29]))(ptr, severity, pDescription);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddApplicationMessage(MessageSeverity severity, ReadOnlySpan<byte> pDescription) 
+		public readonly unsafe HResult AddApplicationMessage(MessageSeverity severity, ReadOnlySpan<byte> pDescription) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppDescription = pDescription)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, byte*, int>)(LpVtbl[29]))(ptr, severity, (byte*)ppDescription);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, byte*, HResult>)(LpVtbl[29]))(ptr, severity, (byte*)ppDescription);
 				return ret;
 			}
 		}
@@ -604,7 +604,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int AddApplicationMessage(MessageSeverity severity, string pDescription) 
+		public readonly unsafe HResult AddApplicationMessage(MessageSeverity severity, string pDescription) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -624,7 +624,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, byte*, int>)(LpVtbl[29]))(ptr, severity, pStr0);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, byte*, HResult>)(LpVtbl[29]))(ptr, severity, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -635,79 +635,79 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetBreakOnCategory(MessageCategory category, int bEnable) 
+		public readonly unsafe HResult SetBreakOnCategory(MessageCategory category, Bool32 bEnable) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, int, int>)(LpVtbl[30]))(ptr, category, bEnable);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, Bool32, HResult>)(LpVtbl[30]))(ptr, category, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetBreakOnSeverity(MessageSeverity severity, int bEnable) 
+		public readonly unsafe HResult SetBreakOnSeverity(MessageSeverity severity, Bool32 bEnable) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, int, int>)(LpVtbl[31]))(ptr, severity, bEnable);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, Bool32, HResult>)(LpVtbl[31]))(ptr, severity, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetBreakOnID(MessageId id, int bEnable) 
+		public readonly unsafe HResult SetBreakOnID(MessageId id, Bool32 bEnable) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageId, int, int>)(LpVtbl[32]))(ptr, id, bEnable);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageId, Bool32, HResult>)(LpVtbl[32]))(ptr, id, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBreakOnCategory(MessageCategory category) 
+		public readonly unsafe Bool32 GetBreakOnCategory(MessageCategory category) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, int>)(LpVtbl[33]))(ptr, category);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, Bool32>)(LpVtbl[33]))(ptr, category);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBreakOnSeverity(MessageSeverity severity) 
+		public readonly unsafe Bool32 GetBreakOnSeverity(MessageSeverity severity) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, int>)(LpVtbl[34]))(ptr, severity);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, Bool32>)(LpVtbl[34]))(ptr, severity);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBreakOnID(MessageId id) 
+		public readonly unsafe Bool32 GetBreakOnID(MessageId id) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageId, int>)(LpVtbl[35]))(ptr, id);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageId, Bool32>)(LpVtbl[35]))(ptr, id);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe void SetMuteDebugOutput(int bMute) 
+		public readonly unsafe void SetMuteDebugOutput(Bool32 bMute) 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, int, void>)(LpVtbl[36]))(ptr, bMute);
+			((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Bool32, void>)(LpVtbl[36]))(ptr, bMute);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetMuteDebugOutput() 
+		public readonly unsafe Bool32 GetMuteDebugOutput() 
 		{
 			ID3D12InfoQueue* ptr = (ID3D12InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, int>)(LpVtbl[37]))(ptr);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Bool32>)(LpVtbl[37]))(ptr);
 			return ret;
 		}
 

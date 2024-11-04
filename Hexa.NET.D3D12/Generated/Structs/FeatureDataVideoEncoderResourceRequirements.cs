@@ -52,7 +52,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int IsSupported;
+		public Bool32 IsSupported;
 
 		/// <summary>
 		/// To be documented.
@@ -73,7 +73,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataVideoEncoderResourceRequirements(uint nodeIndex = default, VideoEncoderCodec codec = default, VideoEncoderProfileDesc profile = default, Format inputFormat = default, VideoEncoderPictureResolutionDesc pictureTargetResolution = default, int isSupported = default, uint compressedBitstreamBufferAccessAlignment = default, uint encoderMetadataBufferAccessAlignment = default, uint maxEncoderOutputMetadataBufferSize = default)
+		public unsafe FeatureDataVideoEncoderResourceRequirements(uint nodeIndex = default, VideoEncoderCodec codec = default, VideoEncoderProfileDesc profile = default, Format inputFormat = default, VideoEncoderPictureResolutionDesc pictureTargetResolution = default, Bool32 isSupported = default, uint compressedBitstreamBufferAccessAlignment = default, uint encoderMetadataBufferAccessAlignment = default, uint maxEncoderOutputMetadataBufferSize = default)
 		{
 			NodeIndex = nodeIndex;
 			Codec = codec;

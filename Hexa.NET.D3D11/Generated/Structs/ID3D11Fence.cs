@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -59,24 +59,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -135,22 +135,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, pDataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, pDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -158,12 +158,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, (uint*)ppDataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -171,14 +171,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
+		public readonly unsafe HResult GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, (uint*)ppDataSize, pData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -187,22 +187,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, pDataSize, (void*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -210,12 +210,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -223,14 +223,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint*, void*, HResult>)(LpVtbl[4]))(ptr, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -239,22 +239,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(Guid* guid, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint, void*, int>)(LpVtbl[5]))(ptr, guid, dataSize, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint, void*, HResult>)(LpVtbl[5]))(ptr, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
+		public readonly unsafe HResult SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint, void*, int>)(LpVtbl[5]))(ptr, (Guid*)pguid, dataSize, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, uint, void*, HResult>)(LpVtbl[5]))(ptr, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -262,22 +262,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, guid, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, (Guid*)pguid, pData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -285,12 +285,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, guid, (IUnknown*)ppData);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, guid, (IUnknown*)ppData);
 				return ret;
 			}
 		}
@@ -298,24 +298,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, guid, (IUnknown*)pData.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
 				fixed (IUnknown* ppData = &pData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, (Guid*)pguid, (IUnknown*)ppData);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -324,12 +324,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
+		public readonly unsafe HResult SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, (Guid*)pguid, (IUnknown*)pData.Handle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, Guid*, IUnknown*, HResult>)(LpVtbl[6]))(ptr, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -337,22 +337,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHandle(SecurityAttributes* pAttributes, uint dwAccess, char* lpName, nint* pHandle) 
+		public readonly unsafe HResult CreateSharedHandle(SecurityAttributes* pAttributes, uint dwAccess, char* lpName, nint* pHandle) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, int>)(LpVtbl[7]))(ptr, pAttributes, dwAccess, lpName, pHandle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, HResult>)(LpVtbl[7]))(ptr, pAttributes, dwAccess, lpName, pHandle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHandle(ref SecurityAttributes pAttributes, uint dwAccess, char* lpName, nint* pHandle) 
+		public readonly unsafe HResult CreateSharedHandle(ref SecurityAttributes pAttributes, uint dwAccess, char* lpName, nint* pHandle) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SecurityAttributes* ppAttributes = &pAttributes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, int>)(LpVtbl[7]))(ptr, (SecurityAttributes*)ppAttributes, dwAccess, lpName, pHandle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, HResult>)(LpVtbl[7]))(ptr, (SecurityAttributes*)ppAttributes, dwAccess, lpName, pHandle);
 				return ret;
 			}
 		}
@@ -360,12 +360,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHandle(SecurityAttributes* pAttributes, uint dwAccess, ReadOnlySpan<char> lpName, nint* pHandle) 
+		public readonly unsafe HResult CreateSharedHandle(SecurityAttributes* pAttributes, uint dwAccess, ReadOnlySpan<char> lpName, nint* pHandle) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* plpName = lpName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, int>)(LpVtbl[7]))(ptr, pAttributes, dwAccess, (char*)plpName, pHandle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, HResult>)(LpVtbl[7]))(ptr, pAttributes, dwAccess, (char*)plpName, pHandle);
 				return ret;
 			}
 		}
@@ -373,7 +373,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHandle(SecurityAttributes* pAttributes, uint dwAccess, string lpName, nint* pHandle) 
+		public readonly unsafe HResult CreateSharedHandle(SecurityAttributes* pAttributes, uint dwAccess, string lpName, nint* pHandle) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -393,7 +393,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF16(lpName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, int>)(LpVtbl[7]))(ptr, pAttributes, dwAccess, pStr0, pHandle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, HResult>)(LpVtbl[7]))(ptr, pAttributes, dwAccess, pStr0, pHandle);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -404,14 +404,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHandle(ref SecurityAttributes pAttributes, uint dwAccess, ReadOnlySpan<char> lpName, nint* pHandle) 
+		public readonly unsafe HResult CreateSharedHandle(ref SecurityAttributes pAttributes, uint dwAccess, ReadOnlySpan<char> lpName, nint* pHandle) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SecurityAttributes* ppAttributes = &pAttributes)
 			{
 				fixed (char* plpName = lpName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, int>)(LpVtbl[7]))(ptr, (SecurityAttributes*)ppAttributes, dwAccess, (char*)plpName, pHandle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, HResult>)(LpVtbl[7]))(ptr, (SecurityAttributes*)ppAttributes, dwAccess, (char*)plpName, pHandle);
 					return ret;
 				}
 			}
@@ -420,7 +420,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHandle(ref SecurityAttributes pAttributes, uint dwAccess, string lpName, nint* pHandle) 
+		public readonly unsafe HResult CreateSharedHandle(ref SecurityAttributes pAttributes, uint dwAccess, string lpName, nint* pHandle) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SecurityAttributes* ppAttributes = &pAttributes)
@@ -442,7 +442,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF16(lpName, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = '\0';
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, int>)(LpVtbl[7]))(ptr, (SecurityAttributes*)ppAttributes, dwAccess, pStr0, pHandle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, HResult>)(LpVtbl[7]))(ptr, (SecurityAttributes*)ppAttributes, dwAccess, pStr0, pHandle);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -454,12 +454,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHandle(SecurityAttributes* pAttributes, uint dwAccess, char* lpName, ref nint pHandle) 
+		public readonly unsafe HResult CreateSharedHandle(SecurityAttributes* pAttributes, uint dwAccess, char* lpName, ref nint pHandle) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nint* ppHandle = &pHandle)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, int>)(LpVtbl[7]))(ptr, pAttributes, dwAccess, lpName, (nint*)ppHandle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, HResult>)(LpVtbl[7]))(ptr, pAttributes, dwAccess, lpName, (nint*)ppHandle);
 				return ret;
 			}
 		}
@@ -467,14 +467,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHandle(ref SecurityAttributes pAttributes, uint dwAccess, char* lpName, ref nint pHandle) 
+		public readonly unsafe HResult CreateSharedHandle(ref SecurityAttributes pAttributes, uint dwAccess, char* lpName, ref nint pHandle) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SecurityAttributes* ppAttributes = &pAttributes)
 			{
 				fixed (nint* ppHandle = &pHandle)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, int>)(LpVtbl[7]))(ptr, (SecurityAttributes*)ppAttributes, dwAccess, lpName, (nint*)ppHandle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, HResult>)(LpVtbl[7]))(ptr, (SecurityAttributes*)ppAttributes, dwAccess, lpName, (nint*)ppHandle);
 					return ret;
 				}
 			}
@@ -483,14 +483,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHandle(SecurityAttributes* pAttributes, uint dwAccess, ReadOnlySpan<char> lpName, ref nint pHandle) 
+		public readonly unsafe HResult CreateSharedHandle(SecurityAttributes* pAttributes, uint dwAccess, ReadOnlySpan<char> lpName, ref nint pHandle) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* plpName = lpName)
 			{
 				fixed (nint* ppHandle = &pHandle)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, int>)(LpVtbl[7]))(ptr, pAttributes, dwAccess, (char*)plpName, (nint*)ppHandle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, HResult>)(LpVtbl[7]))(ptr, pAttributes, dwAccess, (char*)plpName, (nint*)ppHandle);
 					return ret;
 				}
 			}
@@ -499,7 +499,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHandle(SecurityAttributes* pAttributes, uint dwAccess, string lpName, ref nint pHandle) 
+		public readonly unsafe HResult CreateSharedHandle(SecurityAttributes* pAttributes, uint dwAccess, string lpName, ref nint pHandle) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -521,7 +521,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (nint* ppHandle = &pHandle)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, int>)(LpVtbl[7]))(ptr, pAttributes, dwAccess, pStr0, (nint*)ppHandle);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, HResult>)(LpVtbl[7]))(ptr, pAttributes, dwAccess, pStr0, (nint*)ppHandle);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -533,7 +533,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHandle(ref SecurityAttributes pAttributes, uint dwAccess, ReadOnlySpan<char> lpName, ref nint pHandle) 
+		public readonly unsafe HResult CreateSharedHandle(ref SecurityAttributes pAttributes, uint dwAccess, ReadOnlySpan<char> lpName, ref nint pHandle) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SecurityAttributes* ppAttributes = &pAttributes)
@@ -542,7 +542,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (nint* ppHandle = &pHandle)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, int>)(LpVtbl[7]))(ptr, (SecurityAttributes*)ppAttributes, dwAccess, (char*)plpName, (nint*)ppHandle);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, HResult>)(LpVtbl[7]))(ptr, (SecurityAttributes*)ppAttributes, dwAccess, (char*)plpName, (nint*)ppHandle);
 						return ret;
 					}
 				}
@@ -552,7 +552,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateSharedHandle(ref SecurityAttributes pAttributes, uint dwAccess, string lpName, ref nint pHandle) 
+		public readonly unsafe HResult CreateSharedHandle(ref SecurityAttributes pAttributes, uint dwAccess, string lpName, ref nint pHandle) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (SecurityAttributes* ppAttributes = &pAttributes)
@@ -576,7 +576,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (nint* ppHandle = &pHandle)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, int>)(LpVtbl[7]))(ptr, (SecurityAttributes*)ppAttributes, dwAccess, pStr0, (nint*)ppHandle);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, SecurityAttributes*, uint, char*, nint*, HResult>)(LpVtbl[7]))(ptr, (SecurityAttributes*)ppAttributes, dwAccess, pStr0, (nint*)ppHandle);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -599,10 +599,10 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int SetEventOnCompletion(ulong value, nint hEvent) 
+		public readonly unsafe HResult SetEventOnCompletion(ulong value, nint hEvent) 
 		{
 			ID3D11Fence* ptr = (ID3D11Fence*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, ulong, nint, int>)(LpVtbl[9]))(ptr, value, hEvent);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Fence*, ulong, nint, HResult>)(LpVtbl[9]))(ptr, value, hEvent);
 			return ret;
 		}
 

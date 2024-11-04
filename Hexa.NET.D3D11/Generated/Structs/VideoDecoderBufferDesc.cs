@@ -87,7 +87,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int PartialEncryption;
+		public Bool32 PartialEncryption;
 
 		/// <summary>
 		/// To be documented.
@@ -98,7 +98,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe VideoDecoderBufferDesc(VideoDecoderBufferType bufferType = default, uint bufferIndex = default, uint dataOffset = default, uint dataSize = default, uint firstMBaddress = default, uint numMBsInBuffer = default, uint width = default, uint height = default, uint stride = default, uint reservedBits = default, void* piV = default, uint ivSize = default, int partialEncryption = default, EncryptedBlockInfo encryptedBlockInfo = default)
+		public unsafe VideoDecoderBufferDesc(VideoDecoderBufferType bufferType = default, uint bufferIndex = default, uint dataOffset = default, uint dataSize = default, uint firstMBaddress = default, uint numMBsInBuffer = default, uint width = default, uint height = default, uint stride = default, uint reservedBits = default, void* piV = default, uint ivSize = default, Bool32 partialEncryption = default, EncryptedBlockInfo encryptedBlockInfo = default)
 		{
 			BufferType = bufferType;
 			BufferIndex = bufferIndex;

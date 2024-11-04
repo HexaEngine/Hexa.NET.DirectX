@@ -32,7 +32,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int BUseBox;
+		public Bool32 BUseBox;
 
 		/// <summary>
 		/// To be documented.
@@ -53,7 +53,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe TileRegionSize(uint numTiles = default, int bUseBox = default, uint width = default, ushort height = default, ushort depth = default)
+		public unsafe TileRegionSize(uint numTiles = default, Bool32 bUseBox = default, uint width = default, ushort height = default, ushort depth = default)
 		{
 			NumTiles = numTiles;
 			BUseBox = bUseBox;

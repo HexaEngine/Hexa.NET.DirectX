@@ -27,7 +27,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Enable;
+		public Bool32 Enable;
 
 		/// <summary>
 		/// To be documented.
@@ -48,7 +48,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe VideoProcessorStreamBehaviorHint(int enable = default, uint width = default, uint height = default, Format format = default)
+		public unsafe VideoProcessorStreamBehaviorHint(Bool32 enable = default, uint width = default, uint height = default, Format format = default)
 		{
 			Enable = enable;
 			Width = width;

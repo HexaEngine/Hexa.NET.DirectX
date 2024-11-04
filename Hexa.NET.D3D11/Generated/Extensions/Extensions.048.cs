@@ -23,22 +23,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pCounterDesc, ID3D11Counter** ppCounter) 
+		public static HResult CreateCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pCounterDesc, ID3D11Counter** ppCounter) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, ID3D11Counter**, int>)(handle->LpVtbl[26]))(handle, pCounterDesc, ppCounter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, ID3D11Counter**, HResult>)(handle->LpVtbl[26]))(handle, pCounterDesc, ppCounter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pCounterDesc, ID3D11Counter** ppCounter) 
+		public static HResult CreateCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pCounterDesc, ID3D11Counter** ppCounter) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppCounterDesc = &pCounterDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, ID3D11Counter**, int>)(handle->LpVtbl[26]))(handle, (CounterDesc*)ppCounterDesc, ppCounter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, ID3D11Counter**, HResult>)(handle->LpVtbl[26]))(handle, (CounterDesc*)ppCounterDesc, ppCounter);
 				return ret;
 			}
 		}
@@ -46,12 +46,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pCounterDesc, ref ID3D11Counter* ppCounter) 
+		public static HResult CreateCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pCounterDesc, ref ID3D11Counter* ppCounter) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (ID3D11Counter** pppCounter = &ppCounter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, ID3D11Counter**, int>)(handle->LpVtbl[26]))(handle, pCounterDesc, (ID3D11Counter**)pppCounter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, ID3D11Counter**, HResult>)(handle->LpVtbl[26]))(handle, pCounterDesc, (ID3D11Counter**)pppCounter);
 				return ret;
 			}
 		}
@@ -59,25 +59,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pCounterDesc, out ComPtr<ID3D11Counter> ppCounter) 
+		public static HResult CreateCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pCounterDesc, out ComPtr<ID3D11Counter> ppCounter) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			ppCounter = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, ID3D11Counter**, int>)(handle->LpVtbl[26]))(handle, pCounterDesc, (ID3D11Counter**)ppCounter.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, ID3D11Counter**, HResult>)(handle->LpVtbl[26]))(handle, pCounterDesc, (ID3D11Counter**)ppCounter.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pCounterDesc, ref ID3D11Counter* ppCounter) 
+		public static HResult CreateCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pCounterDesc, ref ID3D11Counter* ppCounter) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppCounterDesc = &pCounterDesc)
 			{
 				fixed (ID3D11Counter** pppCounter = &ppCounter)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, ID3D11Counter**, int>)(handle->LpVtbl[26]))(handle, (CounterDesc*)ppCounterDesc, (ID3D11Counter**)pppCounter);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, ID3D11Counter**, HResult>)(handle->LpVtbl[26]))(handle, (CounterDesc*)ppCounterDesc, (ID3D11Counter**)pppCounter);
 					return ret;
 				}
 			}
@@ -86,13 +86,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pCounterDesc, out ComPtr<ID3D11Counter> ppCounter) 
+		public static HResult CreateCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pCounterDesc, out ComPtr<ID3D11Counter> ppCounter) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppCounterDesc = &pCounterDesc)
 			{
 				ppCounter = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, ID3D11Counter**, int>)(handle->LpVtbl[26]))(handle, (CounterDesc*)ppCounterDesc, (ID3D11Counter**)ppCounter.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, ID3D11Counter**, HResult>)(handle->LpVtbl[26]))(handle, (CounterDesc*)ppCounterDesc, (ID3D11Counter**)ppCounter.GetAddressOf());
 				return ret;
 			}
 		}
@@ -100,22 +100,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeferredContext(this ComPtr<ID3D11Device3> comObj, uint contextFlags, ID3D11DeviceContext** ppDeferredContext) 
+		public static HResult CreateDeferredContext(this ComPtr<ID3D11Device3> comObj, uint contextFlags, ID3D11DeviceContext** ppDeferredContext) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, uint, ID3D11DeviceContext**, int>)(handle->LpVtbl[27]))(handle, contextFlags, ppDeferredContext);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, uint, ID3D11DeviceContext**, HResult>)(handle->LpVtbl[27]))(handle, contextFlags, ppDeferredContext);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeferredContext(this ComPtr<ID3D11Device3> comObj, uint contextFlags, ref ID3D11DeviceContext* ppDeferredContext) 
+		public static HResult CreateDeferredContext(this ComPtr<ID3D11Device3> comObj, uint contextFlags, ref ID3D11DeviceContext* ppDeferredContext) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (ID3D11DeviceContext** pppDeferredContext = &ppDeferredContext)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, uint, ID3D11DeviceContext**, int>)(handle->LpVtbl[27]))(handle, contextFlags, (ID3D11DeviceContext**)pppDeferredContext);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, uint, ID3D11DeviceContext**, HResult>)(handle->LpVtbl[27]))(handle, contextFlags, (ID3D11DeviceContext**)pppDeferredContext);
 				return ret;
 			}
 		}
@@ -123,33 +123,33 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateDeferredContext(this ComPtr<ID3D11Device3> comObj, uint contextFlags, out ComPtr<ID3D11DeviceContext> ppDeferredContext) 
+		public static HResult CreateDeferredContext(this ComPtr<ID3D11Device3> comObj, uint contextFlags, out ComPtr<ID3D11DeviceContext> ppDeferredContext) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			ppDeferredContext = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, uint, ID3D11DeviceContext**, int>)(handle->LpVtbl[27]))(handle, contextFlags, (ID3D11DeviceContext**)ppDeferredContext.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, uint, ID3D11DeviceContext**, HResult>)(handle->LpVtbl[27]))(handle, contextFlags, (ID3D11DeviceContext**)ppDeferredContext.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResource(this ComPtr<ID3D11Device3> comObj, nint hResource, Guid* returnedInterface, void** ppResource) 
+		public static HResult OpenSharedResource(this ComPtr<ID3D11Device3> comObj, nint hResource, Guid* returnedInterface, void** ppResource) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, nint, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, hResource, returnedInterface, ppResource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, nint, Guid*, void**, HResult>)(handle->LpVtbl[28]))(handle, hResource, returnedInterface, ppResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResource(this ComPtr<ID3D11Device3> comObj, nint hResource, ref Guid returnedInterface, void** ppResource) 
+		public static HResult OpenSharedResource(this ComPtr<ID3D11Device3> comObj, nint hResource, ref Guid returnedInterface, void** ppResource) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (Guid* preturnedInterface = &returnedInterface)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, nint, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, hResource, (Guid*)preturnedInterface, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, nint, Guid*, void**, HResult>)(handle->LpVtbl[28]))(handle, hResource, (Guid*)preturnedInterface, ppResource);
 				return ret;
 			}
 		}
@@ -157,24 +157,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResource<T>(this ComPtr<ID3D11Device3> comObj, nint hResource, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult OpenSharedResource<T>(this ComPtr<ID3D11Device3> comObj, nint hResource, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			ppResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, nint, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, hResource, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, nint, Guid*, void**, HResult>)(handle->LpVtbl[28]))(handle, hResource, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppResource.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int OpenSharedResource<T>(this ComPtr<ID3D11Device3> comObj, nint hResource, ref Guid returnedInterface, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult OpenSharedResource<T>(this ComPtr<ID3D11Device3> comObj, nint hResource, ref Guid returnedInterface, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (Guid* preturnedInterface = &returnedInterface)
 			{
 				ppResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, nint, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, hResource, (Guid*)preturnedInterface, (void**)ppResource.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, nint, Guid*, void**, HResult>)(handle->LpVtbl[28]))(handle, hResource, (Guid*)preturnedInterface, (void**)ppResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -182,22 +182,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckFormatSupport(this ComPtr<ID3D11Device3> comObj, Format format, uint* pFormatSupport) 
+		public static HResult CheckFormatSupport(this ComPtr<ID3D11Device3> comObj, Format format, uint* pFormatSupport) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, Format, uint*, int>)(handle->LpVtbl[29]))(handle, format, pFormatSupport);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, Format, uint*, HResult>)(handle->LpVtbl[29]))(handle, format, pFormatSupport);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckFormatSupport(this ComPtr<ID3D11Device3> comObj, Format format, ref uint pFormatSupport) 
+		public static HResult CheckFormatSupport(this ComPtr<ID3D11Device3> comObj, Format format, ref uint pFormatSupport) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppFormatSupport = &pFormatSupport)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, Format, uint*, int>)(handle->LpVtbl[29]))(handle, format, (uint*)ppFormatSupport);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, Format, uint*, HResult>)(handle->LpVtbl[29]))(handle, format, (uint*)ppFormatSupport);
 				return ret;
 			}
 		}
@@ -205,22 +205,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckMultisampleQualityLevels(this ComPtr<ID3D11Device3> comObj, Format format, uint sampleCount, uint* pNumQualityLevels) 
+		public static HResult CheckMultisampleQualityLevels(this ComPtr<ID3D11Device3> comObj, Format format, uint sampleCount, uint* pNumQualityLevels) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, Format, uint, uint*, int>)(handle->LpVtbl[30]))(handle, format, sampleCount, pNumQualityLevels);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, Format, uint, uint*, HResult>)(handle->LpVtbl[30]))(handle, format, sampleCount, pNumQualityLevels);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckMultisampleQualityLevels(this ComPtr<ID3D11Device3> comObj, Format format, uint sampleCount, ref uint pNumQualityLevels) 
+		public static HResult CheckMultisampleQualityLevels(this ComPtr<ID3D11Device3> comObj, Format format, uint sampleCount, ref uint pNumQualityLevels) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppNumQualityLevels = &pNumQualityLevels)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, Format, uint, uint*, int>)(handle->LpVtbl[30]))(handle, format, sampleCount, (uint*)ppNumQualityLevels);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, Format, uint, uint*, HResult>)(handle->LpVtbl[30]))(handle, format, sampleCount, (uint*)ppNumQualityLevels);
 				return ret;
 			}
 		}
@@ -249,22 +249,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 				return ret;
 			}
 		}
@@ -272,12 +272,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 				return ret;
 			}
 		}
@@ -285,14 +285,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
 			{
 				fixed (CounterType* ppType = &pType)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -301,12 +301,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 				return ret;
 			}
 		}
@@ -314,14 +314,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
 			{
 				fixed (uint* ppActiveCounters = &pActiveCounters)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -330,14 +330,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
 			{
 				fixed (uint* ppActiveCounters = &pActiveCounters)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -346,7 +346,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -355,7 +355,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppActiveCounters = &pActiveCounters)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -365,12 +365,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (byte* pszName = szName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 				return ret;
 			}
 		}
@@ -378,7 +378,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -398,7 +398,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -409,14 +409,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
 			{
 				fixed (byte* pszName = szName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -425,7 +425,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -447,7 +447,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -459,14 +459,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
 			{
 				fixed (byte* pszName = szName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -475,7 +475,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -497,7 +497,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -509,7 +509,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -518,7 +518,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* pszName = szName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -528,7 +528,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -552,7 +552,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
 						pStr0[pStrOffset0] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -565,14 +565,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
 			{
 				fixed (byte* pszName = szName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -581,7 +581,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -603,7 +603,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -615,7 +615,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -624,7 +624,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* pszName = szName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -634,7 +634,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -658,7 +658,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
 						pStr0[pStrOffset0] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -671,7 +671,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -680,7 +680,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* pszName = szName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -690,7 +690,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -714,7 +714,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
 						pStr0[pStrOffset0] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -727,7 +727,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -738,7 +738,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (byte* pszName = szName)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -749,7 +749,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -775,7 +775,7 @@ namespace Hexa.NET.D3D11
 							int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
 							pStr0[pStrOffset0] = 0;
 						}
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -789,12 +789,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppNameLength = &pNameLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 				return ret;
 			}
 		}
@@ -802,14 +802,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
 			{
 				fixed (uint* ppNameLength = &pNameLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -818,14 +818,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
 			{
 				fixed (uint* ppNameLength = &pNameLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -834,7 +834,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -843,7 +843,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppNameLength = &pNameLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -853,14 +853,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
 			{
 				fixed (uint* ppNameLength = &pNameLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -869,7 +869,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -878,7 +878,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppNameLength = &pNameLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -888,7 +888,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -897,7 +897,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppNameLength = &pNameLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -907,7 +907,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -918,7 +918,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppNameLength = &pNameLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -929,14 +929,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (byte* pszName = szName)
 			{
 				fixed (uint* ppNameLength = &pNameLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -945,7 +945,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -967,7 +967,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (uint* ppNameLength = &pNameLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -979,7 +979,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -988,7 +988,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppNameLength = &pNameLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -998,7 +998,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1022,7 +1022,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (uint* ppNameLength = &pNameLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1035,7 +1035,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -1044,7 +1044,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppNameLength = &pNameLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -1054,7 +1054,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -1078,7 +1078,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (uint* ppNameLength = &pNameLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1091,7 +1091,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1102,7 +1102,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppNameLength = &pNameLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -1113,7 +1113,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1139,7 +1139,7 @@ namespace Hexa.NET.D3D11
 					}
 					fixed (uint* ppNameLength = &pNameLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1153,7 +1153,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -1162,7 +1162,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppNameLength = &pNameLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -1172,7 +1172,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -1196,7 +1196,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (uint* ppNameLength = &pNameLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1209,7 +1209,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1220,7 +1220,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppNameLength = &pNameLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -1231,7 +1231,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1257,7 +1257,7 @@ namespace Hexa.NET.D3D11
 					}
 					fixed (uint* ppNameLength = &pNameLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1271,7 +1271,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -1282,7 +1282,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppNameLength = &pNameLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -1293,7 +1293,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -1319,7 +1319,7 @@ namespace Hexa.NET.D3D11
 					}
 					fixed (uint* ppNameLength = &pNameLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1333,7 +1333,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1346,7 +1346,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppNameLength = &pNameLength)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -1358,7 +1358,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1386,7 +1386,7 @@ namespace Hexa.NET.D3D11
 						}
 						fixed (uint* ppNameLength = &pNameLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -1401,12 +1401,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (byte* pszUnits = szUnits)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 				return ret;
 			}
 		}
@@ -1414,7 +1414,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -1434,7 +1434,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -1445,14 +1445,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
 			{
 				fixed (byte* pszUnits = szUnits)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -1461,7 +1461,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1483,7 +1483,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1495,14 +1495,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
 			{
 				fixed (byte* pszUnits = szUnits)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -1511,7 +1511,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -1533,7 +1533,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1545,7 +1545,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1554,7 +1554,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -1564,7 +1564,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1588,7 +1588,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 						pStr0[pStrOffset0] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1601,14 +1601,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
 			{
 				fixed (byte* pszUnits = szUnits)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -1617,7 +1617,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -1639,7 +1639,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1651,7 +1651,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1660,7 +1660,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -1670,7 +1670,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1694,7 +1694,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 						pStr0[pStrOffset0] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1707,7 +1707,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -1716,7 +1716,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -1726,7 +1726,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -1750,7 +1750,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 						pStr0[pStrOffset0] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1763,7 +1763,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1774,7 +1774,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -1785,7 +1785,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1811,7 +1811,7 @@ namespace Hexa.NET.D3D11
 							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 							pStr0[pStrOffset0] = 0;
 						}
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -1825,14 +1825,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (byte* pszName = szName)
 			{
 				fixed (byte* pszUnits = szUnits)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -1841,7 +1841,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -1878,7 +1878,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -1893,7 +1893,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1902,7 +1902,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -1912,7 +1912,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -1951,7 +1951,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -1967,7 +1967,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -1976,7 +1976,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -1986,7 +1986,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -2025,7 +2025,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -2041,7 +2041,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2052,7 +2052,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -2063,7 +2063,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2104,7 +2104,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 						pStr1[pStrOffset1] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -2121,7 +2121,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -2130,7 +2130,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -2140,7 +2140,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -2179,7 +2179,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -2195,7 +2195,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2206,7 +2206,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -2217,7 +2217,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2258,7 +2258,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 						pStr1[pStrOffset1] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -2275,7 +2275,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -2286,7 +2286,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -2297,7 +2297,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -2338,7 +2338,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 						pStr1[pStrOffset1] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -2355,7 +2355,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2368,7 +2368,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (byte* pszUnits = szUnits)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -2380,7 +2380,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2423,7 +2423,7 @@ namespace Hexa.NET.D3D11
 							int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 							pStr1[pStrOffset1] = 0;
 						}
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -2441,14 +2441,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppNameLength = &pNameLength)
 			{
 				fixed (byte* pszUnits = szUnits)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -2457,7 +2457,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppNameLength = &pNameLength)
@@ -2479,7 +2479,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2491,7 +2491,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2500,7 +2500,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -2510,7 +2510,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2534,7 +2534,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 						pStr0[pStrOffset0] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2547,7 +2547,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -2556,7 +2556,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -2566,7 +2566,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -2590,7 +2590,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 						pStr0[pStrOffset0] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2603,7 +2603,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2614,7 +2614,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -2625,7 +2625,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2651,7 +2651,7 @@ namespace Hexa.NET.D3D11
 							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 							pStr0[pStrOffset0] = 0;
 						}
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -2665,7 +2665,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -2674,7 +2674,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -2684,7 +2684,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -2708,7 +2708,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 						pStr0[pStrOffset0] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2721,7 +2721,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2732,7 +2732,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -2743,7 +2743,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2769,7 +2769,7 @@ namespace Hexa.NET.D3D11
 							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 							pStr0[pStrOffset0] = 0;
 						}
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -2783,7 +2783,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -2794,7 +2794,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -2805,7 +2805,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -2831,7 +2831,7 @@ namespace Hexa.NET.D3D11
 							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 							pStr0[pStrOffset0] = 0;
 						}
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -2845,7 +2845,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2858,7 +2858,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (byte* pszUnits = szUnits)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -2870,7 +2870,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2898,7 +2898,7 @@ namespace Hexa.NET.D3D11
 								int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
 								pStr0[pStrOffset0] = 0;
 							}
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -2913,7 +2913,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (byte* pszName = szName)
@@ -2922,7 +2922,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -2932,7 +2932,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -2971,7 +2971,7 @@ namespace Hexa.NET.D3D11
 					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = 0;
 				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -2987,7 +2987,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -2998,7 +2998,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -3009,7 +3009,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3050,7 +3050,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 						pStr1[pStrOffset1] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -3067,7 +3067,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -3078,7 +3078,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -3089,7 +3089,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -3130,7 +3130,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 						pStr1[pStrOffset1] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -3147,7 +3147,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3160,7 +3160,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (byte* pszUnits = szUnits)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -3172,7 +3172,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3215,7 +3215,7 @@ namespace Hexa.NET.D3D11
 							int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 							pStr1[pStrOffset1] = 0;
 						}
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -3233,7 +3233,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -3244,7 +3244,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -3255,7 +3255,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -3296,7 +3296,7 @@ namespace Hexa.NET.D3D11
 						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 						pStr1[pStrOffset1] = 0;
 					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -3313,7 +3313,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3326,7 +3326,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (byte* pszUnits = szUnits)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -3338,7 +3338,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3381,7 +3381,7 @@ namespace Hexa.NET.D3D11
 							int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 							pStr1[pStrOffset1] = 0;
 						}
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -3399,7 +3399,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -3412,7 +3412,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (byte* pszUnits = szUnits)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -3424,7 +3424,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -3467,7 +3467,7 @@ namespace Hexa.NET.D3D11
 							int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 							pStr1[pStrOffset1] = 0;
 						}
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -3485,7 +3485,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3500,7 +3500,7 @@ namespace Hexa.NET.D3D11
 							{
 								fixed (byte* pszUnits = szUnits)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 									return ret;
 								}
 							}
@@ -3513,7 +3513,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3558,7 +3558,7 @@ namespace Hexa.NET.D3D11
 								int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
 								pStr1[pStrOffset1] = 0;
 							}
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
 							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr1);
@@ -3577,12 +3577,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppUnitsLength = &pUnitsLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 				return ret;
 			}
 		}
@@ -3590,14 +3590,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
 			{
 				fixed (uint* ppUnitsLength = &pUnitsLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -3606,14 +3606,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
 			{
 				fixed (uint* ppUnitsLength = &pUnitsLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -3622,7 +3622,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3631,7 +3631,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -3641,14 +3641,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
 			{
 				fixed (uint* ppUnitsLength = &pUnitsLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -3657,7 +3657,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3666,7 +3666,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -3676,7 +3676,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -3685,7 +3685,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -3695,7 +3695,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3706,7 +3706,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -3717,14 +3717,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (byte* pszName = szName)
 			{
 				fixed (uint* ppUnitsLength = &pUnitsLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -3733,7 +3733,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -3755,7 +3755,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (uint* ppUnitsLength = &pUnitsLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3767,7 +3767,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3776,7 +3776,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -3786,7 +3786,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3810,7 +3810,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (uint* ppUnitsLength = &pUnitsLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3823,7 +3823,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -3832,7 +3832,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -3842,7 +3842,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -3866,7 +3866,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (uint* ppUnitsLength = &pUnitsLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3879,7 +3879,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3890,7 +3890,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -3901,7 +3901,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -3927,7 +3927,7 @@ namespace Hexa.NET.D3D11
 					}
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -3941,7 +3941,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -3950,7 +3950,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -3960,7 +3960,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -3984,7 +3984,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (uint* ppUnitsLength = &pUnitsLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3997,7 +3997,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4008,7 +4008,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -4019,7 +4019,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4045,7 +4045,7 @@ namespace Hexa.NET.D3D11
 					}
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -4059,7 +4059,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -4070,7 +4070,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -4081,7 +4081,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -4107,7 +4107,7 @@ namespace Hexa.NET.D3D11
 					}
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -4121,7 +4121,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4134,7 +4134,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppUnitsLength = &pUnitsLength)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -4146,7 +4146,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4174,7 +4174,7 @@ namespace Hexa.NET.D3D11
 						}
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -4189,14 +4189,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppNameLength = &pNameLength)
 			{
 				fixed (uint* ppUnitsLength = &pUnitsLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -4205,7 +4205,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4214,7 +4214,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -4224,7 +4224,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -4233,7 +4233,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -4243,7 +4243,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4254,7 +4254,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -4265,7 +4265,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -4274,7 +4274,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -4284,7 +4284,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4295,7 +4295,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -4306,7 +4306,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -4317,7 +4317,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -4328,7 +4328,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4341,7 +4341,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppUnitsLength = &pUnitsLength)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -4353,7 +4353,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (byte* pszName = szName)
@@ -4362,7 +4362,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -4372,7 +4372,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -4396,7 +4396,7 @@ namespace Hexa.NET.D3D11
 			{
 				fixed (uint* ppUnitsLength = &pUnitsLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -4409,7 +4409,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4420,7 +4420,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -4431,7 +4431,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4457,7 +4457,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -4471,7 +4471,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -4482,7 +4482,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -4493,7 +4493,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -4519,7 +4519,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -4533,7 +4533,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4546,7 +4546,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppUnitsLength = &pUnitsLength)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -4558,7 +4558,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4586,7 +4586,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -4601,7 +4601,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -4612,7 +4612,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -4623,7 +4623,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (uint* ppActiveCounters = &pActiveCounters)
@@ -4649,7 +4649,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -4663,7 +4663,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4676,7 +4676,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppUnitsLength = &pUnitsLength)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -4688,7 +4688,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4716,7 +4716,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -4731,7 +4731,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -4744,7 +4744,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppUnitsLength = &pUnitsLength)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -4756,7 +4756,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -4784,7 +4784,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr0);
@@ -4799,7 +4799,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4814,7 +4814,7 @@ namespace Hexa.NET.D3D11
 							{
 								fixed (uint* ppUnitsLength = &pUnitsLength)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+									HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 									return ret;
 								}
 							}
@@ -4827,7 +4827,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4857,7 +4857,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (uint* ppUnitsLength = &pUnitsLength)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 								if (pStrSize0 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr0);
@@ -4873,14 +4873,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (byte* pszUnits = szUnits)
 			{
 				fixed (uint* ppUnitsLength = &pUnitsLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -4889,7 +4889,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -4911,7 +4911,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (uint* ppUnitsLength = &pUnitsLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -4923,7 +4923,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4932,7 +4932,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -4942,7 +4942,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterDesc* ppDesc = &pDesc)
@@ -4966,7 +4966,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (uint* ppUnitsLength = &pUnitsLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -4979,7 +4979,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -4988,7 +4988,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -4998,7 +4998,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		public static HResult CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
 			ID3D11Device3* handle = comObj.Handle;
 			fixed (CounterType* ppType = &pType)
@@ -5022,7 +5022,7 @@ namespace Hexa.NET.D3D11
 				}
 				fixed (uint* ppUnitsLength = &pUnitsLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, HResult>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);

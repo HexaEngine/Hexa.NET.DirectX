@@ -32,18 +32,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int EnhancedBarriersSupported;
+		public Bool32 EnhancedBarriersSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int RelaxedFormatCastingSupported;
+		public Bool32 RelaxedFormatCastingSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D12Options12(TriState msPrimitivesPipelineStatisticIncludesCulledPrimitives = default, int enhancedBarriersSupported = default, int relaxedFormatCastingSupported = default)
+		public unsafe FeatureDataD3D12Options12(TriState msPrimitivesPipelineStatisticIncludesCulledPrimitives = default, Bool32 enhancedBarriersSupported = default, Bool32 relaxedFormatCastingSupported = default)
 		{
 			MSPrimitivesPipelineStatisticIncludesCulledPrimitives = msPrimitivesPipelineStatisticIncludesCulledPrimitives;
 			EnhancedBarriersSupported = enhancedBarriersSupported;

@@ -1230,47 +1230,47 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void GetPredication(this ComPtr<ID3D11DeviceContext3> comObj, ID3D11Predicate** ppPredicate, int* pPredicateValue) 
+		public static void GetPredication(this ComPtr<ID3D11DeviceContext3> comObj, ID3D11Predicate** ppPredicate, Bool32* pPredicateValue) 
 		{
 			ID3D11DeviceContext3* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, ID3D11Predicate**, int*, void>)(handle->LpVtbl[86]))(handle, ppPredicate, pPredicateValue);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, ID3D11Predicate**, Bool32*, void>)(handle->LpVtbl[86]))(handle, ppPredicate, pPredicateValue);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void GetPredication(this ComPtr<ID3D11DeviceContext3> comObj, ref ID3D11Predicate* ppPredicate, int* pPredicateValue) 
+		public static void GetPredication(this ComPtr<ID3D11DeviceContext3> comObj, ref ID3D11Predicate* ppPredicate, Bool32* pPredicateValue) 
 		{
 			ID3D11DeviceContext3* handle = comObj.Handle;
 			fixed (ID3D11Predicate** pppPredicate = &ppPredicate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, ID3D11Predicate**, int*, void>)(handle->LpVtbl[86]))(handle, (ID3D11Predicate**)pppPredicate, pPredicateValue);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, ID3D11Predicate**, Bool32*, void>)(handle->LpVtbl[86]))(handle, (ID3D11Predicate**)pppPredicate, pPredicateValue);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void GetPredication(this ComPtr<ID3D11DeviceContext3> comObj, ID3D11Predicate** ppPredicate, ref int pPredicateValue) 
+		public static void GetPredication(this ComPtr<ID3D11DeviceContext3> comObj, ID3D11Predicate** ppPredicate, ref Bool32 pPredicateValue) 
 		{
 			ID3D11DeviceContext3* handle = comObj.Handle;
-			fixed (int* ppPredicateValue = &pPredicateValue)
+			fixed (Bool32* ppPredicateValue = &pPredicateValue)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, ID3D11Predicate**, int*, void>)(handle->LpVtbl[86]))(handle, ppPredicate, (int*)ppPredicateValue);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, ID3D11Predicate**, Bool32*, void>)(handle->LpVtbl[86]))(handle, ppPredicate, (Bool32*)ppPredicateValue);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void GetPredication(this ComPtr<ID3D11DeviceContext3> comObj, ref ID3D11Predicate* ppPredicate, ref int pPredicateValue) 
+		public static void GetPredication(this ComPtr<ID3D11DeviceContext3> comObj, ref ID3D11Predicate* ppPredicate, ref Bool32 pPredicateValue) 
 		{
 			ID3D11DeviceContext3* handle = comObj.Handle;
 			fixed (ID3D11Predicate** pppPredicate = &ppPredicate)
 			{
-				fixed (int* ppPredicateValue = &pPredicateValue)
+				fixed (Bool32* ppPredicateValue = &pPredicateValue)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, ID3D11Predicate**, int*, void>)(handle->LpVtbl[86]))(handle, (ID3D11Predicate**)pppPredicate, (int*)ppPredicateValue);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, ID3D11Predicate**, Bool32*, void>)(handle->LpVtbl[86]))(handle, (ID3D11Predicate**)pppPredicate, (Bool32*)ppPredicateValue);
 				}
 			}
 		}
@@ -2935,22 +2935,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FinishCommandList(this ComPtr<ID3D11DeviceContext3> comObj, int restoreDeferredContextState, ID3D11CommandList** ppCommandList) 
+		public static HResult FinishCommandList(this ComPtr<ID3D11DeviceContext3> comObj, Bool32 restoreDeferredContextState, ID3D11CommandList** ppCommandList) 
 		{
 			ID3D11DeviceContext3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, int, ID3D11CommandList**, int>)(handle->LpVtbl[114]))(handle, restoreDeferredContextState, ppCommandList);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, Bool32, ID3D11CommandList**, HResult>)(handle->LpVtbl[114]))(handle, restoreDeferredContextState, ppCommandList);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FinishCommandList(this ComPtr<ID3D11DeviceContext3> comObj, int restoreDeferredContextState, ref ID3D11CommandList* ppCommandList) 
+		public static HResult FinishCommandList(this ComPtr<ID3D11DeviceContext3> comObj, Bool32 restoreDeferredContextState, ref ID3D11CommandList* ppCommandList) 
 		{
 			ID3D11DeviceContext3* handle = comObj.Handle;
 			fixed (ID3D11CommandList** pppCommandList = &ppCommandList)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, int, ID3D11CommandList**, int>)(handle->LpVtbl[114]))(handle, restoreDeferredContextState, (ID3D11CommandList**)pppCommandList);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, Bool32, ID3D11CommandList**, HResult>)(handle->LpVtbl[114]))(handle, restoreDeferredContextState, (ID3D11CommandList**)pppCommandList);
 				return ret;
 			}
 		}
@@ -2958,11 +2958,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int FinishCommandList(this ComPtr<ID3D11DeviceContext3> comObj, int restoreDeferredContextState, out ComPtr<ID3D11CommandList> ppCommandList) 
+		public static HResult FinishCommandList(this ComPtr<ID3D11DeviceContext3> comObj, Bool32 restoreDeferredContextState, out ComPtr<ID3D11CommandList> ppCommandList) 
 		{
 			ID3D11DeviceContext3* handle = comObj.Handle;
 			ppCommandList = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, int, ID3D11CommandList**, int>)(handle->LpVtbl[114]))(handle, restoreDeferredContextState, (ID3D11CommandList**)ppCommandList.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext3*, Bool32, ID3D11CommandList**, HResult>)(handle->LpVtbl[114]))(handle, restoreDeferredContextState, (ID3D11CommandList**)ppCommandList.GetAddressOf());
 			return ret;
 		}
 

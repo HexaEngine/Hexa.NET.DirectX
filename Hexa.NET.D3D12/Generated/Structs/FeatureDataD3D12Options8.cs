@@ -27,13 +27,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int UnalignedBlockTexturesSupported;
+		public Bool32 UnalignedBlockTexturesSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D12Options8(int unalignedBlockTexturesSupported = default)
+		public unsafe FeatureDataD3D12Options8(Bool32 unalignedBlockTexturesSupported = default)
 		{
 			UnalignedBlockTexturesSupported = unalignedBlockTexturesSupported;
 		}

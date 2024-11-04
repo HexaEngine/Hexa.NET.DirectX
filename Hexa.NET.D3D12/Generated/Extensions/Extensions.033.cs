@@ -1232,22 +1232,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12Debug* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12Debug* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1255,24 +1255,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1309,22 +1309,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug1> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug1> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12Debug1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug1> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug1> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12Debug1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1332,24 +1332,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug1* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1386,40 +1386,40 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetEnableGPUBasedValidation(this ComPtr<ID3D12Debug1> comObj, int enable) 
+		public static void SetEnableGPUBasedValidation(this ComPtr<ID3D12Debug1> comObj, Bool32 enable) 
 		{
 			ID3D12Debug1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Debug1*, int, void>)(handle->LpVtbl[4]))(handle, enable);
+			((delegate* unmanaged[Stdcall]<ID3D12Debug1*, Bool32, void>)(handle->LpVtbl[4]))(handle, enable);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetEnableSynchronizedCommandQueueValidation(this ComPtr<ID3D12Debug1> comObj, int enable) 
+		public static void SetEnableSynchronizedCommandQueueValidation(this ComPtr<ID3D12Debug1> comObj, Bool32 enable) 
 		{
 			ID3D12Debug1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Debug1*, int, void>)(handle->LpVtbl[5]))(handle, enable);
+			((delegate* unmanaged[Stdcall]<ID3D12Debug1*, Bool32, void>)(handle->LpVtbl[5]))(handle, enable);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug2> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug2> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12Debug2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug2*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug2*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug2> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug2> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12Debug2* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug2*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug2*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1427,24 +1427,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug2> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug2> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug2* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug2*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug2*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug2> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug2> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug2* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug2*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug2*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1481,22 +1481,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug3> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug3> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12Debug3* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug3*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug3*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug3> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug3> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12Debug3* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug3*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug3*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1504,24 +1504,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug3> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug3> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug3* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug3*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug3*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug3> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug3> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug3* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug3*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug3*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1558,19 +1558,19 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetEnableGPUBasedValidation(this ComPtr<ID3D12Debug3> comObj, int enable) 
+		public static void SetEnableGPUBasedValidation(this ComPtr<ID3D12Debug3> comObj, Bool32 enable) 
 		{
 			ID3D12Debug3* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Debug3*, int, void>)(handle->LpVtbl[4]))(handle, enable);
+			((delegate* unmanaged[Stdcall]<ID3D12Debug3*, Bool32, void>)(handle->LpVtbl[4]))(handle, enable);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetEnableSynchronizedCommandQueueValidation(this ComPtr<ID3D12Debug3> comObj, int enable) 
+		public static void SetEnableSynchronizedCommandQueueValidation(this ComPtr<ID3D12Debug3> comObj, Bool32 enable) 
 		{
 			ID3D12Debug3* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Debug3*, int, void>)(handle->LpVtbl[5]))(handle, enable);
+			((delegate* unmanaged[Stdcall]<ID3D12Debug3*, Bool32, void>)(handle->LpVtbl[5]))(handle, enable);
 		}
 
 		/// <summary>
@@ -1585,22 +1585,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug4> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug4> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12Debug4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug4*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug4*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug4> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug4> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12Debug4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug4*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug4*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1608,24 +1608,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug4> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug4> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug4* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug4*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug4*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug4> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug4> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug4* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug4*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug4*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1662,19 +1662,19 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetEnableGPUBasedValidation(this ComPtr<ID3D12Debug4> comObj, int enable) 
+		public static void SetEnableGPUBasedValidation(this ComPtr<ID3D12Debug4> comObj, Bool32 enable) 
 		{
 			ID3D12Debug4* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Debug4*, int, void>)(handle->LpVtbl[4]))(handle, enable);
+			((delegate* unmanaged[Stdcall]<ID3D12Debug4*, Bool32, void>)(handle->LpVtbl[4]))(handle, enable);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetEnableSynchronizedCommandQueueValidation(this ComPtr<ID3D12Debug4> comObj, int enable) 
+		public static void SetEnableSynchronizedCommandQueueValidation(this ComPtr<ID3D12Debug4> comObj, Bool32 enable) 
 		{
 			ID3D12Debug4* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Debug4*, int, void>)(handle->LpVtbl[5]))(handle, enable);
+			((delegate* unmanaged[Stdcall]<ID3D12Debug4*, Bool32, void>)(handle->LpVtbl[5]))(handle, enable);
 		}
 
 		/// <summary>
@@ -1698,22 +1698,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug5> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug5> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12Debug5* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug5> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug5> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12Debug5* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1721,24 +1721,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug5> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug5> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug5* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug5> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug5> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug5* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug5*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug5*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1775,19 +1775,19 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetEnableGPUBasedValidation(this ComPtr<ID3D12Debug5> comObj, int enable) 
+		public static void SetEnableGPUBasedValidation(this ComPtr<ID3D12Debug5> comObj, Bool32 enable) 
 		{
 			ID3D12Debug5* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Debug5*, int, void>)(handle->LpVtbl[4]))(handle, enable);
+			((delegate* unmanaged[Stdcall]<ID3D12Debug5*, Bool32, void>)(handle->LpVtbl[4]))(handle, enable);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetEnableSynchronizedCommandQueueValidation(this ComPtr<ID3D12Debug5> comObj, int enable) 
+		public static void SetEnableSynchronizedCommandQueueValidation(this ComPtr<ID3D12Debug5> comObj, Bool32 enable) 
 		{
 			ID3D12Debug5* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Debug5*, int, void>)(handle->LpVtbl[5]))(handle, enable);
+			((delegate* unmanaged[Stdcall]<ID3D12Debug5*, Bool32, void>)(handle->LpVtbl[5]))(handle, enable);
 		}
 
 		/// <summary>
@@ -1811,31 +1811,31 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetEnableAutoName(this ComPtr<ID3D12Debug5> comObj, int enable) 
+		public static void SetEnableAutoName(this ComPtr<ID3D12Debug5> comObj, Bool32 enable) 
 		{
 			ID3D12Debug5* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Debug5*, int, void>)(handle->LpVtbl[8]))(handle, enable);
+			((delegate* unmanaged[Stdcall]<ID3D12Debug5*, Bool32, void>)(handle->LpVtbl[8]))(handle, enable);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug6> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug6> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12Debug6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug6*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug6*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12Debug6> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12Debug6> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12Debug6* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug6*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug6*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1843,24 +1843,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug6> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug6> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug6* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug6*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug6*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12Debug6> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12Debug6> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Debug6* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug6*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Debug6*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1897,19 +1897,19 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetEnableGPUBasedValidation(this ComPtr<ID3D12Debug6> comObj, int enable) 
+		public static void SetEnableGPUBasedValidation(this ComPtr<ID3D12Debug6> comObj, Bool32 enable) 
 		{
 			ID3D12Debug6* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Debug6*, int, void>)(handle->LpVtbl[4]))(handle, enable);
+			((delegate* unmanaged[Stdcall]<ID3D12Debug6*, Bool32, void>)(handle->LpVtbl[4]))(handle, enable);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetEnableSynchronizedCommandQueueValidation(this ComPtr<ID3D12Debug6> comObj, int enable) 
+		public static void SetEnableSynchronizedCommandQueueValidation(this ComPtr<ID3D12Debug6> comObj, Bool32 enable) 
 		{
 			ID3D12Debug6* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Debug6*, int, void>)(handle->LpVtbl[5]))(handle, enable);
+			((delegate* unmanaged[Stdcall]<ID3D12Debug6*, Bool32, void>)(handle->LpVtbl[5]))(handle, enable);
 		}
 
 		/// <summary>
@@ -1933,40 +1933,40 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetEnableAutoName(this ComPtr<ID3D12Debug6> comObj, int enable) 
+		public static void SetEnableAutoName(this ComPtr<ID3D12Debug6> comObj, Bool32 enable) 
 		{
 			ID3D12Debug6* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Debug6*, int, void>)(handle->LpVtbl[8]))(handle, enable);
+			((delegate* unmanaged[Stdcall]<ID3D12Debug6*, Bool32, void>)(handle->LpVtbl[8]))(handle, enable);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetForceLegacyBarrierValidation(this ComPtr<ID3D12Debug6> comObj, int enable) 
+		public static void SetForceLegacyBarrierValidation(this ComPtr<ID3D12Debug6> comObj, Bool32 enable) 
 		{
 			ID3D12Debug6* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Debug6*, int, void>)(handle->LpVtbl[9]))(handle, enable);
+			((delegate* unmanaged[Stdcall]<ID3D12Debug6*, Bool32, void>)(handle->LpVtbl[9]))(handle, enable);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugDevice1> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugDevice1> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12DebugDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugDevice1> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugDevice1> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12DebugDevice1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1974,24 +1974,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugDevice1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugDevice1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugDevice1* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugDevice1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugDevice1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugDevice1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2019,62 +2019,62 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetDebugParameter(this ComPtr<ID3D12DebugDevice1> comObj, DebugDeviceParameterType type, void* pData, uint dataSize) 
+		public static HResult SetDebugParameter(this ComPtr<ID3D12DebugDevice1> comObj, DebugDeviceParameterType type, void* pData, uint dataSize) 
 		{
 			ID3D12DebugDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, DebugDeviceParameterType, void*, uint, int>)(handle->LpVtbl[3]))(handle, type, pData, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, DebugDeviceParameterType, void*, uint, HResult>)(handle->LpVtbl[3]))(handle, type, pData, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDebugParameter(this ComPtr<ID3D12DebugDevice1> comObj, DebugDeviceParameterType type, void* pData, uint dataSize) 
+		public static HResult GetDebugParameter(this ComPtr<ID3D12DebugDevice1> comObj, DebugDeviceParameterType type, void* pData, uint dataSize) 
 		{
 			ID3D12DebugDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, DebugDeviceParameterType, void*, uint, int>)(handle->LpVtbl[4]))(handle, type, pData, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, DebugDeviceParameterType, void*, uint, HResult>)(handle->LpVtbl[4]))(handle, type, pData, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDebugParameter<T>(this ComPtr<ID3D12DebugDevice1> comObj, DebugDeviceParameterType type, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetDebugParameter<T>(this ComPtr<ID3D12DebugDevice1> comObj, DebugDeviceParameterType type, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, DebugDeviceParameterType, void*, uint, int>)(handle->LpVtbl[4]))(handle, type, (void*)pData.Handle, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, DebugDeviceParameterType, void*, uint, HResult>)(handle->LpVtbl[4]))(handle, type, (void*)pData.Handle, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReportLiveDeviceObjects(this ComPtr<ID3D12DebugDevice1> comObj, RldoFlags flags) 
+		public static HResult ReportLiveDeviceObjects(this ComPtr<ID3D12DebugDevice1> comObj, RldoFlags flags) 
 		{
 			ID3D12DebugDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, RldoFlags, int>)(handle->LpVtbl[5]))(handle, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice1*, RldoFlags, HResult>)(handle->LpVtbl[5]))(handle, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugDevice> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugDevice> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12DebugDevice* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugDevice> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugDevice> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12DebugDevice* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2082,24 +2082,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugDevice> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugDevice> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugDevice* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugDevice> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugDevice> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugDevice* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2127,10 +2127,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetFeatureMask(this ComPtr<ID3D12DebugDevice> comObj, DebugFeature mask) 
+		public static HResult SetFeatureMask(this ComPtr<ID3D12DebugDevice> comObj, DebugFeature mask) 
 		{
 			ID3D12DebugDevice* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, DebugFeature, int>)(handle->LpVtbl[3]))(handle, mask);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, DebugFeature, HResult>)(handle->LpVtbl[3]))(handle, mask);
 			return ret;
 		}
 
@@ -2147,32 +2147,32 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReportLiveDeviceObjects(this ComPtr<ID3D12DebugDevice> comObj, RldoFlags flags) 
+		public static HResult ReportLiveDeviceObjects(this ComPtr<ID3D12DebugDevice> comObj, RldoFlags flags) 
 		{
 			ID3D12DebugDevice* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, RldoFlags, int>)(handle->LpVtbl[5]))(handle, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, RldoFlags, HResult>)(handle->LpVtbl[5]))(handle, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugDevice2> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugDevice2> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12DebugDevice2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugDevice2> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugDevice2> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12DebugDevice2* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2180,24 +2180,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugDevice2> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugDevice2> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugDevice2* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugDevice2> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugDevice2> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugDevice2* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2225,10 +2225,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetFeatureMask(this ComPtr<ID3D12DebugDevice2> comObj, DebugFeature mask) 
+		public static HResult SetFeatureMask(this ComPtr<ID3D12DebugDevice2> comObj, DebugFeature mask) 
 		{
 			ID3D12DebugDevice2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, DebugFeature, int>)(handle->LpVtbl[3]))(handle, mask);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, DebugFeature, HResult>)(handle->LpVtbl[3]))(handle, mask);
 			return ret;
 		}
 
@@ -2245,62 +2245,62 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int ReportLiveDeviceObjects(this ComPtr<ID3D12DebugDevice2> comObj, RldoFlags flags) 
+		public static HResult ReportLiveDeviceObjects(this ComPtr<ID3D12DebugDevice2> comObj, RldoFlags flags) 
 		{
 			ID3D12DebugDevice2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, RldoFlags, int>)(handle->LpVtbl[5]))(handle, flags);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, RldoFlags, HResult>)(handle->LpVtbl[5]))(handle, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetDebugParameter(this ComPtr<ID3D12DebugDevice2> comObj, DebugDeviceParameterType type, void* pData, uint dataSize) 
+		public static HResult SetDebugParameter(this ComPtr<ID3D12DebugDevice2> comObj, DebugDeviceParameterType type, void* pData, uint dataSize) 
 		{
 			ID3D12DebugDevice2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, DebugDeviceParameterType, void*, uint, int>)(handle->LpVtbl[6]))(handle, type, pData, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, DebugDeviceParameterType, void*, uint, HResult>)(handle->LpVtbl[6]))(handle, type, pData, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDebugParameter(this ComPtr<ID3D12DebugDevice2> comObj, DebugDeviceParameterType type, void* pData, uint dataSize) 
+		public static HResult GetDebugParameter(this ComPtr<ID3D12DebugDevice2> comObj, DebugDeviceParameterType type, void* pData, uint dataSize) 
 		{
 			ID3D12DebugDevice2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, DebugDeviceParameterType, void*, uint, int>)(handle->LpVtbl[7]))(handle, type, pData, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, DebugDeviceParameterType, void*, uint, HResult>)(handle->LpVtbl[7]))(handle, type, pData, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDebugParameter<T>(this ComPtr<ID3D12DebugDevice2> comObj, DebugDeviceParameterType type, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetDebugParameter<T>(this ComPtr<ID3D12DebugDevice2> comObj, DebugDeviceParameterType type, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugDevice2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, DebugDeviceParameterType, void*, uint, int>)(handle->LpVtbl[7]))(handle, type, (void*)pData.Handle, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice2*, DebugDeviceParameterType, void*, uint, HResult>)(handle->LpVtbl[7]))(handle, type, (void*)pData.Handle, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugCommandQueue> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugCommandQueue> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12DebugCommandQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugCommandQueue> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugCommandQueue> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12DebugCommandQueue* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2308,24 +2308,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugCommandQueue> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugCommandQueue> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandQueue* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugCommandQueue> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugCommandQueue> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandQueue* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2353,22 +2353,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AssertResourceState(this ComPtr<ID3D12DebugCommandQueue> comObj, ID3D12Resource* pResource, uint subresource, uint state) 
+		public static Bool32 AssertResourceState(this ComPtr<ID3D12DebugCommandQueue> comObj, ID3D12Resource* pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, ID3D12Resource*, uint, uint, int>)(handle->LpVtbl[3]))(handle, pResource, subresource, state);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, ID3D12Resource*, uint, uint, Bool32>)(handle->LpVtbl[3]))(handle, pResource, subresource, state);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AssertResourceState(this ComPtr<ID3D12DebugCommandQueue> comObj, ref ID3D12Resource pResource, uint subresource, uint state) 
+		public static Bool32 AssertResourceState(this ComPtr<ID3D12DebugCommandQueue> comObj, ref ID3D12Resource pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, ID3D12Resource*, uint, uint, int>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)ppResource, subresource, state);
+				Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, ID3D12Resource*, uint, uint, Bool32>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)ppResource, subresource, state);
 				return ret;
 			}
 		}
@@ -2376,32 +2376,32 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AssertResourceState(this ComPtr<ID3D12DebugCommandQueue> comObj, ComPtr<ID3D12Resource> pResource, uint subresource, uint state) 
+		public static Bool32 AssertResourceState(this ComPtr<ID3D12DebugCommandQueue> comObj, ComPtr<ID3D12Resource> pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, ID3D12Resource*, uint, uint, int>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)pResource.Handle, subresource, state);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandQueue*, ID3D12Resource*, uint, uint, Bool32>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)pResource.Handle, subresource, state);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugCommandList1> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugCommandList1> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12DebugCommandList1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugCommandList1> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugCommandList1> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12DebugCommandList1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2409,24 +2409,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugCommandList1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugCommandList1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandList1* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugCommandList1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugCommandList1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandList1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2454,22 +2454,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AssertResourceState(this ComPtr<ID3D12DebugCommandList1> comObj, ID3D12Resource* pResource, uint subresource, uint state) 
+		public static Bool32 AssertResourceState(this ComPtr<ID3D12DebugCommandList1> comObj, ID3D12Resource* pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, ID3D12Resource*, uint, uint, int>)(handle->LpVtbl[3]))(handle, pResource, subresource, state);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, ID3D12Resource*, uint, uint, Bool32>)(handle->LpVtbl[3]))(handle, pResource, subresource, state);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AssertResourceState(this ComPtr<ID3D12DebugCommandList1> comObj, ref ID3D12Resource pResource, uint subresource, uint state) 
+		public static Bool32 AssertResourceState(this ComPtr<ID3D12DebugCommandList1> comObj, ref ID3D12Resource pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList1* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, ID3D12Resource*, uint, uint, int>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)ppResource, subresource, state);
+				Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, ID3D12Resource*, uint, uint, Bool32>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)ppResource, subresource, state);
 				return ret;
 			}
 		}
@@ -2477,62 +2477,62 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AssertResourceState(this ComPtr<ID3D12DebugCommandList1> comObj, ComPtr<ID3D12Resource> pResource, uint subresource, uint state) 
+		public static Bool32 AssertResourceState(this ComPtr<ID3D12DebugCommandList1> comObj, ComPtr<ID3D12Resource> pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, ID3D12Resource*, uint, uint, int>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)pResource.Handle, subresource, state);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, ID3D12Resource*, uint, uint, Bool32>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)pResource.Handle, subresource, state);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetDebugParameter(this ComPtr<ID3D12DebugCommandList1> comObj, DebugCommandListParameterType type, void* pData, uint dataSize) 
+		public static HResult SetDebugParameter(this ComPtr<ID3D12DebugCommandList1> comObj, DebugCommandListParameterType type, void* pData, uint dataSize) 
 		{
 			ID3D12DebugCommandList1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, DebugCommandListParameterType, void*, uint, int>)(handle->LpVtbl[4]))(handle, type, pData, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, DebugCommandListParameterType, void*, uint, HResult>)(handle->LpVtbl[4]))(handle, type, pData, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDebugParameter(this ComPtr<ID3D12DebugCommandList1> comObj, DebugCommandListParameterType type, void* pData, uint dataSize) 
+		public static HResult GetDebugParameter(this ComPtr<ID3D12DebugCommandList1> comObj, DebugCommandListParameterType type, void* pData, uint dataSize) 
 		{
 			ID3D12DebugCommandList1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, DebugCommandListParameterType, void*, uint, int>)(handle->LpVtbl[5]))(handle, type, pData, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, DebugCommandListParameterType, void*, uint, HResult>)(handle->LpVtbl[5]))(handle, type, pData, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDebugParameter<T>(this ComPtr<ID3D12DebugCommandList1> comObj, DebugCommandListParameterType type, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetDebugParameter<T>(this ComPtr<ID3D12DebugCommandList1> comObj, DebugCommandListParameterType type, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandList1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, DebugCommandListParameterType, void*, uint, int>)(handle->LpVtbl[5]))(handle, type, (void*)pData.Handle, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList1*, DebugCommandListParameterType, void*, uint, HResult>)(handle->LpVtbl[5]))(handle, type, (void*)pData.Handle, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugCommandList> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugCommandList> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12DebugCommandList* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugCommandList> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugCommandList> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12DebugCommandList* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2540,24 +2540,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugCommandList> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugCommandList> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandList* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugCommandList> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugCommandList> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandList* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2585,22 +2585,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AssertResourceState(this ComPtr<ID3D12DebugCommandList> comObj, ID3D12Resource* pResource, uint subresource, uint state) 
+		public static Bool32 AssertResourceState(this ComPtr<ID3D12DebugCommandList> comObj, ID3D12Resource* pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, ID3D12Resource*, uint, uint, int>)(handle->LpVtbl[3]))(handle, pResource, subresource, state);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, ID3D12Resource*, uint, uint, Bool32>)(handle->LpVtbl[3]))(handle, pResource, subresource, state);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AssertResourceState(this ComPtr<ID3D12DebugCommandList> comObj, ref ID3D12Resource pResource, uint subresource, uint state) 
+		public static Bool32 AssertResourceState(this ComPtr<ID3D12DebugCommandList> comObj, ref ID3D12Resource pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, ID3D12Resource*, uint, uint, int>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)ppResource, subresource, state);
+				Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, ID3D12Resource*, uint, uint, Bool32>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)ppResource, subresource, state);
 				return ret;
 			}
 		}
@@ -2608,20 +2608,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AssertResourceState(this ComPtr<ID3D12DebugCommandList> comObj, ComPtr<ID3D12Resource> pResource, uint subresource, uint state) 
+		public static Bool32 AssertResourceState(this ComPtr<ID3D12DebugCommandList> comObj, ComPtr<ID3D12Resource> pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, ID3D12Resource*, uint, uint, int>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)pResource.Handle, subresource, state);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, ID3D12Resource*, uint, uint, Bool32>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)pResource.Handle, subresource, state);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetFeatureMask(this ComPtr<ID3D12DebugCommandList> comObj, DebugFeature mask) 
+		public static HResult SetFeatureMask(this ComPtr<ID3D12DebugCommandList> comObj, DebugFeature mask) 
 		{
 			ID3D12DebugCommandList* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, DebugFeature, int>)(handle->LpVtbl[4]))(handle, mask);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, DebugFeature, HResult>)(handle->LpVtbl[4]))(handle, mask);
 			return ret;
 		}
 
@@ -2638,22 +2638,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugCommandList2> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugCommandList2> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12DebugCommandList2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12DebugCommandList2> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12DebugCommandList2> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12DebugCommandList2* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2661,24 +2661,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugCommandList2> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugCommandList2> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandList2* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12DebugCommandList2> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12DebugCommandList2> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandList2* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2706,22 +2706,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AssertResourceState(this ComPtr<ID3D12DebugCommandList2> comObj, ID3D12Resource* pResource, uint subresource, uint state) 
+		public static Bool32 AssertResourceState(this ComPtr<ID3D12DebugCommandList2> comObj, ID3D12Resource* pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, ID3D12Resource*, uint, uint, int>)(handle->LpVtbl[3]))(handle, pResource, subresource, state);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, ID3D12Resource*, uint, uint, Bool32>)(handle->LpVtbl[3]))(handle, pResource, subresource, state);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AssertResourceState(this ComPtr<ID3D12DebugCommandList2> comObj, ref ID3D12Resource pResource, uint subresource, uint state) 
+		public static Bool32 AssertResourceState(this ComPtr<ID3D12DebugCommandList2> comObj, ref ID3D12Resource pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList2* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, ID3D12Resource*, uint, uint, int>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)ppResource, subresource, state);
+				Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, ID3D12Resource*, uint, uint, Bool32>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)ppResource, subresource, state);
 				return ret;
 			}
 		}
@@ -2729,20 +2729,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AssertResourceState(this ComPtr<ID3D12DebugCommandList2> comObj, ComPtr<ID3D12Resource> pResource, uint subresource, uint state) 
+		public static Bool32 AssertResourceState(this ComPtr<ID3D12DebugCommandList2> comObj, ComPtr<ID3D12Resource> pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, ID3D12Resource*, uint, uint, int>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)pResource.Handle, subresource, state);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, ID3D12Resource*, uint, uint, Bool32>)(handle->LpVtbl[3]))(handle, (ID3D12Resource*)pResource.Handle, subresource, state);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetFeatureMask(this ComPtr<ID3D12DebugCommandList2> comObj, DebugFeature mask) 
+		public static HResult SetFeatureMask(this ComPtr<ID3D12DebugCommandList2> comObj, DebugFeature mask) 
 		{
 			ID3D12DebugCommandList2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugFeature, int>)(handle->LpVtbl[4]))(handle, mask);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugFeature, HResult>)(handle->LpVtbl[4]))(handle, mask);
 			return ret;
 		}
 
@@ -2759,52 +2759,52 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetDebugParameter(this ComPtr<ID3D12DebugCommandList2> comObj, DebugCommandListParameterType type, void* pData, uint dataSize) 
+		public static HResult SetDebugParameter(this ComPtr<ID3D12DebugCommandList2> comObj, DebugCommandListParameterType type, void* pData, uint dataSize) 
 		{
 			ID3D12DebugCommandList2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugCommandListParameterType, void*, uint, int>)(handle->LpVtbl[6]))(handle, type, pData, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugCommandListParameterType, void*, uint, HResult>)(handle->LpVtbl[6]))(handle, type, pData, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDebugParameter(this ComPtr<ID3D12DebugCommandList2> comObj, DebugCommandListParameterType type, void* pData, uint dataSize) 
+		public static HResult GetDebugParameter(this ComPtr<ID3D12DebugCommandList2> comObj, DebugCommandListParameterType type, void* pData, uint dataSize) 
 		{
 			ID3D12DebugCommandList2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugCommandListParameterType, void*, uint, int>)(handle->LpVtbl[7]))(handle, type, pData, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugCommandListParameterType, void*, uint, HResult>)(handle->LpVtbl[7]))(handle, type, pData, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetDebugParameter<T>(this ComPtr<ID3D12DebugCommandList2> comObj, DebugCommandListParameterType type, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult GetDebugParameter<T>(this ComPtr<ID3D12DebugCommandList2> comObj, DebugCommandListParameterType type, ComPtr<T> pData, uint dataSize) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandList2* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugCommandListParameterType, void*, uint, int>)(handle->LpVtbl[7]))(handle, type, (void*)pData.Handle, dataSize);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList2*, DebugCommandListParameterType, void*, uint, HResult>)(handle->LpVtbl[7]))(handle, type, (void*)pData.Handle, dataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12SharingContract> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12SharingContract> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12SharingContract* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12SharingContract> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12SharingContract> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12SharingContract* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2812,24 +2812,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12SharingContract> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12SharingContract> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SharingContract* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12SharingContract> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12SharingContract> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SharingContract* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2959,22 +2959,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12InfoQueue> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12InfoQueue> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12InfoQueue> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12InfoQueue> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -2982,24 +2982,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12InfoQueue> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12InfoQueue> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12InfoQueue> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12InfoQueue> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3027,10 +3027,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetMessageCountLimit(this ComPtr<ID3D12InfoQueue> comObj, ulong messageCountLimit) 
+		public static HResult SetMessageCountLimit(this ComPtr<ID3D12InfoQueue> comObj, ulong messageCountLimit) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, int>)(handle->LpVtbl[3]))(handle, messageCountLimit);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, HResult>)(handle->LpVtbl[3]))(handle, messageCountLimit);
 			return ret;
 		}
 
@@ -3046,22 +3046,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMessageA(this ComPtr<ID3D12InfoQueue> comObj, ulong messageIndex, Message* pMessage, nuint* pMessageByteLength) 
+		public static HResult GetMessageA(this ComPtr<ID3D12InfoQueue> comObj, ulong messageIndex, Message* pMessage, nuint* pMessageByteLength) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, int>)(handle->LpVtbl[5]))(handle, messageIndex, pMessage, pMessageByteLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, HResult>)(handle->LpVtbl[5]))(handle, messageIndex, pMessage, pMessageByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMessageA(this ComPtr<ID3D12InfoQueue> comObj, ulong messageIndex, ref Message pMessage, nuint* pMessageByteLength) 
+		public static HResult GetMessageA(this ComPtr<ID3D12InfoQueue> comObj, ulong messageIndex, ref Message pMessage, nuint* pMessageByteLength) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (Message* ppMessage = &pMessage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, int>)(handle->LpVtbl[5]))(handle, messageIndex, (Message*)ppMessage, pMessageByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, HResult>)(handle->LpVtbl[5]))(handle, messageIndex, (Message*)ppMessage, pMessageByteLength);
 				return ret;
 			}
 		}
@@ -3069,12 +3069,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMessageA(this ComPtr<ID3D12InfoQueue> comObj, ulong messageIndex, Message* pMessage, ref nuint pMessageByteLength) 
+		public static HResult GetMessageA(this ComPtr<ID3D12InfoQueue> comObj, ulong messageIndex, Message* pMessage, ref nuint pMessageByteLength) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, int>)(handle->LpVtbl[5]))(handle, messageIndex, pMessage, (nuint*)ppMessageByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, HResult>)(handle->LpVtbl[5]))(handle, messageIndex, pMessage, (nuint*)ppMessageByteLength);
 				return ret;
 			}
 		}
@@ -3082,14 +3082,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMessageA(this ComPtr<ID3D12InfoQueue> comObj, ulong messageIndex, ref Message pMessage, ref nuint pMessageByteLength) 
+		public static HResult GetMessageA(this ComPtr<ID3D12InfoQueue> comObj, ulong messageIndex, ref Message pMessage, ref nuint pMessageByteLength) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (Message* ppMessage = &pMessage)
 			{
 				fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, int>)(handle->LpVtbl[5]))(handle, messageIndex, (Message*)ppMessage, (nuint*)ppMessageByteLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, ulong, Message*, nuint*, HResult>)(handle->LpVtbl[5]))(handle, messageIndex, (Message*)ppMessage, (nuint*)ppMessageByteLength);
 					return ret;
 				}
 			}
@@ -3158,22 +3158,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddStorageFilterEntries(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter) 
+		public static HResult AddStorageFilterEntries(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(handle->LpVtbl[12]))(handle, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(handle->LpVtbl[12]))(handle, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddStorageFilterEntries(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter) 
+		public static HResult AddStorageFilterEntries(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(handle->LpVtbl[12]))(handle, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(handle->LpVtbl[12]))(handle, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -3181,22 +3181,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetStorageFilter(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
+		public static HResult GetStorageFilter(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, pFilter, pFilterByteLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[13]))(handle, pFilter, pFilterByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetStorageFilter(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
+		public static HResult GetStorageFilter(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, (InfoQueueFilter*)ppFilter, pFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[13]))(handle, (InfoQueueFilter*)ppFilter, pFilterByteLength);
 				return ret;
 			}
 		}
@@ -3204,12 +3204,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetStorageFilter(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
+		public static HResult GetStorageFilter(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, pFilter, (nuint*)ppFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[13]))(handle, pFilter, (nuint*)ppFilterByteLength);
 				return ret;
 			}
 		}
@@ -3217,14 +3217,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetStorageFilter(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
+		public static HResult GetStorageFilter(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
 				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[13]))(handle, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
 					return ret;
 				}
 			}
@@ -3242,42 +3242,42 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushEmptyStorageFilter(this ComPtr<ID3D12InfoQueue> comObj) 
+		public static HResult PushEmptyStorageFilter(this ComPtr<ID3D12InfoQueue> comObj) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, int>)(handle->LpVtbl[15]))(handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, HResult>)(handle->LpVtbl[15]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushCopyOfStorageFilter(this ComPtr<ID3D12InfoQueue> comObj) 
+		public static HResult PushCopyOfStorageFilter(this ComPtr<ID3D12InfoQueue> comObj) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, int>)(handle->LpVtbl[16]))(handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, HResult>)(handle->LpVtbl[16]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushStorageFilter(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter) 
+		public static HResult PushStorageFilter(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(handle->LpVtbl[17]))(handle, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(handle->LpVtbl[17]))(handle, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushStorageFilter(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter) 
+		public static HResult PushStorageFilter(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(handle->LpVtbl[17]))(handle, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(handle->LpVtbl[17]))(handle, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -3304,22 +3304,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddRetrievalFilterEntries(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter) 
+		public static HResult AddRetrievalFilterEntries(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(handle->LpVtbl[20]))(handle, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(handle->LpVtbl[20]))(handle, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddRetrievalFilterEntries(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter) 
+		public static HResult AddRetrievalFilterEntries(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(handle->LpVtbl[20]))(handle, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(handle->LpVtbl[20]))(handle, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -3327,22 +3327,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
+		public static HResult GetRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[21]))(handle, pFilter, pFilterByteLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[21]))(handle, pFilter, pFilterByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
+		public static HResult GetRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[21]))(handle, (InfoQueueFilter*)ppFilter, pFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[21]))(handle, (InfoQueueFilter*)ppFilter, pFilterByteLength);
 				return ret;
 			}
 		}
@@ -3350,12 +3350,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
+		public static HResult GetRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[21]))(handle, pFilter, (nuint*)ppFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[21]))(handle, pFilter, (nuint*)ppFilterByteLength);
 				return ret;
 			}
 		}
@@ -3363,14 +3363,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
+		public static HResult GetRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
 				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[21]))(handle, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[21]))(handle, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
 					return ret;
 				}
 			}
@@ -3388,42 +3388,42 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushEmptyRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj) 
+		public static HResult PushEmptyRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, int>)(handle->LpVtbl[23]))(handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, HResult>)(handle->LpVtbl[23]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushCopyOfRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj) 
+		public static HResult PushCopyOfRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, int>)(handle->LpVtbl[24]))(handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, HResult>)(handle->LpVtbl[24]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter) 
+		public static HResult PushRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj, InfoQueueFilter* pFilter) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(handle->LpVtbl[25]))(handle, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(handle->LpVtbl[25]))(handle, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter) 
+		public static HResult PushRetrievalFilter(this ComPtr<ID3D12InfoQueue> comObj, ref InfoQueueFilter pFilter) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, int>)(handle->LpVtbl[25]))(handle, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, InfoQueueFilter*, HResult>)(handle->LpVtbl[25]))(handle, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -3450,22 +3450,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddMessage(this ComPtr<ID3D12InfoQueue> comObj, MessageCategory category, MessageSeverity severity, MessageId id, byte* pDescription) 
+		public static HResult AddMessage(this ComPtr<ID3D12InfoQueue> comObj, MessageCategory category, MessageSeverity severity, MessageId id, byte* pDescription) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, int>)(handle->LpVtbl[28]))(handle, category, severity, id, pDescription);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, HResult>)(handle->LpVtbl[28]))(handle, category, severity, id, pDescription);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddMessage(this ComPtr<ID3D12InfoQueue> comObj, MessageCategory category, MessageSeverity severity, MessageId id, ReadOnlySpan<byte> pDescription) 
+		public static HResult AddMessage(this ComPtr<ID3D12InfoQueue> comObj, MessageCategory category, MessageSeverity severity, MessageId id, ReadOnlySpan<byte> pDescription) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (byte* ppDescription = pDescription)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, int>)(handle->LpVtbl[28]))(handle, category, severity, id, (byte*)ppDescription);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, HResult>)(handle->LpVtbl[28]))(handle, category, severity, id, (byte*)ppDescription);
 				return ret;
 			}
 		}
@@ -3473,7 +3473,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddMessage(this ComPtr<ID3D12InfoQueue> comObj, MessageCategory category, MessageSeverity severity, MessageId id, string pDescription) 
+		public static HResult AddMessage(this ComPtr<ID3D12InfoQueue> comObj, MessageCategory category, MessageSeverity severity, MessageId id, string pDescription) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -3493,7 +3493,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, int>)(handle->LpVtbl[28]))(handle, category, severity, id, pStr0);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, HResult>)(handle->LpVtbl[28]))(handle, category, severity, id, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -3504,22 +3504,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddApplicationMessage(this ComPtr<ID3D12InfoQueue> comObj, MessageSeverity severity, byte* pDescription) 
+		public static HResult AddApplicationMessage(this ComPtr<ID3D12InfoQueue> comObj, MessageSeverity severity, byte* pDescription) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, byte*, int>)(handle->LpVtbl[29]))(handle, severity, pDescription);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, byte*, HResult>)(handle->LpVtbl[29]))(handle, severity, pDescription);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddApplicationMessage(this ComPtr<ID3D12InfoQueue> comObj, MessageSeverity severity, ReadOnlySpan<byte> pDescription) 
+		public static HResult AddApplicationMessage(this ComPtr<ID3D12InfoQueue> comObj, MessageSeverity severity, ReadOnlySpan<byte> pDescription) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			fixed (byte* ppDescription = pDescription)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, byte*, int>)(handle->LpVtbl[29]))(handle, severity, (byte*)ppDescription);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, byte*, HResult>)(handle->LpVtbl[29]))(handle, severity, (byte*)ppDescription);
 				return ret;
 			}
 		}
@@ -3527,7 +3527,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddApplicationMessage(this ComPtr<ID3D12InfoQueue> comObj, MessageSeverity severity, string pDescription) 
+		public static HResult AddApplicationMessage(this ComPtr<ID3D12InfoQueue> comObj, MessageSeverity severity, string pDescription) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -3547,7 +3547,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, byte*, int>)(handle->LpVtbl[29]))(handle, severity, pStr0);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, byte*, HResult>)(handle->LpVtbl[29]))(handle, severity, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -3558,101 +3558,101 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetBreakOnCategory(this ComPtr<ID3D12InfoQueue> comObj, MessageCategory category, int bEnable) 
+		public static HResult SetBreakOnCategory(this ComPtr<ID3D12InfoQueue> comObj, MessageCategory category, Bool32 bEnable) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, int, int>)(handle->LpVtbl[30]))(handle, category, bEnable);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, Bool32, HResult>)(handle->LpVtbl[30]))(handle, category, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetBreakOnSeverity(this ComPtr<ID3D12InfoQueue> comObj, MessageSeverity severity, int bEnable) 
+		public static HResult SetBreakOnSeverity(this ComPtr<ID3D12InfoQueue> comObj, MessageSeverity severity, Bool32 bEnable) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, int, int>)(handle->LpVtbl[31]))(handle, severity, bEnable);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, Bool32, HResult>)(handle->LpVtbl[31]))(handle, severity, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetBreakOnID(this ComPtr<ID3D12InfoQueue> comObj, MessageId id, int bEnable) 
+		public static HResult SetBreakOnID(this ComPtr<ID3D12InfoQueue> comObj, MessageId id, Bool32 bEnable) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageId, int, int>)(handle->LpVtbl[32]))(handle, id, bEnable);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageId, Bool32, HResult>)(handle->LpVtbl[32]))(handle, id, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBreakOnCategory(this ComPtr<ID3D12InfoQueue> comObj, MessageCategory category) 
+		public static Bool32 GetBreakOnCategory(this ComPtr<ID3D12InfoQueue> comObj, MessageCategory category) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, int>)(handle->LpVtbl[33]))(handle, category);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageCategory, Bool32>)(handle->LpVtbl[33]))(handle, category);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBreakOnSeverity(this ComPtr<ID3D12InfoQueue> comObj, MessageSeverity severity) 
+		public static Bool32 GetBreakOnSeverity(this ComPtr<ID3D12InfoQueue> comObj, MessageSeverity severity) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, int>)(handle->LpVtbl[34]))(handle, severity);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageSeverity, Bool32>)(handle->LpVtbl[34]))(handle, severity);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBreakOnID(this ComPtr<ID3D12InfoQueue> comObj, MessageId id) 
+		public static Bool32 GetBreakOnID(this ComPtr<ID3D12InfoQueue> comObj, MessageId id) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageId, int>)(handle->LpVtbl[35]))(handle, id);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, MessageId, Bool32>)(handle->LpVtbl[35]))(handle, id);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetMuteDebugOutput(this ComPtr<ID3D12InfoQueue> comObj, int bMute) 
+		public static void SetMuteDebugOutput(this ComPtr<ID3D12InfoQueue> comObj, Bool32 bMute) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, int, void>)(handle->LpVtbl[36]))(handle, bMute);
+			((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Bool32, void>)(handle->LpVtbl[36]))(handle, bMute);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMuteDebugOutput(this ComPtr<ID3D12InfoQueue> comObj) 
+		public static Bool32 GetMuteDebugOutput(this ComPtr<ID3D12InfoQueue> comObj) 
 		{
 			ID3D12InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, int>)(handle->LpVtbl[37]))(handle);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue*, Bool32>)(handle->LpVtbl[37]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12InfoQueue1> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12InfoQueue1> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12InfoQueue1> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12InfoQueue1> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -3660,24 +3660,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12InfoQueue1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12InfoQueue1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12InfoQueue1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12InfoQueue1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3705,10 +3705,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetMessageCountLimit(this ComPtr<ID3D12InfoQueue1> comObj, ulong messageCountLimit) 
+		public static HResult SetMessageCountLimit(this ComPtr<ID3D12InfoQueue1> comObj, ulong messageCountLimit) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, ulong, int>)(handle->LpVtbl[3]))(handle, messageCountLimit);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, ulong, HResult>)(handle->LpVtbl[3]))(handle, messageCountLimit);
 			return ret;
 		}
 
@@ -3724,22 +3724,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMessageA(this ComPtr<ID3D12InfoQueue1> comObj, ulong messageIndex, Message* pMessage, nuint* pMessageByteLength) 
+		public static HResult GetMessageA(this ComPtr<ID3D12InfoQueue1> comObj, ulong messageIndex, Message* pMessage, nuint* pMessageByteLength) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, ulong, Message*, nuint*, int>)(handle->LpVtbl[5]))(handle, messageIndex, pMessage, pMessageByteLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, ulong, Message*, nuint*, HResult>)(handle->LpVtbl[5]))(handle, messageIndex, pMessage, pMessageByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMessageA(this ComPtr<ID3D12InfoQueue1> comObj, ulong messageIndex, ref Message pMessage, nuint* pMessageByteLength) 
+		public static HResult GetMessageA(this ComPtr<ID3D12InfoQueue1> comObj, ulong messageIndex, ref Message pMessage, nuint* pMessageByteLength) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (Message* ppMessage = &pMessage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, ulong, Message*, nuint*, int>)(handle->LpVtbl[5]))(handle, messageIndex, (Message*)ppMessage, pMessageByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, ulong, Message*, nuint*, HResult>)(handle->LpVtbl[5]))(handle, messageIndex, (Message*)ppMessage, pMessageByteLength);
 				return ret;
 			}
 		}
@@ -3747,12 +3747,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMessageA(this ComPtr<ID3D12InfoQueue1> comObj, ulong messageIndex, Message* pMessage, ref nuint pMessageByteLength) 
+		public static HResult GetMessageA(this ComPtr<ID3D12InfoQueue1> comObj, ulong messageIndex, Message* pMessage, ref nuint pMessageByteLength) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, ulong, Message*, nuint*, int>)(handle->LpVtbl[5]))(handle, messageIndex, pMessage, (nuint*)ppMessageByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, ulong, Message*, nuint*, HResult>)(handle->LpVtbl[5]))(handle, messageIndex, pMessage, (nuint*)ppMessageByteLength);
 				return ret;
 			}
 		}
@@ -3760,14 +3760,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMessageA(this ComPtr<ID3D12InfoQueue1> comObj, ulong messageIndex, ref Message pMessage, ref nuint pMessageByteLength) 
+		public static HResult GetMessageA(this ComPtr<ID3D12InfoQueue1> comObj, ulong messageIndex, ref Message pMessage, ref nuint pMessageByteLength) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (Message* ppMessage = &pMessage)
 			{
 				fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, ulong, Message*, nuint*, int>)(handle->LpVtbl[5]))(handle, messageIndex, (Message*)ppMessage, (nuint*)ppMessageByteLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, ulong, Message*, nuint*, HResult>)(handle->LpVtbl[5]))(handle, messageIndex, (Message*)ppMessage, (nuint*)ppMessageByteLength);
 					return ret;
 				}
 			}
@@ -3836,22 +3836,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddStorageFilterEntries(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter) 
+		public static HResult AddStorageFilterEntries(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, int>)(handle->LpVtbl[12]))(handle, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, HResult>)(handle->LpVtbl[12]))(handle, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddStorageFilterEntries(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter) 
+		public static HResult AddStorageFilterEntries(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, int>)(handle->LpVtbl[12]))(handle, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, HResult>)(handle->LpVtbl[12]))(handle, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -3859,22 +3859,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
+		public static HResult GetStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, pFilter, pFilterByteLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[13]))(handle, pFilter, pFilterByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
+		public static HResult GetStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, (InfoQueueFilter*)ppFilter, pFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[13]))(handle, (InfoQueueFilter*)ppFilter, pFilterByteLength);
 				return ret;
 			}
 		}
@@ -3882,12 +3882,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
+		public static HResult GetStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, pFilter, (nuint*)ppFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[13]))(handle, pFilter, (nuint*)ppFilterByteLength);
 				return ret;
 			}
 		}
@@ -3895,14 +3895,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
+		public static HResult GetStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
 				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[13]))(handle, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
 					return ret;
 				}
 			}
@@ -3920,42 +3920,42 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushEmptyStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj) 
+		public static HResult PushEmptyStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, int>)(handle->LpVtbl[15]))(handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, HResult>)(handle->LpVtbl[15]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushCopyOfStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj) 
+		public static HResult PushCopyOfStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, int>)(handle->LpVtbl[16]))(handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, HResult>)(handle->LpVtbl[16]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter) 
+		public static HResult PushStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, int>)(handle->LpVtbl[17]))(handle, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, HResult>)(handle->LpVtbl[17]))(handle, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter) 
+		public static HResult PushStorageFilter(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, int>)(handle->LpVtbl[17]))(handle, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, HResult>)(handle->LpVtbl[17]))(handle, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -3982,22 +3982,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddRetrievalFilterEntries(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter) 
+		public static HResult AddRetrievalFilterEntries(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, int>)(handle->LpVtbl[20]))(handle, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, HResult>)(handle->LpVtbl[20]))(handle, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddRetrievalFilterEntries(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter) 
+		public static HResult AddRetrievalFilterEntries(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, int>)(handle->LpVtbl[20]))(handle, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, HResult>)(handle->LpVtbl[20]))(handle, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -4005,22 +4005,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
+		public static HResult GetRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[21]))(handle, pFilter, pFilterByteLength);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[21]))(handle, pFilter, pFilterByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
+		public static HResult GetRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[21]))(handle, (InfoQueueFilter*)ppFilter, pFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[21]))(handle, (InfoQueueFilter*)ppFilter, pFilterByteLength);
 				return ret;
 			}
 		}
@@ -4028,12 +4028,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
+		public static HResult GetRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[21]))(handle, pFilter, (nuint*)ppFilterByteLength);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[21]))(handle, pFilter, (nuint*)ppFilterByteLength);
 				return ret;
 			}
 		}
@@ -4041,14 +4041,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
+		public static HResult GetRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
 				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[21]))(handle, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, nuint*, HResult>)(handle->LpVtbl[21]))(handle, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
 					return ret;
 				}
 			}
@@ -4066,42 +4066,42 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushEmptyRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj) 
+		public static HResult PushEmptyRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, int>)(handle->LpVtbl[23]))(handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, HResult>)(handle->LpVtbl[23]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushCopyOfRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj) 
+		public static HResult PushCopyOfRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, int>)(handle->LpVtbl[24]))(handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, HResult>)(handle->LpVtbl[24]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter) 
+		public static HResult PushRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj, InfoQueueFilter* pFilter) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, int>)(handle->LpVtbl[25]))(handle, pFilter);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, HResult>)(handle->LpVtbl[25]))(handle, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int PushRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter) 
+		public static HResult PushRetrievalFilter(this ComPtr<ID3D12InfoQueue1> comObj, ref InfoQueueFilter pFilter) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, int>)(handle->LpVtbl[25]))(handle, (InfoQueueFilter*)ppFilter);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, InfoQueueFilter*, HResult>)(handle->LpVtbl[25]))(handle, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -4128,22 +4128,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddMessage(this ComPtr<ID3D12InfoQueue1> comObj, MessageCategory category, MessageSeverity severity, MessageId id, byte* pDescription) 
+		public static HResult AddMessage(this ComPtr<ID3D12InfoQueue1> comObj, MessageCategory category, MessageSeverity severity, MessageId id, byte* pDescription) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageCategory, MessageSeverity, MessageId, byte*, int>)(handle->LpVtbl[28]))(handle, category, severity, id, pDescription);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageCategory, MessageSeverity, MessageId, byte*, HResult>)(handle->LpVtbl[28]))(handle, category, severity, id, pDescription);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddMessage(this ComPtr<ID3D12InfoQueue1> comObj, MessageCategory category, MessageSeverity severity, MessageId id, ReadOnlySpan<byte> pDescription) 
+		public static HResult AddMessage(this ComPtr<ID3D12InfoQueue1> comObj, MessageCategory category, MessageSeverity severity, MessageId id, ReadOnlySpan<byte> pDescription) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (byte* ppDescription = pDescription)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageCategory, MessageSeverity, MessageId, byte*, int>)(handle->LpVtbl[28]))(handle, category, severity, id, (byte*)ppDescription);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageCategory, MessageSeverity, MessageId, byte*, HResult>)(handle->LpVtbl[28]))(handle, category, severity, id, (byte*)ppDescription);
 				return ret;
 			}
 		}
@@ -4151,7 +4151,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddMessage(this ComPtr<ID3D12InfoQueue1> comObj, MessageCategory category, MessageSeverity severity, MessageId id, string pDescription) 
+		public static HResult AddMessage(this ComPtr<ID3D12InfoQueue1> comObj, MessageCategory category, MessageSeverity severity, MessageId id, string pDescription) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -4171,7 +4171,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageCategory, MessageSeverity, MessageId, byte*, int>)(handle->LpVtbl[28]))(handle, category, severity, id, pStr0);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageCategory, MessageSeverity, MessageId, byte*, HResult>)(handle->LpVtbl[28]))(handle, category, severity, id, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -4182,22 +4182,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddApplicationMessage(this ComPtr<ID3D12InfoQueue1> comObj, MessageSeverity severity, byte* pDescription) 
+		public static HResult AddApplicationMessage(this ComPtr<ID3D12InfoQueue1> comObj, MessageSeverity severity, byte* pDescription) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageSeverity, byte*, int>)(handle->LpVtbl[29]))(handle, severity, pDescription);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageSeverity, byte*, HResult>)(handle->LpVtbl[29]))(handle, severity, pDescription);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddApplicationMessage(this ComPtr<ID3D12InfoQueue1> comObj, MessageSeverity severity, ReadOnlySpan<byte> pDescription) 
+		public static HResult AddApplicationMessage(this ComPtr<ID3D12InfoQueue1> comObj, MessageSeverity severity, ReadOnlySpan<byte> pDescription) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (byte* ppDescription = pDescription)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageSeverity, byte*, int>)(handle->LpVtbl[29]))(handle, severity, (byte*)ppDescription);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageSeverity, byte*, HResult>)(handle->LpVtbl[29]))(handle, severity, (byte*)ppDescription);
 				return ret;
 			}
 		}
@@ -4205,7 +4205,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int AddApplicationMessage(this ComPtr<ID3D12InfoQueue1> comObj, MessageSeverity severity, string pDescription) 
+		public static HResult AddApplicationMessage(this ComPtr<ID3D12InfoQueue1> comObj, MessageSeverity severity, string pDescription) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			byte* pStr0 = null;
@@ -4225,7 +4225,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageSeverity, byte*, int>)(handle->LpVtbl[29]))(handle, severity, pStr0);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageSeverity, byte*, HResult>)(handle->LpVtbl[29]))(handle, severity, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -4236,111 +4236,111 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetBreakOnCategory(this ComPtr<ID3D12InfoQueue1> comObj, MessageCategory category, int bEnable) 
+		public static HResult SetBreakOnCategory(this ComPtr<ID3D12InfoQueue1> comObj, MessageCategory category, Bool32 bEnable) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageCategory, int, int>)(handle->LpVtbl[30]))(handle, category, bEnable);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageCategory, Bool32, HResult>)(handle->LpVtbl[30]))(handle, category, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetBreakOnSeverity(this ComPtr<ID3D12InfoQueue1> comObj, MessageSeverity severity, int bEnable) 
+		public static HResult SetBreakOnSeverity(this ComPtr<ID3D12InfoQueue1> comObj, MessageSeverity severity, Bool32 bEnable) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageSeverity, int, int>)(handle->LpVtbl[31]))(handle, severity, bEnable);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageSeverity, Bool32, HResult>)(handle->LpVtbl[31]))(handle, severity, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int SetBreakOnID(this ComPtr<ID3D12InfoQueue1> comObj, MessageId id, int bEnable) 
+		public static HResult SetBreakOnID(this ComPtr<ID3D12InfoQueue1> comObj, MessageId id, Bool32 bEnable) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageId, int, int>)(handle->LpVtbl[32]))(handle, id, bEnable);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageId, Bool32, HResult>)(handle->LpVtbl[32]))(handle, id, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBreakOnCategory(this ComPtr<ID3D12InfoQueue1> comObj, MessageCategory category) 
+		public static Bool32 GetBreakOnCategory(this ComPtr<ID3D12InfoQueue1> comObj, MessageCategory category) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageCategory, int>)(handle->LpVtbl[33]))(handle, category);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageCategory, Bool32>)(handle->LpVtbl[33]))(handle, category);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBreakOnSeverity(this ComPtr<ID3D12InfoQueue1> comObj, MessageSeverity severity) 
+		public static Bool32 GetBreakOnSeverity(this ComPtr<ID3D12InfoQueue1> comObj, MessageSeverity severity) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageSeverity, int>)(handle->LpVtbl[34]))(handle, severity);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageSeverity, Bool32>)(handle->LpVtbl[34]))(handle, severity);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetBreakOnID(this ComPtr<ID3D12InfoQueue1> comObj, MessageId id) 
+		public static Bool32 GetBreakOnID(this ComPtr<ID3D12InfoQueue1> comObj, MessageId id) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageId, int>)(handle->LpVtbl[35]))(handle, id);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageId, Bool32>)(handle->LpVtbl[35]))(handle, id);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void SetMuteDebugOutput(this ComPtr<ID3D12InfoQueue1> comObj, int bMute) 
+		public static void SetMuteDebugOutput(this ComPtr<ID3D12InfoQueue1> comObj, Bool32 bMute) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, int, void>)(handle->LpVtbl[36]))(handle, bMute);
+			((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, Bool32, void>)(handle->LpVtbl[36]))(handle, bMute);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int GetMuteDebugOutput(this ComPtr<ID3D12InfoQueue1> comObj) 
+		public static Bool32 GetMuteDebugOutput(this ComPtr<ID3D12InfoQueue1> comObj) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, int>)(handle->LpVtbl[37]))(handle);
+			Bool32 ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, Bool32>)(handle->LpVtbl[37]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterMessageCallback(this ComPtr<ID3D12InfoQueue1> comObj, MessageFunc callbackFunc, MessageCallbackFlags callbackFilterFlags, void* pContext, uint* pCallbackCookie) 
+		public static HResult RegisterMessageCallback(this ComPtr<ID3D12InfoQueue1> comObj, MessageFunc callbackFunc, MessageCallbackFlags callbackFilterFlags, void* pContext, uint* pCallbackCookie) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageFunc, MessageCallbackFlags, void*, uint*, int>)(handle->LpVtbl[38]))(handle, callbackFunc, callbackFilterFlags, pContext, pCallbackCookie);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageFunc, MessageCallbackFlags, void*, uint*, HResult>)(handle->LpVtbl[38]))(handle, callbackFunc, callbackFilterFlags, pContext, pCallbackCookie);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterMessageCallback<T>(this ComPtr<ID3D12InfoQueue1> comObj, MessageFunc callbackFunc, MessageCallbackFlags callbackFilterFlags, ComPtr<T> pContext, uint* pCallbackCookie) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult RegisterMessageCallback<T>(this ComPtr<ID3D12InfoQueue1> comObj, MessageFunc callbackFunc, MessageCallbackFlags callbackFilterFlags, ComPtr<T> pContext, uint* pCallbackCookie) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageFunc, MessageCallbackFlags, void*, uint*, int>)(handle->LpVtbl[38]))(handle, callbackFunc, callbackFilterFlags, (void*)pContext.Handle, pCallbackCookie);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageFunc, MessageCallbackFlags, void*, uint*, HResult>)(handle->LpVtbl[38]))(handle, callbackFunc, callbackFilterFlags, (void*)pContext.Handle, pCallbackCookie);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterMessageCallback(this ComPtr<ID3D12InfoQueue1> comObj, MessageFunc callbackFunc, MessageCallbackFlags callbackFilterFlags, void* pContext, ref uint pCallbackCookie) 
+		public static HResult RegisterMessageCallback(this ComPtr<ID3D12InfoQueue1> comObj, MessageFunc callbackFunc, MessageCallbackFlags callbackFilterFlags, void* pContext, ref uint pCallbackCookie) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (uint* ppCallbackCookie = &pCallbackCookie)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageFunc, MessageCallbackFlags, void*, uint*, int>)(handle->LpVtbl[38]))(handle, callbackFunc, callbackFilterFlags, pContext, (uint*)ppCallbackCookie);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageFunc, MessageCallbackFlags, void*, uint*, HResult>)(handle->LpVtbl[38]))(handle, callbackFunc, callbackFilterFlags, pContext, (uint*)ppCallbackCookie);
 				return ret;
 			}
 		}
@@ -4348,12 +4348,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int RegisterMessageCallback<T>(this ComPtr<ID3D12InfoQueue1> comObj, MessageFunc callbackFunc, MessageCallbackFlags callbackFilterFlags, ComPtr<T> pContext, ref uint pCallbackCookie) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult RegisterMessageCallback<T>(this ComPtr<ID3D12InfoQueue1> comObj, MessageFunc callbackFunc, MessageCallbackFlags callbackFilterFlags, ComPtr<T> pContext, ref uint pCallbackCookie) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
 			fixed (uint* ppCallbackCookie = &pCallbackCookie)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageFunc, MessageCallbackFlags, void*, uint*, int>)(handle->LpVtbl[38]))(handle, callbackFunc, callbackFilterFlags, (void*)pContext.Handle, (uint*)ppCallbackCookie);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, MessageFunc, MessageCallbackFlags, void*, uint*, HResult>)(handle->LpVtbl[38]))(handle, callbackFunc, callbackFilterFlags, (void*)pContext.Handle, (uint*)ppCallbackCookie);
 				return ret;
 			}
 		}
@@ -4361,32 +4361,32 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int UnregisterMessageCallback(this ComPtr<ID3D12InfoQueue1> comObj, uint callbackCookie) 
+		public static HResult UnregisterMessageCallback(this ComPtr<ID3D12InfoQueue1> comObj, uint callbackCookie) 
 		{
 			ID3D12InfoQueue1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, uint, int>)(handle->LpVtbl[39]))(handle, callbackCookie);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12InfoQueue1*, uint, HResult>)(handle->LpVtbl[39]))(handle, callbackCookie);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12CompatibilityDevice> comObj, Guid* riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12CompatibilityDevice> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface(this ComPtr<ID3D12CompatibilityDevice> comObj, ref Guid riid, void** ppvObject) 
+		public static HResult QueryInterface(this ComPtr<ID3D12CompatibilityDevice> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -4394,24 +4394,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12CompatibilityDevice> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12CompatibilityDevice> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int QueryInterface<T>(this ComPtr<ID3D12CompatibilityDevice> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12CompatibilityDevice> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4439,22 +4439,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -4462,12 +4462,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -4475,14 +4475,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ResourceDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -4491,12 +4491,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -4504,14 +4504,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -4520,14 +4520,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -4536,7 +4536,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4545,7 +4545,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -4555,12 +4555,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -4568,14 +4568,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -4584,14 +4584,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -4600,7 +4600,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4609,7 +4609,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -4619,14 +4619,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -4635,7 +4635,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4644,7 +4644,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -4654,7 +4654,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -4663,7 +4663,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -4673,7 +4673,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4684,7 +4684,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -4695,12 +4695,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -4708,24 +4708,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -4734,12 +4734,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -4747,14 +4747,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -4763,12 +4763,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -4776,7 +4776,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4785,7 +4785,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -4795,14 +4795,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ResourceDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -4811,14 +4811,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -4827,12 +4827,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -4840,7 +4840,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4849,7 +4849,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -4859,14 +4859,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -4875,7 +4875,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -4884,7 +4884,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -4894,14 +4894,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ResourceDesc* ppDesc = &pDesc)
 			{
 				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -4910,7 +4910,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4921,7 +4921,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 							return ret;
 						}
 					}
@@ -4932,7 +4932,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, D3D11ResourceFlags* pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4941,7 +4941,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -4951,14 +4951,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
 				fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -4967,12 +4967,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 				return ret;
 			}
 		}
@@ -4980,7 +4980,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
@@ -4989,7 +4989,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}
@@ -4999,14 +4999,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
 					return ret;
 				}
 			}
@@ -5015,7 +5015,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
+		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
 			fixed (ResourceDesc* ppDesc = &pDesc)
@@ -5024,7 +5024,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
 						return ret;
 					}
 				}

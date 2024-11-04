@@ -27,13 +27,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int VPAndRTArrayIndexFromAnyShaderFeedingRasterizer;
+		public Bool32 VPAndRTArrayIndexFromAnyShaderFeedingRasterizer;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D11Options3(int vpAndRtArrayIndexFromAnyShaderFeedingRasterizer = default)
+		public unsafe FeatureDataD3D11Options3(Bool32 vpAndRtArrayIndexFromAnyShaderFeedingRasterizer = default)
 		{
 			VPAndRTArrayIndexFromAnyShaderFeedingRasterizer = vpAndRtArrayIndexFromAnyShaderFeedingRasterizer;
 		}

@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDesc(FunctionDesc* pDesc) 
+		public readonly unsafe HResult GetDesc(FunctionDesc* pDesc) 
 		{
 			ID3D11FunctionReflection* ptr = (ID3D11FunctionReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, FunctionDesc*, int>)(*LpVtbl))(ptr, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, FunctionDesc*, HResult>)(*LpVtbl))(ptr, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDesc(ref FunctionDesc pDesc) 
+		public readonly unsafe HResult GetDesc(ref FunctionDesc pDesc) 
 		{
 			ID3D11FunctionReflection* ptr = (ID3D11FunctionReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (FunctionDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, FunctionDesc*, int>)(*LpVtbl))(ptr, (FunctionDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, FunctionDesc*, HResult>)(*LpVtbl))(ptr, (FunctionDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -123,22 +123,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDesc(uint resourceIndex, ShaderInputBindDesc* pDesc) 
+		public readonly unsafe HResult GetResourceBindingDesc(uint resourceIndex, ShaderInputBindDesc* pDesc) 
 		{
 			ID3D11FunctionReflection* ptr = (ID3D11FunctionReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, uint, ShaderInputBindDesc*, int>)(LpVtbl[3]))(ptr, resourceIndex, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, uint, ShaderInputBindDesc*, HResult>)(LpVtbl[3]))(ptr, resourceIndex, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDesc(uint resourceIndex, ref ShaderInputBindDesc pDesc) 
+		public readonly unsafe HResult GetResourceBindingDesc(uint resourceIndex, ref ShaderInputBindDesc pDesc) 
 		{
 			ID3D11FunctionReflection* ptr = (ID3D11FunctionReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ShaderInputBindDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, uint, ShaderInputBindDesc*, int>)(LpVtbl[3]))(ptr, resourceIndex, (ShaderInputBindDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, uint, ShaderInputBindDesc*, HResult>)(LpVtbl[3]))(ptr, resourceIndex, (ShaderInputBindDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -200,22 +200,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDescByName(byte* name, ShaderInputBindDesc* pDesc) 
+		public readonly unsafe HResult GetResourceBindingDescByName(byte* name, ShaderInputBindDesc* pDesc) 
 		{
 			ID3D11FunctionReflection* ptr = (ID3D11FunctionReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ShaderInputBindDesc*, int>)(LpVtbl[5]))(ptr, name, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ShaderInputBindDesc*, HResult>)(LpVtbl[5]))(ptr, name, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDescByName(ReadOnlySpan<byte> name, ShaderInputBindDesc* pDesc) 
+		public readonly unsafe HResult GetResourceBindingDescByName(ReadOnlySpan<byte> name, ShaderInputBindDesc* pDesc) 
 		{
 			ID3D11FunctionReflection* ptr = (ID3D11FunctionReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* pname = name)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ShaderInputBindDesc*, int>)(LpVtbl[5]))(ptr, (byte*)pname, pDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ShaderInputBindDesc*, HResult>)(LpVtbl[5]))(ptr, (byte*)pname, pDesc);
 				return ret;
 			}
 		}
@@ -223,7 +223,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDescByName(string name, ShaderInputBindDesc* pDesc) 
+		public readonly unsafe HResult GetResourceBindingDescByName(string name, ShaderInputBindDesc* pDesc) 
 		{
 			ID3D11FunctionReflection* ptr = (ID3D11FunctionReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -243,7 +243,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(name, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ShaderInputBindDesc*, int>)(LpVtbl[5]))(ptr, pStr0, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ShaderInputBindDesc*, HResult>)(LpVtbl[5]))(ptr, pStr0, pDesc);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -254,12 +254,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDescByName(byte* name, ref ShaderInputBindDesc pDesc) 
+		public readonly unsafe HResult GetResourceBindingDescByName(byte* name, ref ShaderInputBindDesc pDesc) 
 		{
 			ID3D11FunctionReflection* ptr = (ID3D11FunctionReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ShaderInputBindDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ShaderInputBindDesc*, int>)(LpVtbl[5]))(ptr, name, (ShaderInputBindDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ShaderInputBindDesc*, HResult>)(LpVtbl[5]))(ptr, name, (ShaderInputBindDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -267,14 +267,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDescByName(ReadOnlySpan<byte> name, ref ShaderInputBindDesc pDesc) 
+		public readonly unsafe HResult GetResourceBindingDescByName(ReadOnlySpan<byte> name, ref ShaderInputBindDesc pDesc) 
 		{
 			ID3D11FunctionReflection* ptr = (ID3D11FunctionReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* pname = name)
 			{
 				fixed (ShaderInputBindDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ShaderInputBindDesc*, int>)(LpVtbl[5]))(ptr, (byte*)pname, (ShaderInputBindDesc*)ppDesc);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ShaderInputBindDesc*, HResult>)(LpVtbl[5]))(ptr, (byte*)pname, (ShaderInputBindDesc*)ppDesc);
 					return ret;
 				}
 			}
@@ -283,7 +283,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetResourceBindingDescByName(string name, ref ShaderInputBindDesc pDesc) 
+		public readonly unsafe HResult GetResourceBindingDescByName(string name, ref ShaderInputBindDesc pDesc) 
 		{
 			ID3D11FunctionReflection* ptr = (ID3D11FunctionReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -305,7 +305,7 @@ namespace Hexa.NET.D3D11
 			}
 			fixed (ShaderInputBindDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ShaderInputBindDesc*, int>)(LpVtbl[5]))(ptr, pStr0, (ShaderInputBindDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ShaderInputBindDesc*, HResult>)(LpVtbl[5]))(ptr, pStr0, (ShaderInputBindDesc*)ppDesc);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);

@@ -57,12 +57,12 @@ namespace Hexa.NET.DXC
 		/// ><br/>
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateInstanceNative(Guid* rclsid, Guid* riid, void** ppv)
+		internal static HResult CreateInstanceNative(Guid* rclsid, Guid* riid, void** ppv)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<Guid*, Guid*, void**, int>)funcTable[0])(rclsid, riid, ppv);
+			return ((delegate* unmanaged[Cdecl]<Guid*, Guid*, void**, HResult>)funcTable[0])(rclsid, riid, ppv);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nint, nint, int>)funcTable[0])((nint)rclsid, (nint)riid, (nint)ppv);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, HResult>)funcTable[0])((nint)rclsid, (nint)riid, (nint)ppv);
 			#endif
 		}
 
@@ -105,9 +105,9 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		public static int CreateInstance(Guid* rclsid, Guid* riid, void** ppv)
+		public static HResult CreateInstance(Guid* rclsid, Guid* riid, void** ppv)
 		{
-			int ret = CreateInstanceNative(rclsid, riid, ppv);
+			HResult ret = CreateInstanceNative(rclsid, riid, ppv);
 			return ret;
 		}
 
@@ -150,11 +150,11 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		public static int CreateInstance(ref Guid rclsid, Guid* riid, void** ppv)
+		public static HResult CreateInstance(ref Guid rclsid, Guid* riid, void** ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
-				int ret = CreateInstanceNative((Guid*)prclsid, riid, ppv);
+				HResult ret = CreateInstanceNative((Guid*)prclsid, riid, ppv);
 				return ret;
 			}
 		}
@@ -198,11 +198,11 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		public static int CreateInstance(Guid* rclsid, ref Guid riid, void** ppv)
+		public static HResult CreateInstance(Guid* rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (Guid* priid = &riid)
 			{
-				int ret = CreateInstanceNative(rclsid, (Guid*)priid, ppv);
+				HResult ret = CreateInstanceNative(rclsid, (Guid*)priid, ppv);
 				return ret;
 			}
 		}
@@ -246,13 +246,13 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		public static int CreateInstance(ref Guid rclsid, ref Guid riid, void** ppv)
+		public static HResult CreateInstance(ref Guid rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = CreateInstanceNative((Guid*)prclsid, (Guid*)priid, ppv);
+					HResult ret = CreateInstanceNative((Guid*)prclsid, (Guid*)priid, ppv);
 					return ret;
 				}
 			}
@@ -297,11 +297,11 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		public static int CreateInstance(Guid* rclsid, Guid* riid, ref void* ppv)
+		public static HResult CreateInstance(Guid* rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (void** pppv = &ppv)
 			{
-				int ret = CreateInstanceNative(rclsid, riid, (void**)pppv);
+				HResult ret = CreateInstanceNative(rclsid, riid, (void**)pppv);
 				return ret;
 			}
 		}
@@ -345,13 +345,13 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		public static int CreateInstance(ref Guid rclsid, Guid* riid, ref void* ppv)
+		public static HResult CreateInstance(ref Guid rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = CreateInstanceNative((Guid*)prclsid, riid, (void**)pppv);
+					HResult ret = CreateInstanceNative((Guid*)prclsid, riid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -396,13 +396,13 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		public static int CreateInstance(Guid* rclsid, ref Guid riid, ref void* ppv)
+		public static HResult CreateInstance(Guid* rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (Guid* priid = &riid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = CreateInstanceNative(rclsid, (Guid*)priid, (void**)pppv);
+					HResult ret = CreateInstanceNative(rclsid, (Guid*)priid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -447,7 +447,7 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		public static int CreateInstance(ref Guid rclsid, ref Guid riid, ref void* ppv)
+		public static HResult CreateInstance(ref Guid rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -455,7 +455,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppv = &ppv)
 					{
-						int ret = CreateInstanceNative((Guid*)prclsid, (Guid*)priid, (void**)pppv);
+						HResult ret = CreateInstanceNative((Guid*)prclsid, (Guid*)priid, (void**)pppv);
 						return ret;
 					}
 				}
@@ -466,32 +466,32 @@ namespace Hexa.NET.DXC
 		/// To be documented.
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateInstance2Native(IMalloc* pMalloc, Guid* rclsid, Guid* riid, void** ppv)
+		internal static HResult CreateInstance2Native(IMalloc* pMalloc, Guid* rclsid, Guid* riid, void** ppv)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<IMalloc*, Guid*, Guid*, void**, int>)funcTable[1])(pMalloc, rclsid, riid, ppv);
+			return ((delegate* unmanaged[Cdecl]<IMalloc*, Guid*, Guid*, void**, HResult>)funcTable[1])(pMalloc, rclsid, riid, ppv);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, int>)funcTable[1])((nint)pMalloc, (nint)rclsid, (nint)riid, (nint)ppv);
+			return (HResult)((delegate* unmanaged[Cdecl]<nint, nint, nint, nint, HResult>)funcTable[1])((nint)pMalloc, (nint)rclsid, (nint)riid, (nint)ppv);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(IMalloc* pMalloc, Guid* rclsid, Guid* riid, void** ppv)
+		public static HResult CreateInstance2(IMalloc* pMalloc, Guid* rclsid, Guid* riid, void** ppv)
 		{
-			int ret = CreateInstance2Native(pMalloc, rclsid, riid, ppv);
+			HResult ret = CreateInstance2Native(pMalloc, rclsid, riid, ppv);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ref IMalloc pMalloc, Guid* rclsid, Guid* riid, void** ppv)
+		public static HResult CreateInstance2(ref IMalloc pMalloc, Guid* rclsid, Guid* riid, void** ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
-				int ret = CreateInstance2Native((IMalloc*)ppMalloc, rclsid, riid, ppv);
+				HResult ret = CreateInstance2Native((IMalloc*)ppMalloc, rclsid, riid, ppv);
 				return ret;
 			}
 		}
@@ -499,20 +499,20 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, Guid* rclsid, Guid* riid, void** ppv)
+		public static HResult CreateInstance2(ComPtr<IMalloc> pMalloc, Guid* rclsid, Guid* riid, void** ppv)
 		{
-			int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, rclsid, riid, ppv);
+			HResult ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, rclsid, riid, ppv);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(IMalloc* pMalloc, ref Guid rclsid, Guid* riid, void** ppv)
+		public static HResult CreateInstance2(IMalloc* pMalloc, ref Guid rclsid, Guid* riid, void** ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
-				int ret = CreateInstance2Native(pMalloc, (Guid*)prclsid, riid, ppv);
+				HResult ret = CreateInstance2Native(pMalloc, (Guid*)prclsid, riid, ppv);
 				return ret;
 			}
 		}
@@ -520,13 +520,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ref IMalloc pMalloc, ref Guid rclsid, Guid* riid, void** ppv)
+		public static HResult CreateInstance2(ref IMalloc pMalloc, ref Guid rclsid, Guid* riid, void** ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
 				fixed (Guid* prclsid = &rclsid)
 				{
-					int ret = CreateInstance2Native((IMalloc*)ppMalloc, (Guid*)prclsid, riid, ppv);
+					HResult ret = CreateInstance2Native((IMalloc*)ppMalloc, (Guid*)prclsid, riid, ppv);
 					return ret;
 				}
 			}
@@ -535,11 +535,11 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, ref Guid rclsid, Guid* riid, void** ppv)
+		public static HResult CreateInstance2(ComPtr<IMalloc> pMalloc, ref Guid rclsid, Guid* riid, void** ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
-				int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, (Guid*)prclsid, riid, ppv);
+				HResult ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, (Guid*)prclsid, riid, ppv);
 				return ret;
 			}
 		}
@@ -547,11 +547,11 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(IMalloc* pMalloc, Guid* rclsid, ref Guid riid, void** ppv)
+		public static HResult CreateInstance2(IMalloc* pMalloc, Guid* rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (Guid* priid = &riid)
 			{
-				int ret = CreateInstance2Native(pMalloc, rclsid, (Guid*)priid, ppv);
+				HResult ret = CreateInstance2Native(pMalloc, rclsid, (Guid*)priid, ppv);
 				return ret;
 			}
 		}
@@ -559,13 +559,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ref IMalloc pMalloc, Guid* rclsid, ref Guid riid, void** ppv)
+		public static HResult CreateInstance2(ref IMalloc pMalloc, Guid* rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = CreateInstance2Native((IMalloc*)ppMalloc, rclsid, (Guid*)priid, ppv);
+					HResult ret = CreateInstance2Native((IMalloc*)ppMalloc, rclsid, (Guid*)priid, ppv);
 					return ret;
 				}
 			}
@@ -574,11 +574,11 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, Guid* rclsid, ref Guid riid, void** ppv)
+		public static HResult CreateInstance2(ComPtr<IMalloc> pMalloc, Guid* rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (Guid* priid = &riid)
 			{
-				int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, rclsid, (Guid*)priid, ppv);
+				HResult ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, rclsid, (Guid*)priid, ppv);
 				return ret;
 			}
 		}
@@ -586,13 +586,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(IMalloc* pMalloc, ref Guid rclsid, ref Guid riid, void** ppv)
+		public static HResult CreateInstance2(IMalloc* pMalloc, ref Guid rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = CreateInstance2Native(pMalloc, (Guid*)prclsid, (Guid*)priid, ppv);
+					HResult ret = CreateInstance2Native(pMalloc, (Guid*)prclsid, (Guid*)priid, ppv);
 					return ret;
 				}
 			}
@@ -601,7 +601,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ref IMalloc pMalloc, ref Guid rclsid, ref Guid riid, void** ppv)
+		public static HResult CreateInstance2(ref IMalloc pMalloc, ref Guid rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
@@ -609,7 +609,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = CreateInstance2Native((IMalloc*)ppMalloc, (Guid*)prclsid, (Guid*)priid, ppv);
+						HResult ret = CreateInstance2Native((IMalloc*)ppMalloc, (Guid*)prclsid, (Guid*)priid, ppv);
 						return ret;
 					}
 				}
@@ -619,13 +619,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, ref Guid rclsid, ref Guid riid, void** ppv)
+		public static HResult CreateInstance2(ComPtr<IMalloc> pMalloc, ref Guid rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, (Guid*)prclsid, (Guid*)priid, ppv);
+					HResult ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, (Guid*)prclsid, (Guid*)priid, ppv);
 					return ret;
 				}
 			}
@@ -634,11 +634,11 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(IMalloc* pMalloc, Guid* rclsid, Guid* riid, ref void* ppv)
+		public static HResult CreateInstance2(IMalloc* pMalloc, Guid* rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (void** pppv = &ppv)
 			{
-				int ret = CreateInstance2Native(pMalloc, rclsid, riid, (void**)pppv);
+				HResult ret = CreateInstance2Native(pMalloc, rclsid, riid, (void**)pppv);
 				return ret;
 			}
 		}
@@ -646,13 +646,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ref IMalloc pMalloc, Guid* rclsid, Guid* riid, ref void* ppv)
+		public static HResult CreateInstance2(ref IMalloc pMalloc, Guid* rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = CreateInstance2Native((IMalloc*)ppMalloc, rclsid, riid, (void**)pppv);
+					HResult ret = CreateInstance2Native((IMalloc*)ppMalloc, rclsid, riid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -661,11 +661,11 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, Guid* rclsid, Guid* riid, ref void* ppv)
+		public static HResult CreateInstance2(ComPtr<IMalloc> pMalloc, Guid* rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (void** pppv = &ppv)
 			{
-				int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, rclsid, riid, (void**)pppv);
+				HResult ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, rclsid, riid, (void**)pppv);
 				return ret;
 			}
 		}
@@ -673,13 +673,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(IMalloc* pMalloc, ref Guid rclsid, Guid* riid, ref void* ppv)
+		public static HResult CreateInstance2(IMalloc* pMalloc, ref Guid rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = CreateInstance2Native(pMalloc, (Guid*)prclsid, riid, (void**)pppv);
+					HResult ret = CreateInstance2Native(pMalloc, (Guid*)prclsid, riid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -688,7 +688,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ref IMalloc pMalloc, ref Guid rclsid, Guid* riid, ref void* ppv)
+		public static HResult CreateInstance2(ref IMalloc pMalloc, ref Guid rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
@@ -696,7 +696,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppv = &ppv)
 					{
-						int ret = CreateInstance2Native((IMalloc*)ppMalloc, (Guid*)prclsid, riid, (void**)pppv);
+						HResult ret = CreateInstance2Native((IMalloc*)ppMalloc, (Guid*)prclsid, riid, (void**)pppv);
 						return ret;
 					}
 				}
@@ -706,13 +706,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, ref Guid rclsid, Guid* riid, ref void* ppv)
+		public static HResult CreateInstance2(ComPtr<IMalloc> pMalloc, ref Guid rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, (Guid*)prclsid, riid, (void**)pppv);
+					HResult ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, (Guid*)prclsid, riid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -721,13 +721,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(IMalloc* pMalloc, Guid* rclsid, ref Guid riid, ref void* ppv)
+		public static HResult CreateInstance2(IMalloc* pMalloc, Guid* rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (Guid* priid = &riid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = CreateInstance2Native(pMalloc, rclsid, (Guid*)priid, (void**)pppv);
+					HResult ret = CreateInstance2Native(pMalloc, rclsid, (Guid*)priid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -736,7 +736,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ref IMalloc pMalloc, Guid* rclsid, ref Guid riid, ref void* ppv)
+		public static HResult CreateInstance2(ref IMalloc pMalloc, Guid* rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
@@ -744,7 +744,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppv = &ppv)
 					{
-						int ret = CreateInstance2Native((IMalloc*)ppMalloc, rclsid, (Guid*)priid, (void**)pppv);
+						HResult ret = CreateInstance2Native((IMalloc*)ppMalloc, rclsid, (Guid*)priid, (void**)pppv);
 						return ret;
 					}
 				}
@@ -754,13 +754,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, Guid* rclsid, ref Guid riid, ref void* ppv)
+		public static HResult CreateInstance2(ComPtr<IMalloc> pMalloc, Guid* rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (Guid* priid = &riid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, rclsid, (Guid*)priid, (void**)pppv);
+					HResult ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, rclsid, (Guid*)priid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -769,7 +769,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(IMalloc* pMalloc, ref Guid rclsid, ref Guid riid, ref void* ppv)
+		public static HResult CreateInstance2(IMalloc* pMalloc, ref Guid rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -777,7 +777,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppv = &ppv)
 					{
-						int ret = CreateInstance2Native(pMalloc, (Guid*)prclsid, (Guid*)priid, (void**)pppv);
+						HResult ret = CreateInstance2Native(pMalloc, (Guid*)prclsid, (Guid*)priid, (void**)pppv);
 						return ret;
 					}
 				}
@@ -787,7 +787,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ref IMalloc pMalloc, ref Guid rclsid, ref Guid riid, ref void* ppv)
+		public static HResult CreateInstance2(ref IMalloc pMalloc, ref Guid rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
@@ -797,7 +797,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (void** pppv = &ppv)
 						{
-							int ret = CreateInstance2Native((IMalloc*)ppMalloc, (Guid*)prclsid, (Guid*)priid, (void**)pppv);
+							HResult ret = CreateInstance2Native((IMalloc*)ppMalloc, (Guid*)prclsid, (Guid*)priid, (void**)pppv);
 							return ret;
 						}
 					}
@@ -808,7 +808,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, ref Guid rclsid, ref Guid riid, ref void* ppv)
+		public static HResult CreateInstance2(ComPtr<IMalloc> pMalloc, ref Guid rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -816,7 +816,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppv = &ppv)
 					{
-						int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, (Guid*)prclsid, (Guid*)priid, (void**)pppv);
+						HResult ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, (Guid*)prclsid, (Guid*)priid, (void**)pppv);
 						return ret;
 					}
 				}

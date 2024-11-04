@@ -27,13 +27,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Profile;
+		public Bool32 Profile;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataMarkerSupport(int profile = default)
+		public unsafe FeatureDataMarkerSupport(Bool32 profile = default)
 		{
 			Profile = profile;
 		}

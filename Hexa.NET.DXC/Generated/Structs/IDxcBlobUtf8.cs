@@ -31,22 +31,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcBlobUtf8* ptr = (IDxcBlobUtf8*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcBlobUtf8* ptr = (IDxcBlobUtf8*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -54,24 +54,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcBlobUtf8* ptr = (IDxcBlobUtf8*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcBlobUtf8* ptr = (IDxcBlobUtf8*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -119,22 +119,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetEncoding(int* pKnown, uint* pCodePage) 
+		public readonly unsafe HResult GetEncoding(Bool32* pKnown, uint* pCodePage) 
 		{
 			IDxcBlobUtf8* ptr = (IDxcBlobUtf8*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, int*, uint*, int>)(LpVtbl[5]))(ptr, pKnown, pCodePage);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Bool32*, uint*, HResult>)(LpVtbl[5]))(ptr, pKnown, pCodePage);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetEncoding(ref int pKnown, uint* pCodePage) 
+		public readonly unsafe HResult GetEncoding(ref Bool32 pKnown, uint* pCodePage) 
 		{
 			IDxcBlobUtf8* ptr = (IDxcBlobUtf8*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (int* ppKnown = &pKnown)
+			fixed (Bool32* ppKnown = &pKnown)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, int*, uint*, int>)(LpVtbl[5]))(ptr, (int*)ppKnown, pCodePage);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Bool32*, uint*, HResult>)(LpVtbl[5]))(ptr, (Bool32*)ppKnown, pCodePage);
 				return ret;
 			}
 		}
@@ -142,12 +142,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetEncoding(int* pKnown, ref uint pCodePage) 
+		public readonly unsafe HResult GetEncoding(Bool32* pKnown, ref uint pCodePage) 
 		{
 			IDxcBlobUtf8* ptr = (IDxcBlobUtf8*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCodePage = &pCodePage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, int*, uint*, int>)(LpVtbl[5]))(ptr, pKnown, (uint*)ppCodePage);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Bool32*, uint*, HResult>)(LpVtbl[5]))(ptr, pKnown, (uint*)ppCodePage);
 				return ret;
 			}
 		}
@@ -155,14 +155,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetEncoding(ref int pKnown, ref uint pCodePage) 
+		public readonly unsafe HResult GetEncoding(ref Bool32 pKnown, ref uint pCodePage) 
 		{
 			IDxcBlobUtf8* ptr = (IDxcBlobUtf8*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (int* ppKnown = &pKnown)
+			fixed (Bool32* ppKnown = &pKnown)
 			{
 				fixed (uint* ppCodePage = &pCodePage)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, int*, uint*, int>)(LpVtbl[5]))(ptr, (int*)ppKnown, (uint*)ppCodePage);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcBlobUtf8*, Bool32*, uint*, HResult>)(LpVtbl[5]))(ptr, (Bool32*)ppKnown, (uint*)ppCodePage);
 					return ret;
 				}
 			}

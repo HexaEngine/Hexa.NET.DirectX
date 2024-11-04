@@ -36,22 +36,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDesc(ShaderTypeDesc* pDesc) 
+		public readonly unsafe HResult GetDesc(ShaderTypeDesc* pDesc) 
 		{
 			ID3D11ShaderReflectionType* ptr = (ID3D11ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ShaderTypeDesc*, int>)(*LpVtbl))(ptr, pDesc);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ShaderTypeDesc*, HResult>)(*LpVtbl))(ptr, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDesc(ref ShaderTypeDesc pDesc) 
+		public readonly unsafe HResult GetDesc(ref ShaderTypeDesc pDesc) 
 		{
 			ID3D11ShaderReflectionType* ptr = (ID3D11ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ShaderTypeDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ShaderTypeDesc*, int>)(*LpVtbl))(ptr, (ShaderTypeDesc*)ppDesc);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ShaderTypeDesc*, HResult>)(*LpVtbl))(ptr, (ShaderTypeDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -143,22 +143,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int IsEqual(ID3D11ShaderReflectionType* pType) 
+		public readonly unsafe HResult IsEqual(ID3D11ShaderReflectionType* pType) 
 		{
 			ID3D11ShaderReflectionType* ptr = (ID3D11ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(LpVtbl[4]))(ptr, pType);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, HResult>)(LpVtbl[4]))(ptr, pType);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int IsEqual(ref ID3D11ShaderReflectionType pType) 
+		public readonly unsafe HResult IsEqual(ref ID3D11ShaderReflectionType pType) 
 		{
 			ID3D11ShaderReflectionType* ptr = (ID3D11ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderReflectionType* ppType = &pType)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(LpVtbl[4]))(ptr, (ID3D11ShaderReflectionType*)ppType);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, HResult>)(LpVtbl[4]))(ptr, (ID3D11ShaderReflectionType*)ppType);
 				return ret;
 			}
 		}
@@ -166,10 +166,10 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int IsEqual(ComPtr<ID3D11ShaderReflectionType> pType) 
+		public readonly unsafe HResult IsEqual(ComPtr<ID3D11ShaderReflectionType> pType) 
 		{
 			ID3D11ShaderReflectionType* ptr = (ID3D11ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(LpVtbl[4]))(ptr, (ID3D11ShaderReflectionType*)pType.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, HResult>)(LpVtbl[4]))(ptr, (ID3D11ShaderReflectionType*)pType.Handle);
 			return ret;
 		}
 
@@ -216,22 +216,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int IsOfType(ID3D11ShaderReflectionType* pType) 
+		public readonly unsafe HResult IsOfType(ID3D11ShaderReflectionType* pType) 
 		{
 			ID3D11ShaderReflectionType* ptr = (ID3D11ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(LpVtbl[9]))(ptr, pType);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, HResult>)(LpVtbl[9]))(ptr, pType);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int IsOfType(ref ID3D11ShaderReflectionType pType) 
+		public readonly unsafe HResult IsOfType(ref ID3D11ShaderReflectionType pType) 
 		{
 			ID3D11ShaderReflectionType* ptr = (ID3D11ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderReflectionType* ppType = &pType)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(LpVtbl[9]))(ptr, (ID3D11ShaderReflectionType*)ppType);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, HResult>)(LpVtbl[9]))(ptr, (ID3D11ShaderReflectionType*)ppType);
 				return ret;
 			}
 		}
@@ -239,32 +239,32 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int IsOfType(ComPtr<ID3D11ShaderReflectionType> pType) 
+		public readonly unsafe HResult IsOfType(ComPtr<ID3D11ShaderReflectionType> pType) 
 		{
 			ID3D11ShaderReflectionType* ptr = (ID3D11ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(LpVtbl[9]))(ptr, (ID3D11ShaderReflectionType*)pType.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, HResult>)(LpVtbl[9]))(ptr, (ID3D11ShaderReflectionType*)pType.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ImplementsInterface(ID3D11ShaderReflectionType* pBase) 
+		public readonly unsafe HResult ImplementsInterface(ID3D11ShaderReflectionType* pBase) 
 		{
 			ID3D11ShaderReflectionType* ptr = (ID3D11ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(LpVtbl[10]))(ptr, pBase);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, HResult>)(LpVtbl[10]))(ptr, pBase);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ImplementsInterface(ref ID3D11ShaderReflectionType pBase) 
+		public readonly unsafe HResult ImplementsInterface(ref ID3D11ShaderReflectionType pBase) 
 		{
 			ID3D11ShaderReflectionType* ptr = (ID3D11ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderReflectionType* ppBase = &pBase)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(LpVtbl[10]))(ptr, (ID3D11ShaderReflectionType*)ppBase);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, HResult>)(LpVtbl[10]))(ptr, (ID3D11ShaderReflectionType*)ppBase);
 				return ret;
 			}
 		}
@@ -272,10 +272,10 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int ImplementsInterface(ComPtr<ID3D11ShaderReflectionType> pBase) 
+		public readonly unsafe HResult ImplementsInterface(ComPtr<ID3D11ShaderReflectionType> pBase) 
 		{
 			ID3D11ShaderReflectionType* ptr = (ID3D11ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(LpVtbl[10]))(ptr, (ID3D11ShaderReflectionType*)pBase.Handle);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, HResult>)(LpVtbl[10]))(ptr, (ID3D11ShaderReflectionType*)pBase.Handle);
 			return ret;
 		}
 

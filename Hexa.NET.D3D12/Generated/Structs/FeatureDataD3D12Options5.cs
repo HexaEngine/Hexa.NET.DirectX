@@ -27,7 +27,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int SRVOnlyTiledResourceTier3;
+		public Bool32 SRVOnlyTiledResourceTier3;
 
 		/// <summary>
 		/// To be documented.
@@ -43,7 +43,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D12Options5(int srvOnlyTiledResourceTier3 = default, RenderPassTier renderPassesTier = default, RaytracingTier raytracingTier = default)
+		public unsafe FeatureDataD3D12Options5(Bool32 srvOnlyTiledResourceTier3 = default, RenderPassTier renderPassesTier = default, RaytracingTier raytracingTier = default)
 		{
 			SRVOnlyTiledResourceTier3 = srvOnlyTiledResourceTier3;
 			RenderPassesTier = renderPassesTier;

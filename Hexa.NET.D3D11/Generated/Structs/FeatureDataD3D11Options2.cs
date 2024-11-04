@@ -27,17 +27,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int PSSpecifiedStencilRefSupported;
+		public Bool32 PSSpecifiedStencilRefSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int TypedUAVLoadAdditionalFormats;
+		public Bool32 TypedUAVLoadAdditionalFormats;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ROVsSupported;
+		public Bool32 ROVsSupported;
 
 		/// <summary>
 		/// To be documented.
@@ -52,23 +52,23 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int MapOnDefaultTextures;
+		public Bool32 MapOnDefaultTextures;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int StandardSwizzle;
+		public Bool32 StandardSwizzle;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int UnifiedMemoryArchitecture;
+		public Bool32 UnifiedMemoryArchitecture;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D11Options2(int psSpecifiedStencilRefSupported = default, int typedUavLoadAdditionalFormats = default, int roVsSupported = default, ConservativeRasterizationTier conservativeRasterizationTier = default, TiledResourcesTier tiledResourcesTier = default, int mapOnDefaultTextures = default, int standardSwizzle = default, int unifiedMemoryArchitecture = default)
+		public unsafe FeatureDataD3D11Options2(Bool32 psSpecifiedStencilRefSupported = default, Bool32 typedUavLoadAdditionalFormats = default, Bool32 roVsSupported = default, ConservativeRasterizationTier conservativeRasterizationTier = default, TiledResourcesTier tiledResourcesTier = default, Bool32 mapOnDefaultTextures = default, Bool32 standardSwizzle = default, Bool32 unifiedMemoryArchitecture = default)
 		{
 			PSSpecifiedStencilRefSupported = psSpecifiedStencilRefSupported;
 			TypedUAVLoadAdditionalFormats = typedUavLoadAdditionalFormats;

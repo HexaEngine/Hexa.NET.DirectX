@@ -27,18 +27,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int VariableRateShadingSumCombinerSupported;
+		public Bool32 VariableRateShadingSumCombinerSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int MeshShaderPerPrimitiveShadingRateSupported;
+		public Bool32 MeshShaderPerPrimitiveShadingRateSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D12Options10(int variableRateShadingSumCombinerSupported = default, int meshShaderPerPrimitiveShadingRateSupported = default)
+		public unsafe FeatureDataD3D12Options10(Bool32 variableRateShadingSumCombinerSupported = default, Bool32 meshShaderPerPrimitiveShadingRateSupported = default)
 		{
 			VariableRateShadingSumCombinerSupported = variableRateShadingSumCombinerSupported;
 			MeshShaderPerPrimitiveShadingRateSupported = meshShaderPerPrimitiveShadingRateSupported;

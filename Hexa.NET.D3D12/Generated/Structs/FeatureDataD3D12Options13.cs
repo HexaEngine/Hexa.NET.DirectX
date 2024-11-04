@@ -27,38 +27,38 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int UnrestrictedBufferTextureCopyPitchSupported;
+		public Bool32 UnrestrictedBufferTextureCopyPitchSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int UnrestrictedVertexElementAlignmentSupported;
+		public Bool32 UnrestrictedVertexElementAlignmentSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int InvertedViewportHeightFlipsYSupported;
+		public Bool32 InvertedViewportHeightFlipsYSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int InvertedViewportDepthFlipsZSupported;
+		public Bool32 InvertedViewportDepthFlipsZSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int TextureCopyBetweenDimensionsSupported;
+		public Bool32 TextureCopyBetweenDimensionsSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int AlphaBlendFactorSupported;
+		public Bool32 AlphaBlendFactorSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D12Options13(int unrestrictedBufferTextureCopyPitchSupported = default, int unrestrictedVertexElementAlignmentSupported = default, int invertedViewportHeightFlipsYSupported = default, int invertedViewportDepthFlipsZSupported = default, int textureCopyBetweenDimensionsSupported = default, int alphaBlendFactorSupported = default)
+		public unsafe FeatureDataD3D12Options13(Bool32 unrestrictedBufferTextureCopyPitchSupported = default, Bool32 unrestrictedVertexElementAlignmentSupported = default, Bool32 invertedViewportHeightFlipsYSupported = default, Bool32 invertedViewportDepthFlipsZSupported = default, Bool32 textureCopyBetweenDimensionsSupported = default, Bool32 alphaBlendFactorSupported = default)
 		{
 			UnrestrictedBufferTextureCopyPitchSupported = unrestrictedBufferTextureCopyPitchSupported;
 			UnrestrictedVertexElementAlignmentSupported = unrestrictedVertexElementAlignmentSupported;

@@ -42,13 +42,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Status;
+		public HResult Status;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe KeyExchangeHwProtectionData(uint hwProtectionFunctionId = default, KeyExchangeHwProtectionInputData* pInputData = default, KeyExchangeHwProtectionOutputData* pOutputData = default, int status = default)
+		public unsafe KeyExchangeHwProtectionData(uint hwProtectionFunctionId = default, KeyExchangeHwProtectionInputData* pInputData = default, KeyExchangeHwProtectionOutputData* pOutputData = default, HResult status = default)
 		{
 			HWProtectionFunctionID = hwProtectionFunctionId;
 			PInputData = pInputData;

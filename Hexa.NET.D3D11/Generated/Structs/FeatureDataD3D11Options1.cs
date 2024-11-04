@@ -32,23 +32,23 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int MinMaxFiltering;
+		public Bool32 MinMaxFiltering;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int ClearViewAlsoSupportsDepthOnlyFormats;
+		public Bool32 ClearViewAlsoSupportsDepthOnlyFormats;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int MapOnDefaultBuffers;
+		public Bool32 MapOnDefaultBuffers;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D11Options1(TiledResourcesTier tiledResourcesTier = default, int minMaxFiltering = default, int clearViewAlsoSupportsDepthOnlyFormats = default, int mapOnDefaultBuffers = default)
+		public unsafe FeatureDataD3D11Options1(TiledResourcesTier tiledResourcesTier = default, Bool32 minMaxFiltering = default, Bool32 clearViewAlsoSupportsDepthOnlyFormats = default, Bool32 mapOnDefaultBuffers = default)
 		{
 			TiledResourcesTier = tiledResourcesTier;
 			MinMaxFiltering = minMaxFiltering;

@@ -31,22 +31,22 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -54,24 +54,24 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -99,32 +99,32 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RegisterDestructionCallback(PfnDestructionCallback callbackFn, void* pData, uint* pCallbackID) 
+		public readonly unsafe HResult RegisterDestructionCallback(PfnDestructionCallback callbackFn, void* pData, uint* pCallbackID) 
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, int>)(LpVtbl[3]))(ptr, callbackFn, pData, pCallbackID);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, HResult>)(LpVtbl[3]))(ptr, callbackFn, pData, pCallbackID);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RegisterDestructionCallback<T>(PfnDestructionCallback callbackFn, ComPtr<T> pData, uint* pCallbackID) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult RegisterDestructionCallback<T>(PfnDestructionCallback callbackFn, ComPtr<T> pData, uint* pCallbackID) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, int>)(LpVtbl[3]))(ptr, callbackFn, (void*)pData.Handle, pCallbackID);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, HResult>)(LpVtbl[3]))(ptr, callbackFn, (void*)pData.Handle, pCallbackID);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RegisterDestructionCallback(PfnDestructionCallback callbackFn, void* pData, ref uint pCallbackID) 
+		public readonly unsafe HResult RegisterDestructionCallback(PfnDestructionCallback callbackFn, void* pData, ref uint pCallbackID) 
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCallbackID = &pCallbackID)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, int>)(LpVtbl[3]))(ptr, callbackFn, pData, (uint*)ppCallbackID);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, HResult>)(LpVtbl[3]))(ptr, callbackFn, pData, (uint*)ppCallbackID);
 				return ret;
 			}
 		}
@@ -132,12 +132,12 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int RegisterDestructionCallback<T>(PfnDestructionCallback callbackFn, ComPtr<T> pData, ref uint pCallbackID) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult RegisterDestructionCallback<T>(PfnDestructionCallback callbackFn, ComPtr<T> pData, ref uint pCallbackID) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCallbackID = &pCallbackID)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, int>)(LpVtbl[3]))(ptr, callbackFn, (void*)pData.Handle, (uint*)ppCallbackID);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, HResult>)(LpVtbl[3]))(ptr, callbackFn, (void*)pData.Handle, (uint*)ppCallbackID);
 				return ret;
 			}
 		}
@@ -145,10 +145,10 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int UnregisterDestructionCallback(uint callbackID) 
+		public readonly unsafe HResult UnregisterDestructionCallback(uint callbackID) 
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, uint, int>)(LpVtbl[4]))(ptr, callbackID);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, uint, HResult>)(LpVtbl[4]))(ptr, callbackID);
 			return ret;
 		}
 

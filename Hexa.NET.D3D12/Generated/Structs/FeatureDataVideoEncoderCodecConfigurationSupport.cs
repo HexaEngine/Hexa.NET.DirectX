@@ -42,7 +42,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int IsSupported;
+		public Bool32 IsSupported;
 
 		/// <summary>
 		/// To be documented.
@@ -53,7 +53,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataVideoEncoderCodecConfigurationSupport(uint nodeIndex = default, VideoEncoderCodec codec = default, VideoEncoderProfileDesc profile = default, int isSupported = default, VideoEncoderCodecConfigurationSupport codecSupportLimits = default)
+		public unsafe FeatureDataVideoEncoderCodecConfigurationSupport(uint nodeIndex = default, VideoEncoderCodec codec = default, VideoEncoderProfileDesc profile = default, Bool32 isSupported = default, VideoEncoderCodecConfigurationSupport codecSupportLimits = default)
 		{
 			NodeIndex = nodeIndex;
 			Codec = codec;

@@ -27,13 +27,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DoublePrecisionFloatShaderOps;
+		public Bool32 DoublePrecisionFloatShaderOps;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataDoubles(int doublePrecisionFloatShaderOps = default)
+		public unsafe FeatureDataDoubles(Bool32 doublePrecisionFloatShaderOps = default)
 		{
 			DoublePrecisionFloatShaderOps = doublePrecisionFloatShaderOps;
 		}

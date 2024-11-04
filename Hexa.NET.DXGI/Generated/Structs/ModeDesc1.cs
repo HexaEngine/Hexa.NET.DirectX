@@ -56,13 +56,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Stereo;
+		public Bool32 Stereo;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe ModeDesc1(uint width = default, uint height = default, Rational refreshRate = default, Format format = default, ModeScanlineOrder scanlineOrdering = default, ModeScaling scaling = default, int stereo = default)
+		public unsafe ModeDesc1(uint width = default, uint height = default, Rational refreshRate = default, Format format = default, ModeScanlineOrder scanlineOrdering = default, ModeScaling scaling = default, Bool32 stereo = default)
 		{
 			Width = width;
 			Height = height;

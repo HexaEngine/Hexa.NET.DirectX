@@ -47,13 +47,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int IsSupported;
+		public Bool32 IsSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataVideoEncoderInputFormat(uint nodeIndex = default, VideoEncoderCodec codec = default, VideoEncoderProfileDesc profile = default, Format format = default, int isSupported = default)
+		public unsafe FeatureDataVideoEncoderInputFormat(uint nodeIndex = default, VideoEncoderCodec codec = default, VideoEncoderProfileDesc profile = default, Format format = default, Bool32 isSupported = default)
 		{
 			NodeIndex = nodeIndex;
 			Codec = codec;

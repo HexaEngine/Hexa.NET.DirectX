@@ -37,18 +37,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int AccessibleInContiguousBlocks;
+		public Bool32 AccessibleInContiguousBlocks;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int AccessibleInNonContiguousBlocks;
+		public Bool32 AccessibleInNonContiguousBlocks;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe AuthenticatedQueryAcessibilityOutput(AuthenticatedQueryOutput output = default, BusType busType = default, int accessibleInContiguousBlocks = default, int accessibleInNonContiguousBlocks = default)
+		public unsafe AuthenticatedQueryAcessibilityOutput(AuthenticatedQueryOutput output = default, BusType busType = default, Bool32 accessibleInContiguousBlocks = default, Bool32 accessibleInNonContiguousBlocks = default)
 		{
 			Output = output;
 			BusType = busType;

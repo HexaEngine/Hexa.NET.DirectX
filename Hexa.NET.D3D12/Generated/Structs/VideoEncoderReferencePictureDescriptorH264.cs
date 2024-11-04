@@ -32,7 +32,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int IsLongTermReference;
+		public Bool32 IsLongTermReference;
 
 		/// <summary>
 		/// To be documented.
@@ -58,7 +58,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe VideoEncoderReferencePictureDescriptorH264(uint reconstructedPictureResourceIndex = default, int isLongTermReference = default, uint longTermPictureIdx = default, uint pictureOrderCountNumber = default, uint frameDecodingOrderNumber = default, uint temporalLayerIndex = default)
+		public unsafe VideoEncoderReferencePictureDescriptorH264(uint reconstructedPictureResourceIndex = default, Bool32 isLongTermReference = default, uint longTermPictureIdx = default, uint pictureOrderCountNumber = default, uint frameDecodingOrderNumber = default, uint temporalLayerIndex = default)
 		{
 			ReconstructedPictureResourceIndex = reconstructedPictureResourceIndex;
 			IsLongTermReference = isLongTermReference;

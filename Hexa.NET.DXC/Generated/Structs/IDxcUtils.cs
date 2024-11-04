@@ -31,22 +31,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -54,24 +54,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -99,22 +99,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Create a sub-blob that holds a reference to the outer blob and points to its memory.<br/>
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, IDxcBlob** ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, IDxcBlob** ppResult) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[3]))(ptr, pBlob, offset, length, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, pBlob, offset, length, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// Create a sub-blob that holds a reference to the outer blob and points to its memory.<br/>
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(ref IDxcBlob pBlob, uint offset, uint length, IDxcBlob** ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(ref IDxcBlob pBlob, uint offset, uint length, IDxcBlob** ppResult) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)ppBlob, offset, length, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, (IDxcBlob*)ppBlob, offset, length, ppResult);
 				return ret;
 			}
 		}
@@ -122,22 +122,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Create a sub-blob that holds a reference to the outer blob and points to its memory.<br/>
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(ComPtr<IDxcBlob> pBlob, uint offset, uint length, IDxcBlob** ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(ComPtr<IDxcBlob> pBlob, uint offset, uint length, IDxcBlob** ppResult) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)pBlob.Handle, offset, length, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, (IDxcBlob*)pBlob.Handle, offset, length, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// Create a sub-blob that holds a reference to the outer blob and points to its memory.<br/>
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[3]))(ptr, pBlob, offset, length, (IDxcBlob**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, pBlob, offset, length, (IDxcBlob**)pppResult);
 				return ret;
 			}
 		}
@@ -145,25 +145,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Create a sub-blob that holds a reference to the outer blob and points to its memory.<br/>
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[3]))(ptr, pBlob, offset, length, (IDxcBlob**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, pBlob, offset, length, (IDxcBlob**)ppResult.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// Create a sub-blob that holds a reference to the outer blob and points to its memory.<br/>
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(ref IDxcBlob pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(ref IDxcBlob pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IDxcBlob** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)ppBlob, offset, length, (IDxcBlob**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, (IDxcBlob*)ppBlob, offset, length, (IDxcBlob**)pppResult);
 					return ret;
 				}
 			}
@@ -172,11 +172,11 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Create a sub-blob that holds a reference to the outer blob and points to its memory.<br/>
 		/// </summary>
-		public readonly unsafe int CreateBlobFromBlob(ComPtr<IDxcBlob> pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
+		public readonly unsafe HResult CreateBlobFromBlob(ComPtr<IDxcBlob> pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)pBlob.Handle, offset, length, (IDxcBlob**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, uint, uint, IDxcBlob**, HResult>)(LpVtbl[3]))(ptr, (IDxcBlob*)pBlob.Handle, offset, length, (IDxcBlob**)ppResult.GetAddressOf());
 			return ret;
 		}
 
@@ -185,10 +185,10 @@ namespace Hexa.NET.DXC
 		/// User must manage the memory lifetime separately.<br/>
 		/// (was: CreateBlobWithEncodingFromPinned)<br/>
 		/// </summary>
-		public readonly unsafe int CreateBlobFromPinned(void* pData, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromPinned(void* pData, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[4]))(ptr, pData, size, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[4]))(ptr, pData, size, codePage, pBlobEncoding);
 			return ret;
 		}
 
@@ -197,12 +197,12 @@ namespace Hexa.NET.DXC
 		/// User must manage the memory lifetime separately.<br/>
 		/// (was: CreateBlobWithEncodingFromPinned)<br/>
 		/// </summary>
-		public readonly unsafe int CreateBlobFromPinned(void* pData, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromPinned(void* pData, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[4]))(ptr, pData, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[4]))(ptr, pData, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -212,11 +212,11 @@ namespace Hexa.NET.DXC
 		/// User must manage the memory lifetime separately.<br/>
 		/// (was: CreateBlobWithEncodingFromPinned)<br/>
 		/// </summary>
-		public readonly unsafe int CreateBlobFromPinned(void* pData, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult CreateBlobFromPinned(void* pData, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[4]))(ptr, pData, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[4]))(ptr, pData, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
@@ -224,10 +224,10 @@ namespace Hexa.NET.DXC
 		/// Create blob, taking ownership of memory allocated with supplied allocator.<br/>
 		/// (was: CreateBlobWithEncodingOnMalloc)<br/>
 		/// </summary>
-		public readonly unsafe int MoveToBlob(void* pData, IMalloc* pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult MoveToBlob(void* pData, IMalloc* pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pData, pIMalloc, size, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pData, pIMalloc, size, codePage, pBlobEncoding);
 			return ret;
 		}
 
@@ -235,12 +235,12 @@ namespace Hexa.NET.DXC
 		/// Create blob, taking ownership of memory allocated with supplied allocator.<br/>
 		/// (was: CreateBlobWithEncodingOnMalloc)<br/>
 		/// </summary>
-		public readonly unsafe int MoveToBlob(void* pData, ref IMalloc pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult MoveToBlob(void* pData, ref IMalloc pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IMalloc* ppIMalloc = &pIMalloc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pData, (IMalloc*)ppIMalloc, size, codePage, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pData, (IMalloc*)ppIMalloc, size, codePage, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -249,10 +249,10 @@ namespace Hexa.NET.DXC
 		/// Create blob, taking ownership of memory allocated with supplied allocator.<br/>
 		/// (was: CreateBlobWithEncodingOnMalloc)<br/>
 		/// </summary>
-		public readonly unsafe int MoveToBlob(void* pData, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult MoveToBlob(void* pData, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pData, (IMalloc*)pIMalloc.Handle, size, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pData, (IMalloc*)pIMalloc.Handle, size, codePage, pBlobEncoding);
 			return ret;
 		}
 
@@ -260,12 +260,12 @@ namespace Hexa.NET.DXC
 		/// Create blob, taking ownership of memory allocated with supplied allocator.<br/>
 		/// (was: CreateBlobWithEncodingOnMalloc)<br/>
 		/// </summary>
-		public readonly unsafe int MoveToBlob(void* pData, IMalloc* pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult MoveToBlob(void* pData, IMalloc* pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pData, pIMalloc, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pData, pIMalloc, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -274,11 +274,11 @@ namespace Hexa.NET.DXC
 		/// Create blob, taking ownership of memory allocated with supplied allocator.<br/>
 		/// (was: CreateBlobWithEncodingOnMalloc)<br/>
 		/// </summary>
-		public readonly unsafe int MoveToBlob(void* pData, IMalloc* pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult MoveToBlob(void* pData, IMalloc* pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pData, pIMalloc, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pData, pIMalloc, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
@@ -286,14 +286,14 @@ namespace Hexa.NET.DXC
 		/// Create blob, taking ownership of memory allocated with supplied allocator.<br/>
 		/// (was: CreateBlobWithEncodingOnMalloc)<br/>
 		/// </summary>
-		public readonly unsafe int MoveToBlob(void* pData, ref IMalloc pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult MoveToBlob(void* pData, ref IMalloc pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IMalloc* ppIMalloc = &pIMalloc)
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pData, (IMalloc*)ppIMalloc, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pData, (IMalloc*)ppIMalloc, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -303,11 +303,11 @@ namespace Hexa.NET.DXC
 		/// Create blob, taking ownership of memory allocated with supplied allocator.<br/>
 		/// (was: CreateBlobWithEncodingOnMalloc)<br/>
 		/// </summary>
-		public readonly unsafe int MoveToBlob(void* pData, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult MoveToBlob(void* pData, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pData, (IMalloc*)pIMalloc.Handle, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[5]))(ptr, pData, (IMalloc*)pIMalloc.Handle, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
@@ -315,10 +315,10 @@ namespace Hexa.NET.DXC
 		/// Copy blob contents to memory owned by the new blob.<br/>
 		/// (was: CreateBlobWithEncodingOnHeapCopy)<br/>
 		/// </summary>
-		public readonly unsafe int CreateBlob(void* pData, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult CreateBlob(void* pData, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[6]))(ptr, pData, size, codePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[6]))(ptr, pData, size, codePage, pBlobEncoding);
 			return ret;
 		}
 
@@ -326,12 +326,12 @@ namespace Hexa.NET.DXC
 		/// Copy blob contents to memory owned by the new blob.<br/>
 		/// (was: CreateBlobWithEncodingOnHeapCopy)<br/>
 		/// </summary>
-		public readonly unsafe int CreateBlob(void* pData, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult CreateBlob(void* pData, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[6]))(ptr, pData, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[6]))(ptr, pData, size, codePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -340,33 +340,33 @@ namespace Hexa.NET.DXC
 		/// Copy blob contents to memory owned by the new blob.<br/>
 		/// (was: CreateBlobWithEncodingOnHeapCopy)<br/>
 		/// </summary>
-		public readonly unsafe int CreateBlob(void* pData, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult CreateBlob(void* pData, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[6]))(ptr, pData, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, void*, uint, uint, IDxcBlobEncoding**, HResult>)(LpVtbl[6]))(ptr, pData, size, codePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(char* pFileName, uint* pCodePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(char* pFileName, uint* pCodePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pFileName, pCodePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, pFileName, pCodePage, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(ReadOnlySpan<char> pFileName, uint* pCodePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(ReadOnlySpan<char> pFileName, uint* pCodePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFileName = pFileName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, (char*)ppFileName, pCodePage, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, (char*)ppFileName, pCodePage, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -374,7 +374,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(string pFileName, uint* pCodePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(string pFileName, uint* pCodePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -394,7 +394,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pFileName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pStr0, pCodePage, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, pStr0, pCodePage, pBlobEncoding);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -405,12 +405,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(char* pFileName, ref uint pCodePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(char* pFileName, ref uint pCodePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCodePage = &pCodePage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pFileName, (uint*)ppCodePage, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, pFileName, (uint*)ppCodePage, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -418,14 +418,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(ReadOnlySpan<char> pFileName, ref uint pCodePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(ReadOnlySpan<char> pFileName, ref uint pCodePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFileName = pFileName)
 			{
 				fixed (uint* ppCodePage = &pCodePage)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, (char*)ppFileName, (uint*)ppCodePage, pBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, (char*)ppFileName, (uint*)ppCodePage, pBlobEncoding);
 					return ret;
 				}
 			}
@@ -434,7 +434,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(string pFileName, ref uint pCodePage, IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(string pFileName, ref uint pCodePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -456,7 +456,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (uint* ppCodePage = &pCodePage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pStr0, (uint*)ppCodePage, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, pStr0, (uint*)ppCodePage, pBlobEncoding);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -468,12 +468,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(char* pFileName, uint* pCodePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(char* pFileName, uint* pCodePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pFileName, pCodePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, pFileName, pCodePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -481,25 +481,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(char* pFileName, uint* pCodePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(char* pFileName, uint* pCodePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pFileName, pCodePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, pFileName, pCodePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(ReadOnlySpan<char> pFileName, uint* pCodePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(ReadOnlySpan<char> pFileName, uint* pCodePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFileName = pFileName)
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, (char*)ppFileName, pCodePage, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, (char*)ppFileName, pCodePage, (IDxcBlobEncoding**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -508,7 +508,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(string pFileName, uint* pCodePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(string pFileName, uint* pCodePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -530,7 +530,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pStr0, pCodePage, (IDxcBlobEncoding**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, pStr0, pCodePage, (IDxcBlobEncoding**)ppBlobEncoding);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -542,14 +542,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(char* pFileName, ref uint pCodePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(char* pFileName, ref uint pCodePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCodePage = &pCodePage)
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pFileName, (uint*)ppCodePage, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, pFileName, (uint*)ppCodePage, (IDxcBlobEncoding**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -558,13 +558,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(char* pFileName, ref uint pCodePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(char* pFileName, ref uint pCodePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCodePage = &pCodePage)
 			{
 				pBlobEncoding = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pFileName, (uint*)ppCodePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, pFileName, (uint*)ppCodePage, (IDxcBlobEncoding**)pBlobEncoding.GetAddressOf());
 				return ret;
 			}
 		}
@@ -572,7 +572,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(ReadOnlySpan<char> pFileName, ref uint pCodePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(ReadOnlySpan<char> pFileName, ref uint pCodePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFileName = pFileName)
@@ -581,7 +581,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, (char*)ppFileName, (uint*)ppCodePage, (IDxcBlobEncoding**)ppBlobEncoding);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, (char*)ppFileName, (uint*)ppCodePage, (IDxcBlobEncoding**)ppBlobEncoding);
 						return ret;
 					}
 				}
@@ -591,7 +591,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// (was: CreateBlobFromFile)<br/>
 		/// </summary>
-		public readonly unsafe int LoadFile(string pFileName, ref uint pCodePage, ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe HResult LoadFile(string pFileName, ref uint pCodePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -615,7 +615,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pStr0, (uint*)ppCodePage, (IDxcBlobEncoding**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, uint*, IDxcBlobEncoding**, HResult>)(LpVtbl[7]))(ptr, pStr0, (uint*)ppCodePage, (IDxcBlobEncoding**)ppBlobEncoding);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -628,22 +628,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateReadOnlyStreamFromBlob(IDxcBlob* pBlob, IStream** ppStream) 
+		public readonly unsafe HResult CreateReadOnlyStreamFromBlob(IDxcBlob* pBlob, IStream** ppStream) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, int>)(LpVtbl[8]))(ptr, pBlob, ppStream);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, HResult>)(LpVtbl[8]))(ptr, pBlob, ppStream);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateReadOnlyStreamFromBlob(ref IDxcBlob pBlob, IStream** ppStream) 
+		public readonly unsafe HResult CreateReadOnlyStreamFromBlob(ref IDxcBlob pBlob, IStream** ppStream) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, int>)(LpVtbl[8]))(ptr, (IDxcBlob*)ppBlob, ppStream);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, HResult>)(LpVtbl[8]))(ptr, (IDxcBlob*)ppBlob, ppStream);
 				return ret;
 			}
 		}
@@ -651,22 +651,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateReadOnlyStreamFromBlob(ComPtr<IDxcBlob> pBlob, IStream** ppStream) 
+		public readonly unsafe HResult CreateReadOnlyStreamFromBlob(ComPtr<IDxcBlob> pBlob, IStream** ppStream) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, int>)(LpVtbl[8]))(ptr, (IDxcBlob*)pBlob.Handle, ppStream);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, HResult>)(LpVtbl[8]))(ptr, (IDxcBlob*)pBlob.Handle, ppStream);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateReadOnlyStreamFromBlob(IDxcBlob* pBlob, ref IStream* ppStream) 
+		public readonly unsafe HResult CreateReadOnlyStreamFromBlob(IDxcBlob* pBlob, ref IStream* ppStream) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IStream** pppStream = &ppStream)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, int>)(LpVtbl[8]))(ptr, pBlob, (IStream**)pppStream);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, HResult>)(LpVtbl[8]))(ptr, pBlob, (IStream**)pppStream);
 				return ret;
 			}
 		}
@@ -674,25 +674,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateReadOnlyStreamFromBlob(IDxcBlob* pBlob, out ComPtr<IStream> ppStream) 
+		public readonly unsafe HResult CreateReadOnlyStreamFromBlob(IDxcBlob* pBlob, out ComPtr<IStream> ppStream) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppStream = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, int>)(LpVtbl[8]))(ptr, pBlob, (IStream**)ppStream.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, HResult>)(LpVtbl[8]))(ptr, pBlob, (IStream**)ppStream.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateReadOnlyStreamFromBlob(ref IDxcBlob pBlob, ref IStream* ppStream) 
+		public readonly unsafe HResult CreateReadOnlyStreamFromBlob(ref IDxcBlob pBlob, ref IStream* ppStream) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IStream** pppStream = &ppStream)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, int>)(LpVtbl[8]))(ptr, (IDxcBlob*)ppBlob, (IStream**)pppStream);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, HResult>)(LpVtbl[8]))(ptr, (IDxcBlob*)ppBlob, (IStream**)pppStream);
 					return ret;
 				}
 			}
@@ -701,33 +701,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int CreateReadOnlyStreamFromBlob(ComPtr<IDxcBlob> pBlob, out ComPtr<IStream> ppStream) 
+		public readonly unsafe HResult CreateReadOnlyStreamFromBlob(ComPtr<IDxcBlob> pBlob, out ComPtr<IStream> ppStream) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppStream = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, int>)(LpVtbl[8]))(ptr, (IDxcBlob*)pBlob.Handle, (IStream**)ppStream.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IStream**, HResult>)(LpVtbl[8]))(ptr, (IDxcBlob*)pBlob.Handle, (IStream**)ppStream.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// Create default file-based include handler<br/>
 		/// </summary>
-		public readonly unsafe int CreateDefaultIncludeHandler(IDxcIncludeHandler** ppResult) 
+		public readonly unsafe HResult CreateDefaultIncludeHandler(IDxcIncludeHandler** ppResult) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcIncludeHandler**, int>)(LpVtbl[9]))(ptr, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcIncludeHandler**, HResult>)(LpVtbl[9]))(ptr, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// Create default file-based include handler<br/>
 		/// </summary>
-		public readonly unsafe int CreateDefaultIncludeHandler(ref IDxcIncludeHandler* ppResult) 
+		public readonly unsafe HResult CreateDefaultIncludeHandler(ref IDxcIncludeHandler* ppResult) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcIncludeHandler** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcIncludeHandler**, int>)(LpVtbl[9]))(ptr, (IDxcIncludeHandler**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcIncludeHandler**, HResult>)(LpVtbl[9]))(ptr, (IDxcIncludeHandler**)pppResult);
 				return ret;
 			}
 		}
@@ -735,33 +735,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Create default file-based include handler<br/>
 		/// </summary>
-		public readonly unsafe int CreateDefaultIncludeHandler(out ComPtr<IDxcIncludeHandler> ppResult) 
+		public readonly unsafe HResult CreateDefaultIncludeHandler(out ComPtr<IDxcIncludeHandler> ppResult) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcIncludeHandler**, int>)(LpVtbl[9]))(ptr, (IDxcIncludeHandler**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcIncludeHandler**, HResult>)(LpVtbl[9]))(ptr, (IDxcIncludeHandler**)ppResult.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// Convert or return matching encoded text blobs<br/>
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(IDxcBlob* pBlob, IDxcBlobUtf8** pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(IDxcBlob* pBlob, IDxcBlobUtf8** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, int>)(LpVtbl[10]))(ptr, pBlob, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, HResult>)(LpVtbl[10]))(ptr, pBlob, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// Convert or return matching encoded text blobs<br/>
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(ref IDxcBlob pBlob, IDxcBlobUtf8** pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(ref IDxcBlob pBlob, IDxcBlobUtf8** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, int>)(LpVtbl[10]))(ptr, (IDxcBlob*)ppBlob, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, HResult>)(LpVtbl[10]))(ptr, (IDxcBlob*)ppBlob, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -769,22 +769,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Convert or return matching encoded text blobs<br/>
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(ComPtr<IDxcBlob> pBlob, IDxcBlobUtf8** pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(ComPtr<IDxcBlob> pBlob, IDxcBlobUtf8** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, int>)(LpVtbl[10]))(ptr, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, HResult>)(LpVtbl[10]))(ptr, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// Convert or return matching encoded text blobs<br/>
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(IDxcBlob* pBlob, ref IDxcBlobUtf8* pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(IDxcBlob* pBlob, ref IDxcBlobUtf8* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobUtf8** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, int>)(LpVtbl[10]))(ptr, pBlob, (IDxcBlobUtf8**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, HResult>)(LpVtbl[10]))(ptr, pBlob, (IDxcBlobUtf8**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -792,25 +792,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Convert or return matching encoded text blobs<br/>
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(IDxcBlob* pBlob, out ComPtr<IDxcBlobUtf8> pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(IDxcBlob* pBlob, out ComPtr<IDxcBlobUtf8> pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, int>)(LpVtbl[10]))(ptr, pBlob, (IDxcBlobUtf8**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, HResult>)(LpVtbl[10]))(ptr, pBlob, (IDxcBlobUtf8**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// Convert or return matching encoded text blobs<br/>
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(ref IDxcBlob pBlob, ref IDxcBlobUtf8* pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(ref IDxcBlob pBlob, ref IDxcBlobUtf8* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IDxcBlobUtf8** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, int>)(LpVtbl[10]))(ptr, (IDxcBlob*)ppBlob, (IDxcBlobUtf8**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, HResult>)(LpVtbl[10]))(ptr, (IDxcBlob*)ppBlob, (IDxcBlobUtf8**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -819,33 +819,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Convert or return matching encoded text blobs<br/>
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf8(ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobUtf8> pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf8(ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobUtf8> pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, int>)(LpVtbl[10]))(ptr, (IDxcBlob*)pBlob.Handle, (IDxcBlobUtf8**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf8**, HResult>)(LpVtbl[10]))(ptr, (IDxcBlob*)pBlob.Handle, (IDxcBlobUtf8**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(IDxcBlob* pBlob, IDxcBlobUtf16** pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(IDxcBlob* pBlob, IDxcBlobUtf16** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, int>)(LpVtbl[11]))(ptr, pBlob, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, HResult>)(LpVtbl[11]))(ptr, pBlob, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(ref IDxcBlob pBlob, IDxcBlobUtf16** pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(ref IDxcBlob pBlob, IDxcBlobUtf16** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, int>)(LpVtbl[11]))(ptr, (IDxcBlob*)ppBlob, pBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, HResult>)(LpVtbl[11]))(ptr, (IDxcBlob*)ppBlob, pBlobEncoding);
 				return ret;
 			}
 		}
@@ -853,22 +853,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(ComPtr<IDxcBlob> pBlob, IDxcBlobUtf16** pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(ComPtr<IDxcBlob> pBlob, IDxcBlobUtf16** pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, int>)(LpVtbl[11]))(ptr, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, HResult>)(LpVtbl[11]))(ptr, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(IDxcBlob* pBlob, ref IDxcBlobUtf16* pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(IDxcBlob* pBlob, ref IDxcBlobUtf16* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobUtf16** ppBlobEncoding = &pBlobEncoding)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, int>)(LpVtbl[11]))(ptr, pBlob, (IDxcBlobUtf16**)ppBlobEncoding);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, HResult>)(LpVtbl[11]))(ptr, pBlob, (IDxcBlobUtf16**)ppBlobEncoding);
 				return ret;
 			}
 		}
@@ -876,25 +876,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(IDxcBlob* pBlob, out ComPtr<IDxcBlobUtf16> pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(IDxcBlob* pBlob, out ComPtr<IDxcBlobUtf16> pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, int>)(LpVtbl[11]))(ptr, pBlob, (IDxcBlobUtf16**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, HResult>)(LpVtbl[11]))(ptr, pBlob, (IDxcBlobUtf16**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(ref IDxcBlob pBlob, ref IDxcBlobUtf16* pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(ref IDxcBlob pBlob, ref IDxcBlobUtf16* pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
 			{
 				fixed (IDxcBlobUtf16** ppBlobEncoding = &pBlobEncoding)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, int>)(LpVtbl[11]))(ptr, (IDxcBlob*)ppBlob, (IDxcBlobUtf16**)ppBlobEncoding);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, HResult>)(LpVtbl[11]))(ptr, (IDxcBlob*)ppBlob, (IDxcBlobUtf16**)ppBlobEncoding);
 					return ret;
 				}
 			}
@@ -903,33 +903,33 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetBlobAsUtf16(ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobUtf16> pBlobEncoding) 
+		public readonly unsafe HResult GetBlobAsUtf16(ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobUtf16> pBlobEncoding) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, int>)(LpVtbl[11]))(ptr, (IDxcBlob*)pBlob.Handle, (IDxcBlobUtf16**)pBlobEncoding.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlobUtf16**, HResult>)(LpVtbl[11]))(ptr, (IDxcBlob*)pBlob.Handle, (IDxcBlobUtf16**)pBlobEncoding.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDxilContainerPart(Buffer* pShader, uint dxcPart, void** ppPartData, uint* pPartSizeInBytes) 
+		public readonly unsafe HResult GetDxilContainerPart(Buffer* pShader, uint dxcPart, void** ppPartData, uint* pPartSizeInBytes) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, int>)(LpVtbl[12]))(ptr, pShader, dxcPart, ppPartData, pPartSizeInBytes);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, HResult>)(LpVtbl[12]))(ptr, pShader, dxcPart, ppPartData, pPartSizeInBytes);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDxilContainerPart(ref Buffer pShader, uint dxcPart, void** ppPartData, uint* pPartSizeInBytes) 
+		public readonly unsafe HResult GetDxilContainerPart(ref Buffer pShader, uint dxcPart, void** ppPartData, uint* pPartSizeInBytes) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppShader = &pShader)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, int>)(LpVtbl[12]))(ptr, (Buffer*)ppShader, dxcPart, ppPartData, pPartSizeInBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, HResult>)(LpVtbl[12]))(ptr, (Buffer*)ppShader, dxcPart, ppPartData, pPartSizeInBytes);
 				return ret;
 			}
 		}
@@ -937,12 +937,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDxilContainerPart<T>(Buffer* pShader, uint dxcPart, ref ComPtr<T> ppPartData, uint* pPartSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetDxilContainerPart<T>(Buffer* pShader, uint dxcPart, ref ComPtr<T> ppPartData, uint* pPartSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppPartData = &ppPartData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, int>)(LpVtbl[12]))(ptr, pShader, dxcPart, (void**)pppPartData, pPartSizeInBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, HResult>)(LpVtbl[12]))(ptr, pShader, dxcPart, (void**)pppPartData, pPartSizeInBytes);
 				return ret;
 			}
 		}
@@ -950,14 +950,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDxilContainerPart<T>(ref Buffer pShader, uint dxcPart, ref ComPtr<T> ppPartData, uint* pPartSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetDxilContainerPart<T>(ref Buffer pShader, uint dxcPart, ref ComPtr<T> ppPartData, uint* pPartSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppShader = &pShader)
 			{
 				fixed (ComPtr<T>* pppPartData = &ppPartData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, int>)(LpVtbl[12]))(ptr, (Buffer*)ppShader, dxcPart, (void**)pppPartData, pPartSizeInBytes);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, HResult>)(LpVtbl[12]))(ptr, (Buffer*)ppShader, dxcPart, (void**)pppPartData, pPartSizeInBytes);
 					return ret;
 				}
 			}
@@ -966,12 +966,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDxilContainerPart(Buffer* pShader, uint dxcPart, void** ppPartData, ref uint pPartSizeInBytes) 
+		public readonly unsafe HResult GetDxilContainerPart(Buffer* pShader, uint dxcPart, void** ppPartData, ref uint pPartSizeInBytes) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppPartSizeInBytes = &pPartSizeInBytes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, int>)(LpVtbl[12]))(ptr, pShader, dxcPart, ppPartData, (uint*)ppPartSizeInBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, HResult>)(LpVtbl[12]))(ptr, pShader, dxcPart, ppPartData, (uint*)ppPartSizeInBytes);
 				return ret;
 			}
 		}
@@ -979,14 +979,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDxilContainerPart(ref Buffer pShader, uint dxcPart, void** ppPartData, ref uint pPartSizeInBytes) 
+		public readonly unsafe HResult GetDxilContainerPart(ref Buffer pShader, uint dxcPart, void** ppPartData, ref uint pPartSizeInBytes) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppShader = &pShader)
 			{
 				fixed (uint* ppPartSizeInBytes = &pPartSizeInBytes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, int>)(LpVtbl[12]))(ptr, (Buffer*)ppShader, dxcPart, ppPartData, (uint*)ppPartSizeInBytes);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, HResult>)(LpVtbl[12]))(ptr, (Buffer*)ppShader, dxcPart, ppPartData, (uint*)ppPartSizeInBytes);
 					return ret;
 				}
 			}
@@ -995,14 +995,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDxilContainerPart<T>(Buffer* pShader, uint dxcPart, ref ComPtr<T> ppPartData, ref uint pPartSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetDxilContainerPart<T>(Buffer* pShader, uint dxcPart, ref ComPtr<T> ppPartData, ref uint pPartSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppPartData = &ppPartData)
 			{
 				fixed (uint* ppPartSizeInBytes = &pPartSizeInBytes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, int>)(LpVtbl[12]))(ptr, pShader, dxcPart, (void**)pppPartData, (uint*)ppPartSizeInBytes);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, HResult>)(LpVtbl[12]))(ptr, pShader, dxcPart, (void**)pppPartData, (uint*)ppPartSizeInBytes);
 					return ret;
 				}
 			}
@@ -1011,7 +1011,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int GetDxilContainerPart<T>(ref Buffer pShader, uint dxcPart, ref ComPtr<T> ppPartData, ref uint pPartSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult GetDxilContainerPart<T>(ref Buffer pShader, uint dxcPart, ref ComPtr<T> ppPartData, ref uint pPartSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppShader = &pShader)
@@ -1020,7 +1020,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (uint* ppPartSizeInBytes = &pPartSizeInBytes)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, int>)(LpVtbl[12]))(ptr, (Buffer*)ppShader, dxcPart, (void**)pppPartData, (uint*)ppPartSizeInBytes);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, uint, void**, uint*, HResult>)(LpVtbl[12]))(ptr, (Buffer*)ppShader, dxcPart, (void**)pppPartData, (uint*)ppPartSizeInBytes);
 						return ret;
 					}
 				}
@@ -1031,10 +1031,10 @@ namespace Hexa.NET.DXC
 		/// Create reflection interface from serialized Dxil container, or DXC_PART_REFLECTION_DATA.<br/>
 		/// TBD: Require part header for RDAT?  (leaning towards yes)<br/>
 		/// </summary>
-		public readonly unsafe int CreateReflection(Buffer* pData, Guid* iid, void** ppvReflection) 
+		public readonly unsafe HResult CreateReflection(Buffer* pData, Guid* iid, void** ppvReflection) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pData, iid, ppvReflection);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pData, iid, ppvReflection);
 			return ret;
 		}
 
@@ -1042,12 +1042,12 @@ namespace Hexa.NET.DXC
 		/// Create reflection interface from serialized Dxil container, or DXC_PART_REFLECTION_DATA.<br/>
 		/// TBD: Require part header for RDAT?  (leaning towards yes)<br/>
 		/// </summary>
-		public readonly unsafe int CreateReflection(ref Buffer pData, Guid* iid, void** ppvReflection) 
+		public readonly unsafe HResult CreateReflection(ref Buffer pData, Guid* iid, void** ppvReflection) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppData = &pData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (Buffer*)ppData, iid, ppvReflection);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, (Buffer*)ppData, iid, ppvReflection);
 				return ret;
 			}
 		}
@@ -1056,12 +1056,12 @@ namespace Hexa.NET.DXC
 		/// Create reflection interface from serialized Dxil container, or DXC_PART_REFLECTION_DATA.<br/>
 		/// TBD: Require part header for RDAT?  (leaning towards yes)<br/>
 		/// </summary>
-		public readonly unsafe int CreateReflection(Buffer* pData, ref Guid iid, void** ppvReflection) 
+		public readonly unsafe HResult CreateReflection(Buffer* pData, ref Guid iid, void** ppvReflection) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pData, (Guid*)piid, ppvReflection);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pData, (Guid*)piid, ppvReflection);
 				return ret;
 			}
 		}
@@ -1070,14 +1070,14 @@ namespace Hexa.NET.DXC
 		/// Create reflection interface from serialized Dxil container, or DXC_PART_REFLECTION_DATA.<br/>
 		/// TBD: Require part header for RDAT?  (leaning towards yes)<br/>
 		/// </summary>
-		public readonly unsafe int CreateReflection(ref Buffer pData, ref Guid iid, void** ppvReflection) 
+		public readonly unsafe HResult CreateReflection(ref Buffer pData, ref Guid iid, void** ppvReflection) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppData = &pData)
 			{
 				fixed (Guid* piid = &iid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (Buffer*)ppData, (Guid*)piid, ppvReflection);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, (Buffer*)ppData, (Guid*)piid, ppvReflection);
 					return ret;
 				}
 			}
@@ -1087,11 +1087,11 @@ namespace Hexa.NET.DXC
 		/// Create reflection interface from serialized Dxil container, or DXC_PART_REFLECTION_DATA.<br/>
 		/// TBD: Require part header for RDAT?  (leaning towards yes)<br/>
 		/// </summary>
-		public readonly unsafe int CreateReflection<T>(Buffer* pData, out ComPtr<T> ppvReflection) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateReflection<T>(Buffer* pData, out ComPtr<T> ppvReflection) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvReflection = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pData, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvReflection.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pData, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvReflection.GetAddressOf());
 			return ret;
 		}
 
@@ -1099,13 +1099,13 @@ namespace Hexa.NET.DXC
 		/// Create reflection interface from serialized Dxil container, or DXC_PART_REFLECTION_DATA.<br/>
 		/// TBD: Require part header for RDAT?  (leaning towards yes)<br/>
 		/// </summary>
-		public readonly unsafe int CreateReflection<T>(ref Buffer pData, out ComPtr<T> ppvReflection) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateReflection<T>(ref Buffer pData, out ComPtr<T> ppvReflection) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppData = &pData)
 			{
 				ppvReflection = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (Buffer*)ppData, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvReflection.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, (Buffer*)ppData, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvReflection.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1114,13 +1114,13 @@ namespace Hexa.NET.DXC
 		/// Create reflection interface from serialized Dxil container, or DXC_PART_REFLECTION_DATA.<br/>
 		/// TBD: Require part header for RDAT?  (leaning towards yes)<br/>
 		/// </summary>
-		public readonly unsafe int CreateReflection<T>(Buffer* pData, ref Guid iid, out ComPtr<T> ppvReflection) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateReflection<T>(Buffer* pData, ref Guid iid, out ComPtr<T> ppvReflection) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
 			{
 				ppvReflection = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pData, (Guid*)piid, (void**)ppvReflection.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, pData, (Guid*)piid, (void**)ppvReflection.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1129,7 +1129,7 @@ namespace Hexa.NET.DXC
 		/// Create reflection interface from serialized Dxil container, or DXC_PART_REFLECTION_DATA.<br/>
 		/// TBD: Require part header for RDAT?  (leaning towards yes)<br/>
 		/// </summary>
-		public readonly unsafe int CreateReflection<T>(ref Buffer pData, ref Guid iid, out ComPtr<T> ppvReflection) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult CreateReflection<T>(ref Buffer pData, ref Guid iid, out ComPtr<T> ppvReflection) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Buffer* ppData = &pData)
@@ -1137,7 +1137,7 @@ namespace Hexa.NET.DXC
 				fixed (Guid* piid = &iid)
 				{
 					ppvReflection = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (Buffer*)ppData, (Guid*)piid, (void**)ppvReflection.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, Buffer*, Guid*, void**, HResult>)(LpVtbl[13]))(ptr, (Buffer*)ppData, (Guid*)piid, (void**)ppvReflection.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1146,22 +1146,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
 				return ret;
 			}
 		}
@@ -1169,7 +1169,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1189,7 +1189,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -1200,12 +1200,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
 				return ret;
 			}
 		}
@@ -1213,7 +1213,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1233,7 +1233,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -1244,14 +1244,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
 			{
 				fixed (char* ppEntryPoint = pEntryPoint)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
 					return ret;
 				}
 			}
@@ -1260,7 +1260,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1297,7 +1297,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -1312,12 +1312,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
 				return ret;
 			}
 		}
@@ -1325,7 +1325,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1345,7 +1345,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pTargetProfile, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, ppArgs);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, ppArgs);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -1356,14 +1356,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
 			{
 				fixed (char* ppTargetProfile = pTargetProfile)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
 					return ret;
 				}
 			}
@@ -1372,7 +1372,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1409,7 +1409,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, ppArgs);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, ppArgs);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -1424,14 +1424,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
 			{
 				fixed (char* ppTargetProfile = pTargetProfile)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
 					return ret;
 				}
 			}
@@ -1440,7 +1440,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1477,7 +1477,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, ppArgs);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, ppArgs);
 			if (pStrSize1 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr1);
@@ -1492,7 +1492,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -1501,7 +1501,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char* ppTargetProfile = pTargetProfile)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, ppArgs);
 						return ret;
 					}
 				}
@@ -1511,7 +1511,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1565,7 +1565,7 @@ namespace Hexa.NET.DXC
 				int pStrOffset2 = Utils.EncodeStringUTF16(pTargetProfile, pStr2, pStrSize2);
 				pStr2[pStrOffset2] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, ppArgs);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, ppArgs);
 			if (pStrSize2 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr2);
@@ -1584,12 +1584,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 				return ret;
 			}
 		}
@@ -1597,14 +1597,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 					return ret;
 				}
 			}
@@ -1613,7 +1613,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1635,7 +1635,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1647,14 +1647,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 					return ret;
 				}
 			}
@@ -1663,7 +1663,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1685,7 +1685,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1697,7 +1697,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -1706,7 +1706,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 						return ret;
 					}
 				}
@@ -1716,7 +1716,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1755,7 +1755,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -1771,14 +1771,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 					return ret;
 				}
 			}
@@ -1787,7 +1787,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1809,7 +1809,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1821,7 +1821,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -1830,7 +1830,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 						return ret;
 					}
 				}
@@ -1840,7 +1840,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1879,7 +1879,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -1895,7 +1895,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -1904,7 +1904,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 						return ret;
 					}
 				}
@@ -1914,7 +1914,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1953,7 +1953,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -1969,7 +1969,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -1980,7 +1980,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (char** ppArguments = &pArguments)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 							return ret;
 						}
 					}
@@ -1991,7 +1991,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2047,7 +2047,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, ppArgs);
 				if (pStrSize2 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr2);
@@ -2067,12 +2067,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 				return ret;
 			}
 		}
@@ -2080,14 +2080,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 					return ret;
 				}
 			}
@@ -2096,7 +2096,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2118,7 +2118,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2130,14 +2130,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 					return ret;
 				}
 			}
@@ -2146,7 +2146,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2168,7 +2168,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2180,7 +2180,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -2189,7 +2189,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Define* ppDefines = &pDefines)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 						return ret;
 					}
 				}
@@ -2199,7 +2199,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2238,7 +2238,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -2254,14 +2254,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 					return ret;
 				}
 			}
@@ -2270,7 +2270,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2292,7 +2292,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -2304,7 +2304,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -2313,7 +2313,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Define* ppDefines = &pDefines)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 						return ret;
 					}
 				}
@@ -2323,7 +2323,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2362,7 +2362,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -2378,7 +2378,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -2387,7 +2387,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Define* ppDefines = &pDefines)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 						return ret;
 					}
 				}
@@ -2397,7 +2397,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2436,7 +2436,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -2452,7 +2452,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -2463,7 +2463,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (Define* ppDefines = &pDefines)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 							return ret;
 						}
 					}
@@ -2474,7 +2474,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2530,7 +2530,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, pArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 				if (pStrSize2 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr2);
@@ -2550,14 +2550,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 					return ret;
 				}
 			}
@@ -2566,7 +2566,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -2575,7 +2575,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Define* ppDefines = &pDefines)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 						return ret;
 					}
 				}
@@ -2585,7 +2585,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2609,7 +2609,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2622,7 +2622,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -2631,7 +2631,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Define* ppDefines = &pDefines)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 						return ret;
 					}
 				}
@@ -2641,7 +2641,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2665,7 +2665,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2678,7 +2678,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -2689,7 +2689,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (Define* ppDefines = &pDefines)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 							return ret;
 						}
 					}
@@ -2700,7 +2700,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2741,7 +2741,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -2758,7 +2758,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -2767,7 +2767,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Define* ppDefines = &pDefines)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 						return ret;
 					}
 				}
@@ -2777,7 +2777,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2801,7 +2801,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -2814,7 +2814,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -2825,7 +2825,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (Define* ppDefines = &pDefines)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 							return ret;
 						}
 					}
@@ -2836,7 +2836,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2877,7 +2877,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -2894,7 +2894,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -2905,7 +2905,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (Define* ppDefines = &pDefines)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 							return ret;
 						}
 					}
@@ -2916,7 +2916,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -2957,7 +2957,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -2974,7 +2974,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -2987,7 +2987,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (Define* ppDefines = &pDefines)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 								return ret;
 							}
 						}
@@ -2999,7 +2999,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcCompilerArgs** ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3057,7 +3057,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (Define* ppDefines = &pDefines)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, ppArgs);
 					if (pStrSize2 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr2);
@@ -3078,12 +3078,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 				return ret;
 			}
 		}
@@ -3091,25 +3091,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, out ComPtr<IDxcCompilerArgs> ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, out ComPtr<IDxcCompilerArgs> ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppArgs = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)ppArgs.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)ppArgs.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					return ret;
 				}
 			}
@@ -3118,7 +3118,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3140,7 +3140,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3152,14 +3152,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					return ret;
 				}
 			}
@@ -3168,7 +3168,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3190,7 +3190,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3202,7 +3202,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -3211,7 +3211,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						return ret;
 					}
 				}
@@ -3221,7 +3221,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3260,7 +3260,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -3276,14 +3276,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					return ret;
 				}
 			}
@@ -3292,7 +3292,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3314,7 +3314,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -3326,7 +3326,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -3335,7 +3335,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						return ret;
 					}
 				}
@@ -3345,7 +3345,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3384,7 +3384,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -3400,7 +3400,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -3409,7 +3409,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						return ret;
 					}
 				}
@@ -3419,7 +3419,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3458,7 +3458,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 				if (pStrSize1 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr1);
@@ -3474,7 +3474,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -3485,7 +3485,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 							return ret;
 						}
 					}
@@ -3496,7 +3496,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3552,7 +3552,7 @@ namespace Hexa.NET.DXC
 			}
 			fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 				if (pStrSize2 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr2);
@@ -3572,14 +3572,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					return ret;
 				}
 			}
@@ -3588,13 +3588,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, out ComPtr<IDxcCompilerArgs> ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, out ComPtr<IDxcCompilerArgs> ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				ppArgs = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)ppArgs.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)ppArgs.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3602,7 +3602,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -3611,7 +3611,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						return ret;
 					}
 				}
@@ -3621,7 +3621,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3645,7 +3645,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3658,7 +3658,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -3667,7 +3667,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						return ret;
 					}
 				}
@@ -3677,7 +3677,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3701,7 +3701,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3714,7 +3714,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -3725,7 +3725,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 							return ret;
 						}
 					}
@@ -3736,7 +3736,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3777,7 +3777,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -3794,7 +3794,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -3803,7 +3803,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						return ret;
 					}
 				}
@@ -3813,7 +3813,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3837,7 +3837,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -3850,7 +3850,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -3861,7 +3861,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 							return ret;
 						}
 					}
@@ -3872,7 +3872,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3913,7 +3913,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -3930,7 +3930,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -3941,7 +3941,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 							return ret;
 						}
 					}
@@ -3952,7 +3952,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -3993,7 +3993,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -4010,7 +4010,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -4023,7 +4023,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 								return ret;
 							}
 						}
@@ -4035,7 +4035,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -4093,7 +4093,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize2 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr2);
@@ -4114,14 +4114,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Define* ppDefines = &pDefines)
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					return ret;
 				}
 			}
@@ -4130,13 +4130,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, out ComPtr<IDxcCompilerArgs> ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, out ComPtr<IDxcCompilerArgs> ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Define* ppDefines = &pDefines)
 			{
 				ppArgs = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)ppArgs.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)ppArgs.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4144,7 +4144,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -4153,7 +4153,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						return ret;
 					}
 				}
@@ -4163,7 +4163,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -4187,7 +4187,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -4200,7 +4200,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -4209,7 +4209,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						return ret;
 					}
 				}
@@ -4219,7 +4219,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -4243,7 +4243,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -4256,7 +4256,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -4267,7 +4267,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 							return ret;
 						}
 					}
@@ -4278,7 +4278,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -4319,7 +4319,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -4336,7 +4336,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -4345,7 +4345,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						return ret;
 					}
 				}
@@ -4355,7 +4355,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -4379,7 +4379,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -4392,7 +4392,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -4403,7 +4403,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 							return ret;
 						}
 					}
@@ -4414,7 +4414,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -4455,7 +4455,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -4472,7 +4472,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -4483,7 +4483,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 							return ret;
 						}
 					}
@@ -4494,7 +4494,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -4535,7 +4535,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr1);
@@ -4552,7 +4552,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -4565,7 +4565,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 								return ret;
 							}
 						}
@@ -4577,7 +4577,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -4635,7 +4635,7 @@ namespace Hexa.NET.DXC
 			{
 				fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 					if (pStrSize2 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr2);
@@ -4656,7 +4656,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -4665,7 +4665,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						return ret;
 					}
 				}
@@ -4675,7 +4675,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, out ComPtr<IDxcCompilerArgs> ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, out ComPtr<IDxcCompilerArgs> ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -4683,7 +4683,7 @@ namespace Hexa.NET.DXC
 				fixed (Define* ppDefines = &pDefines)
 				{
 					ppArgs = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)ppArgs.GetAddressOf());
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)ppArgs.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4692,7 +4692,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -4703,7 +4703,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 							return ret;
 						}
 					}
@@ -4714,7 +4714,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -4740,7 +4740,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -4754,7 +4754,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -4765,7 +4765,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 							return ret;
 						}
 					}
@@ -4776,7 +4776,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -4802,7 +4802,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -4816,7 +4816,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -4829,7 +4829,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 								return ret;
 							}
 						}
@@ -4841,7 +4841,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -4884,7 +4884,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -4902,7 +4902,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -4913,7 +4913,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+							HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 							return ret;
 						}
 					}
@@ -4924,7 +4924,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -4950,7 +4950,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr0);
@@ -4964,7 +4964,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -4977,7 +4977,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 								return ret;
 							}
 						}
@@ -4989,7 +4989,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -5032,7 +5032,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -5050,7 +5050,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -5063,7 +5063,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+								HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 								return ret;
 							}
 						}
@@ -5075,7 +5075,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -5118,7 +5118,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr1);
@@ -5136,7 +5136,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppSourceName = pSourceName)
@@ -5151,7 +5151,7 @@ namespace Hexa.NET.DXC
 							{
 								fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+									HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 									return ret;
 								}
 							}
@@ -5164,7 +5164,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
+		public readonly unsafe HResult BuildArguments(string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcCompilerArgs* ppArgs) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -5224,7 +5224,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcCompilerArgs** pppArgs = &ppArgs)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, int>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, char*, char*, char*, char**, uint, Define*, uint, IDxcCompilerArgs**, HResult>)(LpVtbl[14]))(ptr, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, (IDxcCompilerArgs**)pppArgs);
 						if (pStrSize2 >= Utils.MaxStackallocSize)
 						{
 							Utils.Free(pStr2);
@@ -5246,22 +5246,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(IDxcBlob* pPDBBlob, IDxcBlob** ppHash, IDxcBlob** ppContainer) 
+		public readonly unsafe HResult GetPDBContents(IDxcBlob* pPDBBlob, IDxcBlob** ppHash, IDxcBlob** ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, pPDBBlob, ppHash, ppContainer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, pPDBBlob, ppHash, ppContainer);
 			return ret;
 		}
 
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(ref IDxcBlob pPDBBlob, IDxcBlob** ppHash, IDxcBlob** ppContainer) 
+		public readonly unsafe HResult GetPDBContents(ref IDxcBlob pPDBBlob, IDxcBlob** ppHash, IDxcBlob** ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppPDBBlob = &pPDBBlob)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, (IDxcBlob*)ppPDBBlob, ppHash, ppContainer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, (IDxcBlob*)ppPDBBlob, ppHash, ppContainer);
 				return ret;
 			}
 		}
@@ -5269,22 +5269,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(ComPtr<IDxcBlob> pPDBBlob, IDxcBlob** ppHash, IDxcBlob** ppContainer) 
+		public readonly unsafe HResult GetPDBContents(ComPtr<IDxcBlob> pPDBBlob, IDxcBlob** ppHash, IDxcBlob** ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, (IDxcBlob*)pPDBBlob.Handle, ppHash, ppContainer);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, (IDxcBlob*)pPDBBlob.Handle, ppHash, ppContainer);
 			return ret;
 		}
 
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(IDxcBlob* pPDBBlob, ref IDxcBlob* ppHash, IDxcBlob** ppContainer) 
+		public readonly unsafe HResult GetPDBContents(IDxcBlob* pPDBBlob, ref IDxcBlob* ppHash, IDxcBlob** ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** pppHash = &ppHash)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, pPDBBlob, (IDxcBlob**)pppHash, ppContainer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, pPDBBlob, (IDxcBlob**)pppHash, ppContainer);
 				return ret;
 			}
 		}
@@ -5292,12 +5292,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(IDxcBlob* pPDBBlob, ref ComPtr<IDxcBlob> ppHash, IDxcBlob** ppContainer) 
+		public readonly unsafe HResult GetPDBContents(IDxcBlob* pPDBBlob, ref ComPtr<IDxcBlob> ppHash, IDxcBlob** ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlob>* pppHash = &ppHash)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, pPDBBlob, (IDxcBlob**)pppHash, ppContainer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, pPDBBlob, (IDxcBlob**)pppHash, ppContainer);
 				return ret;
 			}
 		}
@@ -5305,14 +5305,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(ref IDxcBlob pPDBBlob, ref IDxcBlob* ppHash, IDxcBlob** ppContainer) 
+		public readonly unsafe HResult GetPDBContents(ref IDxcBlob pPDBBlob, ref IDxcBlob* ppHash, IDxcBlob** ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppPDBBlob = &pPDBBlob)
 			{
 				fixed (IDxcBlob** pppHash = &ppHash)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, (IDxcBlob*)ppPDBBlob, (IDxcBlob**)pppHash, ppContainer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, (IDxcBlob*)ppPDBBlob, (IDxcBlob**)pppHash, ppContainer);
 					return ret;
 				}
 			}
@@ -5321,12 +5321,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(ComPtr<IDxcBlob> pPDBBlob, ref ComPtr<IDxcBlob> ppHash, IDxcBlob** ppContainer) 
+		public readonly unsafe HResult GetPDBContents(ComPtr<IDxcBlob> pPDBBlob, ref ComPtr<IDxcBlob> ppHash, IDxcBlob** ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlob>* pppHash = &ppHash)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, (IDxcBlob*)pPDBBlob.Handle, (IDxcBlob**)pppHash, ppContainer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, (IDxcBlob*)pPDBBlob.Handle, (IDxcBlob**)pppHash, ppContainer);
 				return ret;
 			}
 		}
@@ -5334,12 +5334,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(IDxcBlob* pPDBBlob, IDxcBlob** ppHash, ref IDxcBlob* ppContainer) 
+		public readonly unsafe HResult GetPDBContents(IDxcBlob* pPDBBlob, IDxcBlob** ppHash, ref IDxcBlob* ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** pppContainer = &ppContainer)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, pPDBBlob, ppHash, (IDxcBlob**)pppContainer);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, pPDBBlob, ppHash, (IDxcBlob**)pppContainer);
 				return ret;
 			}
 		}
@@ -5347,25 +5347,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(IDxcBlob* pPDBBlob, IDxcBlob** ppHash, out ComPtr<IDxcBlob> ppContainer) 
+		public readonly unsafe HResult GetPDBContents(IDxcBlob* pPDBBlob, IDxcBlob** ppHash, out ComPtr<IDxcBlob> ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppContainer = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, pPDBBlob, ppHash, (IDxcBlob**)ppContainer.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, pPDBBlob, ppHash, (IDxcBlob**)ppContainer.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(ref IDxcBlob pPDBBlob, IDxcBlob** ppHash, ref IDxcBlob* ppContainer) 
+		public readonly unsafe HResult GetPDBContents(ref IDxcBlob pPDBBlob, IDxcBlob** ppHash, ref IDxcBlob* ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppPDBBlob = &pPDBBlob)
 			{
 				fixed (IDxcBlob** pppContainer = &ppContainer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, (IDxcBlob*)ppPDBBlob, ppHash, (IDxcBlob**)pppContainer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, (IDxcBlob*)ppPDBBlob, ppHash, (IDxcBlob**)pppContainer);
 					return ret;
 				}
 			}
@@ -5374,25 +5374,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(ComPtr<IDxcBlob> pPDBBlob, IDxcBlob** ppHash, out ComPtr<IDxcBlob> ppContainer) 
+		public readonly unsafe HResult GetPDBContents(ComPtr<IDxcBlob> pPDBBlob, IDxcBlob** ppHash, out ComPtr<IDxcBlob> ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppContainer = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, (IDxcBlob*)pPDBBlob.Handle, ppHash, (IDxcBlob**)ppContainer.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, (IDxcBlob*)pPDBBlob.Handle, ppHash, (IDxcBlob**)ppContainer.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(IDxcBlob* pPDBBlob, ref IDxcBlob* ppHash, ref IDxcBlob* ppContainer) 
+		public readonly unsafe HResult GetPDBContents(IDxcBlob* pPDBBlob, ref IDxcBlob* ppHash, ref IDxcBlob* ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** pppHash = &ppHash)
 			{
 				fixed (IDxcBlob** pppContainer = &ppContainer)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, pPDBBlob, (IDxcBlob**)pppHash, (IDxcBlob**)pppContainer);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, pPDBBlob, (IDxcBlob**)pppHash, (IDxcBlob**)pppContainer);
 					return ret;
 				}
 			}
@@ -5401,13 +5401,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(IDxcBlob* pPDBBlob, ref ComPtr<IDxcBlob> ppHash, out ComPtr<IDxcBlob> ppContainer) 
+		public readonly unsafe HResult GetPDBContents(IDxcBlob* pPDBBlob, ref ComPtr<IDxcBlob> ppHash, out ComPtr<IDxcBlob> ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlob>* pppHash = &ppHash)
 			{
 				ppContainer = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, pPDBBlob, (IDxcBlob**)pppHash, (IDxcBlob**)ppContainer.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, pPDBBlob, (IDxcBlob**)pppHash, (IDxcBlob**)ppContainer.GetAddressOf());
 				return ret;
 			}
 		}
@@ -5415,7 +5415,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(ref IDxcBlob pPDBBlob, ref IDxcBlob* ppHash, ref IDxcBlob* ppContainer) 
+		public readonly unsafe HResult GetPDBContents(ref IDxcBlob pPDBBlob, ref IDxcBlob* ppHash, ref IDxcBlob* ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppPDBBlob = &pPDBBlob)
@@ -5424,7 +5424,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (IDxcBlob** pppContainer = &ppContainer)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, (IDxcBlob*)ppPDBBlob, (IDxcBlob**)pppHash, (IDxcBlob**)pppContainer);
+						HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, (IDxcBlob*)ppPDBBlob, (IDxcBlob**)pppHash, (IDxcBlob**)pppContainer);
 						return ret;
 					}
 				}
@@ -5434,13 +5434,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Takes the shader PDB and returns the hash and the container inside it<br/>
 		/// </summary>
-		public readonly unsafe int GetPDBContents(ComPtr<IDxcBlob> pPDBBlob, ref ComPtr<IDxcBlob> ppHash, out ComPtr<IDxcBlob> ppContainer) 
+		public readonly unsafe HResult GetPDBContents(ComPtr<IDxcBlob> pPDBBlob, ref ComPtr<IDxcBlob> ppHash, out ComPtr<IDxcBlob> ppContainer) 
 		{
 			IDxcUtils* ptr = (IDxcUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlob>* pppHash = &ppHash)
 			{
 				ppContainer = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, int>)(LpVtbl[15]))(ptr, (IDxcBlob*)pPDBBlob.Handle, (IDxcBlob**)pppHash, (IDxcBlob**)ppContainer.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcUtils*, IDxcBlob*, IDxcBlob**, IDxcBlob**, HResult>)(LpVtbl[15]))(ptr, (IDxcBlob*)pPDBBlob.Handle, (IDxcBlob**)pppHash, (IDxcBlob**)ppContainer.GetAddressOf());
 				return ret;
 			}
 		}

@@ -27,7 +27,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int Enable;
+		public Bool32 Enable;
 
 		/// <summary>
 		/// To be documented.
@@ -53,7 +53,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe VideoDecodeConversionArguments(int enable = default, ID3D12Resource* pReferenceTexture2D = default, uint referenceSubresource = default, ColorSpaceType outputColorSpace = default, ColorSpaceType decodeColorSpace = default)
+		public unsafe VideoDecodeConversionArguments(Bool32 enable = default, ID3D12Resource* pReferenceTexture2D = default, uint referenceSubresource = default, ColorSpaceType outputColorSpace = default, ColorSpaceType decodeColorSpace = default)
 		{
 			Enable = enable;
 			PReferenceTexture2D = pReferenceTexture2D;

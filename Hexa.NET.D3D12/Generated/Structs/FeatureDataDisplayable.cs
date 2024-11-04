@@ -27,7 +27,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DisplayableTexture;
+		public Bool32 DisplayableTexture;
 
 		/// <summary>
 		/// To be documented.
@@ -38,7 +38,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataDisplayable(int displayableTexture = default, SharedResourceCompatibilityTier sharedResourceCompatibilityTier = default)
+		public unsafe FeatureDataDisplayable(Bool32 displayableTexture = default, SharedResourceCompatibilityTier sharedResourceCompatibilityTier = default)
 		{
 			DisplayableTexture = displayableTexture;
 			SharedResourceCompatibilityTier = sharedResourceCompatibilityTier;

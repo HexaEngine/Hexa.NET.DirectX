@@ -31,22 +31,22 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Open(IncludeType includeType, byte* pFileName, void* pParentData, void** ppData, uint* pBytes) 
+		public readonly unsafe HResult Open(IncludeType includeType, byte* pFileName, void* pParentData, void** ppData, uint* pBytes) 
 		{
 			ID3DInclude* ptr = (ID3DInclude*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*LpVtbl))(ptr, includeType, pFileName, pParentData, ppData, pBytes);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*LpVtbl))(ptr, includeType, pFileName, pParentData, ppData, pBytes);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Open(IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, void** ppData, uint* pBytes) 
+		public readonly unsafe HResult Open(IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, void** ppData, uint* pBytes) 
 		{
 			ID3DInclude* ptr = (ID3DInclude*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppFileName = pFileName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*LpVtbl))(ptr, includeType, (byte*)ppFileName, pParentData, ppData, pBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*LpVtbl))(ptr, includeType, (byte*)ppFileName, pParentData, ppData, pBytes);
 				return ret;
 			}
 		}
@@ -54,7 +54,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Open(IncludeType includeType, string pFileName, void* pParentData, void** ppData, uint* pBytes) 
+		public readonly unsafe HResult Open(IncludeType includeType, string pFileName, void* pParentData, void** ppData, uint* pBytes) 
 		{
 			ID3DInclude* ptr = (ID3DInclude*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -74,7 +74,7 @@ namespace Hexa.NET.D3DCommon
 				int pStrOffset0 = Utils.EncodeStringUTF8(pFileName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*LpVtbl))(ptr, includeType, pStr0, pParentData, ppData, pBytes);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*LpVtbl))(ptr, includeType, pStr0, pParentData, ppData, pBytes);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -85,12 +85,12 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Open(IncludeType includeType, byte* pFileName, void* pParentData, ref void* ppData, uint* pBytes) 
+		public readonly unsafe HResult Open(IncludeType includeType, byte* pFileName, void* pParentData, ref void* ppData, uint* pBytes) 
 		{
 			ID3DInclude* ptr = (ID3DInclude*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppData = &ppData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*LpVtbl))(ptr, includeType, pFileName, pParentData, (void**)pppData, pBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*LpVtbl))(ptr, includeType, pFileName, pParentData, (void**)pppData, pBytes);
 				return ret;
 			}
 		}
@@ -98,14 +98,14 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Open(IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, ref void* ppData, uint* pBytes) 
+		public readonly unsafe HResult Open(IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, ref void* ppData, uint* pBytes) 
 		{
 			ID3DInclude* ptr = (ID3DInclude*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppFileName = pFileName)
 			{
 				fixed (void** pppData = &ppData)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*LpVtbl))(ptr, includeType, (byte*)ppFileName, pParentData, (void**)pppData, pBytes);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*LpVtbl))(ptr, includeType, (byte*)ppFileName, pParentData, (void**)pppData, pBytes);
 					return ret;
 				}
 			}
@@ -114,7 +114,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Open(IncludeType includeType, string pFileName, void* pParentData, ref void* ppData, uint* pBytes) 
+		public readonly unsafe HResult Open(IncludeType includeType, string pFileName, void* pParentData, ref void* ppData, uint* pBytes) 
 		{
 			ID3DInclude* ptr = (ID3DInclude*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -136,7 +136,7 @@ namespace Hexa.NET.D3DCommon
 			}
 			fixed (void** pppData = &ppData)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*LpVtbl))(ptr, includeType, pStr0, pParentData, (void**)pppData, pBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*LpVtbl))(ptr, includeType, pStr0, pParentData, (void**)pppData, pBytes);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -148,12 +148,12 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Open(IncludeType includeType, byte* pFileName, void* pParentData, void** ppData, ref uint pBytes) 
+		public readonly unsafe HResult Open(IncludeType includeType, byte* pFileName, void* pParentData, void** ppData, ref uint pBytes) 
 		{
 			ID3DInclude* ptr = (ID3DInclude*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppBytes = &pBytes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*LpVtbl))(ptr, includeType, pFileName, pParentData, ppData, (uint*)ppBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*LpVtbl))(ptr, includeType, pFileName, pParentData, ppData, (uint*)ppBytes);
 				return ret;
 			}
 		}
@@ -161,14 +161,14 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Open(IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, void** ppData, ref uint pBytes) 
+		public readonly unsafe HResult Open(IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, void** ppData, ref uint pBytes) 
 		{
 			ID3DInclude* ptr = (ID3DInclude*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppFileName = pFileName)
 			{
 				fixed (uint* ppBytes = &pBytes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*LpVtbl))(ptr, includeType, (byte*)ppFileName, pParentData, ppData, (uint*)ppBytes);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*LpVtbl))(ptr, includeType, (byte*)ppFileName, pParentData, ppData, (uint*)ppBytes);
 					return ret;
 				}
 			}
@@ -177,7 +177,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Open(IncludeType includeType, string pFileName, void* pParentData, void** ppData, ref uint pBytes) 
+		public readonly unsafe HResult Open(IncludeType includeType, string pFileName, void* pParentData, void** ppData, ref uint pBytes) 
 		{
 			ID3DInclude* ptr = (ID3DInclude*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -199,7 +199,7 @@ namespace Hexa.NET.D3DCommon
 			}
 			fixed (uint* ppBytes = &pBytes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*LpVtbl))(ptr, includeType, pStr0, pParentData, ppData, (uint*)ppBytes);
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*LpVtbl))(ptr, includeType, pStr0, pParentData, ppData, (uint*)ppBytes);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -211,14 +211,14 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Open(IncludeType includeType, byte* pFileName, void* pParentData, ref void* ppData, ref uint pBytes) 
+		public readonly unsafe HResult Open(IncludeType includeType, byte* pFileName, void* pParentData, ref void* ppData, ref uint pBytes) 
 		{
 			ID3DInclude* ptr = (ID3DInclude*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppData = &ppData)
 			{
 				fixed (uint* ppBytes = &pBytes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*LpVtbl))(ptr, includeType, pFileName, pParentData, (void**)pppData, (uint*)ppBytes);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*LpVtbl))(ptr, includeType, pFileName, pParentData, (void**)pppData, (uint*)ppBytes);
 					return ret;
 				}
 			}
@@ -227,7 +227,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Open(IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, ref void* ppData, ref uint pBytes) 
+		public readonly unsafe HResult Open(IncludeType includeType, ReadOnlySpan<byte> pFileName, void* pParentData, ref void* ppData, ref uint pBytes) 
 		{
 			ID3DInclude* ptr = (ID3DInclude*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppFileName = pFileName)
@@ -236,7 +236,7 @@ namespace Hexa.NET.D3DCommon
 				{
 					fixed (uint* ppBytes = &pBytes)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*LpVtbl))(ptr, includeType, (byte*)ppFileName, pParentData, (void**)pppData, (uint*)ppBytes);
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*LpVtbl))(ptr, includeType, (byte*)ppFileName, pParentData, (void**)pppData, (uint*)ppBytes);
 						return ret;
 					}
 				}
@@ -246,7 +246,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Open(IncludeType includeType, string pFileName, void* pParentData, ref void* ppData, ref uint pBytes) 
+		public readonly unsafe HResult Open(IncludeType includeType, string pFileName, void* pParentData, ref void* ppData, ref uint pBytes) 
 		{
 			ID3DInclude* ptr = (ID3DInclude*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -270,7 +270,7 @@ namespace Hexa.NET.D3DCommon
 			{
 				fixed (uint* ppBytes = &pBytes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, int>)(*LpVtbl))(ptr, includeType, pStr0, pParentData, (void**)pppData, (uint*)ppBytes);
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, IncludeType, byte*, void*, void**, uint*, HResult>)(*LpVtbl))(ptr, includeType, pStr0, pParentData, (void**)pppData, (uint*)ppBytes);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -283,10 +283,10 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int Close(void* pData) 
+		public readonly unsafe HResult Close(void* pData) 
 		{
 			ID3DInclude* ptr = (ID3DInclude*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, void*, int>)(LpVtbl[1]))(ptr, pData);
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3DInclude*, void*, HResult>)(LpVtbl[1]))(ptr, pData);
 			return ret;
 		}
 

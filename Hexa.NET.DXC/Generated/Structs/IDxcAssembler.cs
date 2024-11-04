@@ -31,22 +31,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcAssembler* ptr = (IDxcAssembler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, Guid*, void**, HResult>)(*LpVtbl))(ptr, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
+		public readonly unsafe HResult QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcAssembler* ptr = (IDxcAssembler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -54,24 +54,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcAssembler* ptr = (IDxcAssembler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe HResult QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcAssembler* ptr = (IDxcAssembler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, Guid*, void**, int>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, Guid*, void**, HResult>)(*LpVtbl))(ptr, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -99,22 +99,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Assemble dxil in ll or llvm bitcode to DXIL container.<br/>
 		/// </summary>
-		public readonly unsafe int AssembleToContainer(IDxcBlob* pShader, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult AssembleToContainer(IDxcBlob* pShader, IDxcOperationResult** ppResult) 
 		{
 			IDxcAssembler* ptr = (IDxcAssembler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, pShader, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, pShader, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// Assemble dxil in ll or llvm bitcode to DXIL container.<br/>
 		/// </summary>
-		public readonly unsafe int AssembleToContainer(ref IDxcBlob pShader, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult AssembleToContainer(ref IDxcBlob pShader, IDxcOperationResult** ppResult) 
 		{
 			IDxcAssembler* ptr = (IDxcAssembler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppShader = &pShader)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)ppShader, ppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, (IDxcBlob*)ppShader, ppResult);
 				return ret;
 			}
 		}
@@ -122,22 +122,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Assemble dxil in ll or llvm bitcode to DXIL container.<br/>
 		/// </summary>
-		public readonly unsafe int AssembleToContainer(ComPtr<IDxcBlob> pShader, IDxcOperationResult** ppResult) 
+		public readonly unsafe HResult AssembleToContainer(ComPtr<IDxcBlob> pShader, IDxcOperationResult** ppResult) 
 		{
 			IDxcAssembler* ptr = (IDxcAssembler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)pShader.Handle, ppResult);
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, (IDxcBlob*)pShader.Handle, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// Assemble dxil in ll or llvm bitcode to DXIL container.<br/>
 		/// </summary>
-		public readonly unsafe int AssembleToContainer(IDxcBlob* pShader, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult AssembleToContainer(IDxcBlob* pShader, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcAssembler* ptr = (IDxcAssembler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcOperationResult** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, pShader, (IDxcOperationResult**)pppResult);
+				HResult ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, pShader, (IDxcOperationResult**)pppResult);
 				return ret;
 			}
 		}
@@ -145,25 +145,25 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Assemble dxil in ll or llvm bitcode to DXIL container.<br/>
 		/// </summary>
-		public readonly unsafe int AssembleToContainer(IDxcBlob* pShader, out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe HResult AssembleToContainer(IDxcBlob* pShader, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcAssembler* ptr = (IDxcAssembler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, pShader, (IDxcOperationResult**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, pShader, (IDxcOperationResult**)ppResult.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// Assemble dxil in ll or llvm bitcode to DXIL container.<br/>
 		/// </summary>
-		public readonly unsafe int AssembleToContainer(ref IDxcBlob pShader, ref IDxcOperationResult* ppResult) 
+		public readonly unsafe HResult AssembleToContainer(ref IDxcBlob pShader, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcAssembler* ptr = (IDxcAssembler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppShader = &pShader)
 			{
 				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)ppShader, (IDxcOperationResult**)pppResult);
+					HResult ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, (IDxcBlob*)ppShader, (IDxcOperationResult**)pppResult);
 					return ret;
 				}
 			}
@@ -172,11 +172,11 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Assemble dxil in ll or llvm bitcode to DXIL container.<br/>
 		/// </summary>
-		public readonly unsafe int AssembleToContainer(ComPtr<IDxcBlob> pShader, out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe HResult AssembleToContainer(ComPtr<IDxcBlob> pShader, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcAssembler* ptr = (IDxcAssembler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)pShader.Handle, (IDxcOperationResult**)ppResult.GetAddressOf());
+			HResult ret = ((delegate* unmanaged[Stdcall]<IDxcAssembler*, IDxcBlob*, IDxcOperationResult**, HResult>)(LpVtbl[3]))(ptr, (IDxcBlob*)pShader.Handle, (IDxcOperationResult**)ppResult.GetAddressOf());
 			return ret;
 		}
 

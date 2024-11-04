@@ -27,7 +27,8 @@
     "SECURITY_ATTRIBUTES": "SecurityAttributes",
     "D3D11_TRACE_COMPONENT_MASK": "byte",
     "D3D11_TRACE_MISC_OPERATIONS_MASK": "ushort",
-    "ID3DBlob": "ID3D10Blob"
+    "ID3DBlob": "ID3D10Blob",
+    "BOOL": "Bool32"
   },
   "IgnoredEnums": [
     "D3D_FEATURE_LEVEL",

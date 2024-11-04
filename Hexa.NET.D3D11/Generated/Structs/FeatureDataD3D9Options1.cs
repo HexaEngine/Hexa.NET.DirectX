@@ -27,28 +27,28 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int FullNonPow2TextureSupported;
+		public Bool32 FullNonPow2TextureSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int DepthAsTextureWithLessEqualComparisonFilterSupported;
+		public Bool32 DepthAsTextureWithLessEqualComparisonFilterSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int SimpleInstancingSupported;
+		public Bool32 SimpleInstancingSupported;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int TextureCubeFaceRenderTargetWithNonCubeDepthStencilSupported;
+		public Bool32 TextureCubeFaceRenderTargetWithNonCubeDepthStencilSupported;
 
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe FeatureDataD3D9Options1(int fullNonPow2TextureSupported = default, int depthAsTextureWithLessEqualComparisonFilterSupported = default, int simpleInstancingSupported = default, int textureCubeFaceRenderTargetWithNonCubeDepthStencilSupported = default)
+		public unsafe FeatureDataD3D9Options1(Bool32 fullNonPow2TextureSupported = default, Bool32 depthAsTextureWithLessEqualComparisonFilterSupported = default, Bool32 simpleInstancingSupported = default, Bool32 textureCubeFaceRenderTargetWithNonCubeDepthStencilSupported = default)
 		{
 			FullNonPow2TextureSupported = fullNonPow2TextureSupported;
 			DepthAsTextureWithLessEqualComparisonFilterSupported = depthAsTextureWithLessEqualComparisonFilterSupported;

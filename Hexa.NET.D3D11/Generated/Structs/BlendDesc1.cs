@@ -27,12 +27,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int AlphaToCoverageEnable;
+		public Bool32 AlphaToCoverageEnable;
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public int IndependentBlendEnable;
+		public Bool32 IndependentBlendEnable;
 
 		/// <summary>
 		/// To be documented.
@@ -50,7 +50,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe BlendDesc1(int alphaToCoverageEnable = default, int independentBlendEnable = default, RenderTargetBlendDesc1* renderTarget = default)
+		public unsafe BlendDesc1(Bool32 alphaToCoverageEnable = default, Bool32 independentBlendEnable = default, RenderTargetBlendDesc1* renderTarget = default)
 		{
 			AlphaToCoverageEnable = alphaToCoverageEnable;
 			IndependentBlendEnable = independentBlendEnable;
@@ -70,7 +70,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public unsafe BlendDesc1(int alphaToCoverageEnable = default, int independentBlendEnable = default, Span<RenderTargetBlendDesc1> renderTarget = default)
+		public unsafe BlendDesc1(Bool32 alphaToCoverageEnable = default, Bool32 independentBlendEnable = default, Span<RenderTargetBlendDesc1> renderTarget = default)
 		{
 			AlphaToCoverageEnable = alphaToCoverageEnable;
 			IndependentBlendEnable = independentBlendEnable;
