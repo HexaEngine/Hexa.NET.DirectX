@@ -1,9 +1,7 @@
 ﻿using HexaGen;
-using HexaGen.Core.CSharp;
-using HexaGen.FunctionGeneration.ParameterWriters;
-using HexaGen.GenerationSteps;
 using HexaGen.Patching;
 
+#if DX
 BatchGenerator generator = new();
 generator
     .Start()
@@ -65,5 +63,21 @@ generator
 
     .Setup<CsComCodeGenerator>("dxc/generator.json")
     .MergeConfig(config, MergeOptions.Mappings)
-    .Generate(["dxc/main.h"], "../../../../Hexa.NET.DXC/Generated")
+    .Generate(["dxc/main.h"], "../../../../Hexa.NET.DXC/Generated");
+#endif
+BatchGenerator generator2 = new();
+generator2
+    .Start()
+    .AddGlobalPrePatch(new NamingPatch(["XAudio2", "X3DAudio"], NamingPatchOptions.CaseInsensitive, NamingPatchMode.Functions | NamingPatchMode.Enums))
+
+    .Setup<CsComCodeGenerator>("xaudio2/generator.json")
+    .Generate([.. Directory.GetFiles("xaudio2", "*.h")], "../../../../Hexa.NET.XAudio2/Generated")
+
+    .Setup<CsComCodeGenerator>("xd3audio/generator.json")
+    .AlterGenerator(g =>
+    {
+        g.FunctionTableBuilder.Add("X3DAudioInitialize");
+    })
+    .Generate(["xd3audio/main.h"], "../../../../Hexa.NET.X3DAudio/Generated")
+
     .Finish();

@@ -19,7 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexa.NET.D3DCompiler", "Hex
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleTriangle01", "ExampleTriangle01\ExampleTriangle01.csproj", "{F18E132D-CBEF-420E-9FE5-311E9F4FE903}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hexa.NET.D3D11On12", "Hexa.NET.D3D11On12\Hexa.NET.D3D11On12.csproj", "{60FD6769-85BB-41BC-BAF6-1F69AD79740A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexa.NET.D3D11On12", "Hexa.NET.D3D11On12\Hexa.NET.D3D11On12.csproj", "{60FD6769-85BB-41BC-BAF6-1F69AD79740A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexa.NET.X3DAudio", "Hexa.NET.X3DAudio\Hexa.NET.X3DAudio.csproj", "{9838957A-07CC-4AA0-8F60-934FD560D0C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexa.NET.XAudio2", "Hexa.NET.XAudio2\Hexa.NET.XAudio2.csproj", "{B709DA62-582F-4343-9E1A-3A20652E90A2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleXAudio2", "ExampleXAudio2\ExampleXAudio2.csproj", "{9228A59A-8828-4167-A200-C2058B408D62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +69,18 @@ Global
 		{60FD6769-85BB-41BC-BAF6-1F69AD79740A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60FD6769-85BB-41BC-BAF6-1F69AD79740A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60FD6769-85BB-41BC-BAF6-1F69AD79740A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9838957A-07CC-4AA0-8F60-934FD560D0C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9838957A-07CC-4AA0-8F60-934FD560D0C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9838957A-07CC-4AA0-8F60-934FD560D0C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9838957A-07CC-4AA0-8F60-934FD560D0C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B709DA62-582F-4343-9E1A-3A20652E90A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B709DA62-582F-4343-9E1A-3A20652E90A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B709DA62-582F-4343-9E1A-3A20652E90A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B709DA62-582F-4343-9E1A-3A20652E90A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9228A59A-8828-4167-A200-C2058B408D62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9228A59A-8828-4167-A200-C2058B408D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9228A59A-8828-4167-A200-C2058B408D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9228A59A-8828-4167-A200-C2058B408D62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
