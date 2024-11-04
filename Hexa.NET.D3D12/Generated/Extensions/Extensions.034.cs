@@ -23,63 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
-		{
-			ID3D12CompatibilityDevice* handle = comObj.Handle;
-			fixed (ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
-				{
-					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
-		{
-			ID3D12CompatibilityDevice* handle = comObj.Handle;
-			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (ResourceDesc* ppDesc = &pDesc)
-				{
-					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
-					{
-						fixed (ID3D12LifetimeTracker* ppLifetimeTracker = &pLifetimeTracker)
-						{
-							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)ppLifetimeTracker, pOwningSwapchain, riid, ppResource);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ComPtr<ID3D12LifetimeTracker> pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
-		{
-			ID3D12CompatibilityDevice* handle = comObj.Handle;
-			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (ResourceDesc* ppDesc = &pDesc)
-				{
-					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
-					{
-						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, (ID3D12LifetimeTracker*)pLifetimeTracker.Handle, pOwningSwapchain, riid, ppResource);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static HResult CreateSharedResource(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ref ID3D12LifetimeTracker pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, Guid* riid, void** ppResource) 
 		{
 			ID3D12CompatibilityDevice* handle = comObj.Handle;
@@ -5017,6 +4960,72 @@ namespace Hexa.NET.D3D12
 						ppResource = default;
 						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
 						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateSharedResource<T>(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12CompatibilityDevice* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc* ppDesc = &pDesc)
+				{
+					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
+					{
+						fixed (Guid* priid = &riid)
+						{
+							ppResource = default;
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateSharedResource<T>(this ComPtr<ID3D12CompatibilityDevice> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12CompatibilityDevice* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						ppResource = default;
+						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateSharedResource<T>(this ComPtr<ID3D12CompatibilityDevice> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref D3D11ResourceFlags pFlags11, CompatibilitySharedFlags compatibilityFlags, ID3D12LifetimeTracker* pLifetimeTracker, ID3D12SwapChainAssistant* pOwningSwapchain, ref Guid riid, out ComPtr<T> ppResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12CompatibilityDevice* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (D3D11ResourceFlags* ppFlags11 = &pFlags11)
+					{
+						fixed (Guid* priid = &riid)
+						{
+							ppResource = default;
+							HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CompatibilityDevice*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, D3D11ResourceFlags*, CompatibilitySharedFlags, ID3D12LifetimeTracker*, ID3D12SwapChainAssistant*, Guid*, void**, HResult>)(handle->LpVtbl[3]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (D3D11ResourceFlags*)ppFlags11, compatibilityFlags, pLifetimeTracker, pOwningSwapchain, (Guid*)priid, (void**)ppResource.GetAddressOf());
+							return ret;
+						}
 					}
 				}
 			}

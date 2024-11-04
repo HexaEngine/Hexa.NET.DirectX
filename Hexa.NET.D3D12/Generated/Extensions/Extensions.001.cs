@@ -23,102 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static HResult GetDevice(this ComPtr<ID3D12QueryHeap> comObj, ref Guid riid, void** ppvDevice) 
-		{
-			ID3D12QueryHeap* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12QueryHeap*, Guid*, void**, HResult>)(handle->LpVtbl[7]))(handle, (Guid*)priid, ppvDevice);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult GetDevice<T>(this ComPtr<ID3D12QueryHeap> comObj, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12QueryHeap* handle = comObj.Handle;
-			ppvDevice = default;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12QueryHeap*, Guid*, void**, HResult>)(handle->LpVtbl[7]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDevice.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult GetDevice<T>(this ComPtr<ID3D12QueryHeap> comObj, ref Guid riid, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12QueryHeap* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvDevice = default;
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12QueryHeap*, Guid*, void**, HResult>)(handle->LpVtbl[7]))(handle, (Guid*)priid, (void**)ppvDevice.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult QueryInterface(this ComPtr<ID3D12CommandSignature> comObj, Guid* riid, void** ppvObject) 
-		{
-			ID3D12CommandSignature* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandSignature*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult QueryInterface(this ComPtr<ID3D12CommandSignature> comObj, ref Guid riid, void** ppvObject) 
-		{
-			ID3D12CommandSignature* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandSignature*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult QueryInterface<T>(this ComPtr<ID3D12CommandSignature> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12CommandSignature* handle = comObj.Handle;
-			ppvObject = default;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandSignature*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult QueryInterface<T>(this ComPtr<ID3D12CommandSignature> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12CommandSignature* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvObject = default;
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandSignature*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static uint AddRef(this ComPtr<ID3D12CommandSignature> comObj) 
-		{
-			ID3D12CommandSignature* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandSignature*, uint>)(handle->LpVtbl[1]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static uint Release(this ComPtr<ID3D12CommandSignature> comObj) 
 		{
 			ID3D12CommandSignature* handle = comObj.Handle;
@@ -5025,6 +4929,105 @@ namespace Hexa.NET.D3D12
 		{
 			ID3D12GraphicsCommandList1* handle = comObj.Handle;
 			((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList1*, uint, ulong, void>)(handle->LpVtbl[38]))(handle, rootParameterIndex, bufferLocation);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SetComputeRootShaderResourceView(this ComPtr<ID3D12GraphicsCommandList1> comObj, uint rootParameterIndex, ulong bufferLocation) 
+		{
+			ID3D12GraphicsCommandList1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList1*, uint, ulong, void>)(handle->LpVtbl[39]))(handle, rootParameterIndex, bufferLocation);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SetGraphicsRootShaderResourceView(this ComPtr<ID3D12GraphicsCommandList1> comObj, uint rootParameterIndex, ulong bufferLocation) 
+		{
+			ID3D12GraphicsCommandList1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList1*, uint, ulong, void>)(handle->LpVtbl[40]))(handle, rootParameterIndex, bufferLocation);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SetComputeRootUnorderedAccessView(this ComPtr<ID3D12GraphicsCommandList1> comObj, uint rootParameterIndex, ulong bufferLocation) 
+		{
+			ID3D12GraphicsCommandList1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList1*, uint, ulong, void>)(handle->LpVtbl[41]))(handle, rootParameterIndex, bufferLocation);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SetGraphicsRootUnorderedAccessView(this ComPtr<ID3D12GraphicsCommandList1> comObj, uint rootParameterIndex, ulong bufferLocation) 
+		{
+			ID3D12GraphicsCommandList1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList1*, uint, ulong, void>)(handle->LpVtbl[42]))(handle, rootParameterIndex, bufferLocation);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetIndexBuffer(this ComPtr<ID3D12GraphicsCommandList1> comObj, IndexBufferView* pView) 
+		{
+			ID3D12GraphicsCommandList1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList1*, IndexBufferView*, void>)(handle->LpVtbl[43]))(handle, pView);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetIndexBuffer(this ComPtr<ID3D12GraphicsCommandList1> comObj, ref IndexBufferView pView) 
+		{
+			ID3D12GraphicsCommandList1* handle = comObj.Handle;
+			fixed (IndexBufferView* ppView = &pView)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList1*, IndexBufferView*, void>)(handle->LpVtbl[43]))(handle, (IndexBufferView*)ppView);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D12GraphicsCommandList1> comObj, uint startSlot, uint numViews, VertexBufferView* pViews) 
+		{
+			ID3D12GraphicsCommandList1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList1*, uint, uint, VertexBufferView*, void>)(handle->LpVtbl[44]))(handle, startSlot, numViews, pViews);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D12GraphicsCommandList1> comObj, uint startSlot, uint numViews, ref VertexBufferView pViews) 
+		{
+			ID3D12GraphicsCommandList1* handle = comObj.Handle;
+			fixed (VertexBufferView* ppViews = &pViews)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList1*, uint, uint, VertexBufferView*, void>)(handle->LpVtbl[44]))(handle, startSlot, numViews, (VertexBufferView*)ppViews);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SOSetTargets(this ComPtr<ID3D12GraphicsCommandList1> comObj, uint startSlot, uint numViews, StreamOutputBufferView* pViews) 
+		{
+			ID3D12GraphicsCommandList1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList1*, uint, uint, StreamOutputBufferView*, void>)(handle->LpVtbl[45]))(handle, startSlot, numViews, pViews);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SOSetTargets(this ComPtr<ID3D12GraphicsCommandList1> comObj, uint startSlot, uint numViews, ref StreamOutputBufferView pViews) 
+		{
+			ID3D12GraphicsCommandList1* handle = comObj.Handle;
+			fixed (StreamOutputBufferView* ppViews = &pViews)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList1*, uint, uint, StreamOutputBufferView*, void>)(handle->LpVtbl[45]))(handle, startSlot, numViews, (StreamOutputBufferView*)ppViews);
+			}
 		}
 	}
 }

@@ -1,0 +1,48 @@
+{
+  "Namespace": "Hexa.NET.D3D11On12",
+  "ApiName": "D3D11On12",
+  "LibName": "d3d11on12",
+  "Usings": [ "Hexa.NET.D3D11", "Hexa.NET.D3D12", "Hexa.NET.DXGI", "Hexa.NET.D3DCommon" ],
+  "EnableExperimentalOptions": true,
+  "GenerateConstructorsForStructs": true,
+  "GenerateSizeOfStructs": false,
+  "GenerateDelegates": false,
+  "GenerateMetadata": false,
+  "FunctionNamingConvention": "Unknown",
+  "ExtensionNamingConvention": "Unknown",
+  "BoolType": 1,
+  "NameMappings": {
+    "d3d11": "D3D11"
+  },
+  "TypeMappings": {
+    "DXGI_USAGE": "uint",
+    "RECT": "Rect32",
+    "D3D11_RECT": "Rect32",
+    "tagRECT": "Rect32",
+    "POINT": "Point32",
+    "SIZE_T": "nuint",
+    "LUID": "Luid",
+    "IID": "Guid",
+    "APP_DEPRECATED_HRESULT": "HResult",
+    "SECURITY_ATTRIBUTES": "SecurityAttributes",
+    "D3D11_TRACE_COMPONENT_MASK": "byte",
+    "D3D11_TRACE_MISC_OPERATIONS_MASK": "ushort",
+    "ID3DBlob": "ID3D10Blob",
+    "BOOL": "Bool32"
+  },
+  "IgnoredEnums": [
+    "D3D_FEATURE_LEVEL",
+    "D3D_SRV_DIMENSION",
+    "DXGI_FORMAT",
+    "D3D_PRIMITIVE",
+    "D3D_TESSELLATOR_PARTITIONING",
+    "_D3D_CBUFFER_TYPE",
+    "D3D_RESOURCE_RETURN_TYPE",
+    "D3D_TESSELLATOR_DOMAIN",
+    "D3D_TESSELLATOR_OUTPUT_PRIMITIVE"
+  ],
+  "IgnoredTypes": [
+    "DXGI_SAMPLE_DESC",
+    "DXGI_RATIONAL"
+  ]
+}

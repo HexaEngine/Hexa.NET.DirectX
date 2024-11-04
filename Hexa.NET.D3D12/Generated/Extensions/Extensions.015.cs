@@ -23,64 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static DredDeviceState GetDeviceState(this ComPtr<ID3D12DeviceRemovedExtendedData2> comObj) 
-		{
-			ID3D12DeviceRemovedExtendedData2* handle = comObj.Handle;
-			DredDeviceState ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData2*, DredDeviceState>)(handle->LpVtbl[8]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult QueryInterface(this ComPtr<ID3D12Device6> comObj, Guid* riid, void** ppvObject) 
-		{
-			ID3D12Device6* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device6*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult QueryInterface(this ComPtr<ID3D12Device6> comObj, ref Guid riid, void** ppvObject) 
-		{
-			ID3D12Device6* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device6*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult QueryInterface<T>(this ComPtr<ID3D12Device6> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device6* handle = comObj.Handle;
-			ppvObject = default;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device6*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult QueryInterface<T>(this ComPtr<ID3D12Device6> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device6* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvObject = default;
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device6*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static uint AddRef(this ComPtr<ID3D12Device6> comObj) 
 		{
 			ID3D12Device6* handle = comObj.Handle;
@@ -5024,6 +4966,62 @@ namespace Hexa.NET.D3D12
 						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device6*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, HResult>)(handle->LpVtbl[41]))(handle, (CommandSignatureDesc*)ppDesc, (ID3D12RootSignature*)ppRootSignature, (Guid*)priid, ppvCommandSignature);
 						return ret;
 					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateCommandSignature<T>(this ComPtr<ID3D12Device6> comObj, CommandSignatureDesc* pDesc, ID3D12RootSignature* pRootSignature, out ComPtr<T> ppvCommandSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device6* handle = comObj.Handle;
+			ppvCommandSignature = default;
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device6*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, HResult>)(handle->LpVtbl[41]))(handle, pDesc, pRootSignature, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvCommandSignature.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateCommandSignature<T>(this ComPtr<ID3D12Device6> comObj, ref CommandSignatureDesc pDesc, ID3D12RootSignature* pRootSignature, out ComPtr<T> ppvCommandSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device6* handle = comObj.Handle;
+			fixed (CommandSignatureDesc* ppDesc = &pDesc)
+			{
+				ppvCommandSignature = default;
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device6*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, HResult>)(handle->LpVtbl[41]))(handle, (CommandSignatureDesc*)ppDesc, pRootSignature, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvCommandSignature.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateCommandSignature<T>(this ComPtr<ID3D12Device6> comObj, CommandSignatureDesc* pDesc, ref ID3D12RootSignature pRootSignature, out ComPtr<T> ppvCommandSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device6* handle = comObj.Handle;
+			fixed (ID3D12RootSignature* ppRootSignature = &pRootSignature)
+			{
+				ppvCommandSignature = default;
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device6*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, HResult>)(handle->LpVtbl[41]))(handle, pDesc, (ID3D12RootSignature*)ppRootSignature, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvCommandSignature.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateCommandSignature<T>(this ComPtr<ID3D12Device6> comObj, ref CommandSignatureDesc pDesc, ref ID3D12RootSignature pRootSignature, out ComPtr<T> ppvCommandSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device6* handle = comObj.Handle;
+			fixed (CommandSignatureDesc* ppDesc = &pDesc)
+			{
+				fixed (ID3D12RootSignature* ppRootSignature = &pRootSignature)
+				{
+					ppvCommandSignature = default;
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device6*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, HResult>)(handle->LpVtbl[41]))(handle, (CommandSignatureDesc*)ppDesc, (ID3D12RootSignature*)ppRootSignature, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvCommandSignature.GetAddressOf());
+					return ret;
 				}
 			}
 		}

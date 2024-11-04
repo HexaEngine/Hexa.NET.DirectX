@@ -23,69 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static HResult LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
-		{
-			ID3D12PipelineLibrary1* handle = comObj.Handle;
-			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(handle->LpVtbl[10]))(handle, pName, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, ReadOnlySpan<char> pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
-		{
-			ID3D12PipelineLibrary1* handle = comObj.Handle;
-			fixed (char* ppName = pName)
-			{
-				fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
-				{
-					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(handle->LpVtbl[10]))(handle, (char*)ppName, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, string pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
-		{
-			ID3D12PipelineLibrary1* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(pName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(handle->LpVtbl[10]))(handle, pStr0, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static HResult LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* handle = comObj.Handle;
@@ -5027,6 +4964,63 @@ namespace Hexa.NET.D3D12
 				fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 				{
 					((delegate* unmanaged[Stdcall]<ID3D12Device1*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device1> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
+		{
+			ID3D12Device1* handle = comObj.Handle;
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
+			{
+				fixed (uint* ppNumRows = &pNumRows)
+				{
+					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device1*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device1> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
+		{
+			ID3D12Device1* handle = comObj.Handle;
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+			{
+				fixed (uint* ppNumRows = &pNumRows)
+				{
+					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device1*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device1> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
+		{
+			ID3D12Device1* handle = comObj.Handle;
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
+			{
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+				{
+					fixed (uint* ppNumRows = &pNumRows)
+					{
+						fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device1*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
+						}
+					}
 				}
 			}
 		}

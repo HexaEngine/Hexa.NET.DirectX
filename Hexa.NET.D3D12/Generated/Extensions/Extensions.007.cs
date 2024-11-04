@@ -23,63 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device1> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
-		{
-			ID3D12Device1* handle = comObj.Handle;
-			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
-			{
-				fixed (uint* ppNumRows = &pNumRows)
-				{
-					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device1*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device1> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
-		{
-			ID3D12Device1* handle = comObj.Handle;
-			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
-			{
-				fixed (uint* ppNumRows = &pNumRows)
-				{
-					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device1*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device1> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
-		{
-			ID3D12Device1* handle = comObj.Handle;
-			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
-			{
-				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
-				{
-					fixed (uint* ppNumRows = &pNumRows)
-					{
-						fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12Device1*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static void GetCopyableFootprints(this ComPtr<ID3D12Device1> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device1* handle = comObj.Handle;
@@ -5027,6 +4970,61 @@ namespace Hexa.NET.D3D12
 			fixed (Guid* priid = &riid)
 			{
 				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device2*, HeapDesc*, Guid*, void**, HResult>)(handle->LpVtbl[28]))(handle, pDesc, (Guid*)priid, ppvHeap);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateHeap(this ComPtr<ID3D12Device2> comObj, ref HeapDesc pDesc, ref Guid riid, void** ppvHeap) 
+		{
+			ID3D12Device2* handle = comObj.Handle;
+			fixed (HeapDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device2*, HeapDesc*, Guid*, void**, HResult>)(handle->LpVtbl[28]))(handle, (HeapDesc*)ppDesc, (Guid*)priid, ppvHeap);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateHeap<T>(this ComPtr<ID3D12Device2> comObj, HeapDesc* pDesc, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device2* handle = comObj.Handle;
+			ppvHeap = default;
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device2*, HeapDesc*, Guid*, void**, HResult>)(handle->LpVtbl[28]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateHeap<T>(this ComPtr<ID3D12Device2> comObj, ref HeapDesc pDesc, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device2* handle = comObj.Handle;
+			fixed (HeapDesc* ppDesc = &pDesc)
+			{
+				ppvHeap = default;
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device2*, HeapDesc*, Guid*, void**, HResult>)(handle->LpVtbl[28]))(handle, (HeapDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateHeap<T>(this ComPtr<ID3D12Device2> comObj, HeapDesc* pDesc, ref Guid riid, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device2* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvHeap = default;
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device2*, HeapDesc*, Guid*, void**, HResult>)(handle->LpVtbl[28]))(handle, pDesc, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
 				return ret;
 			}
 		}

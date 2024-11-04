@@ -23,69 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void GetResourceTiling(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
-		{
-			ID3D12Device10* handle = comObj.Handle;
-			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
-			{
-				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
-				{
-					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static void GetResourceTiling(this ComPtr<ID3D12Device10> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
-		{
-			ID3D12Device10* handle = comObj.Handle;
-			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
-			{
-				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
-				{
-					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
-					{
-						fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static void GetResourceTiling(this ComPtr<ID3D12Device10> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
-		{
-			ID3D12Device10* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
-				{
-					fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
-					{
-						fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
-						{
-							fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static void GetResourceTiling(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
 		{
 			ID3D12Device10* handle = comObj.Handle;
@@ -5027,6 +4964,59 @@ namespace Hexa.NET.D3D12
 			{
 				ppSession = default;
 				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ProtectedResourceSessionDesc1*, Guid*, void**, HResult>)(handle->LpVtbl[67]))(handle, pDesc, (Guid*)priid, (void**)ppSession.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateProtectedResourceSession1<T>(this ComPtr<ID3D12Device10> comObj, ref ProtectedResourceSessionDesc1 pDesc, ref Guid riid, out ComPtr<T> ppSession) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ProtectedResourceSessionDesc1* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppSession = default;
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ProtectedResourceSessionDesc1*, Guid*, void**, HResult>)(handle->LpVtbl[67]))(handle, (ProtectedResourceSessionDesc1*)ppDesc, (Guid*)priid, (void**)ppSession.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static ResourceAllocationInfo GetResourceAllocationInfo2(this ComPtr<ID3D12Device10> comObj, uint visibleMask, uint numResourceDescs, ResourceDesc1* pResourceDescs, ResourceAllocationInfo1* pResourceAllocationInfo1) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, uint, uint, ResourceDesc1*, ResourceAllocationInfo1*, ResourceAllocationInfo>)(handle->LpVtbl[68]))(handle, visibleMask, numResourceDescs, pResourceDescs, pResourceAllocationInfo1);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static ResourceAllocationInfo GetResourceAllocationInfo2(this ComPtr<ID3D12Device10> comObj, uint visibleMask, uint numResourceDescs, ref ResourceDesc1 pResourceDescs, ResourceAllocationInfo1* pResourceAllocationInfo1) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDescs = &pResourceDescs)
+			{
+				ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, uint, uint, ResourceDesc1*, ResourceAllocationInfo1*, ResourceAllocationInfo>)(handle->LpVtbl[68]))(handle, visibleMask, numResourceDescs, (ResourceDesc1*)ppResourceDescs, pResourceAllocationInfo1);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static ResourceAllocationInfo GetResourceAllocationInfo2(this ComPtr<ID3D12Device10> comObj, uint visibleMask, uint numResourceDescs, ResourceDesc1* pResourceDescs, ref ResourceAllocationInfo1 pResourceAllocationInfo1) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceAllocationInfo1* ppResourceAllocationInfo1 = &pResourceAllocationInfo1)
+			{
+				ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, uint, uint, ResourceDesc1*, ResourceAllocationInfo1*, ResourceAllocationInfo>)(handle->LpVtbl[68]))(handle, visibleMask, numResourceDescs, pResourceDescs, (ResourceAllocationInfo1*)ppResourceAllocationInfo1);
 				return ret;
 			}
 		}

@@ -23,66 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static HResult CreateVideoProcessor(this ComPtr<ID3D12VideoDevice1> comObj, uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ref Guid riid, void** ppVideoProcessor) 
-		{
-			ID3D12VideoDevice1* handle = comObj.Handle;
-			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice1*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)priid, ppVideoProcessor);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult CreateVideoProcessor(this ComPtr<ID3D12VideoDevice1> comObj, uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ref Guid riid, void** ppVideoProcessor) 
-		{
-			ID3D12VideoDevice1* handle = comObj.Handle;
-			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
-			{
-				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
-				{
-					fixed (Guid* priid = &riid)
-					{
-						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice1*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)priid, ppVideoProcessor);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult CreateVideoProcessor<T>(this ComPtr<ID3D12VideoDevice1> comObj, uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12VideoDevice1* handle = comObj.Handle;
-			ppVideoProcessor = default;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice1*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult CreateVideoProcessor<T>(this ComPtr<ID3D12VideoDevice1> comObj, uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12VideoDevice1* handle = comObj.Handle;
-			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
-			{
-				ppVideoProcessor = default;
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice1*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, HResult>)(handle->LpVtbl[6]))(handle, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static HResult CreateVideoProcessor<T>(this ComPtr<ID3D12VideoDevice1> comObj, uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice1* handle = comObj.Handle;
@@ -5025,6 +4965,70 @@ namespace Hexa.NET.D3D12
 					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[10]))(handle, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoDecoderHeap);
 					return ret;
 				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateVideoDecoderHeap1<T>(this ComPtr<ID3D12VideoDevice2> comObj, VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12VideoDevice2* handle = comObj.Handle;
+			ppVideoDecoderHeap = default;
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[10]))(handle, pVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateVideoDecoderHeap1<T>(this ComPtr<ID3D12VideoDevice2> comObj, ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12VideoDevice2* handle = comObj.Handle;
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			{
+				ppVideoDecoderHeap = default;
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[10]))(handle, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateVideoDecoderHeap1<T>(this ComPtr<ID3D12VideoDevice2> comObj, VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12VideoDevice2* handle = comObj.Handle;
+			ppVideoDecoderHeap = default;
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[10]))(handle, pVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateVideoDecoderHeap1<T>(this ComPtr<ID3D12VideoDevice2> comObj, ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12VideoDevice2* handle = comObj.Handle;
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			{
+				ppVideoDecoderHeap = default;
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[10]))(handle, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateVideoDecoderHeap1<T>(this ComPtr<ID3D12VideoDevice2> comObj, VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12VideoDevice2* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppVideoDecoderHeap = default;
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[10]))(handle, pVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoDecoderHeap.GetAddressOf());
+				return ret;
 			}
 		}
 	}

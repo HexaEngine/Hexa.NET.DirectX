@@ -23,99 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void AtomicCopyBufferUINT(this ComPtr<ID3D12GraphicsCommandList2> comObj, ref ID3D12Resource pDstBuffer, ulong dstOffset, ID3D12Resource* pSrcBuffer, ulong srcOffset, uint dependencies, ref ID3D12Resource* ppDependentResources, ref SubresourceRangeUint64 pDependentSubresourceRanges) 
-		{
-			ID3D12GraphicsCommandList2* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppDstBuffer = &pDstBuffer)
-			{
-				fixed (ID3D12Resource** pppDependentResources = &ppDependentResources)
-				{
-					fixed (SubresourceRangeUint64* ppDependentSubresourceRanges = &pDependentSubresourceRanges)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList2*, ID3D12Resource*, ulong, ID3D12Resource*, ulong, uint, ID3D12Resource**, SubresourceRangeUint64*, void>)(handle->LpVtbl[60]))(handle, (ID3D12Resource*)ppDstBuffer, dstOffset, pSrcBuffer, srcOffset, dependencies, (ID3D12Resource**)pppDependentResources, (SubresourceRangeUint64*)ppDependentSubresourceRanges);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static void AtomicCopyBufferUINT(this ComPtr<ID3D12GraphicsCommandList2> comObj, ComPtr<ID3D12Resource> pDstBuffer, ulong dstOffset, ID3D12Resource* pSrcBuffer, ulong srcOffset, uint dependencies, ComPtr<ID3D12Resource> ppDependentResources, ref SubresourceRangeUint64 pDependentSubresourceRanges) 
-		{
-			ID3D12GraphicsCommandList2* handle = comObj.Handle;
-			fixed (SubresourceRangeUint64* ppDependentSubresourceRanges = &pDependentSubresourceRanges)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList2*, ID3D12Resource*, ulong, ID3D12Resource*, ulong, uint, ID3D12Resource**, SubresourceRangeUint64*, void>)(handle->LpVtbl[60]))(handle, (ID3D12Resource*)pDstBuffer.Handle, dstOffset, pSrcBuffer, srcOffset, dependencies, (ID3D12Resource**)ppDependentResources.Handle, (SubresourceRangeUint64*)ppDependentSubresourceRanges);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static void AtomicCopyBufferUINT(this ComPtr<ID3D12GraphicsCommandList2> comObj, ID3D12Resource* pDstBuffer, ulong dstOffset, ref ID3D12Resource pSrcBuffer, ulong srcOffset, uint dependencies, ref ID3D12Resource* ppDependentResources, ref SubresourceRangeUint64 pDependentSubresourceRanges) 
-		{
-			ID3D12GraphicsCommandList2* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppSrcBuffer = &pSrcBuffer)
-			{
-				fixed (ID3D12Resource** pppDependentResources = &ppDependentResources)
-				{
-					fixed (SubresourceRangeUint64* ppDependentSubresourceRanges = &pDependentSubresourceRanges)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList2*, ID3D12Resource*, ulong, ID3D12Resource*, ulong, uint, ID3D12Resource**, SubresourceRangeUint64*, void>)(handle->LpVtbl[60]))(handle, pDstBuffer, dstOffset, (ID3D12Resource*)ppSrcBuffer, srcOffset, dependencies, (ID3D12Resource**)pppDependentResources, (SubresourceRangeUint64*)ppDependentSubresourceRanges);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static void AtomicCopyBufferUINT(this ComPtr<ID3D12GraphicsCommandList2> comObj, ID3D12Resource* pDstBuffer, ulong dstOffset, ComPtr<ID3D12Resource> pSrcBuffer, ulong srcOffset, uint dependencies, ComPtr<ID3D12Resource> ppDependentResources, ref SubresourceRangeUint64 pDependentSubresourceRanges) 
-		{
-			ID3D12GraphicsCommandList2* handle = comObj.Handle;
-			fixed (SubresourceRangeUint64* ppDependentSubresourceRanges = &pDependentSubresourceRanges)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList2*, ID3D12Resource*, ulong, ID3D12Resource*, ulong, uint, ID3D12Resource**, SubresourceRangeUint64*, void>)(handle->LpVtbl[60]))(handle, pDstBuffer, dstOffset, (ID3D12Resource*)pSrcBuffer.Handle, srcOffset, dependencies, (ID3D12Resource**)ppDependentResources.Handle, (SubresourceRangeUint64*)ppDependentSubresourceRanges);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static void AtomicCopyBufferUINT(this ComPtr<ID3D12GraphicsCommandList2> comObj, ref ID3D12Resource pDstBuffer, ulong dstOffset, ref ID3D12Resource pSrcBuffer, ulong srcOffset, uint dependencies, ref ID3D12Resource* ppDependentResources, ref SubresourceRangeUint64 pDependentSubresourceRanges) 
-		{
-			ID3D12GraphicsCommandList2* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppDstBuffer = &pDstBuffer)
-			{
-				fixed (ID3D12Resource* ppSrcBuffer = &pSrcBuffer)
-				{
-					fixed (ID3D12Resource** pppDependentResources = &ppDependentResources)
-					{
-						fixed (SubresourceRangeUint64* ppDependentSubresourceRanges = &pDependentSubresourceRanges)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList2*, ID3D12Resource*, ulong, ID3D12Resource*, ulong, uint, ID3D12Resource**, SubresourceRangeUint64*, void>)(handle->LpVtbl[60]))(handle, (ID3D12Resource*)ppDstBuffer, dstOffset, (ID3D12Resource*)ppSrcBuffer, srcOffset, dependencies, (ID3D12Resource**)pppDependentResources, (SubresourceRangeUint64*)ppDependentSubresourceRanges);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static void AtomicCopyBufferUINT(this ComPtr<ID3D12GraphicsCommandList2> comObj, ComPtr<ID3D12Resource> pDstBuffer, ulong dstOffset, ComPtr<ID3D12Resource> pSrcBuffer, ulong srcOffset, uint dependencies, ComPtr<ID3D12Resource> ppDependentResources, ref SubresourceRangeUint64 pDependentSubresourceRanges) 
-		{
-			ID3D12GraphicsCommandList2* handle = comObj.Handle;
-			fixed (SubresourceRangeUint64* ppDependentSubresourceRanges = &pDependentSubresourceRanges)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList2*, ID3D12Resource*, ulong, ID3D12Resource*, ulong, uint, ID3D12Resource**, SubresourceRangeUint64*, void>)(handle->LpVtbl[60]))(handle, (ID3D12Resource*)pDstBuffer.Handle, dstOffset, (ID3D12Resource*)pSrcBuffer.Handle, srcOffset, dependencies, (ID3D12Resource**)ppDependentResources.Handle, (SubresourceRangeUint64*)ppDependentSubresourceRanges);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static void AtomicCopyBufferUINT64(this ComPtr<ID3D12GraphicsCommandList2> comObj, ID3D12Resource* pDstBuffer, ulong dstOffset, ID3D12Resource* pSrcBuffer, ulong srcOffset, uint dependencies, ID3D12Resource** ppDependentResources, SubresourceRangeUint64* pDependentSubresourceRanges) 
 		{
 			ID3D12GraphicsCommandList2* handle = comObj.Handle;
@@ -5029,6 +4936,102 @@ namespace Hexa.NET.D3D12
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
 								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
+		{
+			ID3D12CommandQueue* handle = comObj.Handle;
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			{
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				{
+					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
+					{
+						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
+		{
+			ID3D12CommandQueue* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppResource = &pResource)
+			{
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				{
+					fixed (ID3D12Heap* ppHeap = &pHeap)
+					{
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						{
+							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
+							{
+								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+								{
+									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
+		{
+			ID3D12CommandQueue* handle = comObj.Handle;
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			{
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				{
+					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
+					{
+						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
+		{
+			ID3D12CommandQueue* handle = comObj.Handle;
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			{
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				{
+					fixed (ID3D12Heap* ppHeap = &pHeap)
+					{
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						{
+							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
+							{
+								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+								{
+									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								}
 							}
 						}
 					}

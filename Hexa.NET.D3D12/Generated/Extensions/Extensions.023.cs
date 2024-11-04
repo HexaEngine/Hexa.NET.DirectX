@@ -23,42 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static void AtomicCopyBufferUINT64(this ComPtr<ID3D12GraphicsCommandList3> comObj, ID3D12Resource* pDstBuffer, ulong dstOffset, ID3D12Resource* pSrcBuffer, ulong srcOffset, uint dependencies, ref ID3D12Resource* ppDependentResources, SubresourceRangeUint64* pDependentSubresourceRanges) 
-		{
-			ID3D12GraphicsCommandList3* handle = comObj.Handle;
-			fixed (ID3D12Resource** pppDependentResources = &ppDependentResources)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList3*, ID3D12Resource*, ulong, ID3D12Resource*, ulong, uint, ID3D12Resource**, SubresourceRangeUint64*, void>)(handle->LpVtbl[61]))(handle, pDstBuffer, dstOffset, pSrcBuffer, srcOffset, dependencies, (ID3D12Resource**)pppDependentResources, pDependentSubresourceRanges);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static void AtomicCopyBufferUINT64(this ComPtr<ID3D12GraphicsCommandList3> comObj, ID3D12Resource* pDstBuffer, ulong dstOffset, ID3D12Resource* pSrcBuffer, ulong srcOffset, uint dependencies, ComPtr<ID3D12Resource> ppDependentResources, SubresourceRangeUint64* pDependentSubresourceRanges) 
-		{
-			ID3D12GraphicsCommandList3* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList3*, ID3D12Resource*, ulong, ID3D12Resource*, ulong, uint, ID3D12Resource**, SubresourceRangeUint64*, void>)(handle->LpVtbl[61]))(handle, pDstBuffer, dstOffset, pSrcBuffer, srcOffset, dependencies, (ID3D12Resource**)ppDependentResources.Handle, pDependentSubresourceRanges);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static void AtomicCopyBufferUINT64(this ComPtr<ID3D12GraphicsCommandList3> comObj, ref ID3D12Resource pDstBuffer, ulong dstOffset, ID3D12Resource* pSrcBuffer, ulong srcOffset, uint dependencies, ref ID3D12Resource* ppDependentResources, SubresourceRangeUint64* pDependentSubresourceRanges) 
-		{
-			ID3D12GraphicsCommandList3* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppDstBuffer = &pDstBuffer)
-			{
-				fixed (ID3D12Resource** pppDependentResources = &ppDependentResources)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList3*, ID3D12Resource*, ulong, ID3D12Resource*, ulong, uint, ID3D12Resource**, SubresourceRangeUint64*, void>)(handle->LpVtbl[61]))(handle, (ID3D12Resource*)ppDstBuffer, dstOffset, pSrcBuffer, srcOffset, dependencies, (ID3D12Resource**)pppDependentResources, pDependentSubresourceRanges);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static void AtomicCopyBufferUINT64(this ComPtr<ID3D12GraphicsCommandList3> comObj, ComPtr<ID3D12Resource> pDstBuffer, ulong dstOffset, ID3D12Resource* pSrcBuffer, ulong srcOffset, uint dependencies, ComPtr<ID3D12Resource> ppDependentResources, SubresourceRangeUint64* pDependentSubresourceRanges) 
 		{
 			ID3D12GraphicsCommandList3* handle = comObj.Handle;
@@ -5021,6 +4985,49 @@ namespace Hexa.NET.D3D12
 			{
 				ppvObject = default;
 				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderCacheSession*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint AddRef(this ComPtr<ID3D12ShaderCacheSession> comObj) 
+		{
+			ID3D12ShaderCacheSession* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderCacheSession*, uint>)(handle->LpVtbl[1]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint Release(this ComPtr<ID3D12ShaderCacheSession> comObj) 
+		{
+			ID3D12ShaderCacheSession* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderCacheSession*, uint>)(handle->LpVtbl[2]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult GetPrivateData(this ComPtr<ID3D12ShaderCacheSession> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		{
+			ID3D12ShaderCacheSession* handle = comObj.Handle;
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderCacheSession*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[3]))(handle, guid, pDataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult GetPrivateData(this ComPtr<ID3D12ShaderCacheSession> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		{
+			ID3D12ShaderCacheSession* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderCacheSession*, Guid*, uint*, void*, HResult>)(handle->LpVtbl[3]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}

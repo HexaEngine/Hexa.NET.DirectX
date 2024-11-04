@@ -23,65 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static HResult CreateVideoExtensionCommand(this ComPtr<ID3D12VideoDevice3> comObj, VideoExtensionCommandDesc* pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoExtensionCommand) 
-		{
-			ID3D12VideoDevice3* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice3*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[12]))(handle, pDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoExtensionCommand);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult CreateVideoExtensionCommand(this ComPtr<ID3D12VideoDevice3> comObj, ref VideoExtensionCommandDesc pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoExtensionCommand) 
-		{
-			ID3D12VideoDevice3* handle = comObj.Handle;
-			fixed (VideoExtensionCommandDesc* ppDesc = &pDesc)
-			{
-				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
-				{
-					fixed (Guid* priid = &riid)
-					{
-						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice3*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[12]))(handle, (VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoExtensionCommand);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult CreateVideoExtensionCommand(this ComPtr<ID3D12VideoDevice3> comObj, ref VideoExtensionCommandDesc pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoExtensionCommand) 
-		{
-			ID3D12VideoDevice3* handle = comObj.Handle;
-			fixed (VideoExtensionCommandDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice3*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[12]))(handle, (VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoExtensionCommand);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult CreateVideoExtensionCommand<T>(this ComPtr<ID3D12VideoDevice3> comObj, VideoExtensionCommandDesc* pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12VideoDevice3* handle = comObj.Handle;
-			ppVideoExtensionCommand = default;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice3*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[12]))(handle, pDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoExtensionCommand.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static HResult CreateVideoExtensionCommand<T>(this ComPtr<ID3D12VideoDevice3> comObj, ref VideoExtensionCommandDesc pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice3* handle = comObj.Handle;

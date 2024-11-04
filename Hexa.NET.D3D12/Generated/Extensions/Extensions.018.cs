@@ -23,69 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static HResult OpenSharedHandleByName(this ComPtr<ID3D12Device7> comObj, char* name, uint access, ref nint pNTHandle) 
-		{
-			ID3D12Device7* handle = comObj.Handle;
-			fixed (nint* ppNTHandle = &pNTHandle)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device7*, char*, uint, nint*, HResult>)(handle->LpVtbl[33]))(handle, name, access, (nint*)ppNTHandle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult OpenSharedHandleByName(this ComPtr<ID3D12Device7> comObj, ReadOnlySpan<char> name, uint access, ref nint pNTHandle) 
-		{
-			ID3D12Device7* handle = comObj.Handle;
-			fixed (char* pname = name)
-			{
-				fixed (nint* ppNTHandle = &pNTHandle)
-				{
-					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device7*, char*, uint, nint*, HResult>)(handle->LpVtbl[33]))(handle, (char*)pname, access, (nint*)ppNTHandle);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult OpenSharedHandleByName(this ComPtr<ID3D12Device7> comObj, string name, uint access, ref nint pNTHandle) 
-		{
-			ID3D12Device7* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (name != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(name);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			fixed (nint* ppNTHandle = &pNTHandle)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device7*, char*, uint, nint*, HResult>)(handle->LpVtbl[33]))(handle, pStr0, access, (nint*)ppNTHandle);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static HResult MakeResident(this ComPtr<ID3D12Device7> comObj, uint numObjects, ID3D12Pageable** ppObjects) 
 		{
 			ID3D12Device7* handle = comObj.Handle;
@@ -5020,6 +4957,71 @@ namespace Hexa.NET.D3D12
 		{
 			ID3D12Device7* handle = comObj.Handle;
 			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device7*, ResourceDesc*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[55]))(handle, pDesc, initialState, pOptimizedClearValue, pProtectedSession, riid, ppvResource);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateReservedResource1(this ComPtr<ID3D12Device7> comObj, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device7* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device7*, ResourceDesc*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[55]))(handle, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, pProtectedSession, riid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateReservedResource1(this ComPtr<ID3D12Device7> comObj, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device7* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device7*, ResourceDesc*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[55]))(handle, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, riid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateReservedResource1(this ComPtr<ID3D12Device7> comObj, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device7* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device7*, ResourceDesc*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[55]))(handle, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, riid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateReservedResource1(this ComPtr<ID3D12Device7> comObj, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device7* handle = comObj.Handle;
+			fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device7*, ResourceDesc*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[55]))(handle, pDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult CreateReservedResource1(this ComPtr<ID3D12Device7> comObj, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device7* handle = comObj.Handle;
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device7*, ResourceDesc*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, HResult>)(handle->LpVtbl[55]))(handle, pDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riid, ppvResource);
 			return ret;
 		}
 	}

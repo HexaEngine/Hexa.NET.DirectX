@@ -4196,94 +4196,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static HResult QueryInterface(this ComPtr<ID3D10Blob> comObj, Guid* riid, void** ppvObject) 
-		{
-			ID3D10Blob* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult QueryInterface(this ComPtr<ID3D10Blob> comObj, ref Guid riid, void** ppvObject) 
-		{
-			ID3D10Blob* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult QueryInterface<T>(this ComPtr<ID3D10Blob> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D10Blob* handle = comObj.Handle;
-			ppvObject = default;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult QueryInterface<T>(this ComPtr<ID3D10Blob> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D10Blob* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvObject = default;
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static uint AddRef(this ComPtr<ID3D10Blob> comObj) 
-		{
-			ID3D10Blob* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, uint>)(handle->LpVtbl[1]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static uint Release(this ComPtr<ID3D10Blob> comObj) 
-		{
-			ID3D10Blob* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, uint>)(handle->LpVtbl[2]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static void* GetBufferPointer(this ComPtr<ID3D10Blob> comObj) 
-		{
-			ID3D10Blob* handle = comObj.Handle;
-			void* ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, void*>)(handle->LpVtbl[3]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static nuint GetBufferSize(this ComPtr<ID3D10Blob> comObj) 
-		{
-			ID3D10Blob* handle = comObj.Handle;
-			nuint ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, nuint>)(handle->LpVtbl[4]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static HResult QueryInterface(this ComPtr<ID3D12DescriptorHeap> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12DescriptorHeap* handle = comObj.Handle;
@@ -5014,6 +4926,102 @@ namespace Hexa.NET.D3D12
 		{
 			ID3D12QueryHeap* handle = comObj.Handle;
 			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12QueryHeap*, Guid*, void**, HResult>)(handle->LpVtbl[7]))(handle, riid, ppvDevice);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult GetDevice(this ComPtr<ID3D12QueryHeap> comObj, ref Guid riid, void** ppvDevice) 
+		{
+			ID3D12QueryHeap* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12QueryHeap*, Guid*, void**, HResult>)(handle->LpVtbl[7]))(handle, (Guid*)priid, ppvDevice);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult GetDevice<T>(this ComPtr<ID3D12QueryHeap> comObj, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12QueryHeap* handle = comObj.Handle;
+			ppvDevice = default;
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12QueryHeap*, Guid*, void**, HResult>)(handle->LpVtbl[7]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDevice.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult GetDevice<T>(this ComPtr<ID3D12QueryHeap> comObj, ref Guid riid, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12QueryHeap* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvDevice = default;
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12QueryHeap*, Guid*, void**, HResult>)(handle->LpVtbl[7]))(handle, (Guid*)priid, (void**)ppvDevice.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult QueryInterface(this ComPtr<ID3D12CommandSignature> comObj, Guid* riid, void** ppvObject) 
+		{
+			ID3D12CommandSignature* handle = comObj.Handle;
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandSignature*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult QueryInterface(this ComPtr<ID3D12CommandSignature> comObj, ref Guid riid, void** ppvObject) 
+		{
+			ID3D12CommandSignature* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandSignature*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12CommandSignature> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12CommandSignature* handle = comObj.Handle;
+			ppvObject = default;
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandSignature*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult QueryInterface<T>(this ComPtr<ID3D12CommandSignature> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12CommandSignature* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvObject = default;
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandSignature*, Guid*, void**, HResult>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint AddRef(this ComPtr<ID3D12CommandSignature> comObj) 
+		{
+			ID3D12CommandSignature* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandSignature*, uint>)(handle->LpVtbl[1]))(handle);
 			return ret;
 		}
 	}

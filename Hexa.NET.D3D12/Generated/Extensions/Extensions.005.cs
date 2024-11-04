@@ -23,81 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static HResult CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, SecurityAttributes* pAttributes, uint access, ReadOnlySpan<char> name, ref nint pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12DeviceChild* ppObject = &pObject)
-			{
-				fixed (char* pname = name)
-				{
-					fixed (nint* ppHandle = &pHandle)
-					{
-						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, HResult>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, pAttributes, access, (char*)pname, (nint*)ppHandle);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, SecurityAttributes* pAttributes, uint access, string name, ref nint pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12DeviceChild* ppObject = &pObject)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (name != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(name);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				fixed (nint* ppHandle = &pHandle)
-				{
-					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, HResult>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, pAttributes, access, pStr0, (nint*)ppHandle);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr0);
-					}
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, ref SecurityAttributes pAttributes, uint access, ReadOnlySpan<char> name, ref nint pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (SecurityAttributes* ppAttributes = &pAttributes)
-			{
-				fixed (char* pname = name)
-				{
-					fixed (nint* ppHandle = &pHandle)
-					{
-						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, HResult>)(handle->LpVtbl[31]))(handle, pObject, (SecurityAttributes*)ppAttributes, access, (char*)pname, (nint*)ppHandle);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static HResult CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, ref SecurityAttributes pAttributes, uint access, string name, ref nint pHandle) 
 		{
 			ID3D12Device* handle = comObj.Handle;
@@ -5043,6 +4968,69 @@ namespace Hexa.NET.D3D12
 				Utils.Free(pStr0);
 			}
 			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(handle->LpVtbl[10]))(handle, pName, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, ReadOnlySpan<char> pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+				{
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(handle->LpVtbl[10]))(handle, (char*)ppName, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, string pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, HResult>)(handle->LpVtbl[10]))(handle, pStr0, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
 		}
 	}
 }

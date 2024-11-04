@@ -23,57 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static HResult CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device10* handle = comObj.Handle;
-			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (ResourceDesc1* ppDesc = &pDesc)
-				{
-					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-					{
-						ppvResource = default;
-						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, HResult>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device10* handle = comObj.Handle;
-			fixed (Format* ppCastableFormats = &pCastableFormats)
-			{
-				ppvResource = default;
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, HResult>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device10* handle = comObj.Handle;
-			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (Format* ppCastableFormats = &pCastableFormats)
-				{
-					ppvResource = default;
-					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, HResult>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static HResult CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device10* handle = comObj.Handle;
@@ -5017,6 +4966,66 @@ namespace Hexa.NET.D3D12
 			fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
 			{
 				((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList5*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, ID3D12Resource*, ulong, TileCopyFlags, void>)(handle->LpVtbl[18]))(handle, (ID3D12Resource*)pTiledResource.Handle, pTileRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, pBuffer, bufferStartOffsetInBytes, flags);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyTiles(this ComPtr<ID3D12GraphicsCommandList5> comObj, ID3D12Resource* pTiledResource, ref TiledResourceCoordinate pTileRegionStartCoordinate, ref TileRegionSize pTileRegionSize, ID3D12Resource* pBuffer, ulong bufferStartOffsetInBytes, TileCopyFlags flags) 
+		{
+			ID3D12GraphicsCommandList5* handle = comObj.Handle;
+			fixed (TiledResourceCoordinate* ppTileRegionStartCoordinate = &pTileRegionStartCoordinate)
+			{
+				fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList5*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, ID3D12Resource*, ulong, TileCopyFlags, void>)(handle->LpVtbl[18]))(handle, pTiledResource, (TiledResourceCoordinate*)ppTileRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, pBuffer, bufferStartOffsetInBytes, flags);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyTiles(this ComPtr<ID3D12GraphicsCommandList5> comObj, ref ID3D12Resource pTiledResource, ref TiledResourceCoordinate pTileRegionStartCoordinate, ref TileRegionSize pTileRegionSize, ID3D12Resource* pBuffer, ulong bufferStartOffsetInBytes, TileCopyFlags flags) 
+		{
+			ID3D12GraphicsCommandList5* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (TiledResourceCoordinate* ppTileRegionStartCoordinate = &pTileRegionStartCoordinate)
+				{
+					fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList5*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, ID3D12Resource*, ulong, TileCopyFlags, void>)(handle->LpVtbl[18]))(handle, (ID3D12Resource*)ppTiledResource, (TiledResourceCoordinate*)ppTileRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, pBuffer, bufferStartOffsetInBytes, flags);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyTiles(this ComPtr<ID3D12GraphicsCommandList5> comObj, ComPtr<ID3D12Resource> pTiledResource, ref TiledResourceCoordinate pTileRegionStartCoordinate, ref TileRegionSize pTileRegionSize, ID3D12Resource* pBuffer, ulong bufferStartOffsetInBytes, TileCopyFlags flags) 
+		{
+			ID3D12GraphicsCommandList5* handle = comObj.Handle;
+			fixed (TiledResourceCoordinate* ppTileRegionStartCoordinate = &pTileRegionStartCoordinate)
+			{
+				fixed (TileRegionSize* ppTileRegionSize = &pTileRegionSize)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList5*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, ID3D12Resource*, ulong, TileCopyFlags, void>)(handle->LpVtbl[18]))(handle, (ID3D12Resource*)pTiledResource.Handle, (TiledResourceCoordinate*)ppTileRegionStartCoordinate, (TileRegionSize*)ppTileRegionSize, pBuffer, bufferStartOffsetInBytes, flags);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyTiles(this ComPtr<ID3D12GraphicsCommandList5> comObj, ID3D12Resource* pTiledResource, TiledResourceCoordinate* pTileRegionStartCoordinate, TileRegionSize* pTileRegionSize, ref ID3D12Resource pBuffer, ulong bufferStartOffsetInBytes, TileCopyFlags flags) 
+		{
+			ID3D12GraphicsCommandList5* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppBuffer = &pBuffer)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12GraphicsCommandList5*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, ID3D12Resource*, ulong, TileCopyFlags, void>)(handle->LpVtbl[18]))(handle, pTiledResource, pTileRegionStartCoordinate, pTileRegionSize, (ID3D12Resource*)ppBuffer, bufferStartOffsetInBytes, flags);
 			}
 		}
 	}

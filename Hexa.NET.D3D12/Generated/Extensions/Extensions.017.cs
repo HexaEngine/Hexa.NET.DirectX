@@ -23,70 +23,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		public static HResult EnumerateMetaCommandParameters(this ComPtr<ID3D12Device6> comObj, Guid* commandId, MetaCommandParameterStage stage, ref uint pTotalStructureSizeInBytes, ref uint pParameterCount, MetaCommandParameterDesc* pParameterDescs) 
-		{
-			ID3D12Device6* handle = comObj.Handle;
-			fixed (uint* ppTotalStructureSizeInBytes = &pTotalStructureSizeInBytes)
-			{
-				fixed (uint* ppParameterCount = &pParameterCount)
-				{
-					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device6*, Guid*, MetaCommandParameterStage, uint*, uint*, MetaCommandParameterDesc*, HResult>)(handle->LpVtbl[60]))(handle, commandId, stage, (uint*)ppTotalStructureSizeInBytes, (uint*)ppParameterCount, pParameterDescs);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult EnumerateMetaCommandParameters(this ComPtr<ID3D12Device6> comObj, ref Guid commandId, MetaCommandParameterStage stage, ref uint pTotalStructureSizeInBytes, ref uint pParameterCount, MetaCommandParameterDesc* pParameterDescs) 
-		{
-			ID3D12Device6* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
-			{
-				fixed (uint* ppTotalStructureSizeInBytes = &pTotalStructureSizeInBytes)
-				{
-					fixed (uint* ppParameterCount = &pParameterCount)
-					{
-						HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device6*, Guid*, MetaCommandParameterStage, uint*, uint*, MetaCommandParameterDesc*, HResult>)(handle->LpVtbl[60]))(handle, (Guid*)pcommandId, stage, (uint*)ppTotalStructureSizeInBytes, (uint*)ppParameterCount, pParameterDescs);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult EnumerateMetaCommandParameters(this ComPtr<ID3D12Device6> comObj, Guid* commandId, MetaCommandParameterStage stage, uint* pTotalStructureSizeInBytes, uint* pParameterCount, ref MetaCommandParameterDesc pParameterDescs) 
-		{
-			ID3D12Device6* handle = comObj.Handle;
-			fixed (MetaCommandParameterDesc* ppParameterDescs = &pParameterDescs)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device6*, Guid*, MetaCommandParameterStage, uint*, uint*, MetaCommandParameterDesc*, HResult>)(handle->LpVtbl[60]))(handle, commandId, stage, pTotalStructureSizeInBytes, pParameterCount, (MetaCommandParameterDesc*)ppParameterDescs);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		public static HResult EnumerateMetaCommandParameters(this ComPtr<ID3D12Device6> comObj, ref Guid commandId, MetaCommandParameterStage stage, uint* pTotalStructureSizeInBytes, uint* pParameterCount, ref MetaCommandParameterDesc pParameterDescs) 
-		{
-			ID3D12Device6* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
-			{
-				fixed (MetaCommandParameterDesc* ppParameterDescs = &pParameterDescs)
-				{
-					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device6*, Guid*, MetaCommandParameterStage, uint*, uint*, MetaCommandParameterDesc*, HResult>)(handle->LpVtbl[60]))(handle, (Guid*)pcommandId, stage, pTotalStructureSizeInBytes, pParameterCount, (MetaCommandParameterDesc*)ppParameterDescs);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
 		public static HResult EnumerateMetaCommandParameters(this ComPtr<ID3D12Device6> comObj, Guid* commandId, MetaCommandParameterStage stage, ref uint pTotalStructureSizeInBytes, uint* pParameterCount, ref MetaCommandParameterDesc pParameterDescs) 
 		{
 			ID3D12Device6* handle = comObj.Handle;
@@ -5022,6 +4958,69 @@ namespace Hexa.NET.D3D12
 				Utils.Free(pStr0);
 			}
 			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult OpenSharedHandleByName(this ComPtr<ID3D12Device7> comObj, char* name, uint access, ref nint pNTHandle) 
+		{
+			ID3D12Device7* handle = comObj.Handle;
+			fixed (nint* ppNTHandle = &pNTHandle)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device7*, char*, uint, nint*, HResult>)(handle->LpVtbl[33]))(handle, name, access, (nint*)ppNTHandle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult OpenSharedHandleByName(this ComPtr<ID3D12Device7> comObj, ReadOnlySpan<char> name, uint access, ref nint pNTHandle) 
+		{
+			ID3D12Device7* handle = comObj.Handle;
+			fixed (char* pname = name)
+			{
+				fixed (nint* ppNTHandle = &pNTHandle)
+				{
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device7*, char*, uint, nint*, HResult>)(handle->LpVtbl[33]))(handle, (char*)pname, access, (nint*)ppNTHandle);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult OpenSharedHandleByName(this ComPtr<ID3D12Device7> comObj, string name, uint access, ref nint pNTHandle) 
+		{
+			ID3D12Device7* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (name != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(name);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (nint* ppNTHandle = &pNTHandle)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D12Device7*, char*, uint, nint*, HResult>)(handle->LpVtbl[33]))(handle, pStr0, access, (nint*)ppNTHandle);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
 		}
 	}
 }
