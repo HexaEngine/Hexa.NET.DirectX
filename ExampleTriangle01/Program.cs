@@ -34,7 +34,7 @@ unsafe IDXGIAdapter1* GetHardwareAdapter(ComPtr<IDXGIFactory2> dxgiFactory)
     if (factory6.Handle != null)
     {
         for (uint adapterIndex = 0;
-            (ResultCode)factory6.EnumAdapterByGpuPreference(adapterIndex, GpuPreference.HighPerformance, out adapter) !=
+            (ResultCode)factory6.EnumAdapterByGpuPreference(adapterIndex, GpuPreference.HighPerformance, out adapter).Value !=
             ResultCode.DXGI_ERROR_NOT_FOUND;
             adapterIndex++)
         {
@@ -56,7 +56,7 @@ unsafe IDXGIAdapter1* GetHardwareAdapter(ComPtr<IDXGIFactory2> dxgiFactory)
     if (adapter.Handle == null)
     {
         for (uint adapterIndex = 0;
-            (ResultCode)dxgiFactory.EnumAdapters1(adapterIndex, &adapter.Handle) != ResultCode.DXGI_ERROR_NOT_FOUND;
+            (ResultCode)dxgiFactory.EnumAdapters1(adapterIndex, &adapter.Handle).Value != ResultCode.DXGI_ERROR_NOT_FOUND;
             adapterIndex++)
         {
             AdapterDesc1 desc;
